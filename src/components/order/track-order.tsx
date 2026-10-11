@@ -20,6 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { OrderStatusBadge } from "@/components/ui/order-status-badge";
 import { LoadingState, ErrorState } from "@/components/ui/feedback";
 import { useCart } from "@/components/order/cart-provider";
+import { useFlyToCart } from "@/components/order/fly-to-cart";
 import { useToast } from "@/components/ui/toast";
 import { fetchOrder, updateOrder } from "@/lib/orders";
 import { formatKES, formatPhone } from "@/lib/format";
@@ -30,6 +31,7 @@ export function TrackOrderPage({ id }: { id: string }) {
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
   const { addItem } = useCart();
+  const fly = useFlyToCart();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -81,14 +83,20 @@ export function TrackOrderPage({ id }: { id: string }) {
   const cancelled = order.status === "cancelled" || order.status === "rejected";
   const delivered = order.status === "delivered";
 
-  const reorder = () => {
-    order.items.forEach((item) =>
-      addItem({ businessId: order.businessId, productId: item.productId, quantity: item.quantity })
-    );
-    toast({
-      kind: "success",
-      title: "Same order, added to cart",
-      message: `${order.items.length} item${order.items.length > 1 ? "s" : ""} added. Check out when ready.`,
+  const reorder = (target: HTMLElement) => {
+    fly({
+      fromEl: target,
+      children: <RefreshCcw className="size-5" aria-hidden />,
+      onDone: () => {
+        order.items.forEach((item) =>
+          addItem({ businessId: order.businessId, productId: item.productId, quantity: item.quantity })
+        );
+        toast({
+          kind: "success",
+          title: "Same order, added to cart",
+          message: `${order.items.length} item${order.items.length > 1 ? "s" : ""} added. Check out when ready.`,
+        });
+      },
     });
   };
 
@@ -131,7 +139,7 @@ export function TrackOrderPage({ id }: { id: string }) {
                   <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>
-              <Button variant="secondary" onClick={reorder}>
+              <Button variant="secondary" onClick={(e) => reorder(e.currentTarget)}>
                 <RefreshCcw className="size-4" aria-hidden /> Retry this order elsewhere
               </Button>
             </div>
@@ -275,7 +283,7 @@ export function TrackOrderPage({ id }: { id: string }) {
           </section>
 
           <div className="flex flex-wrap gap-3">
-            <Button variant="secondary" onClick={reorder} className="group">
+            <Button variant="secondary" onClick={(e) => reorder(e.currentTarget)} className="group">
               <RefreshCcw className="size-4" aria-hidden /> Reorder this
             </Button>
             <Link href="/account/orders" className="flex-1">

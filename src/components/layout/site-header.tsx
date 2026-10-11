@@ -89,6 +89,7 @@ export function SiteHeader() {
           {inOrderFlow && (
             <Link
               href="/cart"
+              data-cart-target
               aria-label={`Cart, ${count} items`}
               className="relative flex size-11 items-center justify-center rounded-lg text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
             >
