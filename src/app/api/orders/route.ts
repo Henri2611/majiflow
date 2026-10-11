@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { createOrder, listOrders, sanitizeOrder } from "@/lib/server/order-store";
+import { createOrder, listOrders, validateOrder } from "@/lib/server/order-store";
 
 export const dynamic = "force-dynamic";
 
@@ -20,10 +20,16 @@ export async function POST(request: Request) {
   } catch {
     return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
-  const order = sanitizeOrder(body);
-  if (!order) {
-    return Response.json({ error: "Invalid order payload" }, { status: 400 });
+  const { order, errors } = validateOrder(body);
+  if (!order || errors) {
+    return Response.json(
+      {
+        error: "Please fix the highlighted fields and try again.",
+        fields: errors ?? { _form: "Invalid order payload" },
+      },
+      { status: 422 }
+    );
   }
-  const created = await createOrder(order);
-  return Response.json({ order: created }, { status: 201 });
+  const { order: created, created: isNew } = await createOrder(order);
+  return Response.json({ order: created }, { status: isNew ? 201 : 200 });
 }

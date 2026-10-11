@@ -43,7 +43,7 @@ function toRow(o: Order): Row {
     orderNumber: `#${o.orderNumber}`,
     customer: o.customerName,
     phone: o.customerPhone,
-    area: [o.address.estate, o.address.building].filter(Boolean).join(", "),
+    area: [...new Set([o.address.street, o.address.estate, o.address.building].filter(Boolean))].join(", "),
     items: o.items.map((i) => `${i.quantity} × ${i.name}`).join(", "),
     total: o.total,
     status: o.status,

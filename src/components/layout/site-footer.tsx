@@ -85,13 +85,20 @@ export function SiteFooter() {
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">Contact</p>
             <ul className="mt-3 space-y-2 text-sm text-slate-400">
               <li className="flex items-center gap-2">
-                <MapPin className="size-4 text-[#4D7CFF]" aria-hidden /> Bishop Magua Centre, Nairobi
+                <MapPin className="size-4 text-[#4D7CFF]" aria-hidden />
+                <span>Bishop Magua Centre, Nairobi</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="size-4 text-[#4D7CFF]" aria-hidden /> +254 700 123 456
+                <Phone className="size-4 text-[#4D7CFF]" aria-hidden />
+                <a href="tel:+254700123456" className="transition-colors hover:text-white">
+                  +254 700 123 456
+                </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="size-4 text-[#4D7CFF]" aria-hidden /> hello@majiflow.co.ke
+                <Mail className="size-4 text-[#4D7CFF]" aria-hidden />
+                <a href="mailto:hello@majiflow.co.ke" className="transition-colors hover:text-white">
+                  hello@majiflow.co.ke
+                </a>
               </li>
             </ul>
           </div>

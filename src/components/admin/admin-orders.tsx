@@ -130,7 +130,8 @@ export function AdminOrders() {
                     </p>
                     <p className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
-                        <MapPin className="size-3" aria-hidden /> {o.address.estate}
+                        <MapPin className="size-3" aria-hidden />{" "}
+                        {[o.address.street, o.address.estate].filter(Boolean).join(", ") || o.address.estate}
                       </span>
                       <span className="flex items-center gap-1">
                         <Phone className="size-3" aria-hidden /> {formatPhone(o.customerPhone)}

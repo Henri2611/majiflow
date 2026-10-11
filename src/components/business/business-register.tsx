@@ -24,6 +24,13 @@ import { useToast } from "@/components/ui/toast";
 import { plans } from "@/lib/data/plans";
 import { formatKES } from "@/lib/format";
 import { CITIES, CITY_COORDS } from "@/lib/constants";
+import {
+  captureLocationBestEffort,
+  geolocationErrorMessage,
+  nearestPlace,
+  resolveCity,
+  reverseGeocode,
+} from "@/lib/geo";
 import { cn } from "@/lib/utils";
 
 const STEPS = ["Business details", "Location & delivery", "Choose plan", "Payment"];
@@ -66,6 +73,10 @@ interface RegistrationDraft {
   billingPhone: string;
   autoCharge: boolean;
   location: CapturedLocation | null;
+  /** Reverse-geocoded area/estate for the captured location. */
+  locationArea: string;
+  /** Reverse-geocoded street/road (falls back to the area) for the captured location. */
+  locationStreet: string;
 }
 
 type Errors = Partial<Record<keyof RegistrationDraft, string>>;
@@ -88,6 +99,8 @@ const EMPTY_DRAFT: RegistrationDraft = {
   billingPhone: "",
   autoCharge: true,
   location: null,
+  locationArea: "",
+  locationStreet: "",
 };
 
 function loadDraft(): RegistrationDraft {
@@ -171,7 +184,7 @@ function validateStep(step: number, draft: RegistrationDraft): Errors {
 function geolocationUnavailableReason(): string | null {
   if (typeof window === "undefined") return null;
   if (!window.isSecureContext)
-    return "Your browser only shares location over a secure (https) connection. We'll use your town's location instead.";
+    return "Location needs https. You're using an http:// link — open the https:// MajiFlow link (not the 10.162.122.91 IP), then allow location. We'll use your town's location instead.";
   if (typeof navigator === "undefined" || !("geolocation" in navigator))
     return "This browser can't share location. We'll use your town's location instead.";
   return null;
@@ -203,7 +216,7 @@ export function BusinessRegister() {
 
   const selected = plans.find((p) => p.id === draft.plan) ?? plans[1];
 
-  const captureLocation = useCallback(() => {
+  const captureLocation = useCallback(async () => {
     const reason = geolocationUnavailableReason();
     if (reason) {
       setLocationError(reason);
@@ -211,37 +224,43 @@ export function BusinessRegister() {
     }
     setLocating(true);
     setLocationError(null);
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const location: CapturedLocation = {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-          accuracy: pos.coords.accuracy ?? undefined,
-          at: new Date().toISOString(),
-        };
-        const next = { ...getDraftSnapshot(), location };
-        saveDraft(next);
-        writeDraft(next);
-        setLocating(false);
-        toast({ kind: "success", title: "Location saved", message: "We'll use this as your business location." });
-      },
-      (err) => {
-        setLocating(false);
-        setLocationError(
-          err.code === err.PERMISSION_DENIED
-            ? "Location permission was denied. Enable it for this site in your browser settings and try again — or use your town's location below."
-            : "We couldn't get your location. Move somewhere with a clearer signal and try again — or use your town's location below."
-        );
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
-    );
+    try {
+      const location = await captureLocationBestEffort();
+      const near = nearestPlace(location.lat, location.lng);
+      const geo = await reverseGeocode(location.lat, location.lng, location.accuracy);
+      const area = geo?.estate || near.estate || "";
+      const street = geo?.street || area;
+      const current = getDraftSnapshot();
+      const city = resolveCity(geo?.city, near.city, current.city) ?? current.city;
+      const next: RegistrationDraft = {
+        ...current,
+        city,
+        locationArea: area,
+        locationStreet: street,
+        address: current.address.trim() || [street, area, city].filter(Boolean).join(", "),
+        location,
+      };
+      saveDraft(next);
+      writeDraft(next);
+      setLocating(false);
+      toast({ kind: "success", title: "Location saved", message: "We'll use this as your business location." });
+    } catch (err) {
+      setLocating(false);
+      setLocationError(geolocationErrorMessage(err));
+    }
   }, [toast]);
 
   // Fallback so registration is never blocked: save the selected town's
   // approximate coordinates when GPS is unavailable.
   const useTownLocation = useCallback(() => {
-    const location = townLocation(getDraftSnapshot().city);
-    const next = { ...getDraftSnapshot(), location };
+    const current = getDraftSnapshot();
+    const location = townLocation(current.city);
+    const next = {
+      ...current,
+      location,
+      locationArea: current.locationArea || current.city,
+      locationStreet: current.locationStreet || current.city,
+    };
     saveDraft(next);
     writeDraft(next);
     setLocationError(null);
@@ -593,6 +612,11 @@ export function BusinessRegister() {
                           {draft.location.lat.toFixed(5)}, {draft.location.lng.toFixed(5)}
                           {draft.location.accuracy != null && ` · ±${Math.round(draft.location.accuracy)}m`}
                         </p>
+                        {(draft.locationStreet || draft.locationArea) && (
+                          <p className="mt-0.5 text-xs text-muted-foreground">
+                            {[...new Set([draft.locationStreet, draft.locationArea].filter(Boolean))].join(", ")}
+                          </p>
+                        )}
                         {draft.location.approx && (
                           <p className="mt-0.5 text-xs text-muted-foreground">
                             Based on {draft.city} — you can refine this later.

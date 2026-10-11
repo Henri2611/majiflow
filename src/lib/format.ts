@@ -1,20 +1,13 @@
 /** Format a number of Kenya Shillings, e.g. 350 -> "KES 350"; 12500 -> "KES 12,500". */
 export function formatKES(amount: number, opts?: { decimals?: boolean; compact?: boolean }) {
   const { decimals = false, compact = false } = opts ?? {};
-  if (compact) {
-    return Intl.NumberFormat("en-KE", {
-      style: "currency",
-      currency: "KES",
-      notation: "compact",
-      maximumFractionDigits: 1,
-    }).format(amount);
-  }
-  return Intl.NumberFormat("en-KE", {
-    style: "currency",
-    currency: "KES",
-    minimumFractionDigits: decimals ? 2 : 0,
-    maximumFractionDigits: decimals ? 2 : 0,
-  }).format(amount);
+  const formatted = compact
+    ? new Intl.NumberFormat("en-KE", { notation: "compact", maximumFractionDigits: 1 }).format(amount)
+    : new Intl.NumberFormat("en-KE", {
+        minimumFractionDigits: decimals ? 2 : 0,
+        maximumFractionDigits: decimals ? 2 : 0,
+      }).format(amount);
+  return `KES ${formatted}`;
 }
 
 /** Format a raw number, e.g. 47 -> "47" */
