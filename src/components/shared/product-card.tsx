@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import type { BusinessProduct } from "@/lib/types";
@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { productImage } from "@/lib/product-images";
 import { useCart } from "@/components/order/cart-provider";
+import { useFlyToCart } from "@/components/order/fly-to-cart";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface ProductCardProps {
@@ -21,19 +22,37 @@ interface ProductCardProps {
 
 export function ProductCard({ product, businessId, className }: ProductCardProps) {
   const { items, addItem, updateQuantity } = useCart();
+  const fly = useFlyToCart();
   const [qty, setQty] = useState(1);
+  const [flying, setFlying] = useState(false);
+  const imageRef = useRef<HTMLDivElement | null>(null);
   const cartItem = items.find(
     (i) => i.businessId === businessId && i.productId === product.id
   );
 
   const handleAdd = () => {
-    addItem({ businessId, productId: product.id, quantity: qty });
-    setQty(1);
+    const fromEl = imageRef.current;
+    if (!fromEl) {
+      addItem({ businessId, productId: product.id, quantity: qty });
+      setQty(1);
+      return;
+    }
+    setFlying(true);
+    fly({
+      fromEl,
+      src: productImage(product.image).src,
+      alt: product.name,
+      onDone: () => {
+        addItem({ businessId, productId: product.id, quantity: qty });
+        setQty(1);
+        setFlying(false);
+      },
+    });
   };
 
   return (
     <Card className={cn("group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-layered", className)}>
-      <div className="relative h-28 overflow-hidden bg-gradient-to-br from-slate-100 via-white to-[#0052FF]/5" aria-hidden>
+      <div ref={imageRef} className="relative h-28 overflow-hidden bg-gradient-to-br from-slate-100 via-white to-[#0052FF]/5" aria-hidden>
         <Image
           src={productImage(product.image)}
           alt=""
@@ -117,7 +136,8 @@ export function ProductCard({ product, businessId, className }: ProductCardProps
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               onClick={handleAdd}
-              className="flex-1 px-3"
+              disabled={flying}
+              className="flex-1 px-3 disabled:pointer-events-none disabled:opacity-70"
               aria-label={`Add ${product.name} to cart`}
             >
               <ShoppingCart className="size-4" aria-hidden />
