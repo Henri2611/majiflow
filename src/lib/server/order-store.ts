@@ -1,6 +1,8 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import type { Order, OrderLocation, OrderStatus } from "@/lib/types";
+import { getBusinessOrderBlockReason } from "@/lib/business-hours";
+import { businesses } from "@/lib/data/businesses";
 
 /**
  * File-backed order store.
@@ -167,6 +169,16 @@ export function validateOrder(input: unknown): ValidationResult {
     errors.businessId = "Station is missing — go back and add items again.";
   if (typeof o.businessName !== "string" || !o.businessName.trim())
     errors.businessName = "Station name is required.";
+
+  const business = typeof o.businessId === "string"
+    ? businesses.find((candidate) => candidate.id === o.businessId)
+    : undefined;
+  if (typeof o.businessId === "string" && o.businessId.trim() && !business) {
+    errors.businessId = "This station is no longer available.";
+  } else if (business) {
+    const blocked = getBusinessOrderBlockReason(business);
+    if (blocked) errors.businessId = blocked;
+  }
 
   if (o.payment !== "mpesa" && o.payment !== "card")
     errors.payment = "Choose M-Pesa or card.";

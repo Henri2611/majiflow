@@ -29,6 +29,25 @@ export interface BusinessProduct {
   image: string;
 }
 
+export type Weekday =
+  | "monday"
+  | "tuesday"
+  | "wednesday"
+  | "thursday"
+  | "friday"
+  | "saturday"
+  | "sunday";
+
+export interface OperatingHours {
+  /** Local opening time in 24-hour HH:mm format. */
+  open: string;
+  /** Local closing time in 24-hour HH:mm format; earlier than open means overnight. */
+  close: string;
+}
+
+/** Missing days mean hours have not been supplied; null means confirmed closed. */
+export type WeeklyOperatingHours = Partial<Record<Weekday, OperatingHours | null>>;
+
 export type OrderStatus =
   | "pending"
   | "accepted"
@@ -118,6 +137,8 @@ export interface Business {
   subscription: PlanName;
   description: string;
   products: BusinessProduct[];
+  /** Canonical source for published hours until station settings are backed by a service. */
+  openingHours?: WeeklyOperatingHours;
   accent: string;
   cover: StaticImageData;
   lat: number;

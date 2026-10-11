@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
-import type { BusinessProduct } from "@/lib/types";
+import type { BusinessProduct, WeeklyOperatingHours } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
@@ -13,15 +13,18 @@ import { productImage } from "@/lib/product-images";
 import { useCart } from "@/components/order/cart-provider";
 import { useFlyToCart } from "@/components/order/fly-to-cart";
 import { AnimatePresence, motion } from "framer-motion";
+import { useBusinessAvailability } from "@/components/shared/business-availability";
 
 interface ProductCardProps {
   product: BusinessProduct;
   businessId: string;
+  openingHours: WeeklyOperatingHours | undefined;
   className?: string;
 }
 
-export function ProductCard({ product, businessId, className }: ProductCardProps) {
+export function ProductCard({ product, businessId, openingHours, className }: ProductCardProps) {
   const { items, addItem, updateQuantity } = useCart();
+  const availability = useBusinessAvailability(openingHours);
   const fly = useFlyToCart();
   const [qty, setQty] = useState(1);
   const [flying, setFlying] = useState(false);
@@ -31,6 +34,7 @@ export function ProductCard({ product, businessId, className }: ProductCardProps
   );
 
   const handleAdd = () => {
+    if (availability.state !== "open") return;
     const fromEl = imageRef.current;
     if (!fromEl) {
       addItem({ businessId, productId: product.id, quantity: qty });
@@ -136,12 +140,12 @@ export function ProductCard({ product, businessId, className }: ProductCardProps
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               onClick={handleAdd}
-              disabled={flying}
+              disabled={flying || availability.state !== "open"}
               className="flex-1 px-3 disabled:pointer-events-none disabled:opacity-70"
               aria-label={`Add ${product.name} to cart`}
             >
-              <ShoppingCart className="size-4" aria-hidden />
-              Add
+              {availability.state === "open" ? <ShoppingCart className="size-4" aria-hidden /> : null}
+              {availability.state === "open" ? "Add" : availability.state === "closed" ? "Station closed" : "Hours unavailable"}
             </motion.button>
           )}
         </div>

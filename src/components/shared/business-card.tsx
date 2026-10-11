@@ -6,6 +6,7 @@ import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { VerifiedBadge } from "@/components/shared/verified-badge";
+import { BusinessAvailability } from "@/components/shared/business-availability";
 
 interface BusinessCardProps {
   business: Business;
@@ -49,6 +50,7 @@ export function BusinessCard({ business, className, layout = "vertical" }: Busin
             {business.name}
           </h3>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">{business.tagline}</p>
+          <BusinessAvailability hours={business.openingHours} />
 
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">

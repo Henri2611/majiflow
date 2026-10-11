@@ -10,6 +10,8 @@ const product = (
   p: Omit<BusinessProduct, "stockLow">
 ): BusinessProduct => ({ ...p, stockLow: p.stock <= 30 ? p.stock - 1 : 30 });
 
+// Current canonical source for station hours and status inputs. Only publish
+// verified schedules here; omitted schedules are treated as unavailable.
 export const businesses: Business[] = [
   {
     id: "bio-water-kasarani",

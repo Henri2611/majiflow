@@ -14,6 +14,7 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { ProductCard } from "@/components/shared/product-card";
 import { VerifiedBadge } from "@/components/shared/verified-badge";
+import { BusinessAvailability } from "@/components/shared/business-availability";
 import { SectionLabel } from "@/components/ui/section-label";
 import { getBusiness } from "@/lib/data/businesses";
 import { businesses } from "@/lib/data/businesses";
@@ -74,6 +75,7 @@ export default async function BusinessProfile({ params }: PageProps) {
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-foreground/80">
                 {business.description}
               </p>
+              <BusinessAvailability hours={business.openingHours} />
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5 font-semibold text-foreground">
@@ -155,7 +157,7 @@ export default async function BusinessProfile({ params }: PageProps) {
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {business.products.map((product) => (
-              <ProductCard key={product.id} product={product} businessId={business.id} />
+              <ProductCard key={product.id} product={product} businessId={business.id} openingHours={business.openingHours} />
             ))}
           </div>
         </Container>
