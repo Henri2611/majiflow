@@ -259,7 +259,10 @@ export function TrackOrderPage({ id }: { id: string }) {
             <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
               <MapPin className="size-5 text-[#0052FF]" aria-hidden /> Delivery address
             </h2>
-            <p className="mt-3 text-sm font-semibold text-foreground">{order.address.estate}</p>
+            <p className="mt-3 text-sm font-semibold text-foreground">
+              {[...new Set([order.address.street, order.address.estate, order.address.city].filter(Boolean))].join(", ") ||
+                order.address.estate}
+            </p>
             <p className="mt-1 text-sm text-muted-foreground">
               {[order.address.building, order.address.floor].filter(Boolean).join(" · ") || "No building info"}
             </p>

@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Check, Droplets, Eye, EyeOff } from "lucide-react";
 import { Field, Input, Select } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
+import { useCustomer } from "@/components/order/customer-provider";
 import { CITIES } from "@/lib/constants";
 
 const perks = [
@@ -80,6 +82,8 @@ export function AuthShell({
 
 export function RegisterForm() {
   const { toast } = useToast();
+  const { login } = useCustomer();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", password: "", city: "Nairobi", estate: "" });
@@ -94,7 +98,13 @@ export function RegisterForm() {
         title: "Account created",
         message: `Karibu, ${form.name.split(" ")[0] || "friend"}! We'll use ${form.phone} for your M-Pesa orders.`,
       });
-      window.location.href = "/account";
+      login({
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim(),
+        addresses: [{ label: "Home", estate: form.estate.trim(), city: form.city, phone: form.phone.trim() }],
+      });
+      router.push("/account");
     }, 900);
   };
 
@@ -195,6 +205,8 @@ export function RegisterForm() {
 
 export function LoginForm() {
   const { toast } = useToast();
+  const { login } = useCustomer();
+  const router = useRouter();
   const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ phone: "", password: "" });
 
@@ -204,7 +216,8 @@ export function LoginForm() {
     window.setTimeout(() => {
       setSending(false);
       toast({ kind: "success", title: "Signed in", message: "Welcome back!" });
-      window.location.href = "/account";
+      login({ phone: form.phone.trim() });
+      router.push("/account");
     }, 700);
   };
 

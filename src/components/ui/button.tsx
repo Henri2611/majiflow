@@ -20,6 +20,8 @@ const buttonVariants = cva(
           "border border-border bg-white text-foreground shadow-card hover:border-slate-300 hover:bg-slate-50 hover:-translate-y-0.5",
         outline:
           "border border-[#0052FF]/40 text-[#0052FF] bg-transparent hover:border-[#0052FF] hover:bg-[#0052FF]/5",
+        danger:
+          "bg-danger text-white shadow-soft hover:bg-[#991b1b] hover:-translate-y-0.5 active:translate-y-0",
         ghost: "text-foreground hover:bg-muted",
         dark: "bg-white text-ink hover:bg-slate-100 hover:-translate-y-0.5 shadow-card",
         link: "text-[#0052FF] underline-offset-4 hover:underline",

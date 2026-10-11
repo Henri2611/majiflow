@@ -54,8 +54,14 @@ export interface DeliveryAddress {
   street?: string;
   building?: string;
   floor?: string;
+  city?: string;
+  landmark?: string;
   notes?: string;
   phone: string;
+  lat?: number;
+  lng?: number;
+  accuracy?: number;
+  locationAt?: string;
 }
 
 export interface OrderLocation {

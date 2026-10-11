@@ -10,6 +10,16 @@ import type { Order, OrderLocation, OrderStatus } from "@/lib/types";
 
 const BASE = "/api/orders";
 
+/** Raised when the server rejects an order with actionable, field-level errors. */
+export class OrderValidationError extends Error {
+  readonly fields: Record<string, string>;
+  constructor(message: string, fields: Record<string, string> = {}) {
+    super(message);
+    this.name = "OrderValidationError";
+    this.fields = fields;
+  }
+}
+
 export interface OrderQuery {
   businessId?: string;
   status?: OrderStatus | string;
@@ -30,20 +40,36 @@ async function getJson<T>(url: string): Promise<T | null> {
   }
 }
 
-/** Persist an order server-side and return it as stored. */
+/**
+ * Persist an order server-side. Throws `OrderValidationError` (with per-field
+ * errors) or a generic `Error` when the server rejects the request, so callers
+ * never mistake a failed request for a placed order.
+ */
 export async function createOrder(input: Order): Promise<Order> {
+  let res: Response;
   try {
-    const res = await fetch(BASE, {
+    res = await fetch(BASE, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
     });
-    if (!res.ok) return input;
-    const data = (await res.json()) as { order: Order };
-    return data.order;
   } catch {
-    return input;
+    throw new Error("Could not reach the order service. Check your connection and retry.");
   }
+  if (!res.ok) {
+    let detail: { error?: string; fields?: Record<string, string> } = {};
+    try {
+      detail = (await res.json()) as typeof detail;
+    } catch {
+      /* ignore unparseable body */
+    }
+    throw new OrderValidationError(
+      detail.error ?? "We couldn't place this order. Please review the highlighted fields.",
+      detail.fields ?? {}
+    );
+  }
+  const data = (await res.json()) as { order: Order };
+  return data.order;
 }
 
 /** Fetch a single order. */

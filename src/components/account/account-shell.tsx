@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
-  Bell,
   CreditCard,
   Droplets,
   Headphones,
@@ -16,6 +15,7 @@ import {
   Package,
   Search,
   ShoppingCart,
+  User,
 } from "lucide-react";
 import { BrandMark } from "@/components/layout/brand-mark";
 import { WaterDrawer } from "@/components/ui/water-drawer";
@@ -34,6 +34,7 @@ type NavItem = {
 
 const NAV: NavItem[] = [
   { href: "/account", label: "Overview", icon: LayoutDashboard },
+  { href: "/account/profile", label: "Profile", icon: User },
   { href: "/account/orders", label: "Orders", icon: Package },
   { href: "/account/addresses", label: "Addresses", icon: MapPin },
   { href: "/account/plans", label: "Plans", icon: CreditCard },
@@ -167,21 +168,6 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
               {count}
             </span>
           )}
-        </Link>
-        <button
-          type="button"
-          className="relative flex size-10 items-center justify-center rounded-xl border border-border bg-white text-muted-foreground hover:text-foreground"
-          aria-label="Notifications"
-        >
-          <Bell className="size-4.5" aria-hidden />
-          <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-brand-gradient ring-2 ring-white" />
-        </button>
-        <Link
-          href="/account"
-          aria-label="Your account"
-          className="flex size-10 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent"
-        >
-          <span className="font-display text-sm">{initial}</span>
         </Link>
         <Link href="/browse" className="hidden sm:inline-flex">
           <Button className="group min-h-10">

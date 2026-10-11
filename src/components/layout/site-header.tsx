@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, type Transition } from "framer-motion";
-import { Menu, ShoppingCart, X } from "lucide-react";
+import { Menu, ShoppingCart, User, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { BrandMark } from "@/components/layout/brand-mark";
@@ -29,8 +29,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { count } = useCart();
-  const { profile } = useCustomer();
-  const isLoggedIn = Boolean(profile.name);
+  const { loggedIn } = useCustomer();
   const { reduce, transition } = useMotionSafe();
   const inOrderFlow = ORDER_FLOW.some(
     (p) => pathname === p || pathname.startsWith(`${p}/`)
@@ -102,26 +101,21 @@ export function SiteHeader() {
             </Link>
           )}
 
-          {isLoggedIn ? (
-            <Link href="/account" className="hidden sm:inline-flex">
-              <Button variant="ghost" className="min-h-11">
-                My account
+          <Link
+            href={loggedIn ? "/account/profile" : "/login"}
+            aria-label={loggedIn ? "Your profile" : "Sign in or create an account"}
+            className="flex size-11 items-center justify-center rounded-lg border border-border bg-white text-foreground transition-colors hover:border-[#0052FF]/40 hover:text-[#0052FF]"
+          >
+            <User className="size-5" aria-hidden />
+          </Link>
+
+          {!loggedIn && (
+            <Link href="/register" className="hidden sm:inline-flex">
+              <Button className="group min-h-11">
+                Order water
+                <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Button>
             </Link>
-          ) : (
-            <>
-              <Link href="/login" className="hidden sm:inline-flex">
-                <Button variant="ghost" className="min-h-11">
-                  Sign in
-                </Button>
-              </Link>
-              <Link href="/register" className="hidden sm:inline-flex">
-                <Button className="group min-h-11">
-                  Order water
-                  <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                </Button>
-              </Link>
-            </>
           )}
 
           <button
@@ -175,10 +169,10 @@ export function SiteHeader() {
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-2.5">
-                {isLoggedIn ? (
-                  <Link href="/account" className="w-full">
+                {loggedIn ? (
+                  <Link href="/account/profile" className="w-full">
                     <Button size="lg" className="w-full">
-                      My account
+                      My profile
                     </Button>
                   </Link>
                 ) : (

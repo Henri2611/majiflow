@@ -44,6 +44,13 @@ const TIMELINE_LABEL: Record<OrderStatus, string> = {
 };
 
 function addressPoint(order: Order): MapPoint {
+  if (typeof order.address.lat === "number" && typeof order.address.lng === "number") {
+    return {
+      lat: order.address.lat,
+      lng: order.address.lng,
+      label: order.address.estate || "Delivery location",
+    };
+  }
   const estate = ESTATE_COORDS[order.address.estate];
   const coords = estate ?? CITY_COORDS.Nairobi;
   return { ...coords, label: order.address.estate || "Delivery address" };
@@ -201,7 +208,10 @@ export function OrderDetailView({
 
           <div className="rounded-2xl border border-border bg-white p-5 shadow-card">
             <h3 className="font-display text-base text-foreground">Delivery address</h3>
-            <p className="mt-2 text-sm font-semibold text-foreground">{order.address.estate}</p>
+            <p className="mt-2 text-sm font-semibold text-foreground">
+              {[...new Set([order.address.street, order.address.estate, order.address.city].filter(Boolean))].join(", ") ||
+                order.address.estate}
+            </p>
             <p className="mt-1 text-sm text-muted-foreground">
               {[order.address.building, order.address.floor].filter(Boolean).join(" · ") || "No building info"}
             </p>

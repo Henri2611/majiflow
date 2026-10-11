@@ -117,85 +117,181 @@ function isStatus(v: unknown): v is OrderStatus {
   return typeof v === "string" && (VALID_STATUS as string[]).includes(v);
 }
 
+export function generateOrderNumber() {
+  return `MF-${Math.floor(10000 + Math.random() * 89999)}`;
+}
+
+const MAX_LEN = { name: 80, phone: 20, estate: 60, building: 60, floor: 60, city: 40, notes: 500, landmark: 500 };
+
+function cleanName(v: unknown): string | null {
+  if (typeof v !== "string" || !v.trim()) return null;
+  const name = v.trim().replace(/\s+/g, " ").slice(0, MAX_LEN.name);
+  if (!/^[\p{L}\p{M}'’.\- ]+$/u.test(name) || name.length < 2) return null;
+  return name;
+}
+
+/** Normalize a Kenyan phone (+254…, 0…, 07…, bare 7…) to a canonical form. */
+function normalizePhone(v: unknown): string | null {
+  if (typeof v !== "string") return null;
+  const digits = v.replace(/[\s()\-.]/g, "");
+  let local = digits;
+  if (local.startsWith("+254")) local = "0" + local.slice(4);
+  else if (local.startsWith("254")) local = "0" + local.slice(3);
+  if (!/^0\d{9}$/.test(local)) return null;
+  return local;
+}
+
+interface ValidationResult {
+  order?: Order;
+  errors?: Record<string, string>;
+}
+
 /**
- * Validate an untrusted create payload. Returns a normalized order or null
- * when required fields are missing/invalid.
+ * Validate an untrusted create payload with field-level messages. Returns the
+ * normalized order or a map of human-readable per-field errors.
  */
-export function sanitizeOrder(input: unknown): Order | null {
-  if (typeof input !== "object" || input === null) return null;
+export function validateOrder(input: unknown): ValidationResult {
+  if (typeof input !== "object" || input === null) {
+    return { errors: { _form: "Missing order payload." } };
+  }
   const o = input as Record<string, unknown>;
+  const errors: Record<string, string> = {};
 
-  if (typeof o.businessId !== "string" || !o.businessId.trim()) return null;
-  if (typeof o.businessName !== "string" || !o.businessName.trim()) return null;
-  if (typeof o.customerName !== "string" || !o.customerName.trim()) return null;
-  if (typeof o.customerPhone !== "string" || !o.customerPhone.trim()) return null;
-  if (!isFiniteNumber(o.subtotal) || o.subtotal < 0) return null;
-  if (!isFiniteNumber(o.deliveryFee) || o.deliveryFee < 0) return null;
-  if (!isFiniteNumber(o.total) || o.total < 0) return null;
-  if (o.payment !== "mpesa" && o.payment !== "card") return null;
+  const customerName = cleanName(o.customerName);
+  if (!customerName) errors.customerName = "Enter your full name (letters only).";
+
+  const customerPhone = normalizePhone(o.customerPhone);
+  if (!customerPhone) errors.customerPhone = "Use a Kenyan number, e.g. 07XX XXX XXX or +254 7XX….";
+
+  if (typeof o.businessId !== "string" || !o.businessId.trim())
+    errors.businessId = "Station is missing — go back and add items again.";
+  if (typeof o.businessName !== "string" || !o.businessName.trim())
+    errors.businessName = "Station name is required.";
+
+  if (o.payment !== "mpesa" && o.payment !== "card")
+    errors.payment = "Choose M-Pesa or card.";
   if (o.paymentState !== "pending" && o.paymentState !== "success" && o.paymentState !== "failed")
-    return null;
-  if (!isStatus(o.status)) return null;
-  if (typeof o.placedAt !== "string" || Number.isNaN(Date.parse(o.placedAt))) return null;
+    errors.paymentState = "Invalid payment state.";
+  if (!isStatus(o.status)) errors.status = "Invalid order status.";
+  if (typeof o.placedAt !== "string" || Number.isNaN(Date.parse(o.placedAt)))
+    errors.placedAt = "Invalid order time.";
 
-  if (!Array.isArray(o.items) || o.items.length === 0) return null;
-  const items = [];
-  for (const raw of o.items) {
-    if (typeof raw !== "object" || raw === null) return null;
-    const item = raw as Record<string, unknown>;
-    if (typeof item.productId !== "string" || !item.productId.trim()) return null;
-    if (typeof item.name !== "string" || !item.name.trim()) return null;
-    if (!isFiniteNumber(item.quantity) || item.quantity <= 0) return null;
-    if (!isFiniteNumber(item.unitPrice) || item.unitPrice < 0) return null;
-    items.push({
-      productId: item.productId,
-      name: item.name,
-      quantity: Math.round(item.quantity),
-      unitPrice: item.unitPrice,
-    });
+  // Items
+  if (!Array.isArray(o.items) || o.items.length === 0) {
+    errors.items = "Add at least one item to your order.";
+  }
+  const items: Order["items"] = [];
+  let subtotal = 0;
+  if (Array.isArray(o.items) && o.items.length > 0) {
+    for (const raw of o.items) {
+      if (typeof raw !== "object" || raw === null) {
+        errors.items = "One of the items is malformed.";
+        break;
+      }
+      const item = raw as Record<string, unknown>;
+      if (typeof item.productId !== "string" || !item.productId.trim()) {
+        errors.items = "Each item needs a product id.";
+        break;
+      }
+      if (typeof item.name !== "string" || !item.name.trim()) {
+        errors.items = "Each item needs a name.";
+        break;
+      }
+      if (!isFiniteNumber(item.quantity) || item.quantity <= 0 || item.quantity > 1000) {
+        errors.items = "Quantities must be between 1 and 1000.";
+        break;
+      }
+      if (!isFiniteNumber(item.unitPrice) || item.unitPrice < 0) {
+        errors.items = "Item price is invalid.";
+        break;
+      }
+      const quantity = Math.round(item.quantity);
+      const unitPrice = item.unitPrice;
+      subtotal += quantity * unitPrice;
+      items.push({ productId: item.productId, name: item.name, quantity, unitPrice });
+    }
   }
 
-  if (typeof o.address !== "object" || o.address === null) return null;
-  const a = o.address as Record<string, unknown>;
-  if (typeof a.estate !== "string" || typeof a.phone !== "string") return null;
-  const address = {
-    label: typeof a.label === "string" && a.label.trim() ? a.label : "Delivery",
-    estate: a.estate,
-    street: typeof a.street === "string" ? a.street : undefined,
-    building: typeof a.building === "string" ? a.building : undefined,
-    floor: typeof a.floor === "string" ? a.floor : undefined,
-    notes: typeof a.notes === "string" ? a.notes : undefined,
-    phone: a.phone,
-  };
+  // Financial integrity — never trust client totals.
+  if (!isFiniteNumber(o.subtotal) || Math.abs(o.subtotal - subtotal) > 0.001)
+    errors.subtotal = "Subtotal doesn't match the items — refresh and retry.";
+  if (!isFiniteNumber(o.deliveryFee) || o.deliveryFee < 0) errors.deliveryFee = "Delivery fee is invalid.";
+  const fee = isFiniteNumber(o.deliveryFee) && o.deliveryFee >= 0 ? o.deliveryFee : 0;
+  if (!isFiniteNumber(o.total) || Math.abs(o.total - (subtotal + fee)) > 0.001)
+    errors.total = "Total doesn't match — refresh and retry.";
 
-  return {
-    id: typeof o.id === "string" && o.id.trim() ? o.id : `order-${Date.now()}`,
+  // Address
+  if (typeof o.address !== "object" || o.address === null) {
+    errors.address = "Delivery address is required.";
+  }
+  let address: Order["address"] | undefined;
+  if (typeof o.address === "object" && o.address !== null) {
+    const a = o.address as Record<string, unknown>;
+    const estate = typeof a.estate === "string" ? a.estate.trim() : "";
+    const phone = normalizePhone(a.phone);
+    if (!estate) errors.estate = "Choose a recognised estate — riders use these to navigate.";
+    if (!phone) errors.phone = "Enter the phone the rider should call.";
+    if (estate.length > MAX_LEN.estate) errors.estate = "That estate name is too long.";
+    address = {
+      label: typeof a.label === "string" && a.label.trim() ? a.label.slice(0, 40) : "Delivery",
+      estate,
+      street: typeof a.street === "string" ? a.street.slice(0, MAX_LEN.estate) : undefined,
+      city:
+        typeof a.city === "string" && a.city.trim()
+          ? a.city.trim().slice(0, MAX_LEN.city)
+          : undefined,
+      landmark:
+        typeof a.landmark === "string" && a.landmark.trim()
+          ? a.landmark.trim().slice(0, MAX_LEN.landmark)
+          : undefined,
+      building:
+        typeof a.building === "string" && a.building.trim()
+          ? a.building.trim().slice(0, MAX_LEN.building)
+          : undefined,
+      floor:
+        typeof a.floor === "string" && a.floor.trim() ? a.floor.trim().slice(0, MAX_LEN.floor) : undefined,
+      notes:
+        typeof a.notes === "string" && a.notes.trim()
+          ? a.notes.trim().slice(0, MAX_LEN.notes)
+          : undefined,
+      phone: phone ?? "",
+      lat: isFiniteNumber(a.lat) && a.lat >= -90 && a.lat <= 90 ? a.lat : undefined,
+      lng: isFiniteNumber(a.lng) && a.lng >= -180 && a.lng <= 180 ? a.lng : undefined,
+      accuracy: isFiniteNumber(a.accuracy) && a.accuracy >= 0 ? a.accuracy : undefined,
+      locationAt:
+        typeof a.locationAt === "string" && !Number.isNaN(Date.parse(a.locationAt))
+          ? a.locationAt
+          : undefined,
+    };
+  }
+
+  if (Object.keys(errors).length > 0) return { errors };
+
+  const order: Order = {
+    id: typeof o.id === "string" && o.id.trim() ? o.id.slice(0, 80) : `order-${Date.now()}`,
     orderNumber:
       typeof o.orderNumber === "string" && o.orderNumber.trim()
         ? o.orderNumber
         : generateOrderNumber(),
-    businessId: o.businessId,
-    businessName: o.businessName,
-    customerName: o.customerName,
-    customerPhone: o.customerPhone,
+    businessId: o.businessId as string,
+    businessName: o.businessName as string,
+    customerName: customerName!,
+    customerPhone: customerPhone!,
     items,
-    subtotal: o.subtotal,
-    deliveryFee: o.deliveryFee,
-    total: o.total,
-    payment: o.payment,
-    paymentState: o.paymentState,
-    status: o.status,
-    address,
-    placedAt: o.placedAt,
+    subtotal,
+    deliveryFee: fee,
+    total: subtotal + fee,
+    payment: o.payment as Order["payment"],
+    paymentState: o.paymentState as Order["paymentState"],
+    status: o.status as OrderStatus,
+    address: address!,
+    placedAt: o.placedAt as string,
     eta: typeof o.eta === "string" ? o.eta : undefined,
-    timeline: [{ status: o.status, at: o.placedAt }],
+    timeline: [{ status: o.status as OrderStatus, at: o.placedAt as string }],
     location: null,
     locationHistory: [],
   };
-}
-
-export function generateOrderNumber() {
-  return `MF-${Math.floor(10000 + Math.random() * 89999)}`;
+  return { order };
 }
 
 export interface ListOptions {
@@ -210,8 +306,16 @@ export async function listOrders(opts: ListOptions = {}): Promise<Order[]> {
     if (opts.businessId) list = list.filter((o) => o.businessId === opts.businessId);
     if (opts.status) list = list.filter((o) => o.status === opts.status);
     if (opts.phone) {
-      const needle = opts.phone.replace(/\s+/g, "");
-      list = list.filter((o) => o.customerPhone.replace(/\s+/g, "").includes(needle));
+      const needleRaw = opts.phone.replace(/\s+/g, "");
+      const needleNorm = normalizePhone(opts.phone);
+      list = list.filter((o) => {
+        const storedRaw = o.customerPhone.replace(/\s+/g, "");
+        const storedNorm = normalizePhone(o.customerPhone);
+        return (
+          storedRaw.includes(needleRaw) ||
+          (storedNorm !== null && needleNorm !== null && storedNorm === needleNorm)
+        );
+      });
     }
     return list
       .sort((a, b) => b.placedAt.localeCompare(a.placedAt))
@@ -223,10 +327,24 @@ export async function getOrder(id: string): Promise<Order | null> {
   return readOnly((orders) => (orders[id] ? clone(orders[id]) : null));
 }
 
-export async function createOrder(input: Order): Promise<Order> {
+/**
+ * Persist a new order. Idempotent by id: submitting a duplicate id (e.g. a
+ * client retry) returns the existing order unchanged instead of duplicating it.
+ */
+export async function createOrder(input: Order): Promise<{ order: Order; created: boolean }> {
   return mutate((orders) => {
-    let id = input.id;
-    if (orders[id]) id = `${input.id}-${Math.random().toString(36).slice(2, 7)}`;
+    const existing = input.id ? orders[input.id] : undefined;
+    if (existing) {
+      const sameBusiness = existing.businessId === input.businessId;
+      const sameItems =
+        existing.items.length === input.items.length &&
+        existing.items.every(
+          (it, i) =>
+            it.productId === input.items[i]?.productId && it.quantity === input.items[i]?.quantity
+        );
+      if (sameBusiness && sameItems) return { order: clone(existing), created: false };
+    }
+    const id = existing ? `${input.id}-${Math.random().toString(36).slice(2, 7)}` : input.id;
     const order: Order = {
       ...input,
       id,
@@ -235,7 +353,7 @@ export async function createOrder(input: Order): Promise<Order> {
       locationHistory: input.locationHistory ?? [],
     };
     orders[id] = order;
-    return clone(order);
+    return { order: clone(order), created: true };
   });
 }
 
