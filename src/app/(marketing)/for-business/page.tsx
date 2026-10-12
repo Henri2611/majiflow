@@ -69,7 +69,7 @@ export default function ForBusiness() {
         pulseLabel
         title={
           <>
-            Your station, your prices. <span className="text-gradient">Our storefront.</span>
+            Your station, your prices. <span className="text-gradient">Our storefront</span>
           </>
         }
         description="A platform of the storefront and back office a water refill business would use: a customer-facing page, a dashboard for orders and analytics, and a plan for payments that is not wired up yet."

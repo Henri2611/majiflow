@@ -89,7 +89,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.28, ease: easeOut }}
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
-            <div className="flex w-full items-center gap-2 rounded-xl border border-border bg-white p-1.5 shadow-card sm:max-w-sm">
+            <div className="flex w-full items-center gap-2 rounded-xl border border-border bg-primary/15 p-1.5 shadow-card sm:max-w-sm">
               <MapPin className="ml-2.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
               <label htmlFor="hero-city" className="sr-only">
                 Choose your city
