@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import { reportFailure } from "@/lib/monitoring";
 
 export const dynamic = "force-dynamic";
 
@@ -252,6 +253,7 @@ export async function GET(request: NextRequest) {
     return Response.json({ error: "Invalid coordinates", result: null }, { status: 400 });
   }
 
+  let lastFailure: string | undefined;
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const result = await fetchGeocode(lat, lng, accuracy);
@@ -261,9 +263,15 @@ export async function GET(request: NextRequest) {
           { headers: { "Cache-Control": "public, s-maxage=600, stale-while-revalidate=3600" } }
         );
       }
-    } catch {
-      /* retry once */
+    } catch (error) {
+      lastFailure = error instanceof Error ? error.message : "unknown";
     }
+  }
+  if (lastFailure) {
+    // A point with no address is a normal answer; an unreachable lookup is not.
+    await reportFailure("geocode", "Reverse geocoding failed for a delivery location.", {
+      reason: lastFailure,
+    });
   }
   return Response.json({ result: null });
 }
