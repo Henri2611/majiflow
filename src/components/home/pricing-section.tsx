@@ -36,7 +36,7 @@ export function PricingSection() {
               <span className="text-gradient">charge for</span>
             </>
           }
-          description="Flat monthly or annual pricing in Kenyan Shillings. No plan is billed , and a tick on a card marks only what the build can already do."
+          description="Flat monthly or annual pricing in Kenyan Shillings. No plan is billed , "
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">

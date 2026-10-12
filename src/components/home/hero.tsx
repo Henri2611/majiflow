@@ -76,7 +76,7 @@ export function Hero() {
             initial={reduce ? false : { y: 24 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 0.18, ease: easeOut }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80"
           >
             Order clean, affordable drinking water from refill stations in your estate. Pick a
             station, see the real delivery fee and total, and place an order. All payments are processed securely. For delivery details, check with your selected station.
@@ -115,7 +115,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-foreground/80">
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="size-4 text-success" aria-hidden /> {businesses.length} build stations
             </span>
