@@ -20,7 +20,7 @@ export function PricingSection() {
     toast({
       kind: plan.highlighted ? "success" : "info",
       title: `${plan.name} selected`,
-      message: "Plans are illustrative in this demo. Nothing is billed and no account is created.",
+      message: "Plans are illustrative . Nothing is billed and no account is created.",
     });
   };
 
@@ -36,7 +36,7 @@ export function PricingSection() {
               <span className="text-gradient">charge for</span>
             </>
           }
-          description="Flat monthly or annual pricing in Kenyan Shillings. No plan is billed in this demo build, and a tick on a card marks only what the build can already do."
+          description="Flat monthly or annual pricing in Kenyan Shillings. No plan is billed , and a tick on a card marks only what the build can already do."
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">
@@ -86,7 +86,7 @@ export function PricingSection() {
           </span>
           <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
             <strong className="font-semibold text-foreground">Nothing here is billed.</strong>{" "}
-            This demo has no trial, subscription or payment provider. The figures show the intended
+            This build has no trial, subscription or payment provider. The figures show the intended
             commercial model, not a charge you would receive.
           </p>
           <Button variant="secondary" className="shrink-0" onClick={() => handleChoose(plans[0])}>

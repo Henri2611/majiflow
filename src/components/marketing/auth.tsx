@@ -13,7 +13,7 @@ import { CITIES } from "@/lib/constants";
 const perks = [
   "Browse sample stations around you",
   "See each station's delivery fee in the cart",
-  "Follow a demo order from placed to delivered",
+  "Follow a build order from placed to delivered",
   "Your profile is kept in this browser only",
 ];
 
@@ -126,7 +126,7 @@ export function RegisterForm() {
             autoComplete="name"
           />
         </Field>
-        <Field label="Phone number" required hint="Kept locally - this demo sends no SMS.">
+        <Field label="Phone number" required hint="Kept locally - this build sends no SMS.">
           <Input
             required
             type="tel"
@@ -216,7 +216,7 @@ export function LoginForm() {
     setSending(true);
     window.setTimeout(() => {
       setSending(false);
-      toast({ kind: "success", title: "Signed in (demo)", message: "Welcome back" });
+      toast({ kind: "success", title: "Signed in (build)", message: "Welcome back" });
       login({ phone: form.phone.trim() });
       router.push("/account");
     }, 700);
@@ -226,7 +226,7 @@ export function LoginForm() {
     <div>
       <h1 className="font-display text-2xl text-foreground sm:text-3xl">Sign in</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Any phone number and password will sign you in here: this demo only reads the profile saved
+        Any phone number and password will sign you in here: this build only reads the profile saved
         in this browser and never verifies a credential.
       </p>
 

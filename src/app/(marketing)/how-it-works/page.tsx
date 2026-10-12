@@ -10,7 +10,7 @@ const customerSteps = [
   {
     icon: MapPin,
     title: "Choose your city",
-    text: "Pick one of the five cities seeded in the demo and the list narrows to the stations there.",
+    text: "Pick one of the five cities seeded in the build and the list narrows to the stations there.",
     detail: "Nairobi, Mombasa, Kisumu, Nakuru and Eldoret. There is no location detection in the build.",
   },
   {
@@ -46,7 +46,7 @@ const customerSteps = [
 ];
 
 const faqItems = [
-  { q: "Is anything actually delivered?", a: "No. Orders are recorded and their status can be moved from the station dashboard, but the demo has no rider service, so nothing leaves a station." },
+  { q: "Is anything actually delivered?", a: "No. Orders are recorded and their status can be moved from the station dashboard, but the build has no rider service, so nothing leaves a station." },
   { q: "Is there a free-delivery minimum?", a: "Yes, per station. Some seeded stations waive the delivery fee above a set amount, and the threshold is shown on the station page and applied in the cart total." },
   { q: "What if something goes wrong with an order?", a: "There is no payment or refund flow, because no payment is taken. Orders can be moved through their stages, and a failed status change is logged." },
   { q: "Can I pay cash on delivery?", a: "No payment of any kind is collected. Checkout simulates the payment step so the rest of the flow can be exercised." },
@@ -63,7 +63,7 @@ export default function HowItWorks() {
             From browsing to a <span className="text-gradient">stored order</span> in five steps
           </>
         }
-        description="Compare the seeded stations, see the real delivery fees, place a demo order and follow its status. The demo stops before a payment provider and a rider."
+        description="Compare the seeded stations, see the real delivery fees, place a build order and follow its status. The build stops before a payment provider and a rider."
       >
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/browse">
@@ -72,7 +72,7 @@ export default function HowItWorks() {
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </Button>
           </Link>
-          <Link href="/business/demo">
+          <Link href="/business/build">
             <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               Preview the dashboard
             </Button>
@@ -116,7 +116,7 @@ export default function HowItWorks() {
                   No app to install. <span className="text-gradient">No account needed.</span>
                 </>
               }
-              description="The whole flow runs in the browser from the seeded data, so a visitor can browse and place a demo order without signing in. There is no SMS or messaging layer behind it."
+              description="The whole flow runs in the browser from the seeded data, so a visitor can browse and place a build order without signing in. There is no SMS or messaging layer behind it."
             />
             <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-border bg-background px-6 py-4 shadow-card">
               <ShoppingCart className="size-6 text-[#0052FF]" aria-hidden />
@@ -137,7 +137,7 @@ export default function HowItWorks() {
             label="Quick answers"
             title={
               <>
-                What the demo <span className="text-gradient">does and does not do</span>
+                What the build <span className="text-gradient">does and does not do</span>
               </>
             }
           />

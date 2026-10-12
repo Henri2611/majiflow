@@ -193,7 +193,7 @@ export function AdminOverview() {
                         <X className="size-3.5" aria-hidden /> Suspend
                       </Button>
                     ) : (
-                      <Link href="/business/demo" className="text-xs font-semibold text-[#0052FF] hover:underline">
+                      <Link href="/business/build" className="text-xs font-semibold text-[#0052FF] hover:underline">
                         Review
                       </Link>
                     )}
@@ -262,7 +262,7 @@ export function AdminOverview() {
       </div>
 
       <p className="mt-8 text-center text-xs text-muted-foreground">
-        Demo data for the MajiFlow platform admin. Businesses are current from{" "}
+        Build data for the MajiFlow platform admin. Businesses are current from{" "}
         <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[11px]">src/lib/data/businesses.ts</code> ({businesses.length} stations).
       </p>
     </Container>

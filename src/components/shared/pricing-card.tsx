@@ -80,7 +80,7 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
           <ArrowRight className="size-4" aria-hidden />
         </Button>
         <p className="text-center font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-          {plan.audience} · demo, nothing is billed
+          {plan.audience} · build, nothing is billed
         </p>
       </div>
     </>

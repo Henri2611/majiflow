@@ -4,7 +4,7 @@ import type { Plan, PlanName } from "@/lib/types";
  * The commercial model MajiFlow intends to charge for.
  *
  * Nothing here is billed in this build: there is no subscription, no trial and
- * no payment processing. `features` lists what the demo can actually do today;
+ * no payment processing. `features` lists what the build can actually do today;
  * `planned` lists what the plan describes but the build does not implement, so
  * the pricing pages never present an unbuilt capability as included.
  */
@@ -29,7 +29,7 @@ export const plans: Plan[] = [
       "Order management with status updates",
       "Customer list with order history",
       "Sales reports from your own orders",
-      "Simulated M-Pesa checkout (demo)",
+      "Simulated M-Pesa checkout ",
     ],
     planned: ["Card payments", "Recurring orders"],
     cta: "Preview this plan",

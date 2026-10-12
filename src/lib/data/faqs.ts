@@ -1,7 +1,7 @@
 import type { Faq } from "@/lib/types";
 
 /**
- * Answers describe what this build actually does. MajiFlow is a demo: there is
+ * Answers describe what this build actually does. MajiFlow is a  there is
  * no billing, no payment processing and no dispatch, so the answers say that
  * rather than describing a service that is not running.
  */
@@ -25,7 +25,7 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "Can I pay with M-Pesa?",
     answer:
-      "Checkout has an M-Pesa option, but in this demo it is a simulation: no STK push is sent and no money moves. Card payment is not implemented. A real deployment would connect a payment provider before taking orders.",
+      "Checkout has an M-Pesa option, but it is a simulation: no STK push is sent and no money moves. Card payment is not implemented. A real deployment would connect a payment provider before taking orders.",
   },
   {
     id: "f4",
@@ -39,14 +39,14 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "What if the water doesn't arrive?",
     answer:
-      "This demo has no dispatch, support desk or help workflow, so nothing is actually delivered. The order page shows the status the demo recorded, so you can see how tracking would be presented.",
+      "There is no dispatch, support desk or help workflow, so nothing is actually delivered. The order page shows the status recorded, so you can see how tracking would be presented.",
   },
   {
     id: "f6",
     group: "businesses",
     question: "How do I register my refill business?",
     answer:
-      "The business area is a demo of the dashboard a station would get. Registration collects details in the browser only: there is no account, no trial and no billing, and the dashboard reads current data.",
+      "The business area is the dashboard a station would get. Registration collects details in the browser only: there is no account, no trial and no billing, and the dashboard reads current data.",
   },
   {
     id: "f7",

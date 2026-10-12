@@ -366,7 +366,7 @@ export function BusinessRegister() {
                 <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
-            <Link href="/business/demo">
+            <Link href="/business/build">
               <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                 Take the tour first
               </Button>

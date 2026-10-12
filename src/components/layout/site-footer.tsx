@@ -16,7 +16,7 @@ const businessLinks = [
   { href: "/for-business", label: "Why MajiFlow" },
   { href: "/business/register", label: "Register your business" },
   { href: "/pricing", label: "Plans & pricing" },
-  { href: "/business/demo", label: "Live dashboard demo" },
+  { href: "/business/build", label: "Live dashboard build" },
   { href: "/faqs#businesses", label: "Business FAQs" },
 ];
 
@@ -38,7 +38,7 @@ export function SiteFooter() {
           <div className="max-w-sm">
             <BrandMark dark />
             <p className="mt-5 text-sm leading-relaxed text-slate-400">
-              A working demo of a platform that connects homes to water refill stations and gives
+              A working build of a platform that connects homes to water refill stations and gives
               those businesses a storefront and back office. The stations, prices, ratings and orders
               here are sample content, and no payments are collected.
             </p>
@@ -58,7 +58,7 @@ export function SiteFooter() {
         <div className="mt-14 grid gap-8 border-t border-white/10 pt-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
-              Cities in the demo data
+              Cities in the build data
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               {CITIES.map((c) => (
@@ -80,7 +80,7 @@ export function SiteFooter() {
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-[#4D7CFF]" aria-hidden />
                 <span>
-                  This demo has no office, phone line or inbox behind it, and the contact form does
+                  This build has no office, phone line or inbox behind it, and the contact form does
                   not send anywhere.
                 </span>
               </li>
@@ -99,7 +99,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row">
-          <p>© {year} MajiFlow. A demo build with sample data.</p>
+          <p>© {year} MajiFlow. A build with sample data.</p>
           <p className="font-mono uppercase tracking-widest">
             No payments · no SMS · sample stations
           </p>

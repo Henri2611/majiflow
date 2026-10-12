@@ -2,7 +2,7 @@ import type { Testimonial } from "@/lib/types";
 
 /**
  * These are written examples, not real customers. Every quote is fictional and
- * every speaker is labelled as demo content so the section cannot be read as a
+ * every speaker is labelled as content so the section cannot be read as a
  * set of genuine endorsements. The quotes also only describe behaviour the
  * build actually has, so no unbuilt feature is praised here.
  */

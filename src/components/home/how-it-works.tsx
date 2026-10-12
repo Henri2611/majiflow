@@ -24,12 +24,12 @@ const steps = [
   {
     icon: ShoppingCart,
     title: "Simulated payment",
-    text: "The demo build simulates this step. No M-Pesa request is sent, no card is charged and no money moves.",
+    text: "The build simulates this step. No M-Pesa request is sent, no card is charged and no money moves.",
   },
   {
     icon: ClipboardList,
     title: "Follow the order",
-    text: "An order is stored and moves through pending, accepted and delivered, with each change visible on its order page. No rider is dispatched in the demo.",
+    text: "An order is stored and moves through pending, accepted and delivered, with each change visible on its order page. No rider is dispatched in the build.",
   },
 ];
 
@@ -48,7 +48,7 @@ export function HowItWorks() {
                   From browsing to tracked order in <span className="text-gradient">five steps</span>
                 </>
               }
-              description="Compare stations, see real delivery fees, place an order and follow its status. The demo stops short of a rider and a payment provider."
+              description="Compare stations, see real delivery fees, place an order and follow its status. The build stops short of a rider and a payment provider."
             />
             <AnimatedSection delay={0.15} className="mt-8">
               <Link href="/browse">

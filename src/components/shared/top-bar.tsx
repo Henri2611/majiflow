@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 /**
  * Labels for the parts of this build that are not real.
  *
- * MajiFlow is a demonstration: checkout payments are simulated, station,
+ * MajiFlow is a buildnstration: checkout payments are simulated, station,
  * rating and review data is current, and no water is dispatched. These pieces
- * make that visible wherever a visitor could otherwise mistake the demo for a
+ * make that visible wherever a visitor could otherwise mistake the build for a
  * running service, so copy never has to imply more than the build does.
  */
 

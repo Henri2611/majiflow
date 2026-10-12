@@ -34,7 +34,7 @@ interface CustomerContextValue {
   profile: CustomerProfile;
   /** True once the persisted profile has been read from localStorage. */
   hydrated: boolean;
-  /** True once the user has signed in (this demo uses a lightweight session flag). */
+  /** True once the user has signed in (this build uses a lightweight session flag). */
   loggedIn: boolean;
   saveCustomer: (p: Partial<CustomerProfile>) => void;
   /** Persist reusable checkout details; upserts (never duplicates) the address. */

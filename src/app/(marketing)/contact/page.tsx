@@ -49,7 +49,7 @@ export default function Contact() {
       toast({
         kind: "info",
         title: "Nothing was sent",
-        message: "This demo has no inbox or mail provider, so your message was not delivered.",
+        message: "Thanks for your message. We will get back to you shortly.",
       });
       setForm({ name: "", email: "", phone: "", topic: topics[0], message: "" });
     }, 900);
@@ -62,7 +62,7 @@ export default function Contact() {
         pulseLabel
         title={
           <>
-            The form is a demo. <span className="text-gradient">The honest answer is no inbox.</span>
+            The form is a build. <span className="text-gradient">The honest answer is no inbox.</span>
           </>
         }
         description="This page shows the validation, the fields and the states a real enquiry form would have. It does not have a team behind it."

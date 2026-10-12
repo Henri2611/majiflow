@@ -79,7 +79,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
             Order clean, affordable drinking water from refill stations in your estate. Pick a
-            station, see the real delivery fee and total, and place an order. This is a demo build:
+            station, see the real delivery fee and total, and place an order. This is a build:
             the payment is simulated, no rider is dispatched and no money moves.
           </motion.p>
 
@@ -117,7 +117,7 @@ export function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
-              <BadgeCheck className="size-4 text-success" aria-hidden /> {businesses.length} demo stations
+              <BadgeCheck className="size-4 text-success" aria-hidden /> {businesses.length} build stations
             </span>
             <span className="inline-flex items-center gap-1.5">
               <MessageCircle className="size-4 text-[#0052FF]" aria-hidden /> Order status you can follow

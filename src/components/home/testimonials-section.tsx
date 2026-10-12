@@ -12,10 +12,10 @@ export function TestimonialsSection() {
           label="Sample stories"
           title={
             <>
-              Stories written for <span className="text-gradient">the demo</span>
+              Stories written for <span className="text-gradient">the build</span>
             </>
           }
-          description="Fictional examples showing how the product would be described. These are not real customers, and every card is labelled as demo content."
+          description="Fictional examples showing how the product would be described. These are not real customers, and every card is labelled as build content."
         />
 
         <Stagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.07}>

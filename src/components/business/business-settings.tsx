@@ -231,7 +231,7 @@ export function BusinessSettings() {
           </li>
         </ul>
         <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-          No payout account is connected in this build. Checkout records an order and shows a simulated payment result,
+          No payout account is connected . Checkout records an order and shows a simulated payment result,
           so nothing is charged and nothing settles to a till. See the checkout screen for the wording customers get.
         </p>
       </section>

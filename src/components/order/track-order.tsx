@@ -294,10 +294,10 @@ export function TrackOrderPage({ id }: { id: string }) {
             </Link>
           </div>
 
-          {/* Demo controls */}
+          {/* Build controls */}
           <details className="rounded-2xl border border-dashed border-[#0052FF]/30 bg-[#0052FF]/3 p-4">
             <summary className="cursor-pointer font-mono text-[11px] uppercase tracking-widest text-[#0052FF]">
-              Demo controls - advance the delivery
+              Build controls - advance the delivery
             </summary>
             <div className="mt-4 flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" onClick={() => setStatus("pending")} disabled={order.status === "pending"}>

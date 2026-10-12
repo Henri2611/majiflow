@@ -20,7 +20,7 @@ export function CtaSection() {
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <AnimatedSection className="flex flex-col items-center gap-5">
             <SectionLabel tone="dark" pulse>
-              The demo is open to browse
+              The build is open to browse
             </SectionLabel>
             <h2 className="font-display text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
               See the whole flow <span className="text-gradient">before you trust it.</span>
@@ -37,7 +37,7 @@ export function CtaSection() {
                   <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>
-              <Link href="/business/demo">
+              <Link href="/business/build">
                 <Button size="lg" variant="dark" className="group w-full sm:w-auto">
                   Preview the dashboard
                   <ArrowRight className="size-4" aria-hidden />

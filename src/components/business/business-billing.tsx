@@ -9,7 +9,7 @@ import { useBusiness } from "@/components/business/business-provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Billing is read-only in this build. Payment providers are not connected, so
+ * Billing is read-only . Payment providers are not connected, so
  * plan changes cannot be performed here and no invoice history exists to show.
  * Rather than simulate a successful switch, the actions are disabled and say so.
  */

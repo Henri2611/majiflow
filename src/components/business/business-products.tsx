@@ -78,7 +78,7 @@ export function BusinessProducts() {
         <Badge variant={availability.state === "open" ? "success" : "muted"}>{availability.hoursLabel}</Badge>
         <p className="text-sm leading-relaxed text-muted-foreground">
           {counts.total} products are validated at checkout against the prices below. Editing the catalog is not wired
-          up in this build.
+          up .
         </p>
       </div>
 

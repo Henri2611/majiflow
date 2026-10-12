@@ -16,7 +16,7 @@ export default function AccountPlans() {
           <span className="text-gradient">what is not billed</span>
         </h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          MajiFlow charges nothing in this build, so your account has no subscription, no invoice
+          MajiFlow charges nothing , so your account has no subscription, no invoice
           history and no payment method on file. The plans below are the station-side pricing model
           the project intends to charge for, with each item marked as included or still planned.
           There is no way to buy one here.
@@ -32,7 +32,7 @@ export default function AccountPlans() {
       </div>
       <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
         These are the plans a station would pay for - <strong className="text-foreground">not</strong>{" "}
-        what you pay for water. There is no recurring refill subscription in this build either: orders
+        what you pay for water. There is no recurring refill subscription  either: orders
         show the delivery fee each station charges, and nothing repeats.
       </p>
     </Container>

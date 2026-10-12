@@ -75,7 +75,7 @@ async function fetchNominatim(lat: number, lng: number): Promise<NominatimRespon
     headers: {
       Accept: "application/json",
       "Accept-Language": "en",
-      "User-Agent": "MajiFlow/0.1 (water delivery demo)",
+      "User-Agent": "MajiFlow/0.1 (MajiFlow)",
     },
     signal: AbortSignal.timeout(6000),
     cache: "no-store",
@@ -111,7 +111,7 @@ async function fetchNearestStreet(
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "User-Agent": "MajiFlow/0.1 (water delivery demo)",
+          "User-Agent": "MajiFlow/0.1 (MajiFlow)",
         },
         body: new URLSearchParams({ data: query }).toString(),
         signal: AbortSignal.timeout(5000),
@@ -157,7 +157,7 @@ async function fetchPhoton(lat: number, lng: number): Promise<PhotonResult | nul
   try {
     const url = `https://photon.komoot.io/reverse?lon=${lng}&lat=${lat}&limit=1`;
     const res = await fetch(url, {
-      headers: { Accept: "application/json", "User-Agent": "MajiFlow/0.1 (water delivery demo)" },
+      headers: { Accept: "application/json", "User-Agent": "MajiFlow/0.1 (MajiFlow)" },
       signal: AbortSignal.timeout(5000),
       cache: "no-store",
     });

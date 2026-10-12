@@ -40,10 +40,10 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                 <span className="absolute inline-flex size-full rounded-full bg-[#0052FF] animate-ping-slow" />
                 <span className="relative inline-flex size-2 rounded-full bg-[#0052FF]" />
               </span>
-              Browse the demo stations
+              Browse the build stations
             </p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] tracking-tight text-foreground sm:text-5xl">
-              Refill stations <span className="text-gradient">in the demo data</span>
+              Refill stations <span className="text-gradient">in the build data</span>
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Six sample stations you can search and filter. Names, prices, fees and ratings are

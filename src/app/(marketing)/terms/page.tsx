@@ -5,12 +5,12 @@ export default function Terms() {
     <ContentPage
       label="Legal"
       title="Terms of Service"
-      description="Placeholder terms for a demo project. Nothing here is a binding agreement, because there is no live service, no payment provider and no accounts behind it."
+      description="Placeholder terms for a build project. Nothing here is a binding agreement, because there is no live service, no payment provider and no accounts behind it."
       updated="Draft"
     >
       <ProseSection title="This is a draft, not a contract">
         <p>
-          MajiFlow is a demonstration project. No company trades under this name, no order is
+          MajiFlow is a buildnstration project. No company trades under this name, no order is
           fulfilled and no money changes hands. These terms exist so the shape of a real agreement is
           visible in the build. They would need legal review before any of it applied to real
           customers, businesses or staff.
@@ -51,7 +51,7 @@ export default function Terms() {
         <p>
           The pricing page shows monthly plans in KES and marks the subscription features that are
           still planned. No plan can be purchased or activated, no trial starts, and no card is
-          requested anywhere in the demo.
+          requested anywhere in the build.
         </p>
       </ProseSection>
 

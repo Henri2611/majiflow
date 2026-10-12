@@ -18,13 +18,13 @@ export function FeaturedBusinesses() {
           <SectionHeading
             align="left"
             className="max-w-xl"
-            label="In the demo data"
+            label="In the build data"
             title={
               <>
                 Refill stations <span className="text-gradient">in the sample set</span>
               </>
             }
-            description="These are the six stations current in the demo. Their names, prices, fees and ratings are sample content rather than real businesses."
+            description="These are the six stations current in the build. Their names, prices, fees and ratings are sample content rather than real businesses."
           />
           <Link href="/browse" className="hidden shrink-0 md:inline-flex">
             <Button size="lg" variant="secondary" className="group">

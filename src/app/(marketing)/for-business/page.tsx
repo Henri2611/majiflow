@@ -54,8 +54,8 @@ const productsInCatalogue = businesses.reduce((total, b) => total + b.products.l
 const citiesSeeded = new Set(businesses.map((b) => b.city)).size;
 
 const numbers = [
-  { value: `${businesses.length}`, label: "stations current in the demo" },
-  { value: `${productsInCatalogue}`, label: "products in the demo catalogue" },
+  { value: `${businesses.length}`, label: "stations current in the build" },
+  { value: `${productsInCatalogue}`, label: "products in the build catalogue" },
   { value: `${citiesSeeded}`, label: "cities those stations cover" },
   { value: "0", label: "payments collected by this build" },
 ];
@@ -72,7 +72,7 @@ export default function ForBusiness() {
             Your station, your prices. <span className="text-gradient">Our storefront.</span>
           </>
         }
-        description="A working demo of the storefront and back office a water refill business would use: a customer-facing page, a dashboard for orders and analytics, and a plan for payments that is not wired up yet."
+        description="A working build of the storefront and back office a water refill business would use: a customer-facing page, a dashboard for orders and analytics, and a plan for payments that is not wired up yet."
       >
         <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/business/register">
@@ -81,7 +81,7 @@ export default function ForBusiness() {
               <ArrowRight className="size-4" aria-hidden />
             </Button>
           </Link>
-          <Link href="/business/demo">
+          <Link href="/business/build">
             <Button size="lg" variant="dark" className="w-full sm:w-auto">
               Open the dashboard
             </Button>
@@ -104,7 +104,7 @@ Platform · no card · nothing is billed
             ))}
           </div>
           <p className="mt-4 text-center text-xs text-slate-400">
-            Counted from the current demo data, not from a live platform.
+            Counted from the current build data, not from a live platform.
           </p>
         </Container>
       </section>
@@ -214,7 +214,7 @@ Platform · no card · nothing is billed
               { n: "01", t: "Create your profile", d: "Business name, location, a short description and a delivery fee." },
               { n: "02", t: "List your products", d: "Cans, bottles, dispensers and prices in KES. Copy from a template if you like." },
               { n: "03", t: "Set delivery zones", d: "Choose estates, delivery fees and free-delivery minimums." },
-              { n: "04", t: "Share the page", d: "The station gets its own URL and appears on the browse page, ready for a demo order." },
+              { n: "04", t: "Share the page", d: "The station gets its own URL and appears on the browse page, ready for a build order." },
             ].map((s) => (
               <StaggerItem key={s.n}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-card">

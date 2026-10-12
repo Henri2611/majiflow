@@ -30,7 +30,7 @@ export function DashboardFeature() {
                   <span className="text-gradient">morning brew</span>, not bookkeeping
                 </>
               }
-              description="Every panel below exists as a page in the station dashboard, filled by the six seeded demo stations. The screenshot is sample data, not a live account."
+              description="Every panel below exists as a page in the station dashboard, filled by the six seeded build stations. The screenshot is sample data, not a live account."
             />
             <div className="mt-4">
               <InfoChip />
@@ -47,9 +47,9 @@ export function DashboardFeature() {
             </Stagger>
             <AnimatedSection delay={0.2} className="mt-9">
               <div className="flex flex-wrap gap-3">
-                <Link href="/business/demo">
+                <Link href="/business/build">
                   <Button size="lg" className="group">
-                    Explore the live demo
+                    Explore the live build
                     <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                   </Button>
                 </Link>
@@ -70,7 +70,7 @@ export function DashboardFeature() {
               <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
                   <LayoutDashboard className="size-4 text-[#0052FF]" aria-hidden />
-                  BioWater Refill Station (demo)
+                  BioWater Refill Station (build)
                 </div>
                 <Badge variant="success">
                   <span className="relative flex size-1.5">
@@ -144,7 +144,7 @@ export function DashboardFeature() {
             </div>
             <div className="absolute -bottom-4 -right-2 hidden max-w-[15rem] rounded-xl border border-border bg-white px-3.5 py-2.5 shadow-card md:flex md:items-center md:gap-2">
               <BellOff className="size-4 text-warning" aria-hidden />
-              <p className="text-xs font-semibold text-foreground">No SMS or rider dispatch in the demo</p>
+              <p className="text-xs font-semibold text-foreground">No SMS or rider dispatch in the build</p>
             </div>
           </AnimatedSection>
         </div>

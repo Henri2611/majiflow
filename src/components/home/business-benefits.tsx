@@ -68,7 +68,7 @@ export function BusinessBenefits() {
                   Run the station from <span className="text-gradient">one dashboard</span>
                 </>
               }
-              description="MajiFlow is a demo of the storefront and back office for water refill businesses. The dashboard pages are browsable with current data, and no payment is collected."
+              description="MajiFlow is a build of the storefront and back office for water refill businesses. The dashboard pages are browsable with current data, and no payment is collected."
             />
             <AnimatedSection from="right" className="mt-8 flex flex-col gap-6">
               <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-success-soft/50 p-4">
@@ -90,7 +90,7 @@ export function BusinessBenefits() {
                 </div>
               </div>
               <div>
-                <Link href="/business/demo">
+                <Link href="/business/build">
                   <Button size="lg" className="group">
                     Preview the dashboard
                     <ArrowRight className="size-4" aria-hidden />

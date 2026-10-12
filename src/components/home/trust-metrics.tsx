@@ -6,16 +6,16 @@ import { businesses } from "@/lib/data/businesses";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 
 /**
- * Counts are read from the seeded demo data rather than typed in, so they stay
+ * Counts are read from the seeded build data rather than typed in, so they stay
  * correct when the data changes and cannot overstate what the build contains.
  */
 const cities = new Set(businesses.map((b) => b.city));
 const products = businesses.reduce((total, b) => total + b.products.length, 0);
 
 const metrics = [
-  { icon: Store, value: businesses.length, label: "Stations in the demo data" },
+  { icon: Store, value: businesses.length, label: "Stations in the build data" },
   { icon: MapPin, value: cities.size, label: "Cities covered by those stations" },
-  { icon: Package, value: products, label: "Products in the demo catalog" },
+  { icon: Package, value: products, label: "Products in the build catalog" },
 ];
 
 export function TrustMetrics() {

@@ -970,9 +970,9 @@ function MpesaOverlay({
               </p>
 
               <fieldset className="mt-5 w-full rounded-xl border border-border bg-muted/40 p-4">
-                <legend className="sr-only">Demo payment controls</legend>
+                <legend className="sr-only">Build payment controls</legend>
                 <p className="mb-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Demo controls
+                  Build controls
                 </p>
                 <div className="flex flex-col gap-2.5">
                   <Button size="lg" className="w-full" disabled={busy} onClick={onSuccess}>
