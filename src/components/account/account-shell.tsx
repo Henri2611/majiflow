@@ -104,22 +104,6 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         />
       ))}
 
-      {/* Refill CTA */}
-      <div className="mt-auto rounded-xl bg-white p-3.5 text-foreground shadow-card">
-        <p className="font-display text-sm">Need a refill?</p>
-        <p className="mt-0.5 text-[11px] leading-snug text-foreground/80">
-          Stations near you deliver in under 60 minutes.
-        </p>
-        <Link
-          href="/browse"
-          onClick={() => setOpen(false)}
-          className="mt-2.5 flex items-center justify-center gap-1.5 rounded-lg bg-transparent px-3 py-1.5 text-xs font-semibold ring-1 ring-white/25 transition-colors hover:bg-white/25"
-        >
-          Order water
-          <span aria-hidden>→</span>
-        </Link>
-      </div>
-
       {/* User card */}
       <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-border bg-white px-3 py-2.5">
         <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white font-display text-sm text-muted-foreground">

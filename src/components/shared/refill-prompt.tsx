@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Truck, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/toast";
-import { Link } from "next/link";
 
 const STORAGE_KEY = "mf:refillPromptDismissed";
 
 export function RefillPrompt() {
   const [show, setShow] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -41,8 +42,8 @@ export function RefillPrompt() {
         role="dialog"
         aria-live="polite"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-5 shadow-xl">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cpath d=%22M50 0 L100 50 L50 100 L0 50 Z%22 fill=%22%23f97316%22 fill-opacity=%220.03%22/%3E%3C/svg%3E')] opacity-20" aria-hidden />
+        <div className="relative overflow-hidden rounded-2xl border border-orange-300 bg-gradient-to-br from-orange-500 via-orange-600 to-amber-700 p-5 shadow-[0_8px_30px_-6px_rgb(249,115,22)]">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cpath d=%22M50 0 L100 50 L50 100 L0 50 Z%22 fill=%22white%22 fill-opacity=%220.05%22/%3E%3C/svg%3E')]" aria-hidden />
           
           <button
             onClick={() => dismiss(true)}
@@ -70,21 +71,23 @@ export function RefillPrompt() {
           </div>
 
           <div className="mt-4 flex gap-2">
-            <Link href="/browse">
-              <Button size="md" className="group flex-1 bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]">
+              <Button
+                size="md"
+                className="group flex-1 bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]"
+                onClick={() => { router.push("/browse"); dismiss(true); }}
+              >
                 Order water
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
               </Button>
-            </Link>
-            <Button
-              size="md"
-              variant="ghost"
-              className="flex-1 text-foreground/70 hover:text-foreground"
-              onClick={() => dismiss(false)}
-            >
-              Not now
-            </Button>
-          </div>
+              <Button
+                size="md"
+                variant="ghost"
+                className="flex-1 text-foreground/70 hover:text-foreground"
+                onClick={() => dismiss(false)}
+              >
+                Not now
+              </Button>
+            </div>
         </div>
       </motion.div>
     </AnimatePresence>
