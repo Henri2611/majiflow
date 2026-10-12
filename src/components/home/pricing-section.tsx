@@ -40,27 +40,27 @@ export function PricingSection() {
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">
-          <div className="flex items-center rounded-xl border border-border bg-transparent p-1 shadow-card" role="group" aria-label="Billing period">
+          <div className="flex items-center rounded-xl border border-border bg-white p-1 shadow-card" role="group" aria-label="Billing period">
             {(["monthly", "annual"] as const).map((b) => (
               <button
                 key={b}
                 onClick={() => setBilling(b)}
                 aria-pressed={billing === b}
-                className={`relative rounded-lg px-4 py-2 text-sm font-semibold transition-colors min-h-11 ${
-                  billing === b ? "text-foreground" : "text-foreground hover:text-foreground"
+                className={`relative rounded-lg px-4 py-2 text-sm font-semibold transition-colors min-h-11 overflow-hidden ${
+                  billing === b ? "text-white" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {billing === b && (
                   <motion.span
                     aria-hidden
                     layoutId="billing-toggle"
-                    className="absolute inset-0 rounded-lg bg-primary shadow-accent"
+                    className="absolute inset-0 rounded-lg bg-primary shadow-accent -z-10"
                   />
                 )}
-                <span className="relative">
+                <span className="relative flex items-center gap-1.5">
                   {b === "monthly" ? "Monthly" : "Annual"}
                   {b === "annual" && (
-                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-transparent/20 text-foreground" : "bg-success/10 text-success"}`}>
+                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-white/20 text-white" : "bg-success/10 text-success"}`}>
                       −17%
                     </span>
                   )}

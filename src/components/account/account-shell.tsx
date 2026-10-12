@@ -153,14 +153,6 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
             </span>
           )}
         </Link>
-        <Link href="/browse" className="hidden sm:inline-flex">
-          <Button className="group min-h-10">
-            Order water
-            <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">
-              →
-            </span>
-          </Button>
-        </Link>
       </div>
     </>
   );
