@@ -47,7 +47,9 @@ export function PricingSection() {
                 onClick={() => setBilling(b)}
                 aria-pressed={billing === b}
                 className={`relative rounded-lg px-4 py-2 text-sm font-semibold transition-colors min-h-11 overflow-hidden ${
-                  billing === b ? "text-white" : "text-muted-foreground hover:text-foreground"
+                  billing === b
+                    ? "text-white"
+                    : "bg-white text-black hover:bg-muted"
                 }`}
               >
                 {billing === b && (
@@ -58,9 +60,13 @@ export function PricingSection() {
                   />
                 )}
                 <span className="relative flex items-center gap-1.5">
-                  {b === "monthly" ? "Monthly" : "Annual"}
+                  {b === "monthly" ? "Monthly" : (
+                    <span className={billing === b ? "text-white" : "text-black"}>
+                      Annual
+                    </span>
+                  )}
                   {b === "annual" && (
-                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-white/20 text-white" : "bg-success/10 text-success"}`}>
+                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold ${billing === b ? "bg-white text-black" : "bg-orange-100 text-orange-900"}`}>
                       −17%
                     </span>
                   )}
