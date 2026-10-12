@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { AlertCircle, Loader2, Navigation, Search } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Input } from "@/components/ui/field";
@@ -29,6 +29,7 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
   const [locationMode, setLocationMode] = useState<LocationMode>("manual");
   const [locating, setLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
+  const locationRequestRef = useRef(0);
 
   const discovery = useMemo(() => {
     const source = locationMode === "current" ? businesses : getBusinessesByCity(city);
@@ -111,13 +112,16 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
         : `stations in ${city}`;
 
   const selectCity = (nextCity: string) => {
+    locationRequestRef.current += 1;
     setCity(nextCity);
     setLocationMode("manual");
     setLocation(nextCity === "All cities" ? null : townLocation(nextCity));
     setLocationError(null);
+    setLocating(false);
   };
 
   const useCurrentLocation = async () => {
+    const requestId = ++locationRequestRef.current;
     setLocating(true);
     setLocationError(null);
     try {
@@ -126,14 +130,18 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
         timeout: 15000,
         maximumAge: 0,
       });
+      if (requestId !== locationRequestRef.current) return;
       setLocation(nextLocation);
       setLocationMode("current");
     } catch (err) {
+      if (requestId !== locationRequestRef.current) return;
       setLocationMode("manual");
       setLocation(city === "All cities" ? null : townLocation(city));
       setLocationError(geolocationErrorMessage(err));
     } finally {
-      setLocating(false);
+      if (requestId === locationRequestRef.current) {
+        setLocating(false);
+      }
     }
   };
 
