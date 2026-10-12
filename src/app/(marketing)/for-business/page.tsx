@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-section";
 import { CtaSection } from "@/components/home/cta-section";
-import { DataNote } from "@/components/shared/info-banner";
+import { DataNotice } from "@/components/shared/top-bar";
 import { businesses } from "@/lib/data/businesses";
 
 const pillars = [
@@ -152,10 +152,10 @@ Platform · no card · nothing is billed
                 description="None of this is a customer quote. The dashboard aggregates the orders recorded for a station, which is why the figures move when an order is placed."
               />
               <div className="mt-6">
-                <DataNote>
+                <DataNotice>
                   The panel on the right is a written example over sample orders, not a real
                   station&apos;s week.
-                </DataNote>
+                </DataNotice>
               </div>
             </div>
             <AnimatedSection>

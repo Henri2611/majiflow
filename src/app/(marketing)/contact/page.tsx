@@ -7,7 +7,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
-import { DataNote } from "@/components/shared/info-banner";
+import { DataNotice } from "@/components/shared/top-bar";
 
 const topics = [
   "I want to order water",
@@ -90,9 +90,9 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-              <DataNote className="mt-6">
+              <DataNotice className="mt-6">
                 The form fields and topics are sample content, nothing more.
-              </DataNote>
+              </DataNotice>
             </div>
 
             <form onSubmit={submit} className="rounded-3xl border border-border bg-white p-6 shadow-layered sm:p-8" aria-label="Contact form">

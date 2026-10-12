@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { CtaSection } from "@/components/home/cta-section";
-import { DataNote } from "@/components/shared/info-banner";
+import { DataNotice } from "@/components/shared/top-bar";
 
 const values = [
   {
@@ -139,9 +139,9 @@ export default function About() {
               notifications and rider dispatch are not part of this one.
             </p>
             <div className="mt-8 flex justify-center">
-              <DataNote>
+              <DataNotice>
                 Sample stations, sample ratings, sample orders. Real code underneath.
-              </DataNote>
+              </DataNotice>
             </div>
           </div>
         </Container>

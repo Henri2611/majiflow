@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { BusinessCard } from "@/components/shared/business-card";
 import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-section";
-import { DataNote } from "@/components/shared/info-banner";
+import { DataNotice } from "@/components/shared/top-bar";
 import { featuredBids } from "@/lib/data/businesses";
 import { CITIES } from "@/lib/constants";
 
@@ -43,7 +43,7 @@ export function FeaturedBusinesses() {
         </Stagger>
 
         <AnimatedSection className="mt-12 flex flex-col items-center gap-4">
-          <DataNote>Sample stations with sample prices and ratings. No real business is listed here, and the search filters on the browse page run over this same current data.</DataNote>
+          <DataNotice>Sample stations with sample prices and ratings. No real business is listed here, and the search filters on the browse page run over this same current data.</DataNotice>
           <div className="flex flex-wrap items-center justify-center gap-2">
           <span className="inline-flex items-center gap-1.5 pr-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
             <MapPin className="size-3.5 text-[#0052FF]" aria-hidden /> Seeded cities

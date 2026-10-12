@@ -2,7 +2,7 @@ import { Quote } from "lucide-react";
 import type { Testimonial } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
-import { InfoBadge } from "@/components/shared/info-banner";
+import { InfoChip } from "@/components/shared/top-bar";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -25,7 +25,7 @@ export function TestimonialCard({ testimonial, className, offset }: TestimonialC
         className="absolute right-6 top-6 size-8 text-[#0052FF]/10 transition-colors group-hover:text-[#0052FF]/20"
         aria-hidden
       />
-      <InfoBadge />
+      <InfoChip />
       <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-foreground/90">
         “{t.quote}”
       </blockquote>
