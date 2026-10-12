@@ -786,7 +786,7 @@ function CheckoutForm() {
 
           {payState === "idle" && (
             <>
-              <Button type="submit" size="lg" className="group mt-4 w-full">
+              <Button type="submit" size="lg" className="group mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]">
                 {method === "mpesa" ? `Pay ${formatKES(total)} with M-Pesa` : `Pay ${formatKES(total)} by card`}
                 <ArrowRight className="size-4" aria-hidden />
               </Button>
@@ -807,7 +807,7 @@ function CheckoutForm() {
               <Button
                 type="button"
                 size="lg"
-                className="group mt-4 w-full"
+                className="group mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]"
                 onClick={startPayment}
                 disabled={submitting}
               >
@@ -951,7 +951,7 @@ function MpesaOverlay({
               <p className="text-xs text-muted-foreground">
                 Enter your M-Pesa PIN and press Send.
               </p>
-              <Button size="lg" className="group mt-3 w-full" disabled={busy} onClick={() => setSent(true)}>
+              <Button size="lg" className="w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]" disabled={busy} onClick={() => setSent(true)}>
                 I&apos;ve confirmed - verify payment
               </Button>
               <button
@@ -975,7 +975,7 @@ function MpesaOverlay({
                   Build controls
                 </p>
                 <div className="flex flex-col gap-2.5">
-                  <Button size="lg" className="w-full" disabled={busy} onClick={onSuccess}>
+                  <Button size="lg" className="w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]" disabled={busy} onClick={onSuccess}>
                     {busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <CheckCircle2 className="size-4" aria-hidden />}
                     {busy ? "Placing your order…" : "Payment received"}
                   </Button>

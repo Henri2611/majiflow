@@ -181,7 +181,7 @@ export function CartPage() {
           </p>
 
           <Link href="/checkout" className="mt-5 block">
-            <Button size="lg" className="group w-full">
+            <Button size="lg" className="group w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]">
               Continue to checkout
               <ArrowRight className="size-4" aria-hidden />
             </Button>
