@@ -16,7 +16,7 @@ const comparison: { feature: string; plans: (string | boolean)[] }[] = [
   { feature: "Orders from the website", plans: [true, true, true] },
   { feature: "M-Pesa checkout", plans: [true, true, true] },
   { feature: "Sales reports from your orders", plans: [true, true, true] },
-  { feature: "Stock alerts", plans: [true, true, true] },
+  { feature: "Stock alerts", plans: [false, true, true] },
   { feature: "Advanced analytics & charts", plans: [false, true, true] },
   { feature: "Promotions dashboard", plans: [false, true, true] },
   { feature: "Staff accounts", plans: [false, "Planned", "Planned"] },
@@ -58,8 +58,8 @@ export function PricingPage() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl border border-success/25 bg-success-soft/50 p-5 text-center sm:flex-row sm:text-left">
-            <ShieldCheck className="size-5 shrink-0 text-success" aria-hidden />
+          <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl border border-border bg-card p-5 text-center shadow-card sm:flex-row sm:text-left">
+            <ShieldCheck className="size-5 shrink-0 text-[#0052FF]" aria-hidden />
             <p className="text-sm leading-relaxed text-foreground/85">
               No surprise fees, ever. You keep the full KES price customers pay, and you can cancel
               any time.

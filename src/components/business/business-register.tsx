@@ -3,19 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
-  ArrowLeft,
-  ArrowRight,
-  Building2,
-  Check,
-  CreditCard,
-  Loader2,
-  MapPin,
-  MapPinCheck,
-  Navigation,
-  PartyPopper,
-  Store,
-  TriangleAlert,
-} from "lucide-react";
+  ArrowLeft, Building2, Check, CreditCard, Loader2, MapPin, MapPinCheck, Navigation, PartyPopper, Store, TriangleAlert } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
@@ -362,7 +350,6 @@ export function BusinessRegister() {
             <Link href="/business">
               <Button size="lg" className="group w-full sm:w-auto">
                 Open my dashboard
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
             <Link href="/business">
@@ -801,12 +788,10 @@ export function BusinessRegister() {
                 disabled={step === 1 && !draft.location && !locationError}
               >
                 Continue
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             ) : (
               <Button size="lg" className="group" onClick={submit}>
                 Start free trial
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             )}
           </div>

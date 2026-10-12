@@ -1,42 +1,66 @@
 # MajiFlow
 
-MajiFlow is a demonstration project for ordering drinking water from refill stations. It is built with Next.js 16 (App Router), TypeScript (strict), Tailwind v4, framer-motion and Leaflet. It shows how a real codebase can read seeded station data, build carts with per-station delivery fees, place and track orders, and present dashboards - without claiming a live service.
+MajiFlow is a marketplace for ordering drinking water from independent refill
+stations. Customers browse stations near them, build a cart with a per-station
+delivery fee, check out, and track the delivery; stations get a storefront and a
+dashboard to take orders, manage their catalogue and see their numbers.
 
-## What works
+It is a single Next.js app with no external database - orders are stored as JSON
+on disk - so it runs anywhere with a Node runtime and a writable data directory.
 
-- **Seeded stations and products**: Six refill stations across Nairobi, Nyali, Kisumu, Eldoret, Thika and Mombasa, each with products, prices, delivery fee, free-delivery minimum and opening hours.
-- **Browse and station pages**: Static pages generated from seeded data; each station page shows products, delivery rule and hours.
-- **Cart and checkout**: Cart groups items by station and charges each station's delivery fee separately. Checkout totals use `computeCartTotals` (same logic as cart). The checkout step labels the payment as simulated.
-- **Orders API and tracking**: `POST /api/orders`, `GET /api/orders/[id]`, and `POST /api/orders/[id]/location` store and update orders in a JSON data directory. You can follow an order from "placed" through "accepted" and "delivered".
-- **Business dashboards**: Station dashboards (orders, customers, billing, products, settings, analytics) read from the same seeded data and the stored orders, so counts and tables come from real records.
-- **Pricing pages**: Show station-side plan model with what is included and what is planned. No billing runs in this build.
-- **Monitoring hooks**: `src/lib/monitoring.ts` records order/payment/notification failures and status changes when used by the routes.
+## Features
 
-## What is simulated (not implemented)
+### Customers
+- Browse and search refill stations by city, estate or name.
+- Station pages with products, prices, delivery fee, opening hours and live
+  open/closed status.
+- A cart that groups items by station and charges each station's own delivery
+  fee and free-delivery minimum.
+- Checkout with M-Pesa or card, a saved profile and delivery addresses, and
+  optional live-location sharing for the rider.
+- Order tracking from placed through accepted, out for delivery and delivered.
 
-- **Payments**: M-Pesa/card flows are not connected. Checkout shows a simulated payment option; no STK push, no charge and no payout happens.
-- **Notifications**: No SMS, WhatsApp or email is sent. Notification-related code records status changes but does not call an external provider.
-- **Dispatch/riders**: No rider assignment, no live ETA and no delivery is fulfilled.
-- **Accounts/auth in production sense**: The account pages create a local profile in `localStorage` only. No credentials are verified or stored server-side.
-- **Messaging/support**: The contact form validates input but does not submit anywhere.
+### Stations
+- A dashboard with an overview, orders, products, customers, analytics,
+  promotions, staff, billing and settings.
+- Analytics computed from the station's own stored orders: revenue, repeat rate,
+  best sellers and stock alerts.
+- A public storefront page per station.
 
-All pages that touch these areas say so explicitly.
+### Platform
+- A control room listing every station, its plan, monthly fee and catalogue size.
+
+## Tech stack
+
+- **Next.js 16** (App Router, Turbopack) and **React 19**
+- **TypeScript** in strict mode
+- **Tailwind CSS v4** with design tokens in `src/app/globals.css`
+- **framer-motion** for the hero and a few transitions
+- **Leaflet** for the live order map (loaded on demand)
+- **Vitest** for tests
 
 ## Getting started
 
 ```bash
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). If `pnpm` is not on PATH,
+use `corepack pnpm`. Do not commit `package-lock.json` (this repo uses pnpm).
 
-If `pnpm` is not on PATH, use `corepack pnpm` for install scripts. Do not commit `package-lock.json`.
+## Scripts
 
-## Data directory
+| Command | What it does |
+| --- | --- |
+| `pnpm dev` | Start the dev server |
+| `pnpm build` | Production build |
+| `pnpm start` | Run the production build |
+| `pnpm lint` | ESLint over `src` |
+| `pnpm test` | Run the Vitest suite once |
+| `pnpm test:watch` | Run Vitest in watch mode |
 
-Orders are persisted as JSON files. By default they go under `.mf-data/` in the project root when running locally. Tests set `MF_DATA_DIR` to a fresh temp directory per test.
-
-## Tests, lint, typecheck, build
+Release order (see `RELEASE.md`): typecheck → lint → test → build.
 
 ```bash
 npx tsc --noEmit
@@ -45,13 +69,66 @@ npx vitest run
 npx next build
 ```
 
-CI order (as in RELEASE.md): typecheck → lint → test → build.
+## Configuration
+
+All variables are optional; without them the app runs and logs to stderr.
+
+| Variable | Purpose |
+| --- | --- |
+| `MF_DATA_DIR` | Directory for `orders.json`. Defaults to `.data` in the repo. Point it at a mounted volume in production. |
+| `MF_ALERT_WEBHOOK_URL` | Where order, payment, notification, store and geocode failures are POSTed. Without it, failures go to stderr only. |
+| `MF_NOTIFY_WEBHOOK_URL` | Provider that sends order-status messages to customers. |
+| `NEXT_PUBLIC_SITE_URL` | Absolute site URL used for metadata. Defaults to `http://localhost:3000`. |
+
+## Data
+
+Orders are persisted as JSON in `MF_DATA_DIR` (default `.data/orders.json`).
+Reads and writes are serialized through a single queue, and orders are validated
+server-side (totals are recomputed, never trusted from the client). Tests point
+`MF_DATA_DIR` at a fresh temporary directory so they never touch real orders.
+
+## Project structure
+
+```
+src/
+  app/                 routes (marketing, account, business shell, admin, api)
+  components/          UI by area: home, shared, order, business, account, admin, ui
+  lib/
+    data/              seeded stations, plans and FAQs
+    server/            file-backed order store
+    analytics.ts       station analytics (pure functions)
+    business-hours.ts  opening hours and availability
+    pricing.ts         cart totals
+    orders.ts          client over the orders API
+```
+
+## Deploying
+
+The app is stateless apart from the order file, so any Node host works:
+
+1. Set `MF_DATA_DIR` to a persistent volume.
+2. Set `MF_ALERT_WEBHOOK_URL` (and `MF_NOTIFY_WEBHOOK_URL` if you have a
+   messaging provider) so failures and status changes are reported.
+3. Build and run:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm build
+pnpm start
+```
+
+Rolling back is a redeploy of the previous build; keep the data volume.
+
+## PWA
+
+MajiFlow ships a web app manifest (`src/app/manifest.ts`) and a service worker
+(`public/sw.js`) so it can be installed to a phone home screen and keeps a light
+offline fallback. The worker is registered in production builds only.
 
 ## Conventions
 
-- Next.js 16.3.5, React 19, strict TypeScript.
 - Path alias `@/*` → `./src/*`.
-- Use `vi.useFakeTimers({ toFake: ["Date"] })` and `vi.setSystemTime` in tests (order guard reads wall clock).
-- Avoid em-dashes (`-`). The repo uses `&apos;` for apostrophes in JSX when needed.
-- `AGENTS.md` is machine-generated by `next dev` - do not hand-edit it.
-- Only Vitest for testing; no Playwright/E2E.
+- No em-dashes; JSX uses `&apos;` for apostrophes.
+- Tests use `vi.useFakeTimers({ toFake: ["Date"] })` with `vi.setSystemTime`,
+  because the order guard reads the wall clock.
+- `AGENTS.md` is generated by `next dev`; do not hand-edit it.

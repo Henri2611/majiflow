@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -28,7 +28,6 @@ export function FeaturedBusinesses() {
           <Link href="/browse" className="hidden shrink-0 md:inline-flex">
             <Button size="lg" variant="secondary" className="group">
               Browse all stations
-              <ArrowRight className="size-4" aria-hidden />
             </Button>
           </Link>
         </div>

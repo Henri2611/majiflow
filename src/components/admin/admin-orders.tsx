@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Clock, MapPin, Phone, Radio, Truck } from "lucide-react";
+import { Clock, MapPin, Phone, Radio, Truck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { OrderStatusBadge } from "@/components/ui/order-status-badge";
 import { LoadingState } from "@/components/ui/feedback";
@@ -156,7 +156,7 @@ export function AdminOrders() {
                     className="inline-flex items-center gap-1.5 rounded-xl border border-[#0052FF]/30 bg-transparent/5 px-3 py-2 text-xs font-semibold text-[#0052FF] hover:bg-transparent/10"
                     aria-label={`Track order ${o.orderNumber}`}
                   >
-                    Track <ArrowRight className="size-3.5" aria-hidden />
+                    Track
                   </Link>
                 </div>
               </li>

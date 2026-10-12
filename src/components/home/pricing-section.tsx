@@ -5,22 +5,12 @@ import { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { PricingCard } from "@/components/shared/pricing-card";
-import { useToast } from "@/components/ui/toast";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { plans } from "@/lib/data/plans";
-import type { Plan } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 export function PricingSection() {
   const [annual, setAnnual] = useState(true);
-  const { toast } = useToast();
-
-  const choose = (plan: Plan) =>
-    toast({
-      kind: plan.highlighted ? "success" : "info",
-      title: `${plan.name} selected`,
-      message: "Start your 14-day free trial and set up billing whenever you are ready.",
-    });
 
   return (
     <section className="py-20 lg:py-28">
@@ -42,7 +32,7 @@ export function PricingSection() {
         <Stagger className="mt-10 grid gap-5 lg:grid-cols-3" stagger={0.08}>
           {plans.map((plan) => (
             <StaggerItem key={plan.id}>
-              <PricingCard plan={plan} annual={annual} onChoose={choose} />
+              <PricingCard plan={plan} annual={annual} />
             </StaggerItem>
           ))}
         </Stagger>
@@ -50,7 +40,7 @@ export function PricingSection() {
         <p className="mt-8 text-center text-sm text-muted-foreground">
           No setup fees and no commission on orders.{" "}
           <Link href="/pricing" className="font-semibold text-[#0052FF] hover:underline">
-            Compare plans →
+            Compare plans
           </Link>
         </p>
       </Container>

@@ -42,11 +42,12 @@ export function useStationOrders(
   const [error, setError] = useState(false);
   const [delayed, setDelayed] = useState(false);
   const [nonce, setNonce] = useState(0);
-
   useEffect(() => {
     let alive = true;
 
     const tick = async () => {
+      // Skip background polls while the tab is hidden to save work.
+      if (typeof document !== "undefined" && document.hidden) return;
       const slowTimer = window.setTimeout(() => {
         if (alive) setDelayed(true);
       }, SLOW_FETCH_MS);
@@ -70,10 +71,15 @@ export function useStationOrders(
     };
   }, [business.id, pollMs, nonce]);
 
+  const stats = useMemo(
+    () => (orders ? summarizeStation(business, orders, range) : null),
+    [business, orders, range]
+  );
+
   return {
     range,
     orders,
-    stats: orders ? summarizeStation(business, orders, range) : null,
+    stats,
     loading: orders === null && !error,
     delayed,
     error,

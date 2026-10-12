@@ -75,7 +75,6 @@ export function RefillPrompt() {
                 onClick={() => { router.push("/browse"); dismiss(true); }}
               >
                 Order water
-                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
               </Button>
               <Button
                 size="md"

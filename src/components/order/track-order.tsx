@@ -3,17 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
-  ArrowRight,
-  CheckCircle2,
-  Clock,
-  Inbox,
-  MapPin,
-  Phone,
-  RefreshCcw,
-  Smartphone,
-  Truck,
-  XCircle,
-} from "lucide-react";
+  CheckCircle2, Clock, Inbox, MapPin, Phone, RefreshCcw, Smartphone, Truck, XCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -136,7 +126,6 @@ export function TrackOrderPage({ id }: { id: string }) {
               <Link href="/browse">
                 <Button className="group">
                   Find another station
-                  <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>
               <Button variant="secondary" onClick={(e) => reorder(e.currentTarget)}>
@@ -289,7 +278,6 @@ export function TrackOrderPage({ id }: { id: string }) {
             <Link href="/account/orders" className="flex-1">
               <Button className="group w-full">
                 View all orders
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
           </div>

@@ -1,20 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import {
-  AlertTriangle,
-  ArrowDownRight,
-  ArrowUpRight,
-  BadgeCheck,
-  Boxes,
-  CheckCircle2,
-  Package,
-  RefreshCw,
-  Repeat,
-  TrendingUp,
-  Users,
-} from "lucide-react";
+  AlertTriangle, ArrowDownRight, ArrowUpRight, BadgeCheck, Boxes, CheckCircle2, Package, RefreshCw, Repeat, TrendingUp, Users } from "lucide-react";
 import { OrderStatusBadge } from "@/components/ui/order-status-badge";
 import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState, LoadingState } from "@/components/ui/feedback";
@@ -24,19 +13,12 @@ import { useBusiness } from "@/components/business/business-provider";
 import { useStationOrders } from "@/lib/use-station-orders";
 import { updateOrder } from "@/lib/orders";
 import { cn } from "@/lib/utils";
-import { motion, useInView } from "framer-motion";
 import type { Order } from "@/lib/types";
 
 export function DashboardOverview() {
   const { business } = useBusiness();
   const { orders, stats, loading, delayed, error, refresh } = useStationOrders(business, "7d");
   const [busyId, setBusyId] = useState<string | null>(null);
-  const chartRef = useRef<HTMLDivElement>(null);
-  const stockRef = useRef<HTMLDivElement>(null);
-  const popularRef = useRef<HTMLDivElement>(null);
-  const chartInView = useInView(chartRef, { once: true, amount: 0.3 });
-  const stockInView = useInView(stockRef, { once: true, amount: 0.3 });
-  const popularInView = useInView(popularRef, { once: true, amount: 0.3 });
 
   /** Today's totals come from the station-local day, not the 7 day window. */
   const today = useMemo(
@@ -139,33 +121,29 @@ export function DashboardOverview() {
 
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
         {/* Chart */}
-        <section ref={chartRef} className="rounded-2xl border border-border bg-white p-6 shadow-card">
-          <div className="flex items-center justify-between">
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="font-display text-lg text-foreground">Revenue, last 7 days</h2>
               <p className="text-sm text-muted-foreground">Goods subtotal · M-Pesa and card orders</p>
             </div>
-            <Link href="/business/analytics" className="text-sm font-semibold text-[#0052FF] hover:underline">
-              Analytics →
+            <Link href="/business/analytics">
+              <Button variant="secondary" size="sm" className="group gap-1.5">
+                Analytics
+              </Button>
             </Link>
           </div>
           {stats.buckets.length === 0 ? (
             <p className="py-16 text-center text-sm text-muted-foreground">No revenue to chart yet.</p>
           ) : (
             <div className="mt-8 flex h-44 items-end gap-3 sm:gap-4">
-              {stats.buckets.map((c, i) => (
+              {stats.buckets.map((c) => (
                 <div key={c.key} className="group flex flex-1 flex-col items-center gap-2">
                   <div className="relative flex w-full flex-1 items-end">
-                    <motion.div
-                      style={{
-                        height: `${(c.revenue / maxRevenue) * 100}%`,
-                        transformOrigin: "bottom",
-                      }}
-                      initial={chartInView ? { scaleY: 0 } : false}
-                      animate={chartInView ? { scaleY: 1 } : { scaleY: 1 }}
-                      transition={{ delay: 0.08 * i, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full rounded-t-lg bg-foreground opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-accent"
-                      title={`${formatKES(c.revenue)}`}
+                    <div
+                      className="w-full rounded-t-lg bg-foreground/80 transition-colors group-hover:bg-foreground"
+                      style={{ height: `${(c.revenue / maxRevenue) * 100}%` }}
+                      title={formatKES(c.revenue)}
                     />
                     <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-2 py-1 font-mono text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
                       {formatKES(c.revenue)}
@@ -179,13 +157,15 @@ export function DashboardOverview() {
         </section>
 
         {/* Stock alerts */}
-        <section ref={stockRef} className="rounded-2xl border border-border bg-white p-6 shadow-card">
-          <div className="flex items-center justify-between">
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
-              <AlertTriangle className="size-5 text-warning" aria-hidden /> Stock alerts
+              <AlertTriangle className="size-5 text-foreground" aria-hidden /> Stock alerts
             </h2>
-            <Link href="/business/products" className="text-sm font-semibold text-[#0052FF] hover:underline">
-              Manage →
+            <Link href="/business/products">
+              <Button variant="secondary" size="sm" className="group gap-1.5">
+                Manage
+              </Button>
             </Link>
           </div>
           {stats.stockAlerts.length === 0 ? (
@@ -194,7 +174,7 @@ export function DashboardOverview() {
             </p>
           ) : (
             <ul className="mt-5 space-y-4">
-              {stats.stockAlerts.map((a, i) => (
+              {stats.stockAlerts.map((a) => (
                 <li key={a.id} className="flex items-center justify-between gap-3">
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium text-foreground">{a.name}</p>
@@ -203,34 +183,27 @@ export function DashboardOverview() {
                     </p>
                   </div>
                   <div className="h-2 w-20 shrink-0 overflow-hidden rounded-full bg-muted">
-                    <motion.div
-                      style={{
-                        width: `${Math.min(100, (a.stock / Math.max(1, a.threshold)) * 100)}%`,
-                        transformOrigin: "left",
-                      }}
-                      initial={stockInView ? { scaleX: 0 } : false}
-                      animate={stockInView ? { scaleX: 1 } : { scaleY: 1 }}
-                      transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    <div
                       className={cn("h-full rounded-full", a.stock / Math.max(1, a.threshold) < 0.6 ? "bg-danger" : "bg-foreground")}
+                      style={{ width: `${Math.min(100, (a.stock / Math.max(1, a.threshold)) * 100)}%` }}
                     />
                   </div>
                 </li>
               ))}
             </ul>
           )}
-          <div className="mt-5 rounded-xl bg-transparent/10 p-3 text-xs leading-relaxed text-foreground/75">
-            Reorder points come from your menu in <code className="font-mono">src/lib/data/businesses.ts</code>.
-          </div>
         </section>
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
         {/* Recent orders */}
-        <section className="rounded-2xl border border-border bg-white shadow-card">
-          <div className="flex items-center justify-between border-b border-border px-6 py-4">
+        <section className="rounded-2xl border border-border bg-card shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-6 py-4">
             <h2 className="font-display text-lg text-foreground">Latest orders</h2>
-            <Link href="/business/orders" className="text-sm font-semibold text-[#0052FF] hover:underline">
-              All orders →
+            <Link href="/business/orders">
+              <Button variant="secondary" size="sm" className="group gap-1.5">
+                All orders
+              </Button>
             </Link>
           </div>
           {recent.length === 0 ? (
@@ -270,13 +243,15 @@ export function DashboardOverview() {
         </section>
 
         {/* Best sellers */}
-        <section ref={popularRef} className="rounded-2xl border border-border bg-white p-6 shadow-card">
-          <div className="flex items-center justify-between">
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
-              <BadgeCheck className="size-5 text-[#0052FF]" aria-hidden /> Best sellers
+              <BadgeCheck className="size-5 text-foreground" aria-hidden /> Best sellers
             </h2>
-            <Link href="/business/analytics" className="text-sm font-semibold text-[#0052FF] hover:underline">
-              Analytics →
+            <Link href="/business/analytics">
+              <Button variant="secondary" size="sm" className="group gap-1.5">
+                Analytics
+              </Button>
             </Link>
           </div>
           {stats.topProducts.length === 0 ? (
@@ -294,15 +269,9 @@ export function DashboardOverview() {
                   </div>
                   <div className="mt-1.5 flex items-center gap-2">
                     <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
-                      <motion.div
-                        style={{
-                          width: `${(p.revenue / maxProduct) * 100}%`,
-                          transformOrigin: "left",
-                        }}
-                        initial={popularInView ? { scaleX: 0 } : false}
-                        animate={popularInView ? { scaleX: 1 } : { scaleX: 1 }}
-                        transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      <div
                         className="h-full rounded-full bg-foreground"
+                        style={{ width: `${(p.revenue / maxProduct) * 100}%` }}
                       />
                     </div>
                     <span className="font-mono text-[11px] text-muted-foreground">{p.quantity} sold</span>
@@ -312,7 +281,7 @@ export function DashboardOverview() {
             </ul>
           )}
           <div className="mt-6 flex items-start gap-3 rounded-xl bg-muted/50 p-4">
-            <Users className="mt-0.5 size-4.5 shrink-0 text-[#0052FF]" aria-hidden />
+            <Users className="mt-0.5 size-4.5 shrink-0 text-foreground" aria-hidden />
             <p className="text-xs leading-relaxed text-muted-foreground">
               <strong className="text-foreground">
                 {stats.customers.filter((c) => c.status === "dormant").length} dormant customers
@@ -324,7 +293,7 @@ export function DashboardOverview() {
       </div>
 
       <p className="flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
-        <CheckCircle2 className="size-3.5 text-success" aria-hidden />
+        <CheckCircle2 className="size-3.5 text-foreground" aria-hidden />
         Live totals from this station&apos;s orders · {stats.orderCount} in the last 7 days
       </p>
     </div>
@@ -342,7 +311,7 @@ function Header({ business, delayed }: { business: string; delayed?: boolean }) 
         </p>
       </div>
       {delayed && (
-        <p role="status" className="flex items-center gap-2 rounded-xl border border-warning/25 bg-transparent/10 px-3 py-2 text-xs text-foreground/80">
+        <p role="status" className="flex items-center gap-2 rounded-xl border border-warning/25 bg-muted px-3 py-2 text-xs text-foreground/80">
           <RefreshCw className="size-3.5 animate-spin" aria-hidden /> Still loading - the store is taking longer than
           usual.
         </p>
@@ -375,9 +344,9 @@ function KpiCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-white p-5 shadow-card">
+    <div className="rounded-2xl border border-border bg-card p-5 shadow-card">
       <div className="flex items-center justify-between">
-        <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-neutral-100 text-black">
           <Icon className="size-4.5" aria-hidden />
         </span>
         {positive && (
@@ -389,7 +358,7 @@ function KpiCard({
       <p className="mt-3 font-display text-2xl text-foreground">{value}</p>
       <p className="text-xs font-medium text-muted-foreground">{label}</p>
       <p className="mt-1.5 flex items-center gap-1 text-[11px] text-muted-foreground/80">
-        {!positive && <ArrowDownRight className="size-3 text-[#0052FF]" aria-hidden />}
+        {!positive && <ArrowDownRight className="size-3 text-muted-foreground" aria-hidden />}
         {delta}
       </p>
       <p className="mt-1 text-[11px] text-muted-foreground/70">{hint}</p>

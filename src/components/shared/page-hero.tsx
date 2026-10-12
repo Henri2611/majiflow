@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { SectionLabel } from "@/components/ui/section-label";
 import { Container } from "@/components/ui/container";
 import { AnimatedSection } from "@/components/ui/animated-section";
 
@@ -17,8 +16,6 @@ interface PageHeroProps {
 
 /** Sticky-style page hero used across inner marketing pages. */
 export function PageHero({
-  label,
-  pulseLabel,
   title,
   description,
   children,
@@ -59,11 +56,6 @@ export function PageHero({
             align === "center" && "mx-auto max-w-3xl"
           )}
         >
-          {label && (
-            <SectionLabel pulse={pulseLabel} tone={tone === "dark" ? "dark" : "light"}>
-              {label}
-            </SectionLabel>
-          )}
           <h1
             className={cn(
               "font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-[3.25rem]",

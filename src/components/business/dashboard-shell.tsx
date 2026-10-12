@@ -22,6 +22,7 @@ import {
 import { BrandMark } from "@/components/layout/brand-mark";
 import { WaterDrawer } from "@/components/ui/water-drawer";
 import { MobileTabBar } from "@/components/layout/mobile-tab-bar";
+import { PageTransition } from "@/components/layout/page-transition";
 import { BusinessProvider, useBusiness } from "@/components/business/business-provider";
 import { businesses } from "@/lib/data/businesses";
 import { cn } from "@/lib/utils";
@@ -180,7 +181,9 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
         <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border bg-white/80 px-4 backdrop-blur-md sm:px-6">
           {header}
         </header>
-        <main className="p-4 pb-24 sm:p-6 lg:pb-6">{children}</main>
+        <main className="p-4 pb-24 sm:p-6 lg:pb-6">
+          <PageTransition>{children}</PageTransition>
+        </main>
       </div>
 
       <MobileTabBar

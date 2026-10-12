@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, Coins, PackagePlus, Store, Users } from "lucide-react";
+import { BarChart3, Coins, PackagePlus, Store, Users } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -68,7 +68,6 @@ export default function ForBusiness() {
           <Link href="/business/register">
             <Button size="lg" className="group w-full sm:w-auto">
               Create your station
-              <ArrowRight className="size-4" aria-hidden />
             </Button>
           </Link>
           <Link href="/business">
@@ -77,9 +76,6 @@ export default function ForBusiness() {
             </Button>
           </Link>
         </div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          No setup fees · Cancel any time
-        </p>
       </PageHero>
 
       <section className="py-12">
@@ -166,7 +162,6 @@ export default function ForBusiness() {
             <Link href="/business/register">
               <Button size="lg" className="group">
                 Create your station
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
           </div>

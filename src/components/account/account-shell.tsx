@@ -21,6 +21,7 @@ import {
 import { BrandMark } from "@/components/layout/brand-mark";
 import { WaterDrawer } from "@/components/ui/water-drawer";
 import { MobileTabBar } from "@/components/layout/mobile-tab-bar";
+import { PageTransition } from "@/components/layout/page-transition";
 import waterLiquid from "@/assets/images/backdrops/water-liquid.webp";
 import { useCart } from "@/components/order/cart-provider";
 import { useCustomer } from "@/components/order/customer-provider";
@@ -197,7 +198,9 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
           {header}
         </header>
 
-        <main className="relative p-4 pb-24 sm:p-6 lg:pb-6">{children}</main>
+        <main className="relative p-4 pb-24 sm:p-6 lg:pb-6">
+          <PageTransition>{children}</PageTransition>
+        </main>
 
         <footer className="relative border-t border-border bg-white/60">
           <div className="mx-auto flex max-w-[80rem] flex-wrap items-center justify-between gap-4 px-4 pb-24 pt-3 text-xs text-foreground sm:px-6 lg:pb-3">

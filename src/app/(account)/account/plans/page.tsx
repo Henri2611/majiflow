@@ -8,14 +8,11 @@ export default function AccountPlans() {
   return (
     <Container className="py-6 lg:py-8">
       <div className="mb-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          Billing
-        </p>
-        <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
+        <h1 className="font-display text-3xl text-foreground sm:text-4xl">
           Plans and{" "}
           <span className="text-gradient">station billing</span>
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-foreground/80">
           Refill businesses subscribe to a monthly plan to sell on MajiFlow, and customers are never
           billed for using the platform. Every plan starts with a 14-day free trial, and each item
           is marked as included today or planned next.

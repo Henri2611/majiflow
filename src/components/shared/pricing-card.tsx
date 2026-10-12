@@ -1,6 +1,7 @@
 "use client";
 
-import { Check, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Check } from "lucide-react";
 import type { Plan } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -9,11 +10,12 @@ import { Button } from "@/components/ui/button";
 interface PricingCardProps {
   plan: Plan;
   annual: boolean;
-  onChoose?: (plan: Plan) => void;
+  /** Where the CTA sends the visitor; defaults to the business sign-up. */
+  href?: string;
   className?: string;
 }
 
-export function PricingCard({ plan, annual, onChoose, className }: PricingCardProps) {
+export function PricingCard({ plan, annual, href = "/business/register", className }: PricingCardProps) {
   const price = annual ? plan.annualPrice / 12 : plan.monthlyPrice;
   const highlighted = Boolean(plan.highlighted);
 
@@ -57,16 +59,16 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
         </p>
       )}
 
-      <Button
-        size="lg"
-        variant={highlighted ? "default" : "secondary"}
-        onClick={() => onChoose?.(plan)}
-        className="group mt-5 w-full"
-        aria-label={`Start the ${plan.name} plan`}
-      >
-        {plan.cta}
-        <ArrowRight className="size-4" aria-hidden />
-      </Button>
+      <Link href={href} className="mt-5 block">
+        <Button
+          size="lg"
+          variant={highlighted ? "default" : "secondary"}
+          className="w-full"
+          aria-label={`Start the ${plan.name} plan`}
+        >
+          {plan.cta}
+        </Button>
+      </Link>
     </div>
   );
 }

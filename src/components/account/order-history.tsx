@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, PackageOpen } from "lucide-react";
+import { PackageOpen } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { OrderStatusBadge, PAYMENT_STATE_META } from "@/components/ui/order-status-badge";
 import { Badge } from "@/components/ui/badge";
@@ -43,7 +43,6 @@ export function OrderHistoryPage() {
             <Link href="/browse">
               <Button className="group">
                 Start an order
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
           }
@@ -85,7 +84,7 @@ export function OrderHistoryPage() {
                           href={`/order/${o.id}`}
                           className="inline-flex items-center gap-1.5 font-semibold text-[#0052FF] hover:underline"
                         >
-                          Track <ArrowRight className="size-3.5" aria-hidden />
+                          Track
                         </Link>
                       </td>
                     </tr>

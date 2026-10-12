@@ -21,6 +21,13 @@ lint second, tests third, and the build last. `vitest run` uses a throwaway
 directory (`MF_DATA_DIR`), so it never reads or writes the `.data` folder a
 developer or a running server is using.
 
+## Legal copy
+
+The Terms of Service and Privacy Policy are versioned by a single date,
+`LEGAL_UPDATED` in `src/lib/constants.ts`. Whenever either page's copy changes,
+bump that constant so both pages show the same "Last updated" date, and keep the
+two documents consistent with what the app actually does.
+
 ## Smoke test on the release candidate
 
 Walk this path on a deployed build, on a phone-sized viewport:

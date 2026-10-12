@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BarChart3,
-  MessageSquare,
-  Store,
-  Users,
-} from "lucide-react";
+import { BarChart3, MessageSquare, Store, Users } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -93,13 +87,12 @@ export function BusinessBenefits() {
                 <Link href="/business">
                   <Button size="lg" className="group">
                     Open the dashboard
-                    <ArrowRight className="size-4" aria-hidden />
                   </Button>
                 </Link>
                 <p className="mt-3 text-sm text-muted-foreground">
                   No setup fees, and you can cancel any time.{" "}
                   <Link href="/pricing" className="font-semibold text-[#0052FF] hover:underline">
-                    See plans →
+                    See plans
                   </Link>
                 </p>
               </div>

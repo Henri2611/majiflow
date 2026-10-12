@@ -3,16 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle2,
-  Clock,
-  MapPin,
-  Phone,
-  Radio,
-  Truck,
-  XCircle,
-} from "lucide-react";
+  ArrowLeft, CheckCircle2, Clock, MapPin, Phone, Radio, Truck, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { OrderStatusBadge } from "@/components/ui/order-status-badge";
@@ -309,7 +300,7 @@ export function OrderDetailView({
                   onClick={() => void setStatus(nextStatus(order.status))}
                   disabled={nextStatus(order.status) === order.status}
                 >
-                  Advance step <ArrowRight className="size-4" aria-hidden />
+                  Advance step
                 </Button>
               </div>
             )}

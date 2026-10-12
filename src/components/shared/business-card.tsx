@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MapPin, Star, Truck } from "lucide-react";
+import { MapPin, Star, Truck } from "lucide-react";
 import type { Business } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -74,7 +74,6 @@ export function BusinessCard({ business, className }: BusinessCardProps) {
 
             <span className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-white px-4 py-2.5 text-sm font-semibold text-foreground transition-colors group-hover:border-[#0052FF]/40 group-hover:text-[#0052FF]">
               View menu
-              <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
             </span>
           </div>
         </div>

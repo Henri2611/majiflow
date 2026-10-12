@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, Clock, MapPin, PackageCheck, Plus, Recycle, Wallet } from "lucide-react";
+import { Clock, MapPin, PackageCheck, Plus, Recycle, Wallet } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { OrderStatusBadge } from "@/components/ui/order-status-badge";
@@ -60,7 +60,6 @@ export function AccountPage() {
           <Link href="/browse">
             <Button className="group">
               Order water
-              <ArrowRight className="size-4" aria-hidden />
             </Button>
           </Link>
         </div>
@@ -92,8 +91,10 @@ export function AccountPage() {
         <section>
           <div className="flex items-center justify-between">
             <h2 className="font-display text-xl text-foreground">Recent orders</h2>
-            <Link href="/account/orders" className="text-sm font-semibold text-[#0052FF] hover:underline">
-              View all →
+            <Link href="/account/orders">
+              <Button variant="secondary" size="sm" className="group gap-1.5">
+                View all
+              </Button>
             </Link>
           </div>
           {!loaded ? (
@@ -148,8 +149,10 @@ export function AccountPage() {
         <section>
           <div className="flex items-center justify-between">
             <h2 className="font-display text-xl text-foreground">Saved addresses</h2>
-            <Link href="/account/addresses" className="text-sm font-semibold text-[#0052FF] hover:underline">
-              Manage →
+            <Link href="/account/addresses">
+              <Button variant="secondary" size="sm" className="group gap-1.5">
+                Manage
+              </Button>
             </Link>
           </div>
           <div className="mt-4 flex flex-col gap-3">
@@ -196,7 +199,6 @@ export function AccountPage() {
               <Link href={`/order/${orders[0].id}`} className="mt-3 inline-flex">
                 <Button variant="outline" size="sm" className="group">
                   Reorder - {formatKES(orders[0].total)}
-                  <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>
             </div>

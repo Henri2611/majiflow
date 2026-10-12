@@ -103,7 +103,7 @@ export default function About() {
           <Stagger className="mx-auto mt-12 max-w-2xl" stagger={0.1}>
             {timeline.map((t) => (
               <StaggerItem key={t.marker}>
-                <div className="relative flex gap-5 pb-8 last:pb-0">
+                <div className="relative flex gap-6 pb-14 last:pb-0">
                   <div className="flex flex-col items-center">
                     <span className="z-10 flex size-10 shrink-0 items-center justify-center rounded-full bg-neutral-100 font-mono text-[11px] font-bold text-black">
                       {t.marker}

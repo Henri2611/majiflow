@@ -1,4 +1,5 @@
 import { ContentPage, ProseList, ProseSection } from "@/components/shared/content-page";
+import { LEGAL_UPDATED } from "@/lib/constants";
 
 export default function Privacy() {
   return (
@@ -6,7 +7,7 @@ export default function Privacy() {
       label="Legal"
       title="Privacy Policy"
       description="How MajiFlow collects, uses, and protects your personal information."
-      updated="21 October 2026"
+      updated={LEGAL_UPDATED}
     >
       <ProseSection title="Privacy Policy">
         <p>

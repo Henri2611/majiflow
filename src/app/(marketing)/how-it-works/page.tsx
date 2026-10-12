@@ -63,7 +63,6 @@ export default function HowItWorks() {
           <Link href="/browse">
             <Button size="lg" variant="secondary" className="group w-full sm:w-auto">
               Browse stations
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </Button>
           </Link>
           <Link href="/business">

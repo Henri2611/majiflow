@@ -1,5 +1,8 @@
 export const easeOut = [0.16, 1, 0.3, 1] as const;
 
+/** Bump this whenever the Terms of Service or Privacy Policy copy changes. */
+export const LEGAL_UPDATED = "21 October 2026";
+
 export const CITIES = [
   "Nairobi",
   "Mombasa",

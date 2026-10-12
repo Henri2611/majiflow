@@ -6,17 +6,7 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Transition } from "framer-motion";
 import {
-  AlertCircle,
-  ArrowRight,
-  CheckCircle2,
-  CreditCard,
-  Loader2,
-  MapPin,
-  Navigation,
-  ShieldCheck,
-  Smartphone,
-  Truck,
-} from "lucide-react";
+  AlertCircle, CheckCircle2, CreditCard, Loader2, MapPin, Navigation, ShieldCheck, Smartphone, Truck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
@@ -513,7 +503,7 @@ function CheckoutForm() {
                 <strong className="font-semibold text-foreground">Finish your profile</strong> to
                 speed up checkout.{" "}
                 <Link href="/account/profile" className="font-semibold text-[#0052FF] hover:underline">
-                  Complete your delivery details →
+                  Complete your delivery details
                 </Link>
               </p>
             </div>
@@ -788,7 +778,6 @@ function CheckoutForm() {
             <>
               <Button type="submit" size="lg" className="group mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]">
                 {method === "mpesa" ? `Pay ${formatKES(total)} with M-Pesa` : `Pay ${formatKES(total)} by card`}
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
               <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 You&apos;ll confirm on your phone

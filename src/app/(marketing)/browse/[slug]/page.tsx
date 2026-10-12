@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { ProductCard } from "@/components/shared/product-card";
 import { StationBadge } from "@/components/shared/station-badge";
 import { BusinessAvailability } from "@/components/shared/business-availability";
-import { SectionLabel } from "@/components/ui/section-label";
 import { getBusiness, businesses } from "@/lib/data/businesses";
 import { formatKES } from "@/lib/format";
 
@@ -93,7 +92,7 @@ export default async function BusinessProfile({ params }: PageProps) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div>
-              <SectionLabel>About this station</SectionLabel>
+              <h2 className="font-display text-2xl text-foreground">About this station</h2>
               <p className="mt-4 text-[15px] leading-relaxed text-foreground/85">
                 {business.description}
               </p>
@@ -157,8 +156,7 @@ export default async function BusinessProfile({ params }: PageProps) {
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <SectionLabel pulse>Order from this station</SectionLabel>
-              <h2 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
+              <h2 className="font-display text-3xl text-foreground sm:text-4xl">
                 Add to your cart
               </h2>
             </div>

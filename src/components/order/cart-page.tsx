@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Droplets, Minus, Plus, ShoppingCart, Trash2, Truck } from "lucide-react";
+import { Droplets, Minus, Plus, ShoppingCart, Trash2, Truck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/toast";
 import { EmptyState } from "@/components/ui/feedback";
 import { productImage } from "@/lib/product-images";
 import { useCart } from "@/components/order/cart-provider";
@@ -14,6 +15,12 @@ import { computeCartTotals } from "@/lib/pricing";
 
 export function CartPage() {
   const { items, updateQuantity, removeItem } = useCart();
+  const { toast } = useToast();
+
+  const remove = (businessId: string, productId: string, name: string) => {
+    removeItem(businessId, productId);
+    toast({ kind: "info", title: "Removed from cart", message: name });
+  };
 
   const rows = items
     .map((line) => {
@@ -34,7 +41,6 @@ export function CartPage() {
             <Link href="/browse">
               <Button size="lg" className="group">
                 Browse stations
-                <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
           }
@@ -69,7 +75,7 @@ export function CartPage() {
           </h1>
         </div>
         <Link href="/browse" className="text-sm font-semibold text-[#0052FF] hover:underline">
-          ← Keep shopping
+          Keep shopping
         </Link>
       </div>
 
@@ -123,7 +129,7 @@ export function CartPage() {
                   {formatKES((product?.price ?? 0) * line.quantity)}
                 </p>
                 <button
-                  onClick={() => removeItem(line.businessId, line.productId)}
+                  onClick={() => remove(line.businessId, line.productId, product!.name)}
                   aria-label={`Remove ${product!.name} from cart`}
                   className="mt-1 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-danger"
                 >
@@ -183,7 +189,6 @@ export function CartPage() {
           <Link href="/checkout" className="mt-5 block">
             <Button size="lg" className="group w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]">
               Continue to checkout
-              <ArrowRight className="size-4" aria-hidden />
             </Button>
           </Link>
           <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">

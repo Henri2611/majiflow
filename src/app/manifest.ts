@@ -6,7 +6,9 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'MajiFlow',
     description: 'Clean drinking water delivery from refill stations across Kenya',
     start_url: '/',
+    scope: '/',
     display: 'standalone',
+    orientation: 'portrait-primary',
     background_color: '#f2eee3',
     theme_color: '#0052FF',
     icons: [

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/toast";
 import { productImage } from "@/lib/product-images";
 import { useCart } from "@/components/order/cart-provider";
 import { useFlyToCart } from "@/components/order/fly-to-cart";
@@ -23,6 +24,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product, businessId, openingHours, className }: ProductCardProps) {
   const { items, addItem, updateQuantity } = useCart();
+  const { toast } = useToast();
   const availability = useBusinessAvailability(openingHours);
   const fly = useFlyToCart();
   const [qty, setQty] = useState(1);
@@ -38,10 +40,14 @@ export function ProductCard({ product, businessId, openingHours, className }: Pr
 
   const handleAdd = () => {
     if (closed) return;
+    const add = () => {
+      addItem({ businessId, productId: product.id, quantity: qty });
+      toast({ kind: "success", title: "Added to cart", message: `${qty} × ${product.name}` });
+      setQty(1);
+    };
     const fromEl = imageRef.current;
     if (!fromEl) {
-      addItem({ businessId, productId: product.id, quantity: qty });
-      setQty(1);
+      add();
       return;
     }
     setFlying(true);
@@ -50,8 +56,7 @@ export function ProductCard({ product, businessId, openingHours, className }: Pr
       src: productImage(product.image).src,
       alt: product.name,
       onDone: () => {
-        addItem({ businessId, productId: product.id, quantity: qty });
-        setQty(1);
+        add();
         setFlying(false);
       },
     });

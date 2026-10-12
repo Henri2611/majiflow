@@ -1,4 +1,5 @@
 import { ContentPage, ProseList, ProseSection } from "@/components/shared/content-page";
+import { LEGAL_UPDATED } from "@/lib/constants";
 
 export default function Terms() {
   return (
@@ -6,7 +7,7 @@ export default function Terms() {
       label="Legal"
       title="Terms of Service"
       description="Terms and conditions for using MajiFlow."
-      updated="21 October 2026"
+      updated={LEGAL_UPDATED}
     >
       <ProseSection title="Terms of Service">
         <p>

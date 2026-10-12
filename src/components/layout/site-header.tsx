@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, type Transition } from "framer-motion";
-import { Menu, ShoppingCart, User, X } from "lucide-react";
+import { Bell, Menu, ShoppingCart, User, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { BrandMark } from "@/components/layout/brand-mark";
@@ -106,9 +106,17 @@ export function SiteHeader() {
           )}
 
           <Link
+            href="/account/orders"
+            aria-label="Order notifications"
+            className="flex size-11 items-center justify-center rounded-lg border border-border bg-white text-foreground transition-colors hover:border-[#0052FF]/40 hover:text-[#0052FF] lg:hidden"
+          >
+            <Bell className="size-5" aria-hidden />
+          </Link>
+
+          <Link
             href={loggedIn ? "/account/profile" : "/login"}
             aria-label={loggedIn ? "Your profile" : "Sign in or create an account"}
-            className="flex size-11 items-center justify-center rounded-lg border border-border bg-white text-foreground transition-colors hover:border-[#0052FF]/40 hover:text-[#0052FF]"
+            className="hidden size-11 items-center justify-center rounded-lg border border-border bg-white text-foreground transition-colors hover:border-[#0052FF]/40 hover:text-[#0052FF] lg:flex"
           >
             <User className="size-5" aria-hidden />
           </Link>
@@ -117,7 +125,6 @@ export function SiteHeader() {
             <Link href="/register" className="hidden sm:inline-flex">
               <Button className="group min-h-11">
                 Order water
-                <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Button>
             </Link>
           )}
@@ -184,7 +191,7 @@ export function SiteHeader() {
                   <>
                     <Link href="/register" className="w-full" onClick={() => setMenuOpen(false)}>
                       <Button size="lg" className="group w-full">
-                        Order water <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+                        Order water
                       </Button>
                     </Link>
                     <Link href="/login" className="w-full" onClick={() => setMenuOpen(false)}>
