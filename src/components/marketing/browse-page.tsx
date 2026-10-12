@@ -71,7 +71,7 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                   aria-pressed={city === c}
                   className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-all ${
                     city === c
-                      ? "border-transparent bg-transparent text-white shadow-accent"
+                      ? "border-[#0052FF] bg-[#0052FF] text-white shadow-accent"
                       : "border-border bg-white text-muted-foreground hover:border-[#0052FF]/40 hover:text-[#0052FF]"
                   }`}
                 >

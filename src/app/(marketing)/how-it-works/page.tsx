@@ -67,7 +67,7 @@ export default function HowItWorks() {
       >
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/browse">
-            <Button size="lg" className="group w-full sm:w-auto">
+            <Button size="lg" variant="secondary" className="group w-full sm:w-auto">
               Browse stations
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </Button>
