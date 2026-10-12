@@ -113,7 +113,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         <Link
           href="/browse"
           onClick={() => setOpen(false)}
-          className="mt-2.5 flex items-center justify-center gap-1.5 rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold ring-1 ring-white/25 transition-colors hover:bg-white/25"
+          className="mt-2.5 flex items-center justify-center gap-1.5 rounded-lg bg-transparent px-3 py-1.5 text-xs font-semibold ring-1 ring-white/25 transition-colors hover:bg-white/25"
         >
           Order water
           <span aria-hidden>→</span>
@@ -122,12 +122,12 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
       {/* User card */}
       <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-border bg-white px-3 py-2.5">
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white font-display text-sm text-foreground">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white font-display text-sm text-muted-foreground">
           {initial}
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-foreground">{name || "Guest"}</p>
-          <p className="truncate text-[11px] text-foreground">
+          <p className="truncate text-sm font-semibold text-muted-foreground">{name || "Guest"}</p>
+          <p className="truncate text-[11px] text-muted-foreground">
             {profile.phone || "Sign in to sync orders"}
           </p>
         </div>
@@ -147,7 +147,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
           <Menu className="size-5" aria-hidden />
         </button>
         <div className="relative hidden items-center gap-2 rounded-xl border border-border bg-white px-3 py-2 md:flex">
-          <Search className="size-4 text-foreground" aria-hidden />
+          <Search className="size-4 text-black" aria-hidden />
           <input
             className="w-44 bg-white text-sm text-foreground outline-none placeholder:text-foreground"
             placeholder="Search orders, stations…"

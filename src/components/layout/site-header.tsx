@@ -85,7 +85,7 @@ export function SiteHeader() {
                   "rounded-lg px-3.5 py-2 text-sm font-medium transition-colors min-h-11 inline-flex items-center",
                   active
                     ? "text-[#0052FF]"
-                    : "text-foreground/80 hover:text-[#0052FF] hover:bg-transparent/5"
+                    : "text-foreground hover:text-[#0052FF] hover:bg-muted"
                 )}
               >
                 {link.label}

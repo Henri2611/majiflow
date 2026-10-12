@@ -47,7 +47,7 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
             <span
               className={cn(
                 "mt-0.5 flex size-4.5 shrink-0 items-center justify-center rounded-full",
-                plan.highlighted ? "bg-transparent text-white" : "bg-transparent-soft text-success"
+                plan.highlighted ? "bg-white text-black" : "bg-transparent-soft text-success"
               )}
             >
               <Check className="size-3" strokeWidth={3} aria-hidden />

@@ -62,7 +62,7 @@ export function PageHero({
           <h1
             className={cn(
               "font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-[3.25rem]",
-              tone === "dark" ? "text-white" : "text-foreground"
+              tone === "dark" ? "text-muted-foreground" : "text-foreground"
             )}
           >
             {title}

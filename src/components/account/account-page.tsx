@@ -158,7 +158,7 @@ export function AccountPage() {
                 href="/account/addresses"
                 className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-white p-8 text-center transition-colors hover:border-[#0052FF]/40"
               >
-                <Plus className="size-6 text-muted-foreground" aria-hidden />
+                <Plus className="size-6 text-black" aria-hidden />
                 <p className="text-sm font-medium text-muted-foreground">
                   No saved addresses yet
                 </p>

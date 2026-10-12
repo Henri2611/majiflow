@@ -40,7 +40,7 @@ export function PricingSection() {
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">
-          <div className="flex items-center rounded-xl border border-border bg-primary/15 p-1 shadow-card" role="group" aria-label="Billing period">
+          <div className="flex items-center rounded-xl border border-border bg-transparent p-1 shadow-card" role="group" aria-label="Billing period">
             {(["monthly", "annual"] as const).map((b) => (
               <button
                 key={b}
@@ -60,7 +60,7 @@ export function PricingSection() {
                 <span className="relative">
                   {b === "monthly" ? "Monthly" : "Annual"}
                   {b === "annual" && (
-                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-primary/15/20 text-foreground" : "bg-success/10 text-success"}`}>
+                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-transparent/20 text-foreground" : "bg-success/10 text-success"}`}>
                       −17%
                     </span>
                   )}
@@ -80,12 +80,12 @@ export function PricingSection() {
           ))}
         </Stagger>
 
-        <AnimatedSection className="mx-auto mt-12 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-dashed border-[#0052FF]/30 bg-primary/15/70 p-6 text-center shadow-card sm:flex-row sm:text-left">
+        <AnimatedSection className="mx-auto mt-12 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-dashed border-[#0052FF]/30 bg-transparent/70 p-6 text-center shadow-card sm:flex-row sm:text-left">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-transparent text-warning">
             <Sparkles className="size-5" aria-hidden />
           </span>
-          <p className="flex-1 text-sm leading-relaxed text-foreground">
-            <strong className="font-semibold text-foreground">Nothing here is billed.</strong>{" "}
+          <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
+            <strong className="font-semibold text-muted-foreground">Nothing here is billed.</strong>{" "}
             This has no trial, subscription or payment provider. The figures show the intended
             commercial model, not a charge you would receive.
           </p>

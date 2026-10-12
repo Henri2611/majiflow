@@ -273,7 +273,7 @@ export function ProfilePage() {
         />
         <div className="relative flex flex-wrap items-start justify-between gap-5">
           <div className="flex items-start gap-4">
-            <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-transparent font-display text-xl text-white shadow-accent sm:size-16 sm:text-2xl">
+            <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-transparent font-display text-xl text-black shadow-accent sm:size-16 sm:text-2xl">
               {initials(profile.name)}
             </span>
             <div className="min-w-0">
@@ -307,7 +307,7 @@ export function ProfilePage() {
 
       {!complete && !editing && (
         <div className="mt-4 flex items-start gap-3 rounded-xl border border-[#0052FF]/20 bg-white/5 p-4">
-          <AlertCircle className="mt-0.5 size-5 shrink-0 text-foreground" aria-hidden />
+          <AlertCircle className="mt-0.5 size-5 shrink-0 text-black" aria-hidden />
           <p className="text-sm text-foreground/85">
             <strong className="font-semibold text-foreground">Finish your profile.</strong> Share your
             delivery location so riders find you quickly - no manual address needed.
@@ -435,8 +435,8 @@ export function ProfilePage() {
 
 function CardHeader({ icon, title }: { icon: React.ReactNode; title: string }) {
   return (
-    <h2 className="flex items-center gap-2.5 font-display text-lg text-foreground">
-      <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-foreground" aria-hidden>
+    <h2 className="flex items-center gap-2.5 font-display text-lg text-black">
+      <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-black" aria-hidden>
         {icon}
       </span>
       {title}
@@ -534,7 +534,7 @@ function LocationCard({
           <div className="rounded-xl border border-dashed border-border bg-muted/30 p-5">
             <div className="flex items-start gap-3">
               <span
-                className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-transparent/10 text-foreground"
+                className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-transparent/10 text-black"
                 aria-hidden
               >
                 <Navigation className="size-5" />
