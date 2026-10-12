@@ -12,9 +12,21 @@ interface BusinessCardProps {
   business: Business;
   className?: string;
   layout?: "vertical" | "horizontal";
+  distanceKm?: number;
 }
 
-export function BusinessCard({ business, className, layout = "vertical" }: BusinessCardProps) {
+function formatDistanceKm(distanceKm: number): string {
+  if (distanceKm < 1) return "<1 km";
+  if (distanceKm < 10) return `${distanceKm.toFixed(1)} km`;
+  return `${Math.round(distanceKm)} km`;
+}
+
+export function BusinessCard({
+  business,
+  className,
+  layout = "vertical",
+  distanceKm,
+}: BusinessCardProps) {
   return (
     <Link href={`/browse/${business.slug}`} className={cn("group block h-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0052FF] rounded-2xl", className)}>
       <Card
@@ -56,6 +68,12 @@ export function BusinessCard({ business, className, layout = "vertical" }: Busin
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="size-3.5" aria-hidden /> {business.city}
             </span>
+            {typeof distanceKm === "number" && Number.isFinite(distanceKm) && (
+              <span className="inline-flex items-center gap-1.5 font-semibold text-[#0052FF]">
+                <MapPin className="size-3.5" aria-hidden />{" "}
+                {formatDistanceKm(distanceKm)}
+              </span>
+            )}
             <span className="inline-flex items-center gap-1.5 font-semibold text-foreground">
               <Star className="size-3.5 fill-warning text-warning" aria-hidden />
               {business.rating} ({business.reviewCount})
