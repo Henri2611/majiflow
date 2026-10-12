@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Clock, PartyPopper, Users2, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const PROMOS = [
@@ -40,7 +39,7 @@ export function BusinessPromotions() {
       </div>
 
       {note && (
-        <div role="status" className="flex items-center justify-between rounded-xl border border-[#0052FF]/25 bg-transparent/5 px-4 py-3 text-sm text-[#0052FF]">
+        <div role="status" className="flex items-center justify-between rounded-xl border border-[#0052FF]/25 bg-[#0052FF]/5 px-4 py-3 text-sm text-[#0052FF]">
           {note}
           <button onClick={() => setNote(null)} className="font-semibold" aria-label="Dismiss">
             Dismiss
@@ -68,19 +67,19 @@ export function BusinessPromotions() {
                 </span>
               </div>
               <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-                <div className="h-full rounded-full bg-transparent" style={{ width: `${(p.redeemed / Math.max(p.recipients, 1)) * 100}%` }} />
+                <div className="h-full rounded-full bg-brand-gradient" style={{ width: `${(p.redeemed / Math.max(p.recipients, 1)) * 100}%` }} />
               </div>
             </div>
             <button
               onClick={() => toggle(p.id)}
-              className="mt-4 w-full rounded-xl border border-[#0052FF]/30 py-2 text-sm font-semibold text-[#0052FF] transition-colors hover:bg-transparent/5"
+              className="mt-4 w-full rounded-xl border border-[#0052FF]/30 py-2 text-sm font-semibold text-[#0052FF] transition-colors hover:bg-[#0052FF]/5"
             >
               {p.active ? "Pause" : "Reactivate"}
             </button>
           </article>
         ))}
 
-        <article className="flex flex-col justify-center gap-3 rounded-2xl border border-dashed border-[#0052FF]/30 bg-transparent/5 p-6">
+        <article className="flex flex-col justify-center gap-3 rounded-2xl border border-dashed border-[#0052FF]/30 bg-[#0052FF]/5 p-6">
           <Zap className="size-6 text-[#0052FF]" aria-hidden />
           <p className="text-sm leading-relaxed text-foreground/80">
             Pro tip: Monday mornings pull the most refill orders in Kasarani. Launch your next offer

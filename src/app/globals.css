@@ -4,20 +4,20 @@
 /*  Design tokens - "Minimalist Modern"                               */
 /* ------------------------------------------------------------------ */
 :root {
-  --background: #fafafa;
-  --foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
+  --background: #faf9f6;
+  --foreground: #23262b;
+  --muted: #f2efe8;
+  --muted-foreground: #6b675d;
   --accent: #0052ff;
   --accent-2: #4d7cff;
   --accent-foreground: #ffffff;
-  --border: #e2e8f0;
+  --border: #e7e2d8;
   --card: #ffffff;
   --ring: #0052ff;
 
-  --ink: #0f172a;
-  --ink-soft: #1e293b;
-  --ink-muted: #3341559c;
+  --ink: #14181f;
+  --ink-soft: #1e232b;
+  --ink-muted: #2b313a9c;
   --ink-border: #1e293b;
 
   --success: #15803d;

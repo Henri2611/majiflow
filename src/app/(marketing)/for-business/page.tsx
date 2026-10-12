@@ -91,12 +91,12 @@ export default function ForBusiness() {
         </p>
       </PageHero>
 
-      <section className="relative overflow-hidden bg-transparent py-14">
+      <section className="relative overflow-hidden bg-ink py-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-50" />
         <Container className="relative">
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-transparent sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-ink sm:grid-cols-2 lg:grid-cols-4">
             {numbers.map((n) => (
-              <div key={n.label} className="bg-transparent p-7 text-center">
+              <div key={n.label} className="bg-ink p-7 text-center">
                 <p className="font-display text-3xl text-white">{n.value}</p>
                 <p className="mt-1.5 text-xs text-slate-400">{n.label}</p>
               </div>
@@ -121,7 +121,7 @@ export default function ForBusiness() {
             {pillars.map((p) => (
               <StaggerItem key={p.title}>
                 <div className="group flex h-full flex-col rounded-2xl border border-border bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-layered">
-                  <span className="flex size-12 items-center justify-center rounded-xl bg-transparent text-black shadow-accent transition-transform duration-300 group-hover:scale-110">
+                  <span className="flex size-12 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent transition-transform duration-300 group-hover:scale-110">
                     <p.icon className="size-5" aria-hidden />
                   </span>
                   <h3 className="mt-6 font-display text-xl text-foreground">{p.title}</h3>
@@ -164,7 +164,7 @@ export default function ForBusiness() {
                   ].map((o) => (
                     <div
                       key={o.day}
-                      className={`flex items-center justify-between rounded-lg border px-4 py-3.5 ${o.highlight ? "border-[#0052FF]/30 bg-transparent/5" : "border-border"}`}
+                      className={`flex items-center justify-between rounded-lg border px-4 py-3.5 ${o.highlight ? "border-[#0052FF]/30 bg-[#0052FF]/5" : "border-border"}`}
                     >
                       <div className="flex items-center gap-2.5">
                         <BarChart3 className={`size-4 ${o.highlight ? "text-[#0052FF]" : "text-muted-foreground"}`} aria-hidden />

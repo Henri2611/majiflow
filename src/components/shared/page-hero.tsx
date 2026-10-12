@@ -30,9 +30,10 @@ export function PageHero({
     <section
       className={cn(
         "relative overflow-hidden",
-        tone === "dark" ? "bg-transparent text-white" : "bg-background",
+        tone === "dark" ? "bg-ink text-white" : "bg-background",
         "border-b",
-        tone === "dark" ? "border-white/10" : "border-border"
+        tone === "dark" ? "border-white/10" : "border-border",
+        className
       )}
     >
       {tone === "light" ? (
@@ -42,7 +43,7 @@ export function PageHero({
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-60" />
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-0 size-[30rem] -translate-x-1/2 rounded-full bg-transparent/20 blur-[120px]"
+            className="pointer-events-none absolute left-1/2 top-0 size-[30rem] -translate-x-1/2 rounded-full bg-[#0052FF]/20 blur-[120px]"
           />
         </>
       )}
@@ -62,7 +63,7 @@ export function PageHero({
           <h1
             className={cn(
               "font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-[3.25rem]",
-              tone === "dark" ? "text-muted-foreground" : "text-foreground"
+              tone === "dark" ? "text-white" : "text-foreground"
             )}
           >
             {title}

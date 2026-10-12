@@ -164,7 +164,7 @@ export function DashboardOverview() {
                       initial={chartInView ? { scaleY: 0 } : false}
                       animate={chartInView ? { scaleY: 1 } : { scaleY: 1 }}
                       transition={{ delay: 0.08 * i, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full rounded-t-lg bg-transparent opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-accent"
+                      className="w-full rounded-t-lg bg-brand-gradient opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-accent"
                       title={`${formatKES(c.revenue)}`}
                     />
                     <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-2 py-1 font-mono text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
@@ -211,14 +211,14 @@ export function DashboardOverview() {
                       initial={stockInView ? { scaleX: 0 } : false}
                       animate={stockInView ? { scaleX: 1 } : { scaleY: 1 }}
                       transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className={cn("h-full rounded-full", a.stock / Math.max(1, a.threshold) < 0.6 ? "bg-transparent" : "bg-transparent")}
+                      className={cn("h-full rounded-full", a.stock / Math.max(1, a.threshold) < 0.6 ? "bg-danger" : "bg-success")}
                     />
                   </div>
                 </li>
               ))}
             </ul>
           )}
-          <div className="mt-5 rounded-xl bg-transparent-soft/50 p-3 text-xs leading-relaxed text-foreground/75">
+          <div className="mt-5 rounded-xl bg-[#0052FF]/10 p-3 text-xs leading-relaxed text-foreground/75">
             Reorder points come from your menu in <code className="font-mono">src/lib/data/businesses.ts</code>.
           </div>
         </section>
@@ -302,7 +302,7 @@ export function DashboardOverview() {
                         initial={popularInView ? { scaleX: 0 } : false}
                         animate={popularInView ? { scaleX: 1 } : { scaleX: 1 }}
                         transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="h-full rounded-full bg-transparent"
+                        className="h-full rounded-full bg-brand-gradient"
                       />
                     </div>
                     <span className="font-mono text-[11px] text-muted-foreground">{p.quantity} sold</span>
@@ -342,7 +342,7 @@ function Header({ business, delayed }: { business: string; delayed?: boolean }) 
         </p>
       </div>
       {delayed && (
-        <p role="status" className="flex items-center gap-2 rounded-xl border border-warning/25 bg-transparent-soft/60 px-3 py-2 text-xs text-foreground/80">
+        <p role="status" className="flex items-center gap-2 rounded-xl border border-warning/25 bg-[#0052FF]/10 px-3 py-2 text-xs text-foreground/80">
           <RefreshCw className="size-3.5 animate-spin" aria-hidden /> Still loading - the store is taking longer than
           usual.
         </p>
@@ -377,7 +377,7 @@ function KpiCard({
   return (
     <div className="rounded-2xl border border-border bg-white p-5 shadow-card">
       <div className="flex items-center justify-between">
-        <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]">
           <Icon className="size-4.5" aria-hidden />
         </span>
         {positive && (

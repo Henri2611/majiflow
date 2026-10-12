@@ -19,8 +19,8 @@ export function SectionLabel({ className, pulse, tone = "light", children, ...pr
     >
       {pulse && (
         <span className="relative flex size-2">
-          <span className="absolute inline-flex size-full rounded-full bg-transparent animate-ping-slow" />
-          <span className="relative inline-flex size-2 rounded-full bg-transparent" />
+          <span className="absolute inline-flex size-full rounded-full bg-[#0052FF] animate-ping-slow" />
+          <span className="relative inline-flex size-2 rounded-full bg-[#0052FF]" />
         </span>
       )}
       {children}

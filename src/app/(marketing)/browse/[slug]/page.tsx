@@ -111,7 +111,7 @@ export default async function BusinessProfile({ params }: PageProps) {
 
             <div className="grid shrink-0 gap-3 sm:grid-cols-2 lg:grid-cols-1">
               <div className="flex items-center gap-3 rounded-xl border border-border bg-background px-4 py-3">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-transparent-soft text-success">
+                <span className="flex size-9 items-center justify-center rounded-lg bg-success-soft text-success">
                   <Smartphone className="size-4.5" aria-hidden />
                 </span>
                 <div>
@@ -124,7 +124,7 @@ export default async function BusinessProfile({ params }: PageProps) {
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-xl border border-border bg-background px-4 py-3">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
+                <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]">
                   <ShieldCheck className="size-4.5" aria-hidden />
                 </span>
                 <div>
@@ -179,7 +179,7 @@ export default async function BusinessProfile({ params }: PageProps) {
                 </div>
                 <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-muted" role="presentation">
                   <div
-                    className="h-full rounded-full bg-transparent"
+                    className="h-full rounded-full bg-brand-gradient"
                     style={{ width: `${(r.v / 5) * 100}%` }}
                   />
                 </div>

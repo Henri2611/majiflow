@@ -5,13 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Truck, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/toast";
 
 const STORAGE_KEY = "mf:refillPromptDismissed";
 
 export function RefillPrompt() {
   const [show, setShow] = useState(false);
-  const { toast } = useToast();
   const router = useRouter();
 
   useEffect(() => {

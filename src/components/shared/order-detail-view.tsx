@@ -167,7 +167,7 @@ export function OrderDetailView({
       </div>
 
       {note && (
-        <div role="status" className="flex items-center justify-between rounded-xl border border-success/25 bg-transparent/5 px-4 py-3 text-sm text-success">
+        <div role="status" className="flex items-center justify-between rounded-xl border border-success/25 bg-success/5 px-4 py-3 text-sm text-success">
           <span className="flex items-center gap-2">
             <CheckCircle2 className="size-4" aria-hidden /> {note}
           </span>
@@ -186,7 +186,7 @@ export function OrderDetailView({
             </h2>
             <span
               className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-widest ${
-                liveFresh ? "bg-transparent-soft text-success" : "bg-muted text-muted-foreground"
+                liveFresh ? "bg-success-soft text-success" : "bg-muted text-muted-foreground"
               }`}
             >
               <Radio className={`size-3 ${liveFresh ? "animate-pulse-dot" : ""}`} aria-hidden />

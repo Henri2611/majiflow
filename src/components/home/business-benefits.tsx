@@ -71,7 +71,7 @@ export function BusinessBenefits() {
               description="MajiFlow gives water refill businesses a storefront and a back office: a customer-facing page, a dashboard for orders and analytics, and simple monthly pricing."
             />
             <AnimatedSection from="right" className="mt-8 flex flex-col gap-6">
-              <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-transparent-soft/50 p-4">
+              <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-[#0052FF]/10 p-4">
                 <Store className="mt-0.5 size-5 shrink-0 text-black" aria-hidden />
                 <div>
                   <p className="text-sm font-semibold text-foreground">Your prices stay yours</p>
@@ -80,7 +80,7 @@ export function BusinessBenefits() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 rounded-2xl border border-[#0052FF]/20 bg-transparent/5 p-4">
+              <div className="flex items-start gap-3 rounded-2xl border border-[#0052FF]/20 bg-[#0052FF]/5 p-4">
                 <MessageSquare className="mt-0.5 size-5 shrink-0 text-black" aria-hidden />
                 <div>
                   <p className="text-sm font-semibold text-foreground">Reports from real order records</p>

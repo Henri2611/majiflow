@@ -33,11 +33,11 @@ export function AuthShell({
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-60" />
           <div
             aria-hidden
-            className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-transparent/25 blur-[100px]"
+            className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-[#0052FF]/25 blur-[100px]"
           />
 
           <div className="relative">
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-transparent text-white shadow-accent">
+            <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-accent">
               <Droplets className="size-6" aria-hidden />
             </span>
             <h2 className="mt-8 font-display text-3xl leading-[1.15] text-white">

@@ -125,7 +125,7 @@ export function BusinessOrders() {
       </div>
 
       {note && (
-        <div role="status" className="flex items-center justify-between rounded-xl border border-success/25 bg-transparent/5 px-4 py-3 text-sm text-success">
+        <div role="status" className="flex items-center justify-between rounded-xl border border-success/25 bg-success/5 px-4 py-3 text-sm text-success">
           <span className="flex items-center gap-2">
             <Check className="size-4" aria-hidden /> {note}
           </span>
@@ -144,7 +144,7 @@ export function BusinessOrders() {
             className={cn(
               "shrink-0 rounded-xl border px-4 py-2 text-sm font-medium transition-colors",
               tab === t.id
-                ? "border-[#0052FF] bg-transparent/8 text-[#0052FF]"
+                ? "border-[#0052FF] bg-[#0052FF]/8 text-[#0052FF]"
                 : "border-border bg-white text-muted-foreground hover:text-foreground"
             )}
             aria-pressed={tab === t.id}

@@ -105,7 +105,7 @@ export function AddressesPage() {
                     <button
                       onClick={() => removeAddress(i)}
                       aria-label={`Remove address in ${a.estate}`}
-                      className="flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-transparent-soft hover:text-danger"
+                      className="flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-danger-soft hover:text-danger"
                     >
                       <Trash2 className="size-4" aria-hidden />
                     </button>

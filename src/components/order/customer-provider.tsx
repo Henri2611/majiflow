@@ -104,6 +104,7 @@ export function CustomerProvider({ children }: { children: ReactNode }) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect -- hydrate the profile from localStorage after mount */
     let next = EMPTY;
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -114,6 +115,7 @@ export function CustomerProvider({ children }: { children: ReactNode }) {
     setProfile(next);
     setLoggedIn((typeof window !== "undefined" && readLocal(AUTH_KEY) === "1") || Boolean(next.name));
     setHydrated(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   useEffect(() => {

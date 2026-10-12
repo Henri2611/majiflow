@@ -51,7 +51,7 @@ export function BusinessBilling() {
               )}
             >
               {isCurrent && (
-                <span className="absolute -top-3 left-6 rounded-full bg-transparent px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white">
+                <span className="absolute -top-3 left-6 rounded-full bg-brand-gradient px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-white">
                   Your plan
                 </span>
               )}

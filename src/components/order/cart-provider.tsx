@@ -35,6 +35,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    /* eslint-disable react-hooks/set-state-in-effect -- hydrate the cart from localStorage after mount */
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) setItems(JSON.parse(raw) as CartLine[]);
@@ -42,6 +43,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       /* noop */
     }
     setHydrated(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   useEffect(() => {

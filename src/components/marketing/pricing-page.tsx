@@ -76,7 +76,7 @@ export function PricingPage() {
             ))}
           </div>
 
-          <div className="mt-14 flex flex-col items-center gap-3 rounded-2xl border border-success/25 bg-transparent-soft/40 p-6 sm:flex-row">
+          <div className="mt-14 flex flex-col items-center gap-3 rounded-2xl border border-success/25 bg-[#0052FF]/10 p-6 sm:flex-row">
             <ShieldCheck className="size-6 shrink-0 text-success" aria-hidden />
             <p className="flex-1 text-sm leading-relaxed text-foreground/85">
               <strong className="font-semibold text-foreground">No surprise fees, ever.</strong> You
@@ -126,7 +126,7 @@ export function PricingPage() {
                     {row.plans.map((val, i) => (
                       <td key={i} className="px-6 py-3.5 text-center">
                         {val === true ? (
-                          <span className="inline-flex size-5 items-center justify-center rounded-full bg-transparent-soft text-success">
+                          <span className="inline-flex size-5 items-center justify-center rounded-full bg-success-soft text-success">
                             <Check className="size-3" strokeWidth={3} aria-hidden />
                           </span>
                         ) : val === false ? (
@@ -176,7 +176,7 @@ export function PricingPage() {
               },
             ].map((v) => (
               <div key={v.title} className="rounded-2xl border border-border bg-white p-7 shadow-card">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-neutral-100 text-black shadow-accent">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-[#0052FF]/10 text-[#0052FF] shadow-accent">
                   <v.icon className="size-5" aria-hidden />
                 </span>
                 <h3 className="mt-5 font-display text-xl text-foreground">{v.title}</h3>
@@ -230,11 +230,11 @@ function BillingToggle({ billing, onChange }: { billing: Billing; onChange: (b: 
             billing === b ? "text-white" : "text-muted-foreground hover:text-foreground"
           )}
         >
-          {billing === b && <span aria-hidden className="absolute inset-0 rounded-lg bg-transparent shadow-accent" />}
+          {billing === b && <span aria-hidden className="absolute inset-0 rounded-lg bg-brand-gradient shadow-accent" />}
           <span className="relative">
             {b === "monthly" ? "Monthly" : "Annual"}
             {b === "annual" && (
-              <span className={cn("ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px]", billing === b ? "bg-white/20 text-white" : "bg-transparent-soft text-success")}>
+              <span className={cn("ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px]", billing === b ? "bg-white/20 text-white" : "bg-success-soft text-success")}>
                 −17%
               </span>
             )}

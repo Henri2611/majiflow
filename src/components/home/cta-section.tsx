@@ -7,12 +7,12 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden bg-transparent py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-ink py-24 lg:py-32">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-60" />
       <div className="pointer-events-none absolute inset-0 animate-float">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-transparent/25 blur-[130px]"
+          className="pointer-events-none absolute left-1/2 top-1/2 size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0052FF]/25 blur-[130px]"
         />
       </div>
 

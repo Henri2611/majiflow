@@ -8,7 +8,6 @@ import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { productImage } from "@/lib/product-images";
 import { useCart } from "@/components/order/cart-provider";
 import { useFlyToCart } from "@/components/order/fly-to-cart";

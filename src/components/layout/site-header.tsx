@@ -46,12 +46,6 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    if (menuOpen) {
-      setMenuOpen(false);
-    }
-  }, [pathname, menuOpen]);
-
-  useEffect(() => {
     if (typeof document === "undefined") return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = menuOpen ? "hidden" : prev || "";
@@ -104,7 +98,7 @@ export function SiteHeader() {
             >
               <ShoppingCart className="size-5" aria-hidden />
               {count > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-transparent text-[11px] font-bold text-white shadow-accent">
+                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-brand-gradient text-[11px] font-bold text-white shadow-accent">
                   {count}
                 </span>
               )}
@@ -173,6 +167,7 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => setMenuOpen(false)}
                   className="flex min-h-11 items-center rounded-lg px-3 text-[15px] font-medium text-foreground hover:bg-muted"
                 >
                   {link.label}
@@ -180,19 +175,19 @@ export function SiteHeader() {
               ))}
               <div className="mt-4 flex flex-col gap-2.5">
                 {loggedIn ? (
-                  <Link href="/account/profile" className="w-full">
+                  <Link href="/account/profile" className="w-full" onClick={() => setMenuOpen(false)}>
                     <Button size="lg" className="w-full">
                       My profile
                     </Button>
                   </Link>
                 ) : (
                   <>
-                    <Link href="/register" className="w-full">
+                    <Link href="/register" className="w-full" onClick={() => setMenuOpen(false)}>
                       <Button size="lg" className="group w-full">
                         Order water <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
                       </Button>
                     </Link>
-                    <Link href="/login" className="w-full">
+                    <Link href="/login" className="w-full" onClick={() => setMenuOpen(false)}>
                       <Button size="lg" variant="secondary" className="w-full">
                         Sign in
                       </Button>
@@ -205,7 +200,7 @@ export function SiteHeader() {
             {/* Tide sheet: covers the menu then sweeps off to reveal it */}
             <motion.div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-transparent"
+              className="pointer-events-none absolute inset-0 bg-[#0052FF]"
               initial={reduce ? { x: "-104%" } : { x: 0 }}
               animate={{ x: "-104%" }}
               transition={{ duration: reduce ? 0 : 0.55, ease: MENU_EASE, delay: reduce ? 0 : 0.12 }}

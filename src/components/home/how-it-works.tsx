@@ -65,7 +65,7 @@ export function HowItWorks() {
               <StaggerItem key={s.title}>
                 <div className="group flex gap-5 rounded-2xl border border-border bg-white p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-[#0052FF]/25 hover:shadow-layered sm:p-6">
                   <div className="relative flex flex-col items-center">
-                    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-transparent text-black shadow-accent transition-transform duration-300 group-hover:scale-110">
+                    <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent transition-transform duration-300 group-hover:scale-110">
                       <s.icon className="size-5" aria-hidden />
                     </span>
                     <span className="mt-3 font-mono text-[11px] font-semibold uppercase tracking-widest text-[#0052FF]">

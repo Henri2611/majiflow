@@ -70,8 +70,8 @@ export function DashboardFeature() {
                 </div>
                 <Badge variant="success">
                   <span className="relative flex size-1.5">
-                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-transparent opacity-60" />
-                    <span className="relative inline-flex size-1.5 rounded-full bg-transparent" />
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#0052FF] opacity-60" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-[#0052FF]" />
                   </span>
                   Growth · Live
                 </Badge>
@@ -102,7 +102,7 @@ export function DashboardFeature() {
                   {[31800, 42900, 36600, 52400, 61000, 47300, 44150].map((v, i) => (
                     <div key={i} className="relative flex-1">
                       <div
-                        className="w-full rounded-t-md bg-transparent"
+                        className="w-full rounded-t-md bg-brand-gradient"
                         style={{ height: `${(v / 61000) * 100}%` }}
                       />
                     </div>

@@ -37,8 +37,8 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
           <div className="mx-auto max-w-2xl text-center">
             <p className="inline-flex items-center gap-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full rounded-full bg-transparent animate-ping-slow" />
-                <span className="relative inline-flex size-2 rounded-full bg-transparent" />
+                <span className="absolute inline-flex size-full rounded-full bg-[#0052FF] animate-ping-slow" />
+                <span className="relative inline-flex size-2 rounded-full bg-[#0052FF]" />
               </span>
               Browse refill stations
             </p>
