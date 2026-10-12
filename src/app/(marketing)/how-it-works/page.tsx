@@ -46,6 +46,12 @@ const faqItems = [
   { q: "Can I pay cash on delivery?", a: "Orders are prepaid by M-Pesa or card at checkout." },
 ];
 
+export const metadata = {
+  title: "How it works",
+  description:
+    "Compare refill stations, build a cart, pay with M-Pesa and follow your delivery from checkout to your door.",
+};
+
 export default function HowItWorks() {
   return (
     <>

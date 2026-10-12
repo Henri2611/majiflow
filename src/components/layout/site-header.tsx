@@ -106,8 +106,8 @@ export function SiteHeader() {
           )}
 
           <Link
-            href="/account/orders"
-            aria-label="Order notifications"
+            href="/account/notifications"
+            aria-label="Notifications"
             className="flex size-11 items-center justify-center rounded-lg border border-border bg-white text-foreground transition-colors hover:border-[#0052FF]/40 hover:text-[#0052FF] lg:hidden"
           >
             <Bell className="size-5" aria-hidden />

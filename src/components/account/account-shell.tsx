@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
+  Bell,
   CreditCard,
   Droplets,
   Headphones,
@@ -36,8 +37,9 @@ type NavItem = {
 
 const NAV: NavItem[] = [
   { href: "/account", label: "Overview", icon: LayoutDashboard },
-  { href: "/account/profile", label: "Profile", icon: User },
   { href: "/account/orders", label: "Orders", icon: Package },
+  { href: "/account/notifications", label: "Notifications", icon: Bell },
+  { href: "/account/profile", label: "Profile", icon: User },
   { href: "/account/addresses", label: "Addresses", icon: MapPin },
   { href: "/account/plans", label: "Plans", icon: CreditCard },
 ];
@@ -144,13 +146,20 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
       <div className="ml-auto flex items-center gap-2">
         <Link
+          href="/account/notifications"
+          aria-label="Notifications"
+          className="relative flex size-10 items-center justify-center rounded-xl border border-border bg-white text-foreground transition-colors hover:text-[#0052FF]"
+        >
+          <Bell className="size-4.5" aria-hidden />
+        </Link>
+        <Link
           href="/cart"
           aria-label={`Cart, ${count} items`}
           className="relative flex size-10 items-center justify-center rounded-xl border border-border bg-white text-foreground hover:text-foreground"
         >
           <ShoppingCart className="size-4.5" aria-hidden />
           {count > 0 && (
-            <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-white text-[11px] font-bold text-foreground shadow-accent ring-2 ring-white">
+            <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-foreground text-[11px] font-bold text-white shadow-accent ring-2 ring-white">
               {count}
             </span>
           )}
@@ -175,7 +184,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
       </WaterDrawer>
 
       {/* Content column */}
-      <div className="relative lg:pl-64">
+      <div className="relative flex min-h-screen flex-col lg:pl-64">
         <div
           aria-hidden
           className="pointer-events-none fixed inset-y-0 left-0 right-0 z-0 lg:left-64"
@@ -198,7 +207,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
           {header}
         </header>
 
-        <main className="relative p-4 pb-24 sm:p-6 lg:pb-6">
+        <main className="relative flex-1 p-4 pb-24 sm:p-6 lg:pb-6">
           <PageTransition>{children}</PageTransition>
         </main>
 

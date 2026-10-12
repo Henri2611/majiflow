@@ -4,6 +4,12 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { AccordionItem } from "@/components/ui/accordion";
 import { faqsByGroup } from "@/lib/data/faqs";
 
+export const metadata = {
+  title: "FAQs",
+  description:
+    "Answers about ordering water, delivery fees, payments, and running a refill station on MajiFlow.",
+};
+
 export default function Faqs() {
   const groups = [
     { id: "customers", label: "Customers", headline: "Ordering & delivery", items: faqsByGroup("customers") },

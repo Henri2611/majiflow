@@ -51,6 +51,12 @@ const numbers = [
   { value: "14", label: "day free trial on every plan" },
 ];
 
+export const metadata = {
+  title: "For businesses",
+  description:
+    "A storefront, a dashboard and simple monthly pricing for water refill businesses. Start with a 14-day free trial.",
+};
+
 export default function ForBusiness() {
   return (
     <>
