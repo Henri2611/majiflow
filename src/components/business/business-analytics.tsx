@@ -99,7 +99,7 @@ export function BusinessAnalytics() {
                 <div key={c.key} className="group flex flex-1 flex-col items-center gap-2">
                   <div className="relative flex w-full flex-1 items-end">
                     <div
-                      className="w-full rounded-t-lg bg-brand-gradient opacity-90 group-hover:opacity-100"
+                      className="w-full rounded-t-lg bg-transparent opacity-90 group-hover:opacity-100"
                       style={{ height: `${(c.revenue / maxRevenue) * 100}%` }}
                     />
                     <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-2 py-1 font-mono text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
@@ -132,7 +132,7 @@ export function BusinessAnalytics() {
                       <span className="font-mono text-xs text-muted-foreground">{pct}%</span>
                     </div>
                     <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-                      <div className="h-full rounded-full bg-brand-gradient" style={{ width: `${pct}%` }} />
+                      <div className="h-full rounded-full bg-transparent" style={{ width: `${pct}%` }} />
                     </div>
                     <p className="mt-1 font-mono text-[11px] text-muted-foreground">
                       {p.quantity} sold · {formatKES(p.revenue)}
@@ -185,7 +185,7 @@ function Header({
             onClick={() => setRangeId(r.id)}
             className={cn(
               "rounded-xl px-3 py-2 text-sm font-medium transition-colors",
-              rangeId === r.id ? "bg-[#0052FF]/8 text-[#0052FF]" : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              rangeId === r.id ? "bg-transparent/8 text-[#0052FF]" : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
             aria-pressed={rangeId === r.id}
           >
@@ -210,7 +210,7 @@ function StatCard({
 }) {
   return (
     <div className="rounded-2xl border border-border bg-white p-5 shadow-card">
-      <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]">
+      <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
         <Icon className="size-4.5" aria-hidden />
       </span>
       <p className="mt-3 font-display text-2xl text-foreground">{value}</p>

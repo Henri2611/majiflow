@@ -105,7 +105,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
       ))}
 
       {/* Refill CTA */}
-      <div className="mt-auto rounded-xl bg-brand-gradient p-3.5 text-white shadow-accent">
+      <div className="mt-auto rounded-xl bg-transparent p-3.5 text-white shadow-accent">
         <p className="font-display text-sm">Need a refill?</p>
         <p className="mt-0.5 text-[11px] leading-snug text-white/80">
           Stations near you deliver in under 60 minutes.
@@ -122,7 +122,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
       {/* User card */}
       <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-border bg-white px-3 py-2.5">
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-gradient font-display text-sm text-white">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-transparent font-display text-sm text-white">
           {initial}
         </span>
         <div className="min-w-0">
@@ -164,7 +164,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         >
           <ShoppingCart className="size-4.5" aria-hidden />
           {count > 0 && (
-            <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-brand-gradient text-[11px] font-bold text-white shadow-accent ring-2 ring-white">
+            <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-transparent text-[11px] font-bold text-white shadow-accent ring-2 ring-white">
               {count}
             </span>
           )}
@@ -269,14 +269,14 @@ function SidebarLink({
       className={cn(
         "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
         active
-          ? "bg-[#0052FF]/8 text-[#0052FF]"
+          ? "bg-transparent/8 text-[#0052FF]"
           : "text-muted-foreground hover:bg-muted hover:text-foreground"
       )}
     >
       <Icon className={cn("size-4.5", active && "text-[#0052FF]")} aria-hidden />
       {label}
       {badge && (
-        <span className="ml-auto flex min-w-5 items-center justify-center rounded-full bg-brand-gradient px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
+        <span className="ml-auto flex min-w-5 items-center justify-center rounded-full bg-transparent px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
           {badge}
         </span>
       )}

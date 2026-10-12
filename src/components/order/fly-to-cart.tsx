@@ -186,7 +186,7 @@ function FlyThumb({ flight, onFinished }: { flight: Flight; onFinished: () => vo
           className="object-cover"
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-brand-gradient text-white">
+        <div className="flex h-full w-full items-center justify-center bg-transparent text-white">
           {flight.children}
         </div>
       )}

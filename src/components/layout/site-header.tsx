@@ -85,7 +85,7 @@ export function SiteHeader() {
                   "rounded-lg px-3.5 py-2 text-sm font-medium transition-colors min-h-11 inline-flex items-center",
                   active
                     ? "text-[#0052FF]"
-                    : "text-foreground/80 hover:text-[#0052FF] hover:bg-[#0052FF]/5"
+                    : "text-foreground/80 hover:text-[#0052FF] hover:bg-transparent/5"
                 )}
               >
                 {link.label}
@@ -104,7 +104,7 @@ export function SiteHeader() {
             >
               <ShoppingCart className="size-5" aria-hidden />
               {count > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-brand-gradient text-[11px] font-bold text-white shadow-accent">
+                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-transparent text-[11px] font-bold text-white shadow-accent">
                   {count}
                 </span>
               )}
@@ -205,7 +205,7 @@ export function SiteHeader() {
             {/* Tide sheet: covers the menu then sweeps off to reveal it */}
             <motion.div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-brand-gradient"
+              className="pointer-events-none absolute inset-0 bg-transparent"
               initial={reduce ? { x: "-104%" } : { x: 0 }}
               animate={{ x: "-104%" }}
               transition={{ duration: reduce ? 0 : 0.55, ease: MENU_EASE, delay: reduce ? 0 : 0.12 }}

@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export function TopBar({ className }: { className?: string }) {
   return (
-    <div className={cn("border-b border-[#0052FF]/20 bg-[#0052FF]/5", className)}>
+    <div className={cn("border-b border-[#0052FF]/20 bg-transparent/5", className)}>
       <p className="mx-auto flex w-full max-w-[72rem] items-center justify-center gap-2 px-5 py-2.5 text-center text-xs text-foreground/80 sm:px-8">
         <Info className="size-3.5 shrink-0 text-[#0052FF]" aria-hidden />
         <span>

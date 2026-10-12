@@ -82,7 +82,7 @@ export default function About() {
               {values.map((v) => (
                 <StaggerItem key={v.title}>
                   <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-layered">
-                    <span className="flex size-10 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent">
+                    <span className="flex size-10 items-center justify-center rounded-xl bg-transparent text-white shadow-accent">
                       <v.icon className="size-5" aria-hidden />
                     </span>
                     <h3 className="mt-4 font-semibold text-foreground">{v.title}</h3>
@@ -110,7 +110,7 @@ export default function About() {
               <StaggerItem key={t.year}>
                 <div className="relative flex gap-5 pb-8 last:pb-0">
                   <div className="flex flex-col items-center">
-                    <span className="z-10 flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-gradient font-mono text-[11px] font-bold text-white shadow-accent">
+                    <span className="z-10 flex size-10 shrink-0 items-center justify-center rounded-full bg-transparent font-mono text-[11px] font-bold text-white shadow-accent">
                       {t.year.slice(2)}
                     </span>
                     {t !== timeline[timeline.length - 1] && (

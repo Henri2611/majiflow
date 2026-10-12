@@ -32,19 +32,19 @@ const REPO_URL = "https://github.com/dhecaptain/majiflow";
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-white/5 bg-ink text-slate-300">
+    <footer className="border-t border-white/5 bg-transparent text-muted-foreground">
       <Container className="pb-24 pt-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <BrandMark dark />
-            <p className="mt-5 text-sm leading-relaxed text-slate-400">
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               A platform of a platform that connects homes to water refill stations and gives
               those businesses a storefront and back office. The stations, prices, ratings and orders
               here are regular content, and no payments are collected.
             </p>
             <a
               href={REPO_URL}
-              className="mt-6 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300 transition-all duration-200 hover:border-[#4D7CFF]/50 hover:bg-[#0052FF]/20 hover:text-white"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-muted-foreground transition-all duration-200 hover:border-[#4D7CFF]/50 hover:bg-transparent/20 hover:text-foreground"
             >
               Bugs and questions on GitHub
             </a>
@@ -65,7 +65,7 @@ export function SiteFooter() {
                 <Link
                   key={c}
                   href="/browse"
-                  className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide text-slate-400 transition-colors hover:border-[#4D7CFF]/50 hover:text-white"
+                  className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide text-muted-foreground transition-colors hover:border-[#4D7CFF]/50 hover:text-foreground"
                 >
                   {c}
                 </Link>
@@ -76,7 +76,7 @@ export function SiteFooter() {
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
               Contact
             </p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-[#4D7CFF]" aria-hidden />
                 <span>
@@ -90,7 +90,7 @@ export function SiteFooter() {
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
               What is 
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-slate-400">
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Six current stations across five cities, each with its own products, prices, delivery
               fee and opening hours. Order status is stored, but payment, SMS and rider dispatch are
               not part of the build.
@@ -118,7 +118,7 @@ function FooterCol({ title, links }: { title: string; links: { href: string; lab
           <li key={l.label}>
             <Link
               href={l.href}
-              className="text-sm text-slate-400 transition-colors hover:text-white"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
             </Link>

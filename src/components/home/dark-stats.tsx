@@ -18,7 +18,7 @@ const stats = [
 
 export function DarkStats() {
   return (
-    <section className="relative overflow-hidden bg-ink py-24 text-white lg:py-32">
+    <section className="relative overflow-hidden bg-transparent py-24 text-white lg:py-32">
       <ParallaxBackdrop strength={30} className="absolute inset-0">
         <Image
           src={nightWater}
@@ -32,7 +32,7 @@ export function DarkStats() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-70" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 top-1/2 size-[30rem] -translate-y-1/2 rounded-full bg-[#0052FF]/20 blur-[120px]"
+        className="pointer-events-none absolute -left-40 top-1/2 size-[30rem] -translate-y-1/2 rounded-full bg-transparent/20 blur-[120px]"
       />
       <div
         aria-hidden
@@ -61,7 +61,7 @@ export function DarkStats() {
         <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
             <StaggerItem key={s.label}>
-              <div className="flex h-full flex-col justify-between gap-10 bg-ink p-7 transition-colors duration-300 hover:bg-ink-soft">
+              <div className="flex h-full flex-col justify-between gap-10 bg-transparent p-7 transition-colors duration-300 hover:bg-transparent-soft">
                 <Droplets className="size-6 text-[#4D7CFF]/60" aria-hidden />
                 <div>
                   <p className="font-display text-4xl tracking-tight text-white">

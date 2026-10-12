@@ -121,10 +121,10 @@ export function ProfilePage() {
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-glow" />
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-16 -top-20 size-56 rounded-full bg-[#0052FF]/10 blur-3xl"
+            className="pointer-events-none absolute -right-16 -top-20 size-56 rounded-full bg-transparent/10 blur-3xl"
           />
           <div className="relative">
-            <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-accent">
+            <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-transparent text-white shadow-accent">
               <User className="size-7" aria-hidden />
             </span>
             <h1 className="mt-5 font-display text-2xl text-foreground">Set up your profile</h1>
@@ -269,11 +269,11 @@ export function ProfilePage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-glow" />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-20 -top-24 size-64 rounded-full bg-[#0052FF]/10 blur-3xl"
+          className="pointer-events-none absolute -right-20 -top-24 size-64 rounded-full bg-transparent/10 blur-3xl"
         />
         <div className="relative flex flex-wrap items-start justify-between gap-5">
           <div className="flex items-start gap-4">
-            <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-brand-gradient font-display text-xl text-white shadow-accent sm:size-16 sm:text-2xl">
+            <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-transparent font-display text-xl text-white shadow-accent sm:size-16 sm:text-2xl">
               {initials(profile.name)}
             </span>
             <div className="min-w-0">
@@ -306,7 +306,7 @@ export function ProfilePage() {
       </section>
 
       {!complete && !editing && (
-        <div className="mt-4 flex items-start gap-3 rounded-xl border border-[#0052FF]/20 bg-[#0052FF]/5 p-4">
+        <div className="mt-4 flex items-start gap-3 rounded-xl border border-[#0052FF]/20 bg-transparent/5 p-4">
           <AlertCircle className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
           <p className="text-sm text-foreground/85">
             <strong className="font-semibold text-foreground">Finish your profile.</strong> Share your
@@ -397,8 +397,8 @@ export function ProfilePage() {
 
       {/* Danger zone */}
       <section className="mt-8 overflow-hidden rounded-2xl border border-danger/25 bg-white shadow-card">
-        <div className="flex items-center gap-2.5 border-b border-danger/15 bg-danger-soft/50 px-6 py-4">
-          <span className="flex size-9 items-center justify-center rounded-lg bg-danger-soft text-danger" aria-hidden>
+        <div className="flex items-center gap-2.5 border-b border-danger/15 bg-transparent-soft/50 px-6 py-4">
+          <span className="flex size-9 items-center justify-center rounded-lg bg-transparent-soft text-danger" aria-hidden>
             <Trash2 className="size-4.5" />
           </span>
           <h2 className="font-display text-lg text-danger">Delete account</h2>
@@ -436,7 +436,7 @@ export function ProfilePage() {
 function CardHeader({ icon, title }: { icon: React.ReactNode; title: string }) {
   return (
     <h2 className="flex items-center gap-2.5 font-display text-lg text-foreground">
-      <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]" aria-hidden>
+      <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]" aria-hidden>
         {icon}
       </span>
       {title}
@@ -488,10 +488,10 @@ function LocationCard({
       <CardHeader icon={<MapPin className="size-4.5" aria-hidden />} title="Delivery location" />
       <div className="mt-5">
         {location ? (
-          <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-success/25 bg-success/5 p-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-success/25 bg-transparent/5 p-4">
             <div className="flex items-start gap-3">
               <span
-                className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-success-soft text-success"
+                className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-transparent-soft text-success"
                 aria-hidden
               >
                 <MapPinCheck className="size-4.5" />
@@ -534,7 +534,7 @@ function LocationCard({
           <div className="rounded-xl border border-dashed border-border bg-muted/30 p-5">
             <div className="flex items-start gap-3">
               <span
-                className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#0052FF]/10 text-[#0052FF]"
+                className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-transparent/10 text-[#0052FF]"
                 aria-hidden
               >
                 <Navigation className="size-5" />

@@ -45,7 +45,7 @@ export function StatCard({
     >
       <div
         className={cn(
-          "flex size-11 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent",
+          "flex size-11 items-center justify-center rounded-xl bg-transparent text-white shadow-accent",
           "transition-transform duration-300 group-hover:scale-110"
         )}
       >

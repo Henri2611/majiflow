@@ -90,7 +90,7 @@ export function AdminOverview() {
         <div className="flex flex-wrap items-center gap-3">
           <Link
             href="/admin/orders"
-            className="inline-flex items-center gap-2 rounded-xl border border-[#0052FF]/30 bg-[#0052FF]/5 px-4 py-2.5 text-sm font-semibold text-[#0052FF] transition-colors hover:bg-[#0052FF]/10"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#0052FF]/30 bg-transparent/5 px-4 py-2.5 text-sm font-semibold text-[#0052FF] transition-colors hover:bg-transparent/10"
           >
             <Radio className="size-4" aria-hidden /> Live orders
           </Link>
@@ -101,7 +101,7 @@ export function AdminOverview() {
       </div>
 
       {note && (
-        <div role="status" className="mt-6 flex items-center justify-between rounded-xl border border-[#0052FF]/25 bg-[#0052FF]/5 px-4 py-3 text-sm text-[#0052FF]">
+        <div role="status" className="mt-6 flex items-center justify-between rounded-xl border border-[#0052FF]/25 bg-transparent/5 px-4 py-3 text-sm text-[#0052FF]">
           {note}
           <button onClick={() => setNote(null)} className="font-semibold" aria-label="Dismiss">
             Dismiss
@@ -118,7 +118,7 @@ export function AdminOverview() {
           { icon: Users, label: "End customers", value: "8,410", hint: "Unique phone numbers served" },
         ].map((k) => (
           <div key={k.label} className="rounded-2xl border border-border bg-white p-5 shadow-card">
-            <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]">
+            <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
               <k.icon className="size-4.5" aria-hidden />
             </span>
             <p className="mt-3 font-display text-2xl text-foreground">{k.value}</p>
@@ -179,7 +179,7 @@ export function AdminOverview() {
                   <td className="px-5 py-4 text-foreground/85">{r.orders30d}</td>
                   <td className="px-5 py-4">
                     <span className={cn("inline-flex items-center gap-1.5 text-xs font-medium", r.status === "live" ? "text-success" : r.status === "pending" ? "text-warning" : "text-danger")}>
-                      <span className={cn("size-1.5 rounded-full", r.status === "live" ? "bg-success" : r.status === "pending" ? "bg-warning" : "bg-danger")} />
+                      <span className={cn("size-1.5 rounded-full", r.status === "live" ? "bg-transparent" : r.status === "pending" ? "bg-transparent" : "bg-transparent")} />
                       {r.status}
                     </span>
                   </td>
@@ -217,7 +217,7 @@ export function AdminOverview() {
                 <span
                   className={cn(
                     "mt-1.5 size-2 shrink-0 rounded-full",
-                    c.severity === "high" ? "bg-danger" : c.severity === "medium" ? "bg-warning" : "bg-muted-foreground/40"
+                    c.severity === "high" ? "bg-transparent" : c.severity === "medium" ? "bg-transparent" : "bg-muted-foreground/40"
                   )}
                 />
                 <div className="min-w-0 flex-1">
@@ -237,11 +237,11 @@ export function AdminOverview() {
           </h2>
           <ul className="mt-5 space-y-4">
             {[
-              { label: "Pro", value: 1, color: "bg-[#0052FF]" },
+              { label: "Pro", value: 1, color: "bg-transparent" },
               { label: "Growth", value: 2, color: "bg-[#4D7CFF]" },
-              { label: "Starter", value: 3, color: "bg-[#0052FF]/40" },
+              { label: "Starter", value: 3, color: "bg-transparent/40" },
               { label: "Trial", value: 1, color: "bg-muted-foreground/40" },
-              { label: "Past due", value: 1, color: "bg-danger" },
+              { label: "Past due", value: 1, color: "bg-transparent" },
             ].map((s) => (
               <li key={s.label}>
                 <div className="flex items-center justify-between text-sm">

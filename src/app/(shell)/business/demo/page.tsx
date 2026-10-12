@@ -8,9 +8,9 @@ export const metadata = { title: "Dashboard build" };
 export default function BusinessBuild() {
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#0052FF]/25 bg-[#0052FF]/5 p-5">
+      <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#0052FF]/25 bg-transparent/5 p-5">
         <div className="flex items-start gap-3">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-transparent text-white shadow-accent">
             <Sparkles className="size-5" aria-hidden />
           </span>
           <div>

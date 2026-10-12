@@ -30,7 +30,7 @@ export function PageHero({
     <section
       className={cn(
         "relative overflow-hidden",
-        tone === "dark" ? "bg-ink text-white" : "bg-background",
+        tone === "dark" ? "bg-transparent text-white" : "bg-background",
         "border-b",
         tone === "dark" ? "border-white/10" : "border-border"
       )}
@@ -42,7 +42,7 @@ export function PageHero({
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-60" />
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-0 size-[30rem] -translate-x-1/2 rounded-full bg-[#0052FF]/20 blur-[120px]"
+            className="pointer-events-none absolute left-1/2 top-0 size-[30rem] -translate-x-1/2 rounded-full bg-transparent/20 blur-[120px]"
           />
         </>
       )}

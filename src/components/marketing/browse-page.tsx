@@ -37,8 +37,8 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
           <div className="mx-auto max-w-2xl text-center">
             <p className="inline-flex items-center gap-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full rounded-full bg-[#0052FF] animate-ping-slow" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#0052FF]" />
+                <span className="absolute inline-flex size-full rounded-full bg-transparent animate-ping-slow" />
+                <span className="relative inline-flex size-2 rounded-full bg-transparent" />
               </span>
               Browse the build stations
             </p>
@@ -71,7 +71,7 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                   aria-pressed={city === c}
                   className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-all ${
                     city === c
-                      ? "border-transparent bg-brand-gradient text-white shadow-accent"
+                      ? "border-transparent bg-transparent text-white shadow-accent"
                       : "border-border bg-white text-muted-foreground hover:border-[#0052FF]/40 hover:text-[#0052FF]"
                   }`}
                 >

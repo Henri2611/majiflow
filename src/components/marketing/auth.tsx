@@ -29,15 +29,15 @@ export function AuthShell({
   return (
     <div className="min-h-[70vh] py-14 lg:py-20">
       <div className="mx-auto grid w-full max-w-4xl overflow-hidden rounded-3xl border border-border bg-white shadow-layered lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="relative hidden flex-col justify-between overflow-hidden bg-ink p-10 text-white lg:flex">
+        <div className="relative hidden flex-col justify-between overflow-hidden bg-transparent p-10 text-white lg:flex">
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-60" />
           <div
             aria-hidden
-            className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-[#0052FF]/25 blur-[100px]"
+            className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-transparent/25 blur-[100px]"
           />
 
           <div className="relative">
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-accent">
+            <span className="flex size-11 items-center justify-center rounded-2xl bg-transparent text-white shadow-accent">
               <Droplets className="size-6" aria-hidden />
             </span>
             <h2 className="mt-8 font-display text-3xl leading-[1.15] text-white">
@@ -49,7 +49,7 @@ export function AuthShell({
           <ul className="relative space-y-3">
             {perks.map((p) => (
               <li key={p} className="flex items-start gap-2.5 text-sm text-slate-200">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-success text-white">
+                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-transparent text-white">
                   <Check className="size-3" strokeWidth={3} aria-hidden />
                 </span>
                 {p}
