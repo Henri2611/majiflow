@@ -170,48 +170,10 @@ export interface Stat {
   icon: string;
 }
 
-export interface DashboardOrderRow {
-  id: string;
-  orderNumber: string;
-  customer: string;
-  area: string;
-  items: string;
-  total: number;
-  status: OrderStatus;
-  time: string;
-}
-
-export interface DashboardStats {
-  revenueToday: number;
-  revenueTrend: number;
-  ordersToday: number;
-  pendingOrders: number;
-  outForDelivery: number;
-  comingToday: number;
-  stockAlerts: StockAlert[];
-  repeatCustomerRate: number;
-  subscription: PlanName;
-  nextBilling: string;
-  chart: { period: string; revenue: number; orders: number }[];
-  recentOrders: DashboardOrderRow[];
-  popularProducts: { name: string; orders: number; revenue: number }[];
-}
-
 export interface StockAlert {
   id: string;
   name: string;
   stock: number;
   threshold: number;
   unit: string;
-}
-
-export interface CustomerRecord {
-  id: string;
-  name: string;
-  phone: string;
-  location: string;
-  orders: number;
-  totalSpent: number;
-  lastOrder: string;
-  status: "active" | "new" | "dormant";
 }

@@ -78,6 +78,34 @@ function windowLabel(hours: OperatingHours): string {
   return `${formatTime(hours.open)}–${formatTime(hours.close)}${parseTime(hours.close)! <= parseTime(hours.open)! ? " (overnight)" : ""}`;
 }
 
+export interface WeeklyHoursRow {
+  day: Weekday;
+  /** "Mon", "Tue", ... for compact grids. */
+  short: string;
+  /** The published window, "Closed", or "Not published". */
+  label: string;
+}
+
+const SHORT_DAY: Record<Weekday, string> = {
+  monday: "Mon",
+  tuesday: "Tue",
+  wednesday: "Wed",
+  thursday: "Thu",
+  friday: "Fri",
+  saturday: "Sat",
+  sunday: "Sun",
+};
+
+/** The station's published hours as ready-to-render rows, Monday first. */
+export function weeklyHoursGrid(hours: WeeklyOperatingHours | undefined): WeeklyHoursRow[] {
+  return WEEKDAYS.map((day) => {
+    const window = hours?.[day];
+    if (window === null) return { day, short: SHORT_DAY[day], label: "Closed" };
+    if (!validWindow(window)) return { day, short: SHORT_DAY[day], label: "Not published" };
+    return { day, short: SHORT_DAY[day], label: windowLabel(window) };
+  });
+}
+
 function lookupForMinute(hours: WeeklyOperatingHours | undefined, day: Weekday, minute: number) {
   const window = hours?.[day];
   if (!validWindow(window)) return { known: window === null, open: false };
