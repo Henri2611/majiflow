@@ -184,7 +184,7 @@ function validateStep(step: number, draft: RegistrationDraft): Errors {
 function geolocationUnavailableReason(): string | null {
   if (typeof window === "undefined") return null;
   if (!window.isSecureContext)
-    return "Location needs https. You're using an http:// link — open the https:// MajiFlow link (not the 10.162.122.91 IP), then allow location. We'll use your town's location instead.";
+    return "Location needs https. You're using an http:// link - open the https:// MajiFlow link (not the 10.162.122.91 IP), then allow location. We'll use your town's location instead.";
   if (typeof navigator === "undefined" || !("geolocation" in navigator))
     return "This browser can't share location. We'll use your town's location instead.";
   return null;
@@ -325,7 +325,7 @@ export function BusinessRegister() {
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Your business profile is set up on the{" "}
             <strong className="text-foreground">{selected.name}</strong> plan. MajiFlow is free while we
-            finish building — your details, including your business location, are saved for when the
+            finish building - your details, including your business location, are saved for when the
             platform goes live.
           </p>
 
@@ -338,18 +338,18 @@ export function BusinessRegister() {
             </div>
             <div className="flex items-center justify-between gap-3">
               <dt className="text-muted-foreground">Registered to</dt>
-              <dd className="font-semibold text-foreground">{draft.ownerName || "—"}</dd>
+              <dd className="font-semibold text-foreground">{draft.ownerName || "-"}</dd>
             </div>
             <div className="flex items-center justify-between gap-3">
               <dt className="text-muted-foreground">Contact</dt>
-              <dd className="font-semibold text-foreground">{draft.phone || "—"}</dd>
+              <dd className="font-semibold text-foreground">{draft.phone || "-"}</dd>
             </div>
             <div className="flex items-center justify-between gap-3">
               <dt className="text-muted-foreground">Business location</dt>
               <dd className="text-right font-mono text-xs text-foreground">
                 {draft.location
                   ? `${draft.location.lat.toFixed(5)}, ${draft.location.lng.toFixed(5)}`
-                  : "—"}
+                  : "-"}
                 {draft.location?.approx && (
                   <span className="block font-sans text-[11px] text-muted-foreground">
                     Approximate ({draft.city})
@@ -388,7 +388,7 @@ export function BusinessRegister() {
             Get your station online in <span className="text-gradient">one lunch break</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Four short steps, no card required. MajiFlow is free for now — your details and business
+            Four short steps, no card required. MajiFlow is free for now - your details and business
             location are saved for when we launch billing.
           </p>
         </div>
@@ -518,7 +518,7 @@ export function BusinessRegister() {
                   </button>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Water refills are always part of your catalogue — add anything else you offer.
+                  Water refills are always part of your catalogue - add anything else you offer.
                 </p>
                 {draft.sellsOther.includes("Other") && (
                   <Field label="Other services" error={errors.otherService} className="pt-1">
@@ -534,7 +534,7 @@ export function BusinessRegister() {
 
               <Field
                 label="Business registration number"
-                hint="KRA PIN or certificate number — optional, you can add it later."
+                hint="KRA PIN or certificate number - optional, you can add it later."
               >
                 <Input
                   placeholder="e.g. P051234567X"
@@ -543,7 +543,7 @@ export function BusinessRegister() {
                 />
               </Field>
 
-              <Field label="Short description" hint="Optional — a sentence or two customers will see.">
+              <Field label="Short description" hint="Optional - a sentence or two customers will see.">
                 <Textarea
                   rows={3}
                   placeholder="Family-run since 2018. UV-treated borehole water, delivered on boda within the hour."
@@ -619,7 +619,7 @@ export function BusinessRegister() {
                         )}
                         {draft.location.approx && (
                           <p className="mt-0.5 text-xs text-muted-foreground">
-                            Based on {draft.city} — you can refine this later.
+                            Based on {draft.city} - you can refine this later.
                           </p>
                         )}
                         <button
@@ -675,14 +675,14 @@ export function BusinessRegister() {
                 ) : (
                   !draft.location && (
                     <p className="text-xs text-muted-foreground">
-                      Required — your business location is saved to your profile. If your browser can&apos;t
+                      Required - your business location is saved to your profile. If your browser can&apos;t
                       share it, use your town&apos;s location.
                     </p>
                   )
                 )}
               </div>
 
-              <Field label="Delivery zones" hint="Comma-separated for now — the dashboard lets you fine-tune fees per zone.">
+              <Field label="Delivery zones" hint="Comma-separated for now - the dashboard lets you fine-tune fees per zone.">
                 <Input
                   placeholder="Kasarani, Roysambu, Kahawa West, Githurai"
                   value={draft.zones}
@@ -707,7 +707,7 @@ export function BusinessRegister() {
                 <Badge variant="success">Free for now</Badge>
               </div>
               <p className="text-sm text-muted-foreground">
-                Choose the plan that fits today. Nothing is charged while MajiFlow is in early access — you
+                Choose the plan that fits today. Nothing is charged while MajiFlow is in early access - you
                 can change this later.
               </p>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -762,7 +762,7 @@ export function BusinessRegister() {
               </div>
               <p className="rounded-xl bg-muted/50 p-4 text-sm leading-relaxed text-muted-foreground">
                 You won&apos;t be charged today. Add your M-Pesa number below and we&apos;ll use it when billing goes
-                live — you can skip this and add it later in Settings.
+                live - you can skip this and add it later in Settings.
               </p>
               <Field label="M-Pesa number for billing" hint="Optional for now.">
                 <Input
@@ -781,7 +781,7 @@ export function BusinessRegister() {
                   className="mt-0.5 size-4 accent-[#0052FF]"
                 />
                 <span className="text-sm leading-relaxed text-muted-foreground">
-                  Charge my M-Pesa on the 1st of each month once billing starts. I can cancel anytime — my
+                  Charge my M-Pesa on the 1st of each month once billing starts. I can cancel anytime - my
                   public page stays up until the end of the paid period.
                 </span>
               </label>
@@ -806,7 +806,7 @@ export function BusinessRegister() {
               </Button>
             ) : (
               <Button size="lg" className="group" onClick={submit}>
-                Start free — no card
+                Start free - no card
                 <ArrowRight className="size-4" aria-hidden />
               </Button>
             )}

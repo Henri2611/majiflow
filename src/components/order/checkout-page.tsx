@@ -221,7 +221,7 @@ function CheckoutForm() {
       errs.phone = "Use a Kenyan number, e.g. 07XX XXX XXX or +254 7XX….";
     }
     if (!city) errs.city = "Choose your town.";
-    if (!estate.trim()) errs.estate = "Choose a recognised estate — riders use these to navigate.";
+    if (!estate.trim()) errs.estate = "Choose a recognised estate - riders use these to navigate.";
     if (notes.length > 500) errs.notes = "Directions must be under 500 characters.";
     if (saveProfile) {
       if (!email.trim()) errs.email = "Add your email to save it to your profile.";
@@ -409,7 +409,7 @@ function CheckoutForm() {
         title: "Order placed",
         message:
           created.length > 1
-            ? `${created.length} orders placed from ${formatKES(total)}. Start with ${first.orderNumber} — ${first.businessName}.`
+            ? `${created.length} orders placed from ${formatKES(total)}. Start with ${first.orderNumber} - ${first.businessName}.`
             : `Order ${first.orderNumber} is with ${first.businessName}. Track it now.`,
       });
       window.setTimeout(() => router.push(`/order/${first.id}`), 1600);
@@ -426,7 +426,7 @@ function CheckoutForm() {
             ? fields._form ?? "Please fix the highlighted fields and retry."
             : err instanceof Error
               ? err.message
-              : "We hit a snag — nothing was charged and nothing was duplicated, so please retry.",
+              : "We hit a snag - nothing was charged and nothing was duplicated, so please retry.",
       });
     } finally {
       submittingRef.current = false;
@@ -751,7 +751,7 @@ function CheckoutForm() {
             />
             <span className="text-xs leading-relaxed text-muted-foreground">
               <span className="font-semibold text-foreground">Update my profile with these details</span>{" "}
-              so your next checkout fills itself — name, phone, email and this delivery address.
+              so your next checkout fills itself - name, phone, email and this delivery address.
               <span id="profile-save-note" className="block text-muted-foreground/80">
                 Never saved: card numbers, M-Pesa PINs or quantities.
               </span>
@@ -944,7 +944,7 @@ function MpesaOverlay({
                 Enter your M-Pesa PIN and press Send.
               </p>
               <Button size="lg" className="group mt-3 w-full" disabled={busy} onClick={() => setSent(true)}>
-                I&apos;ve confirmed — verify payment
+                I&apos;ve confirmed - verify payment
               </Button>
               <button
                 onClick={onFail}

@@ -57,7 +57,7 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                 id="search-stations"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by name or estate — e.g. Kasarani"
+                placeholder="Search by name or estate - e.g. Kasarani"
                 className="h-14 rounded-xl pl-12 text-base shadow-card"
               />
             </div>

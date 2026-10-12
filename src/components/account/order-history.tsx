@@ -38,7 +38,7 @@ export function OrderHistoryPage() {
         <EmptyState
           icon={<PackageOpen className="size-7" aria-hidden />}
           title="Nothing here yet"
-          description="Place your first order and it'll live in this history — handy for reordering next week."
+          description="Place your first order and it'll live in this history - handy for reordering next week."
           action={
             <Link href="/browse">
               <Button className="group">
@@ -69,7 +69,7 @@ export function OrderHistoryPage() {
                       <td className="px-5 py-4 font-mono text-xs text-muted-foreground">{o.orderNumber}</td>
                       <td className="px-5 py-4 font-medium text-foreground">{o.businessName}</td>
                       <td className="px-5 py-4 text-foreground/85">
-                        {o.items.map((i) => `${i.quantity}×${i.name.split("—")[0].trim()}`).join(", ")}
+                        {o.items.map((i) => `${i.quantity}×${i.name.split(" - ")[0].trim()}`).join(", ")}
                       </td>
                       <td className="px-5 py-4 font-bold text-foreground">{formatKES(o.total)}</td>
                       <td className="px-5 py-4">

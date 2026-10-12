@@ -19,8 +19,8 @@ const customerSteps = [
   {
     icon: MapPin,
     title: "Choose your area",
-    text: "Select your estate — or let us detect it. We show only verified refill stations that deliver to your door.",
-    detail: "Nairobi, Mombasa, Kisumu, Nakuru, Eldoret, Thika & Machakos — more towns monthly.",
+    text: "Select your estate - or let us detect it. We show only verified refill stations that deliver to your door.",
+    detail: "Nairobi, Mombasa, Kisumu, Nakuru, Eldoret, Thika & Machakos - more towns monthly.",
   },
   {
     icon: Store,
@@ -43,7 +43,7 @@ const customerSteps = [
   {
     icon: Truck,
     title: "Track until arrival",
-    text: "Follow your order from accepted → out for delivery → delivered. The rider calls before arrival — there is always water at your gate.",
+    text: "Follow your order from accepted → out for delivery → delivered. The rider calls before arrival - there is always water at your gate.",
     detail: "Average delivery in major towns: 40–60 minutes.",
   },
   {
@@ -58,7 +58,7 @@ const faqItems = [
   { q: "How fast is delivery?", a: "Stations in Nairobi, Mombasa, Kisumu and Nakuru typically deliver within 40–60 minutes during the day. Each business publishes its own average on its profile." },
   { q: "Is there a free-delivery minimum?", a: "Many stations offer free delivery above a set amount, for example KES 1,000. It's always shown on the station's page before you order." },
   { q: "What if the delivery arrives damaged?", a: "Tell us within 24 hours with a photo and the station replaces the product at no cost. MajiFlow follows up until it's resolved." },
-  { q: "Can I pay cash on delivery?", a: "Not on the platform — payments are prepaid via M-Pesa or card. This keeps riders, drivers and stations accountable, and means nobody carries cash." },
+  { q: "Can I pay cash on delivery?", a: "Not on the platform - payments are prepaid via M-Pesa or card. This keeps riders, drivers and stations accountable, and means nobody carries cash." },
 ];
 
 export default function HowItWorks() {

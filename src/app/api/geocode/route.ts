@@ -84,7 +84,7 @@ async function fetchNominatim(lat: number, lng: number): Promise<NominatimRespon
 }
 
 /**
- * Nearest named road via Overpass — used when the point itself has no road in
+ * Nearest named road via Overpass - used when the point itself has no road in
  * OSM's address breakdown (common in informal or mapped-only-by-building
  * areas). Excludes motorways/trunks so we return a delivery street, not a
  * highway that happens to be overhead.
@@ -141,7 +141,7 @@ async function fetchNearestStreet(
 }
 
 /**
- * Photon (komoot) reverse geocoder — fast single request over OSM data that
+ * Photon (komoot) reverse geocoder - fast single request over OSM data that
  * returns the nearest named street even when the exact point isn't on a road.
  * Used alongside Nominatim (which gives a richer address breakdown) to make the
  * street capture fast and reliable on the phone.

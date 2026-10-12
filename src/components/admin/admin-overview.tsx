@@ -45,7 +45,7 @@ const ROWS: {
 ];
 
 const COMPLAINTS = [
-  { id: "c1", business: "Highlands Aqua", issue: "Order accepted but rider never arrived — customer refunded", age: "2h ago", severity: "high" },
+  { id: "c1", business: "Highlands Aqua", issue: "Order accepted but rider never arrived - customer refunded", age: "2h ago", severity: "high" },
   { id: "c2", business: "Nzoia Springs", issue: "Subscription payment failed 3 times (insufficient M-Pesa balance)", age: "1d ago", severity: "medium" },
   { id: "c3", business: "AquaSpring Refills", issue: "Requested help setting delivery zone fees", age: "2d ago", severity: "low" },
 ];
@@ -72,7 +72,7 @@ export function AdminOverview() {
 
   const setStatus = (id: string, status: "live" | "suspended") => {
     setRows((all) => all.map((r) => (r.id === id ? { ...r, status } : r)));
-    setNote(status === "live" ? "Business reactivated — their page is back online." : "Business suspended — customers see a pause notice.");
+    setNote(status === "live" ? "Business reactivated - their page is back online." : "Business suspended - customers see a pause notice.");
   };
 
   return (
@@ -84,7 +84,7 @@ export function AdminOverview() {
           </p>
           <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">MajiFlow control room</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Every station, subscription and payment across Kenya — in one view.
+            Every station, subscription and payment across Kenya - in one view.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -175,7 +175,7 @@ export function AdminOverview() {
                       {r.plan === "past_due" ? "Past due" : r.plan === "trial" ? "Trial" : r.plan[0].toUpperCase() + r.plan.slice(1)}
                     </Badge>
                   </td>
-                  <td className="px-5 py-4 font-medium text-foreground">{r.mrr ? formatKES(r.mrr) : "—"}</td>
+                  <td className="px-5 py-4 font-medium text-foreground">{r.mrr ? formatKES(r.mrr) : "-"}</td>
                   <td className="px-5 py-4 text-foreground/85">{r.orders30d}</td>
                   <td className="px-5 py-4">
                     <span className={cn("inline-flex items-center gap-1.5 text-xs font-medium", r.status === "live" ? "text-success" : r.status === "pending" ? "text-warning" : "text-danger")}>

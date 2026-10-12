@@ -28,7 +28,7 @@ export function CartPage() {
         <EmptyState
           icon={<ShoppingCart className="size-7" aria-hidden />}
           title="Your cart is empty"
-          description="No cans in here yet. Find a trusted station near you and add a refill — it takes seconds."
+          description="No cans in here yet. Find a trusted station near you and add a refill - it takes seconds."
           action={
             <Link href="/browse">
               <Button size="lg" className="group">
@@ -148,7 +148,7 @@ export function CartPage() {
             </div>
             {deliveryFee === 0 && subtotal > 0 && (
               <p className="text-xs text-success">
-                Free delivery applied — your order qualifies.
+                Free delivery applied - your order qualifies.
               </p>
             )}
             <div className="flex items-center justify-between border-t border-border pt-3">

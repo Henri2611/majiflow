@@ -310,7 +310,7 @@ export function ProfilePage() {
           <AlertCircle className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
           <p className="text-sm text-foreground/85">
             <strong className="font-semibold text-foreground">Finish your profile.</strong> Share your
-            delivery location so riders find you quickly — no manual address needed.
+            delivery location so riders find you quickly - no manual address needed.
           </p>
         </div>
       )}
@@ -379,9 +379,9 @@ export function ProfilePage() {
           <section className="rounded-2xl border border-border bg-white p-6 shadow-card">
             <CardHeader icon={<User className="size-4.5" aria-hidden />} title="Contact details" />
             <dl className="mt-2 divide-y divide-border">
-              <DetailRow icon={<User className="size-4" aria-hidden />} label="Full name" value={profile.name || "—"} />
-              <DetailRow icon={<Phone className="size-4" aria-hidden />} label="Phone" value={profile.phone || "—"} />
-              <DetailRow icon={<Mail className="size-4" aria-hidden />} label="Email" value={profile.email || "—"} />
+              <DetailRow icon={<User className="size-4" aria-hidden />} label="Full name" value={profile.name || "-"} />
+              <DetailRow icon={<Phone className="size-4" aria-hidden />} label="Phone" value={profile.phone || "-"} />
+              <DetailRow icon={<Mail className="size-4" aria-hidden />} label="Email" value={profile.email || "-"} />
             </dl>
           </section>
 
@@ -542,7 +542,7 @@ function LocationCard({
               <div>
                 <p className="text-sm font-semibold text-foreground">Share your delivery location</p>
                 <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                  Allow access and we&apos;ll pin exactly where to deliver — no manual address needed.
+                  Allow access and we&apos;ll pin exactly where to deliver - no manual address needed.
                 </p>
               </div>
             </div>

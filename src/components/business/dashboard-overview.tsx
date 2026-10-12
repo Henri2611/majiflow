@@ -36,7 +36,7 @@ export function DashboardOverview() {
         <div className="flex gap-2">
           <button
             type="button"
-            onClick={() => setToast("Simulated — in production this opens your marketing site.")}
+            onClick={() => setToast("Simulated - in production this opens your marketing site.")}
             className="rounded-xl border border-border bg-white px-4 py-2 text-sm font-medium text-foreground shadow-card hover:border-[#0052FF]/40"
           >
             View public page

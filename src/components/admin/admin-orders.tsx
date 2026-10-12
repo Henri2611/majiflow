@@ -78,7 +78,7 @@ export function AdminOrders() {
             </span>
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Every station&apos;s orders across Kenya — updating live. Open one to watch the customer&apos;s location.
+            Every station&apos;s orders across Kenya - updating live. Open one to watch the customer&apos;s location.
           </p>
         </div>
       </div>

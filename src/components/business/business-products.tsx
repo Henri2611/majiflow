@@ -10,11 +10,11 @@ import { productImage } from "@/lib/product-images";
 import { cn } from "@/lib/utils";
 
 const PRODUCTS = [
-  { id: "p1", name: "Refill — 20L can", desc: "Borehole water, refilled on existing can", price: 400, stock: 220, unit: "cans", image: "can", on: true },
+  { id: "p1", name: "Refill - 20L can", desc: "Borehole water, refilled on existing can", price: 400, stock: 220, unit: "cans", image: "can", on: true },
   { id: "p2", name: "5L bottle", desc: "Chilled, sealed, for fridges", price: 120, stock: 96, unit: "bottles", image: "bottle", on: true },
-  { id: "p3", name: "Replacement 20L can — full", desc: "Swap-in full can, keep yours as spare", price: 650, stock: 6, unit: "cans", image: "can", on: true },
-  { id: "p4", name: "10L bottle (chilled)", desc: "Best for small offices — Nyali favorite", price: 180, stock: 34, unit: "bottles", image: "bottle", on: false },
-  { id: "p5", name: "Tabletop dispenser — rental", desc: "Monthly rental with free refills", price: 600, stock: 3, unit: "units", image: "dispenser", on: true },
+  { id: "p3", name: "Replacement 20L can - full", desc: "Swap-in full can, keep yours as spare", price: 650, stock: 6, unit: "cans", image: "can", on: true },
+  { id: "p4", name: "10L bottle (chilled)", desc: "Best for small offices - Nyali favorite", price: 180, stock: 34, unit: "bottles", image: "bottle", on: false },
+  { id: "p5", name: "Tabletop dispenser - rental", desc: "Monthly rental with free refills", price: 600, stock: 3, unit: "units", image: "dispenser", on: true },
 ];
 
 export function BusinessProducts() {
@@ -41,7 +41,7 @@ export function BusinessProducts() {
         </div>
         <Button
           className="group"
-          onClick={() => setNote("Product draft created — fill in details from the station clipboard.")}
+          onClick={() => setNote("Product draft created - fill in details from the station clipboard.")}
         >
           <Plus className="size-4" aria-hidden /> New product
         </Button>

@@ -7,8 +7,8 @@ import { businesses } from "@/lib/data/businesses";
 /**
  * File-backed order store.
  *
- * Orders live in `.data/orders.json` (gitignored) so the whole flow —
- * customer checkout → vendor dashboard → live tracking → platform admin —
+ * Orders live in `.data/orders.json` (gitignored) so the whole flow -
+ * customer checkout → vendor dashboard → live tracking → platform admin -
  * works across tabs and devices without an external database. Every read
  * and write is serialized through a single queue.
  */
@@ -35,7 +35,7 @@ const SEED: Order = {
   customerName: "Jane Wanjiku",
   customerPhone: "+254 712 345 678",
   items: [
-    { productId: "bw-refill-20", name: "Refill — 20L can", quantity: 2, unitPrice: 350 },
+    { productId: "bw-refill-20", name: "Refill - 20L can", quantity: 2, unitPrice: 350 },
   ],
   subtotal: 700,
   deliveryFee: 120,
@@ -166,7 +166,7 @@ export function validateOrder(input: unknown): ValidationResult {
   if (!customerPhone) errors.customerPhone = "Use a Kenyan number, e.g. 07XX XXX XXX or +254 7XX….";
 
   if (typeof o.businessId !== "string" || !o.businessId.trim())
-    errors.businessId = "Station is missing — go back and add items again.";
+    errors.businessId = "Station is missing - go back and add items again.";
   if (typeof o.businessName !== "string" || !o.businessName.trim())
     errors.businessName = "Station name is required.";
 
@@ -224,13 +224,13 @@ export function validateOrder(input: unknown): ValidationResult {
     }
   }
 
-  // Financial integrity — never trust client totals.
+  // Financial integrity - never trust client totals.
   if (!isFiniteNumber(o.subtotal) || Math.abs(o.subtotal - subtotal) > 0.001)
-    errors.subtotal = "Subtotal doesn't match the items — refresh and retry.";
+    errors.subtotal = "Subtotal doesn't match the items - refresh and retry.";
   if (!isFiniteNumber(o.deliveryFee) || o.deliveryFee < 0) errors.deliveryFee = "Delivery fee is invalid.";
   const fee = isFiniteNumber(o.deliveryFee) && o.deliveryFee >= 0 ? o.deliveryFee : 0;
   if (!isFiniteNumber(o.total) || Math.abs(o.total - (subtotal + fee)) > 0.001)
-    errors.total = "Total doesn't match — refresh and retry.";
+    errors.total = "Total doesn't match - refresh and retry.";
 
   // Address
   if (typeof o.address !== "object" || o.address === null) {
@@ -241,7 +241,7 @@ export function validateOrder(input: unknown): ValidationResult {
     const a = o.address as Record<string, unknown>;
     const estate = typeof a.estate === "string" ? a.estate.trim() : "";
     const phone = normalizePhone(a.phone);
-    if (!estate) errors.estate = "Choose a recognised estate — riders use these to navigate.";
+    if (!estate) errors.estate = "Choose a recognised estate - riders use these to navigate.";
     if (!phone) errors.phone = "Enter the phone the rider should call.";
     if (estate.length > MAX_LEN.estate) errors.estate = "That estate name is too long.";
     address = {

@@ -47,7 +47,7 @@ export default function Terms() {
       <ProseSection title="4. SaaS subscription">
         <p>
           Business plans are billed in KES monthly or annually in advance. All plans begin with a
-          14-day free trial — no card is required. You may upgrade, downgrade or cancel from the
+          14-day free trial - no card is required. You may upgrade, downgrade or cancel from the
           Billing page at any time. Cancellation takes effect at the end of the paid period. No
           commission is charged on orders, and there are no setup fees.
         </p>

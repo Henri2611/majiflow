@@ -22,7 +22,7 @@ export default function Faqs() {
             Every answer, <span className="text-gradient">one page</span>
           </>
         }
-        description="From ordering your first refill to running five staff on the Growth plan — the questions we actually get."
+        description="From ordering your first refill to running five staff on the Growth plan - the questions we actually get."
       />
 
       <section className="py-16 lg:py-24">

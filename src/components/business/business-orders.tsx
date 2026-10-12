@@ -99,7 +99,7 @@ export function BusinessOrders() {
       id,
       next,
       next === "accepted"
-        ? "Order accepted — customer notified by SMS."
+        ? "Order accepted - customer notified by SMS."
         : next === "out_for_delivery"
           ? "Rider assigned and heading out."
           : "Marked delivered. Payment already settled via M-Pesa."
@@ -107,7 +107,7 @@ export function BusinessOrders() {
   };
 
   const reject = (id: string) => {
-    void applyStatus(id, "rejected", "Order rejected — we return the customer's payment automatically.");
+    void applyStatus(id, "rejected", "Order rejected - we return the customer's payment automatically.");
   };
 
   return (

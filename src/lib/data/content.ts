@@ -73,8 +73,8 @@ export const dashboardStats: DashboardStats = {
   outForDelivery: 9,
   comingToday: 20,
   stockAlerts: [
-    { id: "s1", name: "Replacement 20L can — full", stock: 6, threshold: 10, unit: "cans" },
-    { id: "s2", name: "Tabletop dispenser — rental", stock: 3, threshold: 5, unit: "units" },
+    { id: "s1", name: "Replacement 20L can - full", stock: 6, threshold: 10, unit: "cans" },
+    { id: "s2", name: "Tabletop dispenser - rental", stock: 3, threshold: 5, unit: "units" },
     { id: "s3", name: "5L bottle", stock: 12, threshold: 15, unit: "bottles" },
   ],
   repeatCustomerRate: 68,
@@ -97,8 +97,8 @@ export const dashboardStats: DashboardStats = {
     { id: "o5", orderNumber: "#MF-98117", customer: "Lilian Koech", area: "Milimani", items: "2 × 20L refill", total: 700, status: "delivered", time: "09:12" },
   ],
   popularProducts: [
-    { name: "Refill — 20L can", orders: 214, revenue: 74900 },
+    { name: "Refill - 20L can", orders: 214, revenue: 74900 },
     { name: "5L bottle", orders: 96, revenue: 11520 },
-    { name: "Replacement 20L can — full", orders: 54, revenue: 35100 },
+    { name: "Replacement 20L can - full", orders: 54, revenue: 35100 },
   ],
 };

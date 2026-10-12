@@ -129,7 +129,7 @@ export function TrackOrderPage({ id }: { id: string }) {
             </h2>
             <p className="mt-1 max-w-xl text-sm leading-relaxed text-foreground/80">
               Your payment of {formatKES(order.total)} was not released to the station and is being
-              returned to your M-Pesa within 24 hours. Try another station nearby — there are
+              returned to your M-Pesa within 24 hours. Try another station nearby - there are
               usually several with water ready now.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
@@ -157,7 +157,7 @@ export function TrackOrderPage({ id }: { id: string }) {
             {[
               { status: "accepted" as const, label: "Order accepted", desc: order.status === "pending" ? "The station will confirm shortly." : "The station confirmed and sealed your water." },
               { status: "out_for_delivery" as const, label: "Out for delivery", desc: "The rider is on the road and will call before arrival." },
-              { status: "delivered" as const, label: "Delivered", desc: "Your refills are at the door — open a can and enjoy." },
+              { status: "delivered" as const, label: "Delivered", desc: "Your refills are at the door - open a can and enjoy." },
             ].map((step, i) => {
               const reached =
                 (order.status === "accepted" && i === 0) ||
@@ -297,7 +297,7 @@ export function TrackOrderPage({ id }: { id: string }) {
           {/* Demo controls */}
           <details className="rounded-2xl border border-dashed border-[#0052FF]/30 bg-[#0052FF]/3 p-4">
             <summary className="cursor-pointer font-mono text-[11px] uppercase tracking-widest text-[#0052FF]">
-              Demo controls — advance the delivery
+              Demo controls - advance the delivery
             </summary>
             <div className="mt-4 flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" onClick={() => setStatus("pending")} disabled={order.status === "pending"}>

@@ -40,7 +40,7 @@ export function PricingPage() {
     toast({
       kind: "success",
       title: `${plan.name} chosen`,
-      message: `Begin your ${plan.trialDays}-day free trial — no card required.`,
+      message: `Begin your ${plan.trialDays}-day free trial - no card required.`,
     });
 
   const planMap = Object.fromEntries(plans.map((p) => [p.id, p])) as Record<PlanName, Plan>;
@@ -55,7 +55,7 @@ export function PricingPage() {
             A subscription, <span className="text-gradient">not a commission</span>
           </>
         }
-        description="Transparent KES pricing that scales with your station. Every plan starts with a 14-day free trial — take real orders before you spend a shilling."
+        description="Transparent KES pricing that scales with your station. Every plan starts with a 14-day free trial - take real orders before you spend a shilling."
       />
 
       <section className="py-16 lg:py-24">
@@ -76,7 +76,7 @@ export function PricingPage() {
             <ShieldCheck className="size-6 shrink-0 text-success" aria-hidden />
             <p className="flex-1 text-sm leading-relaxed text-foreground/85">
               <strong className="font-semibold text-foreground">No surprise fees, ever.</strong> You
-              keep the full KES price customers pay. Cancel anytime — export your data and your
+              keep the full KES price customers pay. Cancel anytime - export your data and your
               profile stays live until the end of the billing period.
             </p>
           </div>
@@ -158,7 +158,7 @@ export function PricingPage() {
               {
                 icon: WandSparkles,
                 title: "An online storefront in an hour",
-                text: "Skip the flyers and phone-call ordering. Your profile, menu, prices and delivery zones go live the day you register — usually before lunch.",
+                text: "Skip the flyers and phone-call ordering. Your profile, menu, prices and delivery zones go live the day you register - usually before lunch.",
               },
               {
                 icon: ShieldCheck,
@@ -198,7 +198,7 @@ export function PricingPage() {
             items={[
               { q: "Do I need a card for the free trial?", a: "No. Register, set up your station, take real M-Pesa orders for 14 days, then choose a plan to keep selling." },
               { q: "What payment methods do my customers get?", a: "M-Pesa STK push on every station. Card payments can be enabled per business on the Growth and Pro plans." },
-              { q: "Can I change plans later?", a: "Yes — upgrade or downgrade anytime from Billing. Changes prorate to your next billing date." },
+              { q: "Can I change plans later?", a: "Yes - upgrade or downgrade anytime from Billing. Changes prorate to your next billing date." },
               { q: "Is there a setup fee or commission?", a: "No setup fee, no commission on orders. The flat subscription is the only charge." },
             ]}
           />

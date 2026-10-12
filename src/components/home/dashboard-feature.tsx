@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { AnimatedSection, Stagger, StaggerItem } from "@/components/ui/animated-section";
 
 const checklist = [
-  "Accept or reject orders in one tap — riders get pushed SMS updates",
+  "Accept or reject orders in one tap - riders get pushed SMS updates",
   "Set delivery zones, fees and free-delivery minimums for every estate",
   "Stock alerts before you run out of cans on a busy Friday",
   "Customer list with order history, totals and repeat rate",

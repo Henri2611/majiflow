@@ -9,9 +9,9 @@ import { plans } from "@/lib/data/plans";
 import { cn } from "@/lib/utils";
 
 const INVOICES = [
-  { id: "INV-2026-010", date: "1 Oct 2026", plan: "Growth — monthly", amount: 4500, status: "Paid" },
-  { id: "INV-2026-009", date: "1 Sep 2026", plan: "Growth — monthly", amount: 4500, status: "Paid" },
-  { id: "INV-2026-008", date: "1 Aug 2026", plan: "Starter — monthly", amount: 1500, status: "Paid" },
+  { id: "INV-2026-010", date: "1 Oct 2026", plan: "Growth - monthly", amount: 4500, status: "Paid" },
+  { id: "INV-2026-009", date: "1 Sep 2026", plan: "Growth - monthly", amount: 4500, status: "Paid" },
+  { id: "INV-2026-008", date: "1 Aug 2026", plan: "Starter - monthly", amount: 1500, status: "Paid" },
 ];
 
 export function BusinessBilling() {
@@ -89,7 +89,7 @@ export function BusinessBilling() {
               <Button
                 variant={current ? "secondary" : "default"}
                 className="mt-6 w-full"
-                onClick={() => setNote(current ? "You're already on Growth — no changes made." : `Switched to ${p.name} (simulated).`)}
+                onClick={() => setNote(current ? "You're already on Growth - no changes made." : `Switched to ${p.name} (simulated).`)}
               >
                 {current ? "Manage plan" : `Upgrade to ${p.name}`}
               </Button>

@@ -10,7 +10,7 @@ import { useToast } from "@/components/ui/toast";
 
 const topics = [
   "I want to order water",
-  "I run a refill business — register me",
+  "I run a refill business - register me",
   "Billing or subscription help",
   "Support for an existing order",
   "Press or partnership",
@@ -18,7 +18,7 @@ const topics = [
 ];
 
 const channels = [
-  { icon: MessageCircle, label: "WhatsApp support", value: "+254 700 123 456", note: "Fastest — replies in minutes" },
+  { icon: MessageCircle, label: "WhatsApp support", value: "+254 700 123 456", note: "Fastest - replies in minutes" },
   { icon: Phone, label: "Phone", value: "+254 700 123 456", note: "Mon–Sat, 7am–9pm EAT" },
   { icon: Mail, label: "Email", value: "hello@majiflow.co.ke", note: "Replies within one business day" },
 ];
@@ -36,7 +36,7 @@ export default function Contact() {
       toast({
         kind: "success",
         title: "Message sent",
-        message: `Thanks ${form.name || "there"} — our team will reply within one business day.`,
+        message: `Thanks ${form.name || "there"} - our team will reply within one business day.`,
       });
       setForm({ name: "", email: "", phone: "", topic: topics[0], message: "" });
     }, 900);

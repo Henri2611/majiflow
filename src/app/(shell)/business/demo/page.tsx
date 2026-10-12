@@ -16,7 +16,7 @@ export default function BusinessDemo() {
           <div>
             <p className="font-display text-lg text-foreground">You're viewing the live demo</p>
             <p className="mt-0.5 text-sm text-muted-foreground">
-              This is real sample data for BioWater Refill Station, Kasarani. Click around — accepting
+              This is real sample data for BioWater Refill Station, Kasarani. Click around - accepting
               orders, hiding products and pausing promotions all work.
             </p>
           </div>

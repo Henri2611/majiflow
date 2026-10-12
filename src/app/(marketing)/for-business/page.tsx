@@ -31,22 +31,22 @@ const pillars = [
   {
     icon: Coins,
     title: "Prepaid payments, no cash angst",
-    text: "M-Pesa STK or card, paid before the rider leaves. Every payment reconciles to an order — your till balance and your dashboard always agree.",
+    text: "M-Pesa STK or card, paid before the rider leaves. Every payment reconciles to an order - your till balance and your dashboard always agree.",
   },
   {
     icon: BarChart3,
     title: "Numbers that make sense",
-    text: "Revenue per day, popular products, stock alerts and rider performance — a dashboard you can read between deliveries, not a spreadsheet project.",
+    text: "Revenue per day, popular products, stock alerts and rider performance - a dashboard you can read between deliveries, not a spreadsheet project.",
   },
   {
     icon: Users,
     title: "Team and customers together",
-    text: "Staff accounts on Growth, customer history and notes, and SMS/WhatsApp updates — the whole business in one calm screen.",
+    text: "Staff accounts on Growth, customer history and notes, and SMS/WhatsApp updates - the whole business in one calm screen.",
   },
   {
     icon: PackagePlus,
     title: "Experiment without risk",
-    text: "Run a discount, bundle cans with a dispenser rental, or push a new 5L size. Change menu prices in a tap — go live instantly.",
+    text: "Run a discount, bundle cans with a dispenser rental, or push a new 5L size. Change menu prices in a tap - go live instantly.",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function ForBusiness() {
             Your station, your prices. <span className="text-gradient">Our storefront.</span>
           </>
         }
-        description="MajiFlow gives Kenya's water refill businesses a professional online storefront, an easy order and delivery back office, and prepaid M-Pesa payments — no commissions, no lock-in."
+        description="MajiFlow gives Kenya's water refill businesses a professional online storefront, an easy order and delivery back office, and prepaid M-Pesa payments - no commissions, no lock-in."
       >
         <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/business/register">

@@ -41,7 +41,7 @@ const FALLBACK_CENTER: [number, number] = [-1.2921, 36.8219];
 
 /**
  * Live order map (client-only). Shows the station, the delivery address as
- * a fallback pin, and — while the customer is sharing GPS — their moving dot
+ * a fallback pin, and - while the customer is sharing GPS - their moving dot
  * with an accuracy circle and the recent path.
  */
 export function OrderMap({

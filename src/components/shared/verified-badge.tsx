@@ -20,7 +20,7 @@ export function VerifiedBadge({ verified, paid, className }: VerifiedBadgeProps)
 
   return (
     <span
-      title={isPaid ? "Verified — subscription active" : "Approved — awaiting subscription payment"}
+      title={isPaid ? "Verified - subscription active" : "Approved - awaiting subscription payment"}
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium whitespace-nowrap",
         isPaid

@@ -20,7 +20,7 @@ export function BusinessAnalytics() {
         <div>
           <h1 className="font-display text-2xl text-foreground sm:text-3xl">Analytics</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            The numbers behind your water — refreshed every 15 minutes.
+            The numbers behind your water - refreshed every 15 minutes.
           </p>
         </div>
         <div className="flex gap-2">

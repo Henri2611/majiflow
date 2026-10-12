@@ -16,7 +16,7 @@ export const plans: Plan[] = [
     trialDays: 14,
     features: [
       "Online business profile",
-      "Product catalog — up to 25 products",
+      "Product catalog - up to 25 products",
       "Order management",
       "Basic customer management",
       "Basic sales reports",
@@ -36,7 +36,7 @@ export const plans: Plan[] = [
     features: [
       "Everything in Starter",
       "Advanced analytics & sales charts",
-      "Staff accounts — up to 5",
+      "Staff accounts - up to 5",
       "Promotions & discounts",
       "Customer SMS & WhatsApp notifications",
       "Priority listing in search",
@@ -58,7 +58,7 @@ export const plans: Plan[] = [
       "Advanced retention & loyalty tools",
       "Unlimited staff accounts",
       "Multiple branches & fleets",
-      "Priority support — WhatsApp line",
+      "Priority support - WhatsApp line",
       "Dedicated account manager",
     ],
     cta: "Talk to sales",
@@ -70,7 +70,7 @@ export function getPlan(id: PlanName): Plan {
   return plans.find((p) => p.id === id) ?? plans[1];
 }
 
-/** Annual pricing as a single payment — displayed as "billed annually" in KES. */
+/** Annual pricing as a single payment - displayed as "billed annually" in KES. */
 export function annualBilled(plan: Plan) {
   return plan.annualPrice;
 }

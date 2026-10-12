@@ -9,7 +9,7 @@ const steps = [
   {
     icon: MapPin,
     title: "Pick your location",
-    text: "Tell us your estate — Kasarani, Nyali, Milimani or 40+ more — and we'll show refill stations that deliver there.",
+    text: "Tell us your estate - Kasarani, Nyali, Milimani or 40+ more - and we'll show refill stations that deliver there.",
   },
   {
     icon: Store,

@@ -20,7 +20,7 @@ export function PricingSection() {
     toast({
       kind: plan.highlighted ? "success" : "info",
       title: `${plan.name} selected`,
-      message: `Start your ${plan.trialDays}-day free trial — no card required.`,
+      message: `Start your ${plan.trialDays}-day free trial - no card required.`,
     });
   };
 
@@ -36,7 +36,7 @@ export function PricingSection() {
               <span className="text-gradient">the first week</span>
             </>
           }
-          description="Flat SaaS pricing in Kenyan Shillings. No setup fees, no commission on orders — the KES you charge customers is the KES you keep."
+          description="Flat SaaS pricing in Kenyan Shillings. No setup fees, no commission on orders - the KES you charge customers is the KES you keep."
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">

@@ -23,7 +23,7 @@ const FLY_BULGE_MAX = 140;
 type Point = { x: number; y: number };
 
 export type FlyOptions = {
-  /** Origin element — its on-screen center becomes the flight start point. */
+  /** Origin element - its on-screen center becomes the flight start point. */
   fromEl: HTMLElement;
   /** Optional product image source rendered as the flying thumbnail. */
   src?: string;

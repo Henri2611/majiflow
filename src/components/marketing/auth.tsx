@@ -112,7 +112,7 @@ export function RegisterForm() {
     <div>
       <h1 className="font-display text-2xl text-foreground sm:text-3xl">Create your account</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Start ordering water or running a station — takes under a minute.
+        Start ordering water or running a station - takes under a minute.
       </p>
 
       <form onSubmit={submit} className="mt-8 space-y-5">

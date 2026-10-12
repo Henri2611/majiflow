@@ -17,7 +17,7 @@ export function BusinessStaff() {
         <div>
           <h1 className="font-display text-2xl text-foreground sm:text-3xl">Staff & access</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Riders and assistants get limited logins — you stay in control.
+            Riders and assistants get limited logins - you stay in control.
           </p>
         </div>
         <Button className="group">Invite staff</Button>

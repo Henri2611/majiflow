@@ -38,7 +38,7 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
         <span className="text-sm text-muted-foreground">/ month</span>
       </div>
       <p className="mt-1.5 text-xs font-mono uppercase tracking-wide text-muted-foreground">
-        {annual ? `Billed annually — ${formatKES(plan.annualPrice)}/yr` : `Billed monthly`}
+        {annual ? `Billed annually - ${formatKES(plan.annualPrice)}/yr` : `Billed monthly`}
       </p>
 
       <ul className="mt-6 space-y-2.5">

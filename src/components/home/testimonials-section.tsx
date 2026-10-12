@@ -16,7 +16,7 @@ export function TestimonialsSection() {
               Kenyan businesses, <span className="text-gradient">Kenyan stories</span>
             </>
           }
-          description="Station owners, office managers and estate residents — the people making water work every day."
+          description="Station owners, office managers and estate residents - the people making water work every day."
         />
 
         <Stagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.07}>

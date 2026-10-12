@@ -37,7 +37,7 @@ export function SiteFooter() {
           <div className="max-w-sm">
             <BrandMark dark />
             <p className="mt-5 text-sm leading-relaxed text-slate-400">
-              The platform connecting Kenyan homes to trustworthy water refill stations — and
+              The platform connecting Kenyan homes to trustworthy water refill stations - and
               equipping those businesses with everything they need to grow online.
             </p>
             <div className="mt-6 flex items-center gap-2">
@@ -108,7 +108,7 @@ export function SiteFooter() {
             </p>
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
               M-Pesa-ready payments, Kiswahili-friendly UX and delivery everywhere from Kasarani to
-              Nyali. Each refill station operates independently — MajiFlow is their storefront and
+              Nyali. Each refill station operates independently - MajiFlow is their storefront and
               back office, never their water.
             </p>
           </div>

@@ -195,7 +195,7 @@ export function AccountPage() {
               </p>
               <Link href={`/order/${orders[0].id}`} className="mt-3 inline-flex">
                 <Button variant="outline" size="sm" className="group">
-                  Reorder — {formatKES(orders[0].total)}
+                  Reorder - {formatKES(orders[0].total)}
                   <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>

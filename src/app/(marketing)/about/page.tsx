@@ -11,12 +11,12 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Trust is our product",
-    text: "Every station we list is verified — identity, licence and water testing. Ratings come from real neighbours in your estate, and we actually look at them.",
+    text: "Every station we list is verified - identity, licence and water testing. Ratings come from real neighbours in your estate, and we actually look at them.",
   },
   {
     icon: Repeat,
     title: "Local first",
-    text: "Water is delivered by local businesses, not flown in. We build software that makes Kasarani, Nyali and Milimani run better — not that replaces them.",
+    text: "Water is delivered by local businesses, not flown in. We build software that makes Kasarani, Nyali and Milimani run better - not that replaces them.",
   },
   {
     icon: Users,
@@ -32,7 +32,7 @@ const values = [
 
 const timeline = [
   { year: "2024", text: "Two friends in Nairobi get tired of juggling refill shop phone calls. MajiFlow is sketched on a napkin at a Westlands cafe." },
-  { year: "2025", text: "First 12 stations pilot online ordering. 4,000 cans delivered in the first month — and 0 lost to cash disputes." },
+  { year: "2025", text: "First 12 stations pilot online ordering. 4,000 cans delivered in the first month - and 0 lost to cash disputes." },
   { year: "2026", text: "240+ stations live, from Kasarani to Kwale. M-Pesa-native, SMS-driven and built for 2G phones." },
 ];
 
@@ -47,7 +47,7 @@ export default function About() {
             <span className="text-gradient">already in town</span>
           </>
         }
-        description="MajiFlow exists so Kenyan water refill businesses can run their shop online — and so homes and offices can get clean, affordable water without carrying it."
+        description="MajiFlow exists so Kenyan water refill businesses can run their shop online - and so homes and offices can get clean, affordable water without carrying it."
       />
 
       <section className="py-16 lg:py-24">
@@ -65,8 +65,8 @@ export default function About() {
                 prove to new customers that they're trustworthy.
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                That's the gap MajiFlow fills. It's a multi-tenant platform — each business has its
-                own profile, customers and dashboard — built specifically for how Kenya orders,
+                That's the gap MajiFlow fills. It's a multi-tenant platform - each business has its
+                own profile, customers and dashboard - built specifically for how Kenya orders,
                 pays (M-Pesa), and lives (estates, apartments, office blocks).
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function About() {
               "We measure success in cans delivered, customers retained, and the evening a parent
               realises they didn't carry water home today."
             </p>
-            <p className="mt-5 text-sm text-muted-foreground">— The MajiFlow team, Nairobi</p>
+            <p className="mt-5 text-sm text-muted-foreground">- The MajiFlow team, Nairobi</p>
             <Link href="/contact" className="mt-8 inline-flex">
               <Button size="lg" className="group">
                 Say hello

@@ -27,10 +27,10 @@ import type { Order, OrderStatus, OrderTimelineEntry } from "@/lib/types";
 
 const STATUS_NOTES: Partial<Record<OrderStatus, string>> = {
   pending: "Waiting for the station to accept.",
-  accepted: "Order accepted — customer notified.",
+  accepted: "Order accepted - customer notified.",
   out_for_delivery: "Rider assigned and heading out.",
   delivered: "Marked delivered. Payment settled via M-Pesa.",
-  rejected: "Order rejected — customer refunded automatically.",
+  rejected: "Order rejected - customer refunded automatically.",
   cancelled: "Order cancelled.",
 };
 
@@ -67,7 +67,7 @@ function timelineOf(order: Order): OrderTimelineEntry[] {
 }
 
 /**
- * Shared live-tracking view for a single order — used by the vendor
+ * Shared live-tracking view for a single order - used by the vendor
  * dashboard (`/business/orders/[id]`) and the platform admin
  * (`/admin/orders/[id]`). Brand-new surface; existing screens link into it.
  */
@@ -275,7 +275,7 @@ export function OrderDetailView({
                     ? "Completed. Payment already settled to the station."
                     : order.status === "rejected" || order.status === "cancelled"
                       ? "Closed. Any payment is returned to the customer automatically."
-                      : "—"}
+                      : "-"}
                 </p>
               </div>
             ) : (

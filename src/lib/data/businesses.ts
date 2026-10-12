@@ -39,7 +39,7 @@ export const businesses: Business[] = [
     products: [
       product({
         id: "bw-refill-20",
-        name: "Refill — 20L can",
+        name: "Refill - 20L can",
         unit: "refill",
         price: 350,
         oldPrice: 400,
@@ -51,7 +51,7 @@ export const businesses: Business[] = [
       }),
       product({
         id: "bw-renew-20",
-        name: "Replacement 20L can — full",
+        name: "Replacement 20L can - full",
         unit: "can",
         price: 650,
         description: "Branded, tamper-free can delivered full.",
@@ -61,7 +61,7 @@ export const businesses: Business[] = [
       }),
       product({
         id: "bw-dispenser",
-        name: "Tabletop dispenser — rental",
+        name: "Tabletop dispenser - rental",
         unit: "month",
         price: 250,
         description: "Clean top-load dispenser, sanitised monthly.",
@@ -117,7 +117,7 @@ export const businesses: Business[] = [
     products: [
       product({
         id: "tf-refill-20",
-        name: "Refill — 20L can",
+        name: "Refill - 20L can",
         unit: "refill",
         price: 380,
         description: "Filtration, UV + ozone treatment.",
@@ -138,7 +138,7 @@ export const businesses: Business[] = [
       }),
       product({
         id: "tf-office",
-        name: "Office contract — 8 cans / week",
+        name: "Office contract - 8 cans / week",
         unit: "week",
         price: 2600,
         description: "Two scheduled deliveries a week.",
@@ -176,7 +176,7 @@ export const businesses: Business[] = [
     acceptsCard: true,
     subscription: "growth",
     description:
-      "The most reviewed refill station in Kisumu. Known for stringent testing — we publish results every month — and friendly riders who call before arrival.",
+      "The most reviewed refill station in Kisumu. Known for stringent testing - we publish results every month - and friendly riders who call before arrival.",
     accent: "#0891b2",
     lat: -0.0985,
     lng: 34.7605,
@@ -184,7 +184,7 @@ export const businesses: Business[] = [
     products: [
       product({
         id: "as-refill-20",
-        name: "Refill — 20L can",
+        name: "Refill - 20L can",
         unit: "refill",
         price: 320,
         description: "Monthly lab-tested water.",
@@ -205,7 +205,7 @@ export const businesses: Business[] = [
       }),
       product({
         id: "as-dispenser",
-        name: "Hot & cold dispenser — rental",
+        name: "Hot & cold dispenser - rental",
         unit: "month",
         price: 600,
         description: "Full dispenser with setup.",
@@ -241,7 +241,7 @@ export const businesses: Business[] = [
     products: [
       product({
         id: "pb-refill-20",
-        name: "Refill — 20L can",
+        name: "Refill - 20L can",
         unit: "refill",
         price: 300,
         description: "Standard 12-stage refill.",
@@ -262,7 +262,7 @@ export const businesses: Business[] = [
       }),
       product({
         id: "pb-1l-case",
-        name: "1L bottles — case of 12",
+        name: "1L bottles - case of 12",
         unit: "case",
         price: 600,
         description: "For events and gatherings.",
@@ -298,7 +298,7 @@ export const businesses: Business[] = [
     products: [
       product({
         id: "ha-refill-20",
-        name: "Refill — 20L can",
+        name: "Refill - 20L can",
         unit: "refill",
         price: 360,
         description: "Aquifer-sourced, twice filtered.",
@@ -345,7 +345,7 @@ export const businesses: Business[] = [
     products: [
       product({
         id: "dp-glass",
-        name: "Glass bottle 750ml — case of 12",
+        name: "Glass bottle 750ml - case of 12",
         unit: "case",
         price: 1200,
         description: "Premium glass, reusable.",
@@ -355,7 +355,7 @@ export const businesses: Business[] = [
       }),
       product({
         id: "dp-refill-20",
-        name: "Refill — 20L can",
+        name: "Refill - 20L can",
         unit: "refill",
         price: 420,
         description: "Hotel-grade refill.",

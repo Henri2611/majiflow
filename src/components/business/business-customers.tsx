@@ -39,7 +39,7 @@ export function BusinessCustomers() {
           <h1 className="font-display text-2xl text-foreground sm:text-3xl">Customers</h1>
           <p className="mt-1 text-sm text-muted-foreground">Every phone number that has ordered with you, on record.</p>
         </div>
-        <Button variant="secondary" className="gap-2" onClick={() => setNote("CSV export queued — lands in your email.")}>
+        <Button variant="secondary" className="gap-2" onClick={() => setNote("CSV export queued - lands in your email.")}>
           <Download className="size-4" aria-hidden /> Export
         </Button>
       </div>

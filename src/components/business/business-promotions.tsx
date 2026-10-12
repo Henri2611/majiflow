@@ -8,7 +8,7 @@ import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const PROMOS = [
-  { id: "pr1", name: "Karibu tena — KES 50 off", audience: "Dormant (30d+)", discount: "KES 50 off any order", ends: "This Friday", active: true, recipients: 14, redeemed: 6 },
+  { id: "pr1", name: "Karibu tena - KES 50 off", audience: "Dormant (30d+)", discount: "KES 50 off any order", ends: "This Friday", active: true, recipients: 14, redeemed: 6 },
   { id: "pr2", name: "Ode office days", audience: "Office addresses", discount: "2nd can free on 20L refills", ends: "All month", active: true, recipients: 22, redeemed: 9 },
   { id: "pr3", name: "Weekend chilled deal", audience: "All customers", discount: "10L chilled at KES 150", ends: "Ended", active: false, recipients: 310, redeemed: 47 },
 ];
@@ -19,7 +19,7 @@ export function BusinessPromotions() {
 
   const toggle = (id: string) => {
     setPromos((all) => all.map((p) => (p.id === id ? { ...p, active: !p.active } : p)));
-    setNote("Promotion status toggled — customers see the change in their app instantly.");
+    setNote("Promotion status toggled - customers see the change in their app instantly.");
   };
 
   return (
@@ -33,7 +33,7 @@ export function BusinessPromotions() {
         </div>
         <Button
           className="group"
-          onClick={() => setNote("Draft started — choose an audience and an offer, then review pricing math.")}
+          onClick={() => setNote("Draft started - choose an audience and an offer, then review pricing math.")}
         >
           <PartyPopper className="size-4" aria-hidden /> New promotion
         </Button>

@@ -224,7 +224,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
         <footer className="relative border-t border-border bg-white/60">
           <div className="mx-auto flex max-w-[80rem] flex-wrap items-center justify-between gap-4 px-4 py-3 text-xs text-muted-foreground sm:px-6">
-            <p>MajiFlow — Water refill, delivered.</p>
+            <p>MajiFlow - Water refill, delivered.</p>
             <nav className="flex items-center gap-4" aria-label="Footer">
               <Link href="/" className="hover:underline">
                 Home

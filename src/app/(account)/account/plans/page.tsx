@@ -29,7 +29,7 @@ export default function AccountPlans() {
         ))}
       </div>
       <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
-        These are the SaaS plans stations pay — <strong className="text-foreground">not</strong>{" "}
+        These are the SaaS plans stations pay - <strong className="text-foreground">not</strong>{" "}
         what you pay for water. Your refill subscription is set by the station in KES and appears in
         your order history.
       </p>

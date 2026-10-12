@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
   ),
   title: {
-    default: "MajiFlow — Clean water, delivered simply",
+    default: "MajiFlow - Clean water, delivered simply",
     template: "%s · MajiFlow",
   },
   description:
-    "Order clean, affordable drinking water from trusted refill stations near you — or run your refill business on Kenya's water-commerce platform.",
+    "Order clean, affordable drinking water from trusted refill stations near you - or run your refill business on Kenya's water-commerce platform.",
   keywords: [
     "water delivery Kenya",
     "refill water Nairobi",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "SaaS water business",
   ],
   openGraph: {
-    title: "MajiFlow — Clean water, delivered simply",
+    title: "MajiFlow - Clean water, delivered simply",
     description:
       "Order clean, affordable drinking water from trusted refill stations near you.",
     type: "website",

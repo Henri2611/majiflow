@@ -17,7 +17,7 @@ const benefits = [
   {
     icon: Smartphone,
     title: "Your own online storefront",
-    text: "A branded profile with your menu, prices, delivery areas and reviews — live in under an hour.",
+    text: "A branded profile with your menu, prices, delivery areas and reviews - live in under an hour.",
   },
   {
     icon: Repeat,
@@ -32,7 +32,7 @@ const benefits = [
   {
     icon: Users,
     title: "Team, orders and customers in one place",
-    text: "Assign staff, accept or reject orders, and message customers — no notebooks, no missed calls.",
+    text: "Assign staff, accept or reject orders, and message customers - no notebooks, no missed calls.",
   },
 ];
 
@@ -70,7 +70,7 @@ export function BusinessBenefits() {
                   Turn every water order into a <span className="text-gradient">repeat customer</span>
                 </>
               }
-              description="MajiFlow is the storefront and back office for Kenya's water refill businesses. You keep the water, the prices and the profits — we handle the storefront, orders and payments."
+              description="MajiFlow is the storefront and back office for Kenya's water refill businesses. You keep the water, the prices and the profits - we handle the storefront, orders and payments."
             />
             <AnimatedSection from="right" className="mt-8 flex flex-col gap-6">
               <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-success-soft/50 p-4">
@@ -78,7 +78,7 @@ export function BusinessBenefits() {
                 <div>
                   <p className="text-sm font-semibold text-foreground">No commission on orders</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    Customers pay you through your M-Pesa till or Paybill before delivery. MajiFlow takes a flat SaaS fee — never a cut of your water.
+                    Customers pay you through your M-Pesa till or Paybill before delivery. MajiFlow takes a flat SaaS fee - never a cut of your water.
                   </p>
                 </div>
               </div>

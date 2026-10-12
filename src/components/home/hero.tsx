@@ -78,7 +78,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
             Order clean, affordable drinking water from trusted refill businesses in your estate.
-            Pay with M-Pesa, track the rider, and get your cans at the door — no lifting, no waiting.
+            Pay with M-Pesa, track the rider, and get your cans at the door - no lifting, no waiting.
           </motion.p>
 
           <motion.div

@@ -19,7 +19,7 @@ export const NAV_LINKS = [
   { href: "/for-business", label: "For businesses" },
 ] as const;
 
-/** Routes where the cart belongs — the ordering flow only. */
+/** Routes where the cart belongs - the ordering flow only. */
 const ORDER_FLOW = ["/browse", "/cart", "/checkout", "/order"] as const;
 
 const MENU_EASE = [0.16, 1, 0.3, 1] as const;

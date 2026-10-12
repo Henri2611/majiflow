@@ -13,7 +13,7 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "What does delivery cost?",
     answer:
-      "Delivery fees are set by each refill business and shown on the business page before you order. Most stations in Nairobi and Mombasa charge between KES 100 and KES 200 — and many give free delivery on orders above a minimum, usually KES 1,000.",
+      "Delivery fees are set by each refill business and shown on the business page before you order. Most stations in Nairobi and Mombasa charge between KES 100 and KES 200 - and many give free delivery on orders above a minimum, usually KES 1,000.",
   },
   {
     id: "f3",
@@ -27,7 +27,7 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "How do I manage my subscription for regular delivery?",
     answer:
-      "On the order confirmation page, choose how often you want regular refills — daily, weekly or two-weekly. We schedule, remind you, and you can pause anytime from your dashboard.",
+      "On the order confirmation page, choose how often you want regular refills - daily, weekly or two-weekly. We schedule, remind you, and you can pause anytime from your dashboard.",
   },
   {
     id: "f5",

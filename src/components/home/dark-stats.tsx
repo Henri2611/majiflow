@@ -49,7 +49,7 @@ export function DarkStats() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-slate-400">
-            Metrics across the station network — from Kasarani's refill shops to Nyali's office
+            Metrics across the station network - from Kasarani's refill shops to Nyali's office
             water plans. Updated monthly, shared openly.
           </p>
         </AnimatedSection>

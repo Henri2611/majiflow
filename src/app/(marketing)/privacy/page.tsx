@@ -5,16 +5,16 @@ export default function Privacy() {
     <ContentPage
       label="Legal"
       title="Privacy Policy"
-      description="How MajiFlow handles the personal data of customers, business owners and staff — what we collect, why, and how you stay in control."
+      description="How MajiFlow handles the personal data of customers, business owners and staff - what we collect, why, and how you stay in control."
       updated="21 September 2026"
     >
       <ProseSection title="What we collect">
         <ProseList
           items={[
-            "Account data — name, phone number, email and saved delivery addresses",
-            "Order data — products ordered, amounts, delivery addresses and payment records",
-            "Business data — business profile, menu, prices, delivery zones and staff accounts",
-            "Usage data — pages visited and basic device/browser information for performance",
+            "Account data - name, phone number, email and saved delivery addresses",
+            "Order data - products ordered, amounts, delivery addresses and payment records",
+            "Business data - business profile, menu, prices, delivery zones and staff accounts",
+            "Usage data - pages visited and basic device/browser information for performance",
           ]}
         />
       </ProseSection>
@@ -22,10 +22,10 @@ export default function Privacy() {
       <ProseSection title="How we use it">
         <ProseList
           items={[
-            "To fulfil orders — your name, phone and address are shared with the refill business fulfilling your order",
+            "To fulfil orders - your name, phone and address are shared with the refill business fulfilling your order",
             "To process payments through M-Pesa or card settlement providers",
             "To send order updates, receipts, reminders and platform notices by SMS, WhatsApp or email",
-            "To improve the service — anonymised analytics only",
+            "To improve the service - anonymised analytics only",
           ]}
         />
       </ProseSection>
@@ -43,7 +43,7 @@ export default function Privacy() {
           items={[
             "We never sell your personal data.",
             "We never share your data with third parties for their own marketing.",
-            "We never require payment card numbers to be typed into our website — payments go through M-Pesa or PCI-compliant processors.",
+            "We never require payment card numbers to be typed into our website - payments go through M-Pesa or PCI-compliant processors.",
             "We never use your data to judge a business's ratings.",
           ]}
         />
