@@ -64,7 +64,7 @@ export function BusinessBilling() {
                 <span className="ml-1 text-sm font-normal text-muted-foreground">/month</span>
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                {formatKES(p.annualPrice)}/year · {p.trialDays}-day free trial
+                {formatKES(p.annualPrice)}/year · {p.trialDays} days planned free
               </p>
               <ul className="mt-5 flex-1 space-y-2.5 text-sm text-muted-foreground">
                 {p.features.slice(0, 4).map((f) => (

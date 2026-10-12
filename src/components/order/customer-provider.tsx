@@ -112,17 +112,17 @@ export function CustomerProvider({ children }: { children: ReactNode }) {
       /* noop */
     }
     setProfile(next);
-    setLoggedIn(readLocal(AUTH_KEY) === "1" || Boolean(next.name));
+    setLoggedIn((typeof window !== "undefined" && readLocal(AUTH_KEY) === "1") || Boolean(next.name));
     setHydrated(true);
   }, []);
 
   useEffect(() => {
-    if (!hydrated) return;
+    if (!hydrated || typeof window === "undefined") return;
     writeLocal(STORAGE_KEY, JSON.stringify(profile));
   }, [profile, hydrated]);
 
   useEffect(() => {
-    if (!hydrated) return;
+    if (!hydrated || typeof window === "undefined") return;
     writeLocal(AUTH_KEY, loggedIn ? "1" : "0");
   }, [loggedIn, hydrated]);
 

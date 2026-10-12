@@ -191,8 +191,8 @@ export default async function BusinessProfile({ params }: PageProps) {
           </div>
           <p className="mt-6 text-center text-sm text-muted-foreground">
             <em>
-              "Litre for litre, the cleanest water in {business.city} - the rider even calls before
-              the gate opens." - verified customer review
+              &ldquo;Litre for litre, the cleanest water in {business.city} - the rider even calls
+              before the gate opens.&rdquo; - sample review
             </em>
           </p>
         </Container>

@@ -73,12 +73,12 @@ export default function OpengraphImage() {
               color: "#cbd5e1",
             }}
           >
-            Order refills from trusted stations near you. Pay with M-Pesa, track the rider, get your cans at the door.
+            Order refills from sample stations. Browse, build a cart and follow a demo order with no payments collected.
           </div>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          {["M-Pesa", "Live tracking", "Verified stations"].map((chip) => (
+          {["Sample stations", "Order tracking", "Simulated payments"].map((chip) => (
             <div
               key={chip}
               style={{

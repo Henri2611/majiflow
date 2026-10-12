@@ -11,10 +11,10 @@ import { useCustomer } from "@/components/order/customer-provider";
 import { CITIES } from "@/lib/constants";
 
 const perks = [
-  "Order refills from verified stations around you",
-  "Pay with M-Pesa before the rider leaves",
-  "Track every order from accepted to delivered",
-  "Save addresses and reorder in two taps",
+  "Browse sample stations around you",
+  "See each station's delivery fee in the cart",
+  "Follow a demo order from placed to delivered",
+  "Your profile is kept in this browser only",
 ];
 
 export function AuthShell({
@@ -95,8 +95,8 @@ export function RegisterForm() {
       setSending(false);
       toast({
         kind: "success",
-        title: "Account created",
-        message: `Karibu, ${form.name.split(" ")[0] || "friend"}! We'll use ${form.phone} for your M-Pesa orders.`,
+        title: "Profile saved",
+        message: `${form.name.split(" ")[0] || "Karibu"} - your details stay in this browser only.`,
       });
       login({
         name: form.name.trim(),
@@ -110,9 +110,10 @@ export function RegisterForm() {
 
   return (
     <div>
-      <h1 className="font-display text-2xl text-foreground sm:text-3xl">Create your account</h1>
+      <h1 className="font-display text-2xl text-foreground sm:text-3xl">Create your profile</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Start ordering water or running a station - takes under a minute.
+        This demo has no account server. Submitting saves a profile in your browser so checkout and
+        your address book have something to read; no password is checked and no SMS is sent.
       </p>
 
       <form onSubmit={submit} className="mt-8 space-y-5">
@@ -125,7 +126,7 @@ export function RegisterForm() {
             autoComplete="name"
           />
         </Field>
-        <Field label="M-Pesa phone number" required hint="We send order updates and payment requests here.">
+        <Field label="Phone number" required hint="Kept locally - this demo sends no SMS.">
           <Input
             required
             type="tel"
@@ -144,7 +145,7 @@ export function RegisterForm() {
             autoComplete="email"
           />
         </Field>
-        <Field label="Password" required>
+        <Field label="Password" required hint="Not stored or verified - any 8 characters work.">
           <div className="relative">
             <Input
               required
@@ -185,7 +186,7 @@ export function RegisterForm() {
           </Field>
         </div>
         <Button type="submit" size="lg" className="w-full" disabled={sending}>
-          {sending ? "Creating account…" : "Create account"}
+          {sending ? "Saving…" : "Save profile"}
         </Button>
         <p className="text-center text-xs leading-relaxed text-muted-foreground">
           By continuing you agree to our{" "}
@@ -215,7 +216,7 @@ export function LoginForm() {
     setSending(true);
     window.setTimeout(() => {
       setSending(false);
-      toast({ kind: "success", title: "Signed in", message: "Welcome back!" });
+      toast({ kind: "success", title: "Signed in (demo)", message: "Your local profile was restored; no password is checked." });
       login({ phone: form.phone.trim() });
       router.push("/account");
     }, 700);
@@ -223,8 +224,11 @@ export function LoginForm() {
 
   return (
     <div>
-      <h1 className="font-display text-2xl text-foreground sm:text-3xl">Welcome back</h1>
-      <p className="mt-2 text-sm text-muted-foreground">Sign in to order and track your refills.</p>
+      <h1 className="font-display text-2xl text-foreground sm:text-3xl">Sign in</h1>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Any phone number and password will sign you in here: this demo only reads the profile saved
+        in this browser and never verifies a credential.
+      </p>
 
       <form onSubmit={submit} className="mt-8 space-y-5">
         <Field label="Phone number" required>
@@ -237,7 +241,7 @@ export function LoginForm() {
             autoComplete="tel"
           />
         </Field>
-        <Field label="Password" required>
+        <Field label="Password" required hint="Any value - this demo checks nothing.">
           <Input
             required
             type="password"
@@ -251,9 +255,7 @@ export function LoginForm() {
           {sending ? "Signing in…" : "Sign in"}
         </Button>
         <p className="text-center text-sm">
-          <Link href="/contact" className="font-medium text-[#0052FF] hover:underline">
-            Forgot your password? We can help.
-          </Link>
+          <span className="text-muted-foreground">No password reset exists in this demo.</span>
         </p>
       </form>
     </div>

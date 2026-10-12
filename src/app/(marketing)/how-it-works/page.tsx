@@ -3,62 +3,53 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
-import {
-  MapPin,
-  Store,
-  PackagePlus,
-  Wallet,
-  Truck,
-  Bell,
-  BadgeCheck,
-  Smartphone,
-} from "lucide-react";
+import { MapPin, Store, PackagePlus, ShoppingCart, ClipboardList, Bell } from "lucide-react";
 import Link from "next/link";
 
 const customerSteps = [
   {
     icon: MapPin,
-    title: "Choose your area",
-    text: "Select your estate - or let us detect it. We show only verified refill stations that deliver to your door.",
-    detail: "Nairobi, Mombasa, Kisumu, Nakuru, Eldoret, Thika & Machakos - more towns monthly.",
+    title: "Choose your city",
+    text: "Pick one of the five cities seeded in the demo and the list narrows to the stations there.",
+    detail: "Nairobi, Mombasa, Kisumu, Nakuru and Eldoret. There is no location detection in the build.",
   },
   {
     icon: Store,
-    title: "Pick your station",
-    text: "Compare ratings, delivery fees, free-delivery minimums and what's on the menu. Every station is an independent Kenyan business.",
-    detail: "See lab results, reviews and real delivery times before you choose.",
+    title: "Compare stations",
+    text: "See each station's price per unit, delivery fee and free-delivery threshold, and search by name or estate.",
+    detail: "The ratings on these pages are sample values, and no lab results are published.",
   },
   {
     icon: PackagePlus,
-    title: "Build your order",
-    text: "Add 20L cans, 5L bottles, dispensers or office plans. Set quantities, then tell us where and when to deliver.",
-    detail: "Save addresses so next week's refill is one tap.",
+    title: "Build your cart",
+    text: "Cans, bottles and dispensers go into one cart, with delivery totalled separately for each station you buy from.",
+    detail: "The totals you see are the totals checkout charges; both read the same calculation.",
   },
   {
-    icon: Wallet,
-    title: "Pay with M-Pesa",
-    text: "Choose M-Pesa at checkout and confirm the STK push on your phone. Payment is held and released to the station only when your order ships.",
-    detail: "Card payments available at stations that have enabled them.",
+    icon: ShoppingCart,
+    title: "Simulated payment",
+    text: "Checkout runs the payment step without a provider. No M-Pesa request is sent, no card is charged and no money moves.",
+    detail: "Wiring up a real payment provider is listed as a known gap in RELEASE.md.",
   },
   {
-    icon: Truck,
-    title: "Track until arrival",
-    text: "Follow your order from accepted → out for delivery → delivered. The rider calls before arrival - there is always water at your gate.",
-    detail: "Average delivery in major towns: 40–60 minutes.",
+    icon: ClipboardList,
+    title: "Follow the order",
+    text: "An order is stored and moves through pending, accepted and delivered, and each change is visible on its order page.",
+    detail: "Order status is stored. No rider is dispatched and no SMS is sent.",
   },
   {
     icon: Bell,
-    title: "Never run dry again",
-    text: "Set a weekly or two-weekly refill schedule and get a reminder a day before. Pause or skip whenever you like.",
-    detail: "Standing orders save you up to 15% on delivery fees.",
+    title: "Recurring orders, planned",
+    text: "A refill schedule with reminders is on the plan list, not in the build. Nothing here will message you next week.",
+    detail: "See the planned column on the pricing page for the same list.",
   },
 ];
 
 const faqItems = [
-  { q: "How fast is delivery?", a: "Stations in Nairobi, Mombasa, Kisumu and Nakuru typically deliver within 40–60 minutes during the day. Each business publishes its own average on its profile." },
-  { q: "Is there a free-delivery minimum?", a: "Many stations offer free delivery above a set amount, for example KES 1,000. It's always shown on the station's page before you order." },
-  { q: "What if the delivery arrives damaged?", a: "Tell us within 24 hours with a photo and the station replaces the product at no cost. MajiFlow follows up until it's resolved." },
-  { q: "Can I pay cash on delivery?", a: "Not on the platform - payments are prepaid via M-Pesa or card. This keeps riders, drivers and stations accountable, and means nobody carries cash." },
+  { q: "Is anything actually delivered?", a: "No. Orders are recorded and their status can be moved from the station dashboard, but the demo has no rider service, so nothing leaves a station." },
+  { q: "Is there a free-delivery minimum?", a: "Yes, per station. Some seeded stations waive the delivery fee above a set amount, and the threshold is shown on the station page and applied in the cart total." },
+  { q: "What if something goes wrong with an order?", a: "There is no payment or refund flow, because no payment is taken. Orders can be moved through their stages, and a failed status change is logged." },
+  { q: "Can I pay cash on delivery?", a: "No payment of any kind is collected. Checkout simulates the payment step so the rest of the flow can be exercised." },
 ];
 
 export default function HowItWorks() {
@@ -69,10 +60,10 @@ export default function HowItWorks() {
         pulseLabel
         title={
           <>
-            From thirsty to <span className="text-gradient">refilled</span> in five steps
+            From browsing to a <span className="text-gradient">stored order</span> in five steps
           </>
         }
-        description="Ordering drinking water in Kenya should be easier than schlepping a can up three floors. Here's exactly how it works."
+        description="Compare the seeded stations, see the real delivery fees, place a demo order and follow its status. The demo stops before a payment provider and a rider."
       >
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/browse">
@@ -81,9 +72,9 @@ export default function HowItWorks() {
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </Button>
           </Link>
-          <Link href="/register">
+          <Link href="/business/demo">
             <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-              Create an account
+              Preview the dashboard
             </Button>
           </Link>
         </div>
@@ -119,20 +110,20 @@ export default function HowItWorks() {
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <SectionHeading
-              label="Works on any phone"
+              label="Runs in the browser"
               title={
                 <>
-                  No app to install. <span className="text-gradient">No data-heavy pages.</span>
+                  No app to install. <span className="text-gradient">No account needed.</span>
                 </>
               }
-              description="The whole ordering flow runs in your browser and works on even modest phones and 2G. SMS receipts, M-Pesa pushes and WhatsApp updates mean you're never offline."
+              description="The whole flow runs in the browser from the seeded data, so a visitor can browse and place a demo order without signing in. There is no SMS or messaging layer behind it."
             />
             <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-border bg-background px-6 py-4 shadow-card">
-              <Smartphone className="size-6 text-[#0052FF]" aria-hidden />
+              <ShoppingCart className="size-6 text-[#0052FF]" aria-hidden />
               <div className="text-left">
-                <p className="text-sm font-semibold text-foreground">Try the demo order</p>
+                <p className="text-sm font-semibold text-foreground">Try the order flow</p>
                 <p className="text-xs text-muted-foreground">
-                  Full cart → M-Pesa → tracking flow, ready to explore.
+                  Cart, checkout and order tracking, all on sample stations.
                 </p>
               </div>
             </div>
@@ -146,7 +137,7 @@ export default function HowItWorks() {
             label="Quick answers"
             title={
               <>
-                Delivery you can <span className="text-gradient">count on</span>
+                What the demo <span className="text-gradient">does and does not do</span>
               </>
             }
           />
@@ -155,7 +146,7 @@ export default function HowItWorks() {
               <StaggerItem key={f.q}>
                 <div className="h-full rounded-2xl border border-border bg-white p-6 shadow-card">
                   <h3 className="flex items-start gap-2.5 font-semibold text-foreground">
-                    <BadgeCheck className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
+                    <Store className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
                     {f.q}
                   </h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{f.a}</p>

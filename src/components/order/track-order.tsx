@@ -317,7 +317,7 @@ export function TrackOrderPage({ id }: { id: string }) {
               </Button>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              In production, these transitions happen in the station's dashboard and via SMS to your
+              In production, these transitions happen in the station&apos;s dashboard and via SMS to your
               phone. This sandbox simulates them so every state is explorable.
             </p>
           </details>

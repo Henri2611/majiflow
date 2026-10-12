@@ -40,13 +40,14 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                 <span className="absolute inline-flex size-full rounded-full bg-[#0052FF] animate-ping-slow" />
                 <span className="relative inline-flex size-2 rounded-full bg-[#0052FF]" />
               </span>
-              Browse water businesses
+              Browse the demo stations
             </p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] tracking-tight text-foreground sm:text-5xl">
-              Trusted refill stations, <span className="text-gradient">near you</span>
+              Refill stations <span className="text-gradient">in the demo data</span>
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Every business is independently owned, verified and rated by the neighbours it serves.
+              Six sample stations you can search and filter. Names, prices, fees and ratings are
+              seeded content rather than real businesses.
             </p>
             <div className="relative mt-8">
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" aria-hidden />
@@ -74,7 +75,7 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                       : "border-border bg-white text-muted-foreground hover:border-[#0052FF]/40 hover:text-[#0052FF]"
                   }`}
                 >
-                  {c === "All cities" ? "All Kenya" : c}
+                  {c === "All cities" ? "Every city" : c}
                 </button>
               ))}
             </div>

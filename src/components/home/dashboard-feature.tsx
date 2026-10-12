@@ -55,7 +55,7 @@ export function DashboardFeature() {
                 </Link>
                 <Link href="/business/register">
                   <Button size="lg" variant="secondary">
-                    Start free trial
+                    Preview the dashboard
                   </Button>
                 </Link>
               </div>

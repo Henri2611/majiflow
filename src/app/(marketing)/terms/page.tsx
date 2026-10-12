@@ -5,15 +5,23 @@ export default function Terms() {
     <ContentPage
       label="Legal"
       title="Terms of Service"
-      description="The rules of the road for customers, refill businesses, staff and the platform. Plain English, because contracts should read like people talking."
-      updated="21 September 2026"
+      description="Placeholder terms for a demo project. Nothing here is a binding agreement, because there is no live service, no payment provider and no accounts behind it."
+      updated="Draft"
     >
+      <ProseSection title="This is a draft, not a contract">
+        <p>
+          MajiFlow is a demonstration project. No company trades under this name, no order is
+          fulfilled and no money changes hands. These terms exist so the shape of a real agreement is
+          visible in the build. They would need legal review before any of it applied to real
+          customers, businesses or staff.
+        </p>
+      </ProseSection>
+
       <ProseSection title="1. Who is who">
         <p>
-          MajiFlow is a technology platform operated by MajiFlow Kenya Ltd (Nairobi). It connects
-          customers who want drinking water with independent refill businesses that sell and
-          deliver it. <strong>MajiFlow is not a water supplier.</strong> Each refill business on the
-          platform owns, filters and delivers its own water, sets its own prices, and is solely
+          A real deployment would connect customers who want drinking water with independent refill
+          businesses that sell and deliver it. <strong>MajiFlow is not a water supplier.</strong>{" "}
+          Each refill business would own, filter and deliver its own water, set its own prices, and be
           responsible for the quality and safety of its products.
         </p>
       </ProseSection>
@@ -30,51 +38,43 @@ export default function Terms() {
         />
       </ProseSection>
 
-      <ProseSection title="3. Orders & payments">
+      <ProseSection title="3. Orders and payments">
         <p>
-          When you place an order, payment (M-Pesa or card) is authorised before the order is sent
-          to the business. Payment is transferred to the business when it confirms the order is
-          accepted. If an order is rejected or cannot be fulfilled, the payment is refunded to your
-          original payment method within 3–5 business days.
-        </p>
-        <p>
-          Refill businesses are responsible for their own M-Pesa till or Paybill settings and for
-          reconciling their own payments. The platform provides reconciliation tools but remains an
-          intermediary.
+          You can build a cart and place an order, and the order is stored with a status you can
+          follow. <strong>No payment is collected or authorised, and no order reaches a business.</strong>{" "}
+          Checkout labels the payment step as simulated, and there is no M-Pesa, card, till or
+          Paybill integration in the build.
         </p>
       </ProseSection>
 
-      <ProseSection title="4. SaaS subscription">
+      <ProseSection title="4. Business plans">
         <p>
-          Business plans are billed in KES monthly or annually in advance. All plans begin with a
-          14-day free trial - no card is required. You may upgrade, downgrade or cancel from the
-          Billing page at any time. Cancellation takes effect at the end of the paid period. No
-          commission is charged on orders, and there are no setup fees.
+          The pricing page shows monthly plans in KES and marks the subscription features that are
+          still planned. No plan can be purchased or activated, no trial starts, and no card is
+          requested anywhere in the demo.
         </p>
       </ProseSection>
 
       <ProseSection title="5. Delivery">
         <p>
-          Delivery times, fees and free-delivery minimums are set by each business and shown on its
-          profile. Where a delivery window is promised, the business commits to honouring it. Late
-          or failed deliveries are between you and the business; MajiFlow's support desk will
-          facilitate resolution and may remove persistently underperforming businesses.
+          Delivery fees and free-delivery minimums are stored per station and are added to the cart
+          total, so the arithmetic of a real delivery charge is visible. No rider is dispatched and
+          nothing is delivered.
         </p>
       </ProseSection>
 
       <ProseSection title="6. Liability">
         <p>
           To the maximum extent permitted by law, MajiFlow is not liable for the quality, safety or
-          delivery of water supplied by independent businesses. Nothing here limits liability that
-          cannot lawfully be limited, including liability for fraud or personal injury caused by
-          negligence.
+          delivery of any water, because none is supplied. Nothing here limits liability that cannot
+          lawfully be limited, including liability for fraud or personal injury caused by negligence.
         </p>
       </ProseSection>
 
       <ProseSection title="7. Changes">
         <p>
-          We may update these Terms with reasonable notice. Continued use after changes take effect
-          means you accept them. The latest version is always on this page.
+          If this project ever becomes a real service, these terms would be revised and versioned
+          before it took a single order. The text on this page is the current draft.
         </p>
       </ProseSection>
     </ContentPage>

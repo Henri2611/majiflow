@@ -57,7 +57,11 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
   const { business, setBusinessId } = useBusiness();
   const [picker, setPicker] = useState(false);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (open) {
+      setOpen(false);
+    }
+  }, [pathname, open]);
 
   const nav = (
     <nav aria-label="Dashboard" className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4">

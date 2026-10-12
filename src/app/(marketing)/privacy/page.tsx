@@ -5,55 +5,53 @@ export default function Privacy() {
     <ContentPage
       label="Legal"
       title="Privacy Policy"
-      description="How MajiFlow handles the personal data of customers, business owners and staff - what we collect, why, and how you stay in control."
-      updated="21 September 2026"
+      description="What the MajiFlow demo actually stores, where it stores it, and what it deliberately does not do with it. This is a draft, not a policy for a live service."
+      updated="Draft"
     >
-      <ProseSection title="What we collect">
-        <ProseList
-          items={[
-            "Account data - name, phone number, email and saved delivery addresses",
-            "Order data - products ordered, amounts, delivery addresses and payment records",
-            "Business data - business profile, menu, prices, delivery zones and staff accounts",
-            "Usage data - pages visited and basic device/browser information for performance",
-          ]}
-        />
-      </ProseSection>
-
-      <ProseSection title="How we use it">
-        <ProseList
-          items={[
-            "To fulfil orders - your name, phone and address are shared with the refill business fulfilling your order",
-            "To process payments through M-Pesa or card settlement providers",
-            "To send order updates, receipts, reminders and platform notices by SMS, WhatsApp or email",
-            "To improve the service - anonymised analytics only",
-          ]}
-        />
-      </ProseSection>
-
-      <ProseSection title="Your control">
+      <ProseSection title="Read this as a draft">
         <p>
-          You can update or delete your saved addresses and account from your dashboard. Businesses
-          can export and delete their data from Billing settings. To request account deletion or
-          data correction, email privacy@majiflow.co.ke and we'll act within 30 days.
+          MajiFlow is a demo. There is no account system, no analytics vendor, no messaging provider
+          and no payment processor wired into it. The notes below describe the data the demo really
+          touches, and they would need rewriting before a real deployment went live.
         </p>
       </ProseSection>
 
-      <ProseSection title="What we don't do">
+      <ProseSection title="What the demo stores">
         <ProseList
           items={[
-            "We never sell your personal data.",
-            "We never share your data with third parties for their own marketing.",
-            "We never require payment card numbers to be typed into our website - payments go through M-Pesa or PCI-compliant processors.",
-            "We never use your data to judge a business's ratings.",
+            "Orders you place - the items, quantities, station, totals and delivery fee, written to a JSON data directory on the machine running the app",
+            "Status history - each change an order goes through, so the tracking page has something to show",
+            "Local browser state - your cart and the dashboard preferences you toggle, kept in localStorage on your device",
           ]}
         />
       </ProseSection>
 
-      <ProseSection title="Data protection">
+      <ProseSection title="What it does not do">
+        <ProseList
+          items={[
+            "No sign-up: the demo has no accounts, passwords or sessions to protect",
+            "No payment data: no card number, M-Pesa number or till detail is requested or stored",
+            "No messaging: nothing sends an SMS, WhatsApp message or email",
+            "No third parties: no analytics, advertising or tracking scripts are loaded",
+            "No sharing: order records never leave the machine the app runs on",
+          ]}
+        />
+      </ProseSection>
+
+      <ProseSection title="Clearing your data">
         <p>
-          We follow the Kenya Data Protection Act, 2019. Data is stored on encrypted infrastructure
-          with access limited to vetted staff. SMS and delivery records are retained no longer than
-          necessary for reconciliation and tax purposes.
+          Placing orders writes files under the app&apos;s data directory, so you can delete those files
+          to reset the order history. Clearing your browser&apos;s site data removes the cart and the
+          dashboard preferences held in localStorage.
+        </p>
+      </ProseSection>
+
+      <ProseSection title="If this became a real service">
+        <p>
+          A live version would need a lawful basis for processing, a retention schedule for order
+          records, a processor list covering payments and messaging, and a route for access and
+          deletion requests under the Kenya Data Protection Act, 2019. None of that exists here
+          yet, and this page should not be read as a promise that it does.
         </p>
       </ProseSection>
     </ContentPage>

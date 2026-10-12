@@ -84,7 +84,7 @@ export function BusinessPromotions() {
           <Zap className="size-6 text-[#0052FF]" aria-hidden />
           <p className="text-sm leading-relaxed text-foreground/80">
             Pro tip: Monday mornings pull the most refill orders in Kasarani. Launch your next offer
-            then, and pair it with the free <strong className="text-foreground">"out of stock" reminder</strong>.
+            then, and pair it with the free <strong className="text-foreground">&ldquo;out of stock&rdquo; reminder</strong>.
           </p>
           <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <Clock className="size-3.5" aria-hidden /> Avg. turn-around from launch to first redemption: 2h

@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Inbox, Mail, ShieldAlert, XCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/shared/page-hero";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
+import { SampleDataNote } from "@/components/shared/demo-notice";
 
 const topics = [
   "I want to order water",
@@ -17,10 +18,22 @@ const topics = [
   "Something else",
 ];
 
-const channels = [
-  { icon: MessageCircle, label: "WhatsApp support", value: "+254 700 123 456", note: "Fastest - replies in minutes" },
-  { icon: Phone, label: "Phone", value: "+254 700 123 456", note: "Mon–Sat, 7am–9pm EAT" },
-  { icon: Mail, label: "Email", value: "hello@majiflow.co.ke", note: "Replies within one business day" },
+const notes = [
+  {
+    icon: Inbox,
+    label: "No inbox",
+    text: "Submitting the form validates your input and shows the states, but nothing is sent anywhere. There is no backend, no mail provider and no stored enquiries.",
+  },
+  {
+    icon: Mail,
+    label: "No support address",
+    text: "The contact details that used to sit here were invented for the mock-up. A real deployment would publish a monitored address and hours before taking enquiries.",
+  },
+  {
+    icon: ShieldAlert,
+    label: "No support desk",
+    text: "Nobody is on the other end of an order, so there is no response window to promise. The order pages point back to this draft instead of an escalation path.",
+  },
 ];
 
 export default function Contact() {
@@ -34,9 +47,9 @@ export default function Contact() {
     window.setTimeout(() => {
       setSending(false);
       toast({
-        kind: "success",
-        title: "Message sent",
-        message: `Thanks ${form.name || "there"} - our team will reply within one business day.`,
+        kind: "info",
+        title: "Nothing was sent",
+        message: "This demo has no inbox or mail provider, so your message was not delivered.",
       });
       setForm({ name: "", email: "", phone: "", topic: topics[0], message: "" });
     }, 900);
@@ -49,44 +62,37 @@ export default function Contact() {
         pulseLabel
         title={
           <>
-            Real humans, <span className="text-gradient">MajiFlow answers</span>
+            The form is a demo. <span className="text-gradient">The honest answer is no inbox.</span>
           </>
         }
-        description="Questions about ordering water, running your station or getting paid? Reach us the way that suits your phone."
+        description="This page shows the validation, the fields and the states a real enquiry form would have. It does not have a team behind it."
       />
 
       <section className="py-16 lg:py-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div>
-              <h2 className="font-display text-2xl text-foreground">Talk to the team</h2>
+              <h2 className="font-display text-2xl text-foreground">What is missing</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Whether you're a household in Roysambu or a station owner in Eldoret, the right
-                person answers.
+                Rather than invent a phone number and a reply time, here is what a live service would
+                need to add first.
               </p>
               <div className="mt-8 flex flex-col gap-4">
-                {channels.map((c) => (
-                  <div key={c.label} className="flex items-start gap-3.5 rounded-2xl border border-border bg-white p-5 shadow-card">
+                {notes.map((n) => (
+                  <div key={n.label} className="flex items-start gap-3.5 rounded-2xl border border-border bg-white p-5 shadow-card">
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent">
-                      <c.icon className="size-5" aria-hidden />
+                      <n.icon className="size-5" aria-hidden />
                     </span>
                     <div>
-                      <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">{c.label}</p>
-                      <p className="mt-0.5 font-semibold text-foreground">{c.value}</p>
-                      <p className="text-xs text-muted-foreground">{c.note}</p>
+                      <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{n.label}</p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{n.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 flex items-start gap-3 rounded-2xl border border-border bg-muted/50 p-5">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Head office</p>
-                  <p className="text-sm text-muted-foreground">
-                    Level 3, Bishop Magua Centre, Ngong Road, Nairobi
-                  </p>
-                </div>
-              </div>
+              <SampleDataNote className="mt-6">
+                The form fields and topics are sample content, nothing more.
+              </SampleDataNote>
             </div>
 
             <form onSubmit={submit} className="rounded-3xl border border-border bg-white p-6 shadow-layered sm:p-8" aria-label="Contact form">
@@ -100,7 +106,7 @@ export default function Contact() {
                     autoComplete="name"
                   />
                 </Field>
-                <Field label="Phone number" required hint="We'll only call about this enquiry.">
+                <Field label="Phone number" required hint="Collected to show a real field, not used.">
                   <Input
                     required
                     type="tel"
@@ -148,6 +154,10 @@ export default function Contact() {
               <Button type="submit" size="lg" className="mt-6 w-full group" disabled={sending}>
                 {sending ? "Sending…" : "Send message"}
               </Button>
+              <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
+                <XCircle className="mt-0.5 size-4 shrink-0" aria-hidden />
+                Nothing is transmitted. Your input is cleared and a notice is shown.
+              </p>
             </form>
           </div>
         </Container>

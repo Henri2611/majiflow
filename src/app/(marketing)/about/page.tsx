@@ -1,39 +1,47 @@
-import Link from "next/link";
-import { ArrowRight, HeartHandshake, Repeat, ShieldCheck, Users } from "lucide-react";
+import { HeartHandshake, Repeat, ShieldCheck, Users } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Button } from "@/components/ui/button";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { CtaSection } from "@/components/home/cta-section";
+import { SampleDataNote } from "@/components/shared/demo-notice";
 
 const values = [
   {
     icon: ShieldCheck,
-    title: "Trust is our product",
-    text: "Every station we list is verified - identity, licence and water testing. Ratings come from real neighbours in your estate, and we actually look at them.",
+    title: "Listings are labelled as samples",
+    text: "Every station here is seeded demo content and carries a Sample badge. No identity, licence or water-testing check sits behind these listings, and the ratings are sample values.",
   },
   {
     icon: Repeat,
-    title: "Local first",
-    text: "Water is delivered by local businesses, not flown in. We build software that makes Kasarani, Nyali and Milimani run better - not that replaces them.",
+    title: "Built around Kenyan stations",
+    text: "The demo models refill stations in five Kenyan cities, each with its own products, prices, delivery fee and opening hours. The station names are invented for the demo.",
   },
   {
     icon: Users,
-    title: "Lift the whole chain",
-    text: "When a station grows, riders get more trips, staff get steadier work and households get reliable water. Our growth story is their growth story.",
+    title: "Honest about the gaps",
+    text: "Payments, notifications and rider dispatch are not in the build, and the pages that touch them say so. RELEASE.md lists the same gaps for anyone reading the code.",
   },
   {
     icon: HeartHandshake,
-    title: "Fair to businesses",
-    text: "Flat pricing, no commission on water, data you can export, and no lock-in. If MajiFlow stops being worth it, you leave with everything.",
+    title: "Nothing here is billed",
+    text: "Plans are shown as flat monthly pricing with no commission, and the pricing page marks the subscription features that are still planned. No card is taken anywhere in the demo.",
   },
 ];
 
 const timeline = [
-  { year: "2024", text: "Two friends in Nairobi get tired of juggling refill shop phone calls. MajiFlow is sketched on a napkin at a Westlands cafe." },
-  { year: "2025", text: "First 12 stations pilot online ordering. 4,000 cans delivered in the first month - and 0 lost to cash disputes." },
-  { year: "2026", text: "240+ stations live, from Kasarani to Kwale. M-Pesa-native, SMS-driven and built for 2G phones." },
+  {
+    year: "Data",
+    text: "Six stations are seeded with products, prices, delivery fees and opening hours, and the customer pages read those records.",
+  },
+  {
+    year: "Orders",
+    text: "Orders are created through the API routes and stored, then moved through pending, accepted and delivered with each change recorded.",
+  },
+  {
+    year: "Gaps",
+    text: "Payment, notification and dispatch providers are deliberately absent, and RELEASE.md documents what a real deployment would need to add.",
+  },
 ];
 
 export default function About() {
@@ -47,7 +55,7 @@ export default function About() {
             <span className="text-gradient">already in town</span>
           </>
         }
-        description="MajiFlow exists so Kenyan water refill businesses can run their shop online - and so homes and offices can get clean, affordable water without carrying it."
+        description="MajiFlow is a working demo of the software a water refill business would run its shop on. It is sample data and a real codebase, not an operating company."
       />
 
       <section className="py-16 lg:py-24">
@@ -57,17 +65,17 @@ export default function About() {
               <SectionHeading
                 align="left"
                 label="Why we exist"
-                title="Water businesses already do the hard part. We make it visible."
+                title="What this demo is, and what it is not."
               />
               <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground">
-                Refill stations across Kenya already filter, test and deliver excellent water. What
-                they lack is storefront software: a way to show up online, take prepaid orders, and
-                prove to new customers that they're trustworthy.
+                This project explores the software a water refill station would need: a page that
+                lists products with prices and delivery fees, a cart that totals delivery per
+                station, and a dashboard that reads the orders that came in.
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                That's the gap MajiFlow fills. It's a multi-tenant platform - each business has its
-                own profile, customers and dashboard - built specifically for how Kenya orders,
-                pays (M-Pesa), and lives (estates, apartments, office blocks).
+                It is not a live service. The stations, ratings and order history are seeded data,
+                and the payment, notification and dispatch layers are missing rather than mocked up
+                as working features.
               </p>
             </div>
             <Stagger className="grid gap-4 sm:grid-cols-2" stagger={0.07}>
@@ -90,10 +98,10 @@ export default function About() {
       <section className="bg-white py-16 lg:py-24">
         <Container>
           <SectionHeading
-            label="The short story"
+            label="How it is put together"
             title={
               <>
-                From napkin to <span className="text-gradient">240 stations</span>
+                Data, orders and the <span className="text-gradient">honest gaps</span>
               </>
             }
           />
@@ -124,19 +132,17 @@ export default function About() {
         <Container size="md">
           <div className="rounded-3xl border border-[#0052FF]/20 bg-white p-8 text-center shadow-card sm:p-12">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Our promise to you
+              The rule this demo follows
             </p>
             <p className="mx-auto mt-4 max-w-xl font-display text-2xl leading-snug text-foreground sm:text-3xl">
-              "We measure success in cans delivered, customers retained, and the evening a parent
-              realises they didn't carry water home today."
+              A build is only convincing when it says plainly what it does not do. Payments,
+              notifications and rider dispatch are not part of this one.
             </p>
-            <p className="mt-5 text-sm text-muted-foreground">- The MajiFlow team, Nairobi</p>
-            <Link href="/contact" className="mt-8 inline-flex">
-              <Button size="lg" className="group">
-                Say hello
-                <ArrowRight className="size-4" aria-hidden />
-              </Button>
-            </Link>
+            <div className="mt-8 flex justify-center">
+              <SampleDataNote>
+                Sample stations, sample ratings, sample orders. Real code underneath.
+              </SampleDataNote>
+            </div>
           </div>
         </Container>
       </section>

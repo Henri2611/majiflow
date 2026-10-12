@@ -14,7 +14,7 @@ export default function BusinessDemo() {
             <Sparkles className="size-5" aria-hidden />
           </span>
           <div>
-            <p className="font-display text-lg text-foreground">You're viewing the live demo</p>
+            <p className="font-display text-lg text-foreground">You&apos;re viewing the live demo</p>
             <p className="mt-0.5 text-sm text-muted-foreground">
               This is real sample data for BioWater Refill Station, Kasarani. Click around - accepting
               orders, hiding products and pausing promotions all work.
