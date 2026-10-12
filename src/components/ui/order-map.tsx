@@ -78,7 +78,7 @@ export function OrderMap({
     if (!el) return;
 
     (async () => {
-      const mod = await import("leaflet");
+      const mod = await import("leaflet/dist/leaflet-src.esm.js" as any).catch(() => import("leaflet"));
       const L = (mod as { default?: LeafletNS }).default ?? (mod as LeafletNS);
       if (disposed || !containerRef.current) return;
 

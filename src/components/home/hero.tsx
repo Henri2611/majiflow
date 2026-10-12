@@ -79,7 +79,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
             Order clean, affordable drinking water from refill stations in your estate. Pick a
-            station, see the real delivery fee and total, and place an order. This is a build:
+            station, see the real delivery fee and total, and place an order. Payment is simulated; no rider is dispatched and no money moves.
             the payment is simulated, no rider is dispatched and no money moves.
           </motion.p>
 
