@@ -3,7 +3,6 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
-import { CtaSection } from "@/components/home/cta-section";
 
 const values = [
   {
@@ -137,8 +136,6 @@ export default function About() {
           </div>
         </Container>
       </section>
-
-      <CtaSection />
     </>
   );
 }

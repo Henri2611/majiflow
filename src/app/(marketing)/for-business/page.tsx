@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-section";
-import { CtaSection } from "@/components/home/cta-section";
 import { businesses } from "@/lib/data/businesses";
 
 const pillars = [
@@ -210,8 +209,6 @@ export default function ForBusiness() {
           </div>
         </Container>
       </section>
-
-      <CtaSection />
     </>
   );
 }

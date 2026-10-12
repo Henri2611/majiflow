@@ -5,9 +5,7 @@ import { BusinessBenefits } from "@/components/home/business-benefits";
 import { FeaturedBusinesses } from "@/components/home/featured-businesses";
 import { DashboardFeature } from "@/components/home/dashboard-feature";
 import { PricingSection } from "@/components/home/pricing-section";
-import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { FaqSection } from "@/components/home/faq-section";
-import { CtaSection } from "@/components/home/cta-section";
 
 export default function HomePage() {
   return (
@@ -19,9 +17,7 @@ export default function HomePage() {
       <FeaturedBusinesses />
       <DashboardFeature />
       <PricingSection />
-      <TestimonialsSection />
       <FaqSection />
-      <CtaSection />
     </>
   );
 }

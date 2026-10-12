@@ -3,7 +3,6 @@ import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { AccordionItem } from "@/components/ui/accordion";
 import { faqsByGroup } from "@/lib/data/faqs";
-import { CtaSection } from "@/components/home/cta-section";
 
 export default function Faqs() {
   const groups = [
@@ -43,8 +42,6 @@ export default function Faqs() {
           </div>
         </Container>
       </section>
-
-      <CtaSection />
     </>
   );
 }

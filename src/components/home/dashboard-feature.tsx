@@ -91,7 +91,7 @@ export function DashboardFeature() {
                 ))}
               </div>
 
-              <div className="px-5 pt-4">
+              <div className="px-5 pb-5 pt-4">
                 <div className="flex items-baseline justify-between">
                   <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                     Weekly revenue
@@ -108,28 +108,6 @@ export function DashboardFeature() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="space-y-2 px-5 pb-5 pt-4">
-                {[
-                  { n: "#MF-98121", c: "Jane Wanjiku", a: "Kasarani", total: "KES 820", s: "Out for delivery", tone: "accent" },
-                  { n: "#MF-98120", c: "Moses Baraka", a: "Roysambu", total: "KES 120", s: "Accepted", tone: "softAccent" },
-                ].map((o) => (
-                  <div key={o.n} className="flex items-center justify-between rounded-lg border border-border px-3 py-2.5">
-                    <div className="min-w-0">
-                      <p className="truncate text-xs font-semibold text-foreground">
-                        {o.n} · {o.c}
-                      </p>
-                      <p className="text-[11px] text-muted-foreground">{o.a}</p>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <p className="text-xs font-bold text-foreground">{o.total}</p>
-                      <Badge variant={o.tone as "accent"} className="hidden sm:inline-flex">
-                        {o.s}
-                      </Badge>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
 
