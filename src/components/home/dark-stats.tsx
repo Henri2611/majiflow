@@ -58,7 +58,7 @@ export function DarkStats() {
           </div>
         </AnimatedSection>
 
-        <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-transparent sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
             <StaggerItem key={s.label}>
               <div className="flex h-full flex-col justify-between gap-10 bg-transparent p-7 transition-colors duration-300 hover:bg-transparent-soft">

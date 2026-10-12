@@ -95,7 +95,7 @@ Platform · no card · nothing is billed
       <section className="relative overflow-hidden bg-transparent py-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-50" />
         <Container className="relative">
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-transparent sm:grid-cols-2 lg:grid-cols-4">
             {numbers.map((n) => (
               <div key={n.label} className="bg-transparent p-7 text-center">
                 <p className="font-display text-3xl text-white">{n.value}</p>

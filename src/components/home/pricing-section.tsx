@@ -54,13 +54,13 @@ export function PricingSection() {
                   <motion.span
                     aria-hidden
                     layoutId="billing-toggle"
-                    className="absolute inset-0 rounded-lg bg-transparent shadow-accent"
+                    className="absolute inset-0 rounded-lg bg-primary shadow-accent"
                   />
                 )}
                 <span className="relative">
                   {b === "monthly" ? "Monthly" : "Annual"}
                   {b === "annual" && (
-                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-white/20 text-white" : "bg-transparent-soft text-success"}`}>
+                    <span className={`ml-1.5 rounded-full px-1.5 py-0.5 font-mono text-[10px] ${billing === b ? "bg-white/20 text-white" : "bg-success/10 text-success"}`}>
                       −17%
                     </span>
                   )}
@@ -81,7 +81,7 @@ export function PricingSection() {
         </Stagger>
 
         <AnimatedSection className="mx-auto mt-12 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-dashed border-[#0052FF]/30 bg-white/70 p-6 text-center shadow-card sm:flex-row sm:text-left">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-transparent-soft text-warning">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-transparent text-warning">
             <Sparkles className="size-5" aria-hidden />
           </span>
           <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
