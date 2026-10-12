@@ -79,7 +79,7 @@ export default function Contact() {
               <div className="mt-8 flex flex-col gap-4">
                 {notes.map((n) => (
                   <div key={n.label} className="flex items-start gap-3.5 rounded-2xl border border-border bg-white p-5 shadow-card">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#0052FF]/10 text-[#0052FF] shadow-accent">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-neutral-100 text-black shadow-accent">
                       <n.icon className="size-5" aria-hidden />
                     </span>
                     <div>

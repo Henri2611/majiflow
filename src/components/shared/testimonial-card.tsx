@@ -28,7 +28,7 @@ export function TestimonialCard({ testimonial, className, offset }: TestimonialC
         “{t.quote}”
       </blockquote>
       <footer className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#0052FF]/10 text-[#0052FF] font-bold text-[13px]">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-black font-bold text-[13px]">
           {t.initials}
         </span>
         <div>

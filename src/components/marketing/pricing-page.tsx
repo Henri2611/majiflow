@@ -176,7 +176,7 @@ export function PricingPage() {
               },
             ].map((v) => (
               <div key={v.title} className="rounded-2xl border border-border bg-white p-7 shadow-card">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-[#0052FF]/10 text-[#0052FF] shadow-accent">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-neutral-100 text-black shadow-accent">
                   <v.icon className="size-5" aria-hidden />
                 </span>
                 <h3 className="mt-5 font-display text-xl text-foreground">{v.title}</h3>

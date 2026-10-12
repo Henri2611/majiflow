@@ -124,7 +124,7 @@ export function ProfilePage() {
             className="pointer-events-none absolute -right-16 -top-20 size-56 rounded-full bg-[#0052FF]/10 blur-3xl"
           />
           <div className="relative">
-            <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-[#0052FF]/10 text-[#0052FF] shadow-accent">
+            <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-neutral-100 text-black shadow-accent">
               <User className="size-7" aria-hidden />
             </span>
             <h1 className="mt-5 font-display text-2xl text-foreground">Set up your profile</h1>
