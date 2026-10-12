@@ -40,10 +40,14 @@ export function PageHero({
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-glow" />
       ) : (
         <>
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-60" />
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-40" />
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-0 size-[30rem] -translate-x-1/2 rounded-full bg-transparent/20 blur-[120px]"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(ellipse 70% 60% at 82% -10%, rgba(0,82,255,0.38), transparent 62%), radial-gradient(ellipse 60% 50% at 0% 110%, rgba(77,124,255,0.18), transparent 60%)",
+            }}
           />
         </>
       )}

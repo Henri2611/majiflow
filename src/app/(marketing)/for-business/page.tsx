@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { businesses } from "@/lib/data/businesses";
+import { cn } from "@/lib/utils";
 
 const pillars = [
   {
@@ -54,7 +55,6 @@ export default function ForBusiness() {
   return (
     <>
       <PageHero
-        tone="dark"
         label="For businesses"
         pulseLabel
         title={
@@ -72,26 +72,26 @@ export default function ForBusiness() {
             </Button>
           </Link>
           <Link href="/business">
-            <Button size="lg" variant="dark" className="w-full sm:w-auto">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               Open the dashboard
             </Button>
           </Link>
         </div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
           No setup fees · Cancel any time
         </p>
       </PageHero>
 
-      <section className="py-14">
+      <section className="py-12">
         <Container>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {numbers.map((n) => (
-              <div key={n.label} className="bg-card p-7 text-center">
-                <p className="font-display text-3xl text-foreground">{n.value}</p>
-                <p className="mt-1.5 text-xs text-muted-foreground">{n.label}</p>
+          <dl className="grid grid-cols-2 gap-y-8 sm:grid-cols-4">
+            {numbers.map((n, i) => (
+              <div key={n.label} className={cn("text-center", i > 0 && "sm:border-l sm:border-border")}>
+                <dd className="font-display text-4xl font-black tracking-tight text-foreground">{n.value}</dd>
+                <dt className="mt-2 text-xs text-muted-foreground">{n.label}</dt>
               </div>
             ))}
-          </div>
+          </dl>
         </Container>
       </section>
 

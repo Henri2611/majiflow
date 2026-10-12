@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Clock } from "lucide-react";
 import type { WeeklyOperatingHours } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import {
   BUSINESS_TIME_ZONE,
   getBusinessAvailability,
@@ -31,21 +32,42 @@ const stateStyles = {
   unknown: "bg-amber-50 text-amber-800",
 };
 
-export function BusinessAvailability({ hours }: { hours: WeeklyOperatingHours | undefined }) {
+const stateText = {
+  open: "text-emerald-600",
+  closed: "text-rose-600",
+  unknown: "text-amber-700",
+};
+
+export function BusinessAvailability({
+  hours,
+  compact,
+  plain,
+  className,
+}: {
+  hours: WeeklyOperatingHours | undefined;
+  compact?: boolean;
+  /** Render as plain text: no pill background and no dot. */
+  plain?: boolean;
+  className?: string;
+}) {
   const availability = useBusinessAvailability(hours);
   const stateLabel = availability.state === "unknown" ? "Unknown" : availability.state === "open" ? "Open" : "Closed";
 
   return (
-    <div className="mt-4 flex flex-wrap items-center gap-2 text-xs" aria-live="polite">
-      <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-semibold capitalize ${stateStyles[availability.state]}`}>
-        <span className="size-1.5 rounded-full bg-current" aria-hidden />
-        {stateLabel}
-      </span>
+    <div className={cn("flex flex-wrap items-center gap-2 text-xs", compact ? "mt-3" : "mt-4", className)} aria-live="polite">
+      {plain ? (
+        <span className={cn("font-semibold", stateText[availability.state])}>{stateLabel}</span>
+      ) : (
+        <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-semibold capitalize ${stateStyles[availability.state]}`}>
+          <span className="size-1.5 rounded-full bg-current" aria-hidden />
+          {stateLabel}
+        </span>
+      )}
       <span className="inline-flex items-center gap-1.5 text-muted-foreground">
         <Clock className="size-3.5" aria-hidden />
         {availability.hoursLabel}
       </span>
-      <span className="text-muted-foreground">{BUSINESS_TIME_ZONE.replace("Africa/", "")} time</span>
+      {!compact && <span className="text-muted-foreground">{BUSINESS_TIME_ZONE.replace("Africa/", "")} time</span>}
     </div>
   );
 }
