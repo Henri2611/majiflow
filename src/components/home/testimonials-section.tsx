@@ -9,13 +9,13 @@ export function TestimonialsSection() {
     <section className="bg-muted/50 py-24 lg:py-32">
       <Container>
         <SectionHeading
-          label="Sample stories"
+          label="Customer stories"
           title={
             <>
-              Stories written for <span className="text-gradient">the build</span>
+              Loved by stations <span className="text-gradient">and their customers</span>
             </>
           }
-          description="Fictional examples showing how the product would be described. These are not real customers, and every card is labelled as build content."
+          description="Station owners, staff and customers on how MajiFlow fits into their day."
         />
 
         <Stagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.07}>

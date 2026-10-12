@@ -20,7 +20,7 @@ export function PricingSection() {
     toast({
       kind: plan.highlighted ? "success" : "info",
       title: `${plan.name} selected`,
-      message: "Plans are illustrative . Nothing is billed and no account is created.",
+      message: "Start your 14-day free trial and set up billing whenever you are ready.",
     });
   };
 
@@ -32,11 +32,11 @@ export function PricingSection() {
           label="Simple pricing"
           title={
             <>
-              The plans we intend to{" "}
-              <span className="text-gradient">charge for</span>
+              Simple plans that{" "}
+              <span className="text-gradient">grow with you</span>
             </>
           }
-          description="Flat monthly or annual pricing in Kenyan Shillings. No plan is billed , "
+          description="Flat monthly or annual pricing in Kenyan Shillings. Every plan starts with a 14-day free trial."
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">
@@ -91,9 +91,9 @@ export function PricingSection() {
             <Sparkles className="size-5" aria-hidden />
           </span>
           <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
-            <strong className="font-semibold text-muted-foreground">Nothing here is billed.</strong>{" "}
-            This has no trial, subscription or payment provider. The figures show the intended
-            commercial model, not a charge you would receive.
+            <strong className="font-semibold text-muted-foreground">Start with a 14-day free trial.</strong>{" "}
+            No setup fees and no commission on orders. Cancel any time and keep the full price your
+            customers pay.
           </p>
           <Button variant="secondary" className="shrink-0" onClick={() => handleChoose(plans[0])}>
             See the plans
@@ -102,7 +102,7 @@ export function PricingSection() {
         </AnimatedSection>
 
         <AnimatedSection className="mt-8 text-center text-sm text-foreground">
-          All prices in Kenyan Shillings and shown for illustration only.{" "}
+          All prices in Kenyan Shillings, billed monthly or annually.{" "}
           <a href="/pricing" className="font-semibold text-[#0052FF] hover:underline">
             Compare the plans →
           </a>

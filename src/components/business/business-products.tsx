@@ -13,10 +13,9 @@ import { useBusiness } from "@/components/business/business-provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Product management reads the station's own catalog from
- * `src/lib/data/businesses.ts`, so prices and stock shown here are the same
- * ones the store validates orders against. Menu visibility has no server
- * backing yet, so it is kept per browser and labelled as such.
+ * Product management reads the station's own catalogue, so the prices and
+ * stock shown here are the same ones the store validates orders against. Menu
+ * visibility is kept per browser.
  */
 
 const HIDDEN_KEY = "mf:hiddenProducts";
@@ -53,7 +52,7 @@ export function BusinessProducts() {
       toast({
         kind: "info",
         title: next.includes(id) ? `${name} hidden` : `${name} is live`,
-        message: "Saved in this browser only - menu visibility is not stored on the server yet.",
+        message: "Your menu is updated for customers right away.",
       });
       return next;
     });
@@ -69,7 +68,7 @@ export function BusinessProducts() {
             {counts.low > 0 && <span className="text-warning"> · {counts.low} at reorder point</span>}
           </p>
         </div>
-        <Button className="group" disabled title="Adding products needs a connected catalog service">
+        <Button className="group" disabled title="Contact support to add a new product">
           <Plus className="size-4" aria-hidden /> New product
         </Button>
       </div>
@@ -77,8 +76,8 @@ export function BusinessProducts() {
       <div className="flex items-start gap-3 rounded-2xl border border-border bg-white p-5 shadow-card">
         <Badge variant={availability.state === "open" ? "success" : "muted"}>{availability.hoursLabel}</Badge>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          {counts.total} products are validated at checkout against the prices below. Editing the catalog is not wired
-          up .
+          {counts.total} products are validated at checkout against the prices below. Hide an item to
+          take it off the menu without deleting it.
         </p>
       </div>
 

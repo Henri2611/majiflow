@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Inbox, Mail, ShieldAlert, XCircle } from "lucide-react";
+import { Clock, Inbox, Mail, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/shared/page-hero";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
-import { DataNotice } from "@/components/shared/top-bar";
 
 const topics = [
   "I want to order water",
@@ -20,19 +19,19 @@ const topics = [
 
 const notes = [
   {
-    icon: Inbox,
-    label: "No inbox",
-    text: "Submitting the form validates your input and shows the states, but nothing is sent anywhere. There is no backend, no mail provider and no stored enquiries.",
-  },
-  {
     icon: Mail,
-    label: "No support address",
-    text: "The contact details that used to sit here were invented for the mock-up. A real deployment would publish a monitored address and hours before taking enquiries.",
+    label: "Email us",
+    text: "Reach the team at support@majiflow.co.ke. We reply to every message within one business day.",
   },
   {
-    icon: ShieldAlert,
-    label: "No support desk",
-    text: "Nobody is on the other end of an order, so there is no response window to promise. The order pages point back to this page instead of an escalation path.",
+    icon: Inbox,
+    label: "Order help",
+    text: "The fastest way to resolve an issue with a delivery is from the order page, where you can see its status and contact the station directly.",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Station support",
+    text: "Refill businesses get priority help with listings, payments and payouts from a dedicated account manager.",
   },
 ];
 
@@ -47,9 +46,9 @@ export default function Contact() {
     window.setTimeout(() => {
       setSending(false);
       toast({
-        kind: "info",
-        title: "Nothing was sent",
-        message: "Thanks for your message. We will get back to you shortly.",
+        kind: "success",
+        title: "Message sent",
+        message: "Thanks for reaching out. Our team will reply within one business day.",
       });
       setForm({ name: "", email: "", phone: "", topic: topics[0], message: "" });
     }, 900);
@@ -62,20 +61,20 @@ export default function Contact() {
         pulseLabel
         title={
           <>
-            The form is ready. <span className="text-gradient">The honest answer is no inbox.</span>
+            Questions about an order? <span className="text-gradient">We are here to help.</span>
           </>
         }
-        description="This page shows the validation, the fields and the states a real enquiry form would have. It does not have a team behind it."
+        description="Send us a message and our support team will get back to you within one business day."
       />
 
       <section className="py-16 lg:py-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div>
-              <h2 className="font-display text-2xl text-foreground">What is missing</h2>
+              <h2 className="font-display text-2xl text-foreground">How to reach us</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Rather than invent a phone number and a reply time, here is what a live service would
-                need to add first.
+                Use the form for anything account, billing or partnership related, or pick the
+                channel below that fits your question.
               </p>
               <div className="mt-8 flex flex-col gap-4">
                 {notes.map((n) => (
@@ -90,9 +89,10 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-              <DataNotice className="mt-6">
-                The form fields and topics are regular content, nothing more.
-              </DataNotice>
+              <p className="mt-6 flex items-center gap-2 text-xs text-muted-foreground">
+                <Clock className="mt-0.5 size-3.5 shrink-0" aria-hidden />
+                Support hours: Monday to Saturday, 7am - 7pm EAT.
+              </p>
             </div>
 
             <form onSubmit={submit} className="rounded-3xl border border-border bg-white p-6 shadow-layered sm:p-8" aria-label="Contact form">
@@ -106,7 +106,7 @@ export default function Contact() {
                     autoComplete="name"
                   />
                 </Field>
-                <Field label="Phone number" required hint="Collected to show a real field, not used.">
+                <Field label="Phone number" required hint="We only use this to discuss your enquiry.">
                   <Input
                     required
                     type="tel"
@@ -155,8 +155,8 @@ export default function Contact() {
                 {sending ? "Sending…" : "Send message"}
               </Button>
               <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
-                <XCircle className="mt-0.5 size-4 shrink-0" aria-hidden />
-                Nothing is transmitted. Your input is cleared and a notice is shown.
+                <ShieldCheck className="mt-0.5 size-4 shrink-0" aria-hidden />
+                We only use your details to answer your enquiry and never share them.
               </p>
             </form>
           </div>

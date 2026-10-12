@@ -184,7 +184,7 @@ function validateStep(step: number, draft: RegistrationDraft): Errors {
 function geolocationUnavailableReason(): string | null {
   if (typeof window === "undefined") return null;
   if (!window.isSecureContext)
-    return "Location needs https. You're using an http:// link - open the https:// MajiFlow link (not the 10.162.122.91 IP), then allow location. We'll use your town's location instead.";
+    return "Location needs a secure connection. Open MajiFlow over https and allow location, then try again. We'll use your town's location instead.";
   if (typeof navigator === "undefined" || !("geolocation" in navigator))
     return "This browser can't share location. We'll use your town's location instead.";
   return null;
@@ -324,16 +324,15 @@ export function BusinessRegister() {
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Your business profile is set up on the{" "}
-            <strong className="text-foreground">{selected.name}</strong> plan. MajiFlow is free while we
-            finish building - your details, including your business location, are saved for when the
-            platform goes live.
+            <strong className="text-foreground">{selected.name}</strong> plan. Your 14-day free trial
+            starts today, and your details are saved so you can start taking orders right away.
           </p>
 
           <dl className="mt-6 space-y-2 rounded-2xl bg-muted/50 p-5 text-left text-sm">
             <div className="flex items-center justify-between gap-3">
               <dt className="text-muted-foreground">Plan</dt>
               <dd className="font-semibold text-foreground">
-                {selected.name} · free for now
+                {selected.name} · 14-day free trial
               </dd>
             </div>
             <div className="flex items-center justify-between gap-3">
@@ -366,7 +365,7 @@ export function BusinessRegister() {
                 <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>
-            <Link href="/business/build">
+            <Link href="/business">
               <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                 Take the tour first
               </Button>
@@ -388,8 +387,8 @@ export function BusinessRegister() {
             Get your station online in <span className="text-gradient">one lunch break</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Four short steps, no card required. MajiFlow is free for now - your details and business
-            location are saved for when we launch billing.
+            Four short steps, no card required. Every plan starts with a 14-day free trial, and you
+            can set up billing whenever you are ready.
           </p>
         </div>
 
@@ -704,11 +703,11 @@ export function BusinessRegister() {
             <div className="space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h2 className="font-display text-xl text-foreground">Pick your plan</h2>
-                <Badge variant="success">Free for now</Badge>
+                <Badge variant="success">Free trial</Badge>
               </div>
               <p className="text-sm text-muted-foreground">
-                Choose the plan that fits today. Nothing is charged while MajiFlow is in early access - you
-                can change this later.
+                Choose the plan that fits today. Every plan starts with a 14-day free trial, and you
+                can change plan at any time.
               </p>
               <div className="grid gap-4 sm:grid-cols-3">
                 {plans.map((p) => (
@@ -754,17 +753,17 @@ export function BusinessRegister() {
                   <div>
                     <p className="font-display text-lg text-foreground">{selected.name} plan</p>
                     <p className="text-sm text-muted-foreground">
-                      {formatKES(selected.monthlyPrice)}/month once billing starts
+                      {formatKES(selected.monthlyPrice)}/month after your trial
                     </p>
                   </div>
-                  <Badge variant="success">Free for now</Badge>
+                  <Badge variant="success">Free trial</Badge>
                 </div>
               </div>
               <p className="rounded-xl bg-muted/50 p-4 text-sm leading-relaxed text-muted-foreground">
-                You won&apos;t be charged today. Add your M-Pesa number below and we&apos;ll use it when billing goes
-                live - you can skip this and add it later in Settings.
+                You won&apos;t be charged today. Add your M-Pesa number now, or add it later in
+                Settings.
               </p>
-              <Field label="M-Pesa number for billing" hint="Optional for now.">
+              <Field label="M-Pesa number for billing" hint="Optional - you can add it later.">
                 <Input
                   type="tel"
                   placeholder="+254 712 345 678"
@@ -781,8 +780,8 @@ export function BusinessRegister() {
                   className="mt-0.5 size-4 accent-[#0052FF]"
                 />
                 <span className="text-sm leading-relaxed text-muted-foreground">
-                  Charge my M-Pesa on the 1st of each month once billing starts. I can cancel anytime - my
-                  public page stays up until the end of the paid period.
+                  Charge my M-Pesa on the 1st of each month after my trial. I can cancel anytime -
+                  my public page stays up until the end of the paid period.
                 </span>
               </label>
               <p className="text-xs text-muted-foreground">
@@ -806,7 +805,7 @@ export function BusinessRegister() {
               </Button>
             ) : (
               <Button size="lg" className="group" onClick={submit}>
-                Start free - no card
+                Start free trial
                 <ArrowRight className="size-4" aria-hidden />
               </Button>
             )}

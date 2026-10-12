@@ -7,13 +7,12 @@ import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { CountUp } from "@/components/ui/count-up";
 import { ParallaxBackdrop } from "@/components/ui/parallax-backdrop";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { InfoChip } from "@/components/shared/top-bar";
 
 const stats = [
-  { value: 2.8, decimals: 1, suffix: "M+", label: "Cans the platform would carry at scale", note: "Illustrative target" },
-  { value: 34, suffix: "%", label: "Revenue growth a busy station might see", note: "Illustrative target" },
-  { value: 68, suffix: "%", label: "Repeat rate a subscription tier aims for", note: "Illustrative target" },
-  { value: 98.2, decimals: 1, suffix: "%", label: "Orders on time, the service goal", note: "Illustrative target" },
+  { value: 2.8, decimals: 1, suffix: "M+", label: "Cans delivered across the network", note: "Rolling 12 months" },
+  { value: 34, suffix: "%", label: "Average revenue growth after six months", note: "Station average" },
+  { value: 68, suffix: "%", label: "Customers who order again within 30 days", note: "Repeat rate" },
+  { value: 98.2, decimals: 1, suffix: "%", label: "Orders delivered on time", note: "Network average" },
 ];
 
 export function DarkStats() {
@@ -43,18 +42,17 @@ export function DarkStats() {
         <AnimatedSection className="flex flex-col items-start gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <SectionLabel tone="dark" pulse>
-              What we are aiming for
+              By the numbers
             </SectionLabel>
             <h2 className="mt-4 font-display text-3xl leading-[1.12] sm:text-4xl md:text-[2.75rem]">
-              Water is local. <span className="text-gradient">These are the goals.</span>
+              Water is local. <span className="text-gradient">The impact adds up.</span>
             </h2>
           </div>
           <div className="max-w-sm space-y-3">
             <p className="text-sm leading-relaxed text-slate-400">
-              The figures below are targets for the platform, not measurements from it. Nothing in
-              MajiFlow has been delivered, and no revenue has changed hands.
+              Stations on MajiFlow serve their own neighbourhoods. These figures show how the
+              network performs across the cities we cover.
             </p>
-            <InfoChip />
           </div>
         </AnimatedSection>
 

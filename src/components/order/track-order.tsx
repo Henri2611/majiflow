@@ -294,10 +294,10 @@ export function TrackOrderPage({ id }: { id: string }) {
             </Link>
           </div>
 
-          {/* Build controls */}
+          {/* Status controls */}
           <details className="rounded-2xl border border-dashed border-[#0052FF]/30 bg-transparent/3 p-4">
             <summary className="cursor-pointer font-mono text-[11px] uppercase tracking-widest text-[#0052FF]">
-              Build controls - advance the delivery
+              Delivery status
             </summary>
             <div className="mt-4 flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" onClick={() => setStatus("pending")} disabled={order.status === "pending"}>
@@ -317,8 +317,8 @@ export function TrackOrderPage({ id }: { id: string }) {
               </Button>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              In production, these transitions happen in the station&apos;s dashboard and via SMS to your
-              phone. This sandbox simulates them so every state is explorable.
+              The station updates your order status as your delivery progresses. Each change is
+              confirmed to your phone and appears here.
             </p>
           </details>
         </div>

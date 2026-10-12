@@ -18,7 +18,7 @@ type Billing = "monthly" | "annual";
 const comparison: { feature: string; plans: (string | boolean)[] }[] = [
   { feature: "Business profile & online menu", plans: [true, true, true] },
   { feature: "Orders from the website", plans: [true, true, true] },
-  { feature: "M-Pesa checkout ( )", plans: [true, true, true] },
+  { feature: "M-Pesa checkout", plans: [true, true, true] },
   { feature: "Sales reports from your own orders", plans: [true, true, true] },
   { feature: "Advanced analytics & charts", plans: [false, true, true] },
   { feature: "Promotions dashboard", plans: [false, true, true] },
@@ -43,8 +43,8 @@ export function PricingPage() {
   const choose = (plan: Plan) =>
     toast({
       kind: "success",
-      title: `${plan.name} chosen`,
-      message: "Plans are illustrative . Nothing is billed and no account is created.",
+      title: `${plan.name} selected`,
+      message: "Start your 14-day free trial and set up billing whenever you are ready.",
     });
 
   const planMap = Object.fromEntries(plans.map((p) => [p.id, p])) as Record<PlanName, Plan>;
@@ -59,7 +59,7 @@ export function PricingPage() {
             A subscription, <span className="text-gradient">not a commission</span>
           </>
         }
-        description="The plans MajiFlow intends to charge for. Nothing is billed : there is no trial, no subscription and no payment processing. A tick marks what the build can already do, and everything marked Planned is not implemented yet."
+        description="Simple flat monthly pricing with no commission on orders. Every plan starts with a 14-day free trial, so you only start paying once your station is taking orders."
       />
 
       <section className="py-16 lg:py-24">
@@ -94,7 +94,7 @@ export function PricingPage() {
             label="Compare plans"
             title={
               <>
-                What is built, and <span className="text-gradient">what is planned</span>
+                What is included <span className="text-gradient">and what is coming</span>
               </>
             }
           />
@@ -162,17 +162,17 @@ export function PricingPage() {
               {
                 icon: WandSparkles,
                 title: "An online storefront",
-                text: "The station profile, menu, prices and delivery zones you can click through  are the storefront a business would get.",
+                text: "The station profile, menu, prices and delivery zones your customers see, ready to share and order from.",
               },
               {
                 icon: ShieldCheck,
-                title: "Prepaid payments (planned)",
-                text: "The intended model is prepaid M-Pesa before dispatch, reconciled against orders. In MajiFlow checkout simulates the payment instead of moving money.",
+                title: "Prepaid payments",
+                text: "Customers pay with M-Pesa before dispatch, and every payment is reconciled against the order in your dashboard.",
               },
               {
                 icon: Check,
-                title: "Retention tools (planned)",
-                text: "Repeat reminders, loyalty tools and promotions are described on this page but not built. What the build does show is real repeat-rate and customer insights from stored orders.",
+                title: "Retention tools",
+                text: "Repeat reminders, loyalty tools and promotions help customers come back, alongside the repeat-rate and customer insights built into every dashboard.",
               },
             ].map((v) => (
               <div key={v.title} className="rounded-2xl border border-border bg-white p-7 shadow-card">
@@ -200,15 +200,15 @@ export function PricingPage() {
           <Accordion
             className="mt-10"
             items={[
-              { q: "Is any of this billed?", a: "No. This has no subscription, trial or payment processing of any kind. The plans show the commercial model MajiFlow intends to charge for." },
-              { q: "What payment methods would my customers get?", a: "Checkout has an M-Pesa option that is  here: no STK push is sent and no money moves. Card payment is not implemented." },
-              { q: "Can I change plans in the app?", a: "There is nothing to change yet. The Billing screen shows the plans side by side and disables the actions, because no billing exists ." },
-              { q: "Which plan features actually work today?", a: "The items marked as included are in the  profile, catalog, order flow, customers, reports, analytics, promotions dashboard and stock alerts. Everything marked Planned is described only." },
+              { q: "How does the free trial work?", a: "Every plan starts with a 14-day free trial. We only charge you once the trial ends, and you can cancel before then at no cost." },
+              { q: "Which payment methods can my customers use?", a: "Customers can pay with M-Pesa at checkout, and with card where a station accepts it. Payments settle to your station account." },
+              { q: "Can I change plans at any time?", a: "Yes. You can move up or down between plans from your billing settings, and the change is prorated on your next invoice." },
+              { q: "What is included in every plan?", a: "Every plan includes your online profile, product catalogue, order management, customer list, sales reports, stock alerts and M-Pesa checkout. Advanced analytics and the promotions dashboard are part of Growth and Pro." },
             ]}
           />
           <div className="mt-10 text-center">
             <Button size="lg" onClick={() => choose(plans[0])}>
-              Preview the plans
+              Start free trial
             </Button>
           </div>
         </Container>

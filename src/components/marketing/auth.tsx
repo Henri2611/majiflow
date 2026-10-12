@@ -11,10 +11,10 @@ import { useCustomer } from "@/components/order/customer-provider";
 import { CITIES } from "@/lib/constants";
 
 const perks = [
-  "Browse regular stations around you",
+  "Browse verified stations around you",
   "See each station's delivery fee in the cart",
   "Follow an order from placed to delivered",
-  "Your profile is kept in this browser only",
+  "Save your details for one-tap checkout",
 ];
 
 export function AuthShell({
@@ -96,7 +96,7 @@ export function RegisterForm() {
       toast({
         kind: "success",
         title: "Profile saved",
-        message: `${form.name.split(" ")[0] || "Karibu"} - your details stay in this browser only.`,
+        message: `${form.name.split(" ")[0] || "Karibu"} - your account is ready.`,
       });
       login({
         name: form.name.trim(),
@@ -113,7 +113,6 @@ export function RegisterForm() {
       <h1 className="font-display text-2xl text-foreground sm:text-3xl">Create your profile</h1>
       <p className="mt-2 text-sm text-muted-foreground">
         Create an account to order water, track deliveries and manage your saved addresses.
-        your address book have something to read; no password is checked and no SMS is sent.
       </p>
 
       <form onSubmit={submit} className="mt-8 space-y-5">
@@ -126,7 +125,7 @@ export function RegisterForm() {
             autoComplete="name"
           />
         </Field>
-        <Field label="Phone number" required hint="Kept locally - MajiFlow sends no SMS.">
+        <Field label="Phone number" required hint="Used for order updates and delivery calls.">
           <Input
             required
             type="tel"
@@ -145,7 +144,7 @@ export function RegisterForm() {
             autoComplete="email"
           />
         </Field>
-        <Field label="Password" required hint="Your password - Use a secure password.">
+        <Field label="Password" required hint="Use a secure password.">
           <div className="relative">
             <Input
               required
@@ -216,7 +215,7 @@ export function LoginForm() {
     setSending(true);
     window.setTimeout(() => {
       setSending(false);
-      toast({ kind: "success", title: "Signed in (build)", message: "Welcome back" });
+      toast({ kind: "success", title: "Signed in", message: "Welcome back" });
       login({ phone: form.phone.trim() });
       router.push("/account");
     }, 700);
@@ -226,8 +225,7 @@ export function LoginForm() {
     <div>
       <h1 className="font-display text-2xl text-foreground sm:text-3xl">Sign in</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Any phone number and password will sign you in here: MajiFlow only reads the profile saved
-        in this browser and never verifies a credential.
+        Sign in with the phone number and password you registered with.
       </p>
 
       <form onSubmit={submit} className="mt-8 space-y-5">

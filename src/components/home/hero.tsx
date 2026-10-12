@@ -79,8 +79,8 @@ export function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80"
           >
             Order clean, affordable drinking water from refill stations in your estate. Pick a
-            station, see the real delivery fee and total, and place an order. All payments are processed securely. For delivery details, check with your selected station.
-            the payment is , no rider is dispatched and no money moves.
+            station, see the delivery fee and total, and place your order. Pay with M-Pesa or card,
+            then follow your delivery every step of the way.
           </motion.p>
 
           <motion.div
@@ -117,7 +117,7 @@ export function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-foreground/80">
             <span className="inline-flex items-center gap-1.5">
-              <BadgeCheck className="size-4 text-success" aria-hidden /> {businesses.length} build stations
+              <BadgeCheck className="size-4 text-success" aria-hidden /> {businesses.length} stations near you
             </span>
             <span className="inline-flex items-center gap-1.5">
               <MessageCircle className="size-4 text-[#0052FF]" aria-hidden /> Order status you can follow

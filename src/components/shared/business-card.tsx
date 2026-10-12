@@ -59,7 +59,7 @@ export function BusinessCard({ business, className, layout = "vertical" }: Busin
             <span className="inline-flex items-center gap-1.5 font-semibold text-foreground">
               <Star className="size-3.5 fill-warning text-warning" aria-hidden />
               {business.rating}
-              <span className="font-normal text-muted-foreground">regular rating</span>
+              <span className="font-normal text-muted-foreground">rating</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Truck className="size-3.5" aria-hidden /> {formatKES(business.deliveryFee)}

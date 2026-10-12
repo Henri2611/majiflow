@@ -13,13 +13,12 @@ export default function AccountPlans() {
         </p>
         <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
           Plans and{" "}
-          <span className="text-gradient">what is not billed</span>
+          <span className="text-gradient">station billing</span>
         </h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          MajiFlow charges nothing , so your account has no subscription, no invoice
-          history and no payment method on file. The plans below are the station-side pricing model
-          the project intends to charge for, with each item marked as included or still planned.
-          There is no way to buy one here.
+          Refill businesses subscribe to a monthly plan to sell on MajiFlow, and customers are never
+          billed for using the platform. Every plan starts with a 14-day free trial, and each item
+          is marked as included today or planned next.
         </p>
       </div>
 
@@ -31,9 +30,9 @@ export default function AccountPlans() {
         ))}
       </div>
       <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
-        These are the plans a station would pay for - <strong className="text-foreground">not</strong>{" "}
-        what you pay for water. There is no recurring refill subscription  either: orders
-        show the delivery fee each station charges, and nothing repeats.
+        These are the plans stations pay for - <strong className="text-foreground">not</strong>{" "}
+        what you pay for water. Your orders show the delivery fee each station charges, and nothing
+        else is added to your total.
       </p>
     </Container>
   );

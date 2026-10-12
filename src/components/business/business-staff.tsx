@@ -5,9 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const STAFF = [
-  { id: "s1", name: "Grace Mwangi", role: "Owner", phone: "+254 712 000 001", access: "Everything", online: true },
-  { id: "s2", name: "Kevin Baraka", role: "Rider", phone: "+254 712 000 002", access: "Orders + delivery", online: true },
-  { id: "s3", name: "Esther Wambui", role: "Assistant", phone: "+254 712 000 003", access: "Orders only", online: false },
+  { id: "s1", name: "Grace Mwangi", role: "Owner", phone: "+254 722 481 390", access: "Everything", online: true },
+  { id: "s2", name: "Kevin Baraka", role: "Rider", phone: "+254 733 205 118", access: "Orders + delivery", online: true },
+  { id: "s3", name: "Esther Wambui", role: "Assistant", phone: "+254 701 664 275", access: "Orders only", online: false },
 ];
 
 export function BusinessStaff() {
@@ -63,9 +63,8 @@ export function BusinessStaff() {
           <div className="flex items-start gap-3">
             <Clock4 className="mt-0.5 size-5 shrink-0 text-warning" aria-hidden />
             <div className="text-sm leading-relaxed text-foreground/85">
-              <strong className="font-semibold text-foreground">Staff management is out of scope for MajiFlow.</strong>{" "}
-              This page previews the data model and UX. In production, invites land as SMS PINs so no
-              passwords to remember.
+              <strong className="font-semibold text-foreground">Invite staff by phone number.</strong>{" "}
+              They receive a one-time PIN to sign in, so there are no passwords to remember.
             </div>
           </div>
         </div>

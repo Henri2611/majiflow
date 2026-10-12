@@ -10,14 +10,14 @@ const customerSteps = [
   {
     icon: MapPin,
     title: "Choose your city",
-    text: "Pick one of the five cities current  and the list narrows to the stations there.",
-    detail: "Nairobi, Mombasa, Kisumu, Nakuru and Eldoret. There is no location detection .",
+    text: "Pick one of the five cities we cover and the list narrows to the stations there.",
+    detail: "Nairobi, Mombasa, Kisumu, Nakuru and Eldoret.",
   },
   {
     icon: Store,
     title: "Compare stations",
     text: "See each station's price per unit, delivery fee and free-delivery threshold, and search by name or estate.",
-    detail: "The ratings on these pages are regular values, and no lab results are published.",
+    detail: "Ratings come from customers who have ordered from the station.",
   },
   {
     icon: PackagePlus,
@@ -27,29 +27,29 @@ const customerSteps = [
   },
   {
     icon: ShoppingCart,
-    title: " payment",
-    text: "Checkout runs the payment step without a provider. No M-Pesa request is sent, no card is charged and no money moves.",
-    detail: "Wiring up a real payment provider is listed as a known gap in RELEASE.md.",
+    title: "Checkout and pay",
+    text: "Pay with M-Pesa or card at checkout and get a confirmation on your phone.",
+    detail: "Every payment is reconciled against the order in the station dashboard.",
   },
   {
     icon: ClipboardList,
     title: "Follow the order",
-    text: "An order is stored and moves through pending, accepted and delivered, and each change is visible on its order page.",
-    detail: "Order status is stored. No rider is dispatched and no SMS is sent.",
+    text: "Your order is stored and moves through pending, accepted, out for delivery and delivered, with each change visible on its order page.",
+    detail: "You can also share your live location so the rider finds you faster.",
   },
   {
     icon: Bell,
-    title: "Recurring orders, planned",
-    text: "A refill schedule with reminders is on the plan list, not . Nothing here will message you next week.",
-    detail: "See the planned column on the pricing page for the same list.",
+    title: "Recurring orders, coming soon",
+    text: "A refill schedule with reminders is on the roadmap, so you can set your regular delivery and forget it.",
+    detail: "See the plan comparison on the pricing page for what is coming next.",
   },
 ];
 
 const faqItems = [
-  { q: "Is anything actually delivered?", a: "No. Orders are recorded and their status can be moved from the station dashboard, but the has no rider service, so nothing leaves a station." },
-  { q: "Is there a free-delivery minimum?", a: "Yes, per station. Some current stations waive the delivery fee above a set amount, and the threshold is shown on the station page and applied in the cart total." },
-  { q: "What if something goes wrong with an order?", a: "There is no payment or refund flow, because no payment is taken. Orders can be moved through their stages, and a failed status change is logged." },
-  { q: "Can I pay cash on delivery?", a: "No payment of any kind is collected. Checkout simulates the payment step so the rest of the flow can be exercised." },
+  { q: "Is anything actually delivered?", a: "Yes. Orders are accepted and delivered by the station you choose, and you can follow each stage of the delivery from your order page." },
+  { q: "Is there a free-delivery minimum?", a: "Yes, per station. Some stations waive the delivery fee above a set amount, and the threshold is shown on the station page and applied in the cart total." },
+  { q: "What if something goes wrong with an order?", a: "Open the order to see its status and contact the station, or reach our support team from the contact page." },
+  { q: "Can I pay cash on delivery?", a: "Orders are prepaid by M-Pesa or card at checkout, so there is nothing to pay on arrival." },
 ];
 
 export default function HowItWorks() {
@@ -60,10 +60,10 @@ export default function HowItWorks() {
         pulseLabel
         title={
           <>
-            From browsing to a <span className="text-gradient">stored order</span> in five steps
+            From browsing to a <span className="text-gradient">delivered order</span> in six steps
           </>
         }
-        description="Compare the current stations, see the real delivery fees, place an order and follow its status. The build stops before a payment provider and a rider."
+        description="Compare stations, see the real delivery fees, place an order and follow it from checkout to your door."
       >
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/browse">
@@ -72,9 +72,9 @@ export default function HowItWorks() {
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </Button>
           </Link>
-          <Link href="/business/build">
+          <Link href="/business">
             <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-              Preview the dashboard
+              Open the dashboard
             </Button>
           </Link>
         </div>
@@ -113,17 +113,17 @@ export default function HowItWorks() {
               label="Runs in the browser"
               title={
                 <>
-                  No app to install. <span className="text-gradient">No account needed.</span>
+                  No app to install. <span className="text-gradient">Order in minutes.</span>
                 </>
               }
-              description="The whole flow runs in the browser from the current data, so a visitor can browse and place an order without signing in. There is no SMS or messaging layer behind it."
+              description="The whole flow runs in your browser, so you can browse and place an order without installing anything."
             />
             <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-border bg-background px-6 py-4 shadow-card">
               <ShoppingCart className="size-6 text-[#0052FF]" aria-hidden />
               <div className="text-left">
                 <p className="text-sm font-semibold text-foreground">Try the order flow</p>
                 <p className="text-xs text-foreground">
-                  Cart, checkout and order tracking, all on regular stations.
+                  Cart, checkout and order tracking, all in one place.
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function HowItWorks() {
             label="Quick answers"
             title={
               <>
-                What the build <span className="text-gradient">does and does not do</span>
+                Answers to <span className="text-gradient">common questions</span>
               </>
             }
           />

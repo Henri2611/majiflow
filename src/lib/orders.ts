@@ -107,7 +107,7 @@ export async function fetchOrdersResult(
   }
 }
 
-/** Update order status / payment state (demo controls, vendor actions). */
+/** Update order status / payment state (vendor actions). */
 export async function updateOrder(id: string, patch: Partial<Order>): Promise<Order | null> {
   try {
     const res = await fetch(`${BASE}/${encodeURIComponent(id)}`, {

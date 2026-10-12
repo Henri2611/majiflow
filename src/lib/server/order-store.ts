@@ -39,52 +39,14 @@ const VALID_STATUS: OrderStatus[] = [
   "cancelled",
 ];
 
-const SEED: Order = {
-  id: "demo-track",
-  orderNumber: "MF-98121",
-  businessId: "bio-water-kasarani",
-  businessName: "BioWater Refill Station",
-  customerName: "Jane Wanjiku",
-  customerPhone: "+254 712 345 678",
-  items: [
-    { productId: "bw-refill-20", name: "Refill - 20L can", quantity: 2, unitPrice: 350 },
-  ],
-  subtotal: 700,
-  deliveryFee: 120,
-  total: 820,
-  payment: "mpesa",
-  paymentState: "success",
-  status: "out_for_delivery",
-  address: {
-    label: "Home",
-    estate: "Kasarani",
-    street: "Mwiki Road",
-    building: "Singa Court, Block B",
-    floor: "3rd floor",
-    notes: "Call on arrival at the gate",
-    phone: "+254 712 345 678",
-  },
-  placedAt: "2026-09-21T10:42:00.000Z",
-  eta: "≈ 50 min",
-  timeline: [
-    { status: "pending", at: "2026-09-21T10:42:00.000Z" },
-    { status: "accepted", at: "2026-09-21T10:43:12.000Z" },
-    { status: "out_for_delivery", at: "2026-09-21T10:51:40.000Z" },
-  ],
-  location: null,
-  locationHistory: [],
-};
-
 let queue: Promise<unknown> = Promise.resolve();
 
 async function readAll(): Promise<Record<string, Order>> {
   try {
     const raw = await fs.readFile(ordersFile(), "utf8");
-    const parsed = JSON.parse(raw) as Record<string, Order>;
-    if (!parsed["demo-track"]) parsed["demo-track"] = structuredClone(SEED);
-    return parsed;
+    return JSON.parse(raw) as Record<string, Order>;
   } catch {
-    return { "demo-track": structuredClone(SEED) };
+    return {};
   }
 }
 

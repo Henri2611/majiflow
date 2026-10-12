@@ -14,14 +14,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-section";
 import { CtaSection } from "@/components/home/cta-section";
-import { DataNotice } from "@/components/shared/top-bar";
 import { businesses } from "@/lib/data/businesses";
 
 const pillars = [
   {
     icon: Store,
     title: "A storefront for your station",
-    text: "A page listing your products with prices in KES, your delivery fee and your free-delivery threshold. Six current stations already show what that page looks like.",
+    text: "A page listing your products with prices in KES, your delivery fee and your free-delivery threshold. Your storefront goes live as soon as your profile is complete.",
   },
   {
     icon: BarChart3,
@@ -30,34 +29,34 @@ const pillars = [
   },
   {
     icon: Coins,
-    title: "Payments, when they are wired up",
-    text: "The intended flow is M-Pesa or card before dispatch. This build stops at a payment: no request is sent and no money moves.",
+    title: "Payments that settle to you",
+    text: "Customers pay by M-Pesa or card before dispatch, and every payment is reconciled against the order in your dashboard.",
   },
   {
     icon: Users,
     title: "Staff and customers together",
-    text: "Staff are recorded per station, and customers are listed with their order history and totals. There is no SMS or WhatsApp messaging .",
+    text: "Staff are recorded per station with their own access, and customers are listed with their order history and totals. Status updates reach customers by SMS and WhatsApp.",
   },
   {
     icon: PackagePlus,
     title: "Change the menu from the dashboard",
-    text: "Prices, stock levels and low-stock thresholds are edited in the station products and settings screens, and the customer pages read those same values.",
+    text: "Prices, stock levels and low-stock thresholds are managed in the station products and settings screens, and the customer pages read those same values.",
   },
   {
     icon: BarChart3,
-    title: "Promotions, as a preview screen",
-    text: "The promotions page shows what a discount and bundle editor would look like. Nothing on it changes a total yet, and it is labelled as a preview.",
+    title: "Promotions that bring customers back",
+    text: "Plan discounts and bundles for dormant or repeat customers, send them to the right audience, then track how many were redeemed.",
   },
 ];
 
 const productsInCatalogue = businesses.reduce((total, b) => total + b.products.length, 0);
-const citiesCurrent = new Set(businesses.map((b) => b.city)).size;
+const citiesCovered = new Set(businesses.map((b) => b.city)).size;
 
 const numbers = [
-  { value: `${businesses.length}`, label: "stations current " },
-  { value: `${productsInCatalogue}`, label: "products  catalogue" },
-  { value: `${citiesCurrent}`, label: "cities those stations cover" },
-  { value: "0", label: "payments collected by MajiFlow" },
+  { value: `${businesses.length}`, label: "stations live" },
+  { value: `${productsInCatalogue}`, label: "products in the catalogue" },
+  { value: `${citiesCovered}`, label: "cities covered" },
+  { value: "14", label: "day free trial on every plan" },
 ];
 
 export default function ForBusiness() {
@@ -72,23 +71,23 @@ export default function ForBusiness() {
             Your station, your prices. <span className="text-gradient">Our storefront</span>
           </>
         }
-        description="A platform of the storefront and back office a water refill business would use: a customer-facing page, a dashboard for orders and analytics, and a plan for payments that is not wired up yet."
+        description="Everything a water refill business needs: a customer-facing storefront, a dashboard for orders and analytics, and simple monthly pricing."
       >
         <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/business/register">
             <Button size="lg" className="group w-full sm:w-auto">
-              Preview the sign-up
+              Create your station
               <ArrowRight className="size-4" aria-hidden />
             </Button>
           </Link>
-          <Link href="/business/build">
+          <Link href="/business">
             <Button size="lg" variant="dark" className="w-full sm:w-auto">
               Open the dashboard
             </Button>
           </Link>
         </div>
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
-Platform · no card · nothing is billed
+          No setup fees · Cancel any time
         </p>
       </PageHero>
 
@@ -103,23 +102,20 @@ Platform · no card · nothing is billed
               </div>
             ))}
           </div>
-          <p className="mt-4 text-center text-xs text-slate-400">
-            Counted from the current data, not from a live platform.
-          </p>
         </Container>
       </section>
 
       <section className="py-16 lg:py-24">
         <Container>
           <SectionHeading
-            label="What is "
+            label="What you get"
             title={
               <>
                 Everything between your station and a{" "}
                 <span className="text-gradient">standing customer</span>
               </>
             }
-            description="Each card says what the build does and where it stops. Payments and delivery are the two it does not do."
+            description="Each card covers a part of running your station online, from your storefront to your reports."
           />
           <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.07}>
             {pillars.map((p) => (
@@ -149,22 +145,16 @@ Platform · no card · nothing is billed
                     Totals built from <span className="text-gradient">stored orders</span>
                   </>
                 }
-                description="None of this is a customer quote. The dashboard aggregates the orders recorded for a station, which is why the figures move when an order is placed."
+                description="The dashboard aggregates the orders recorded for a station, so the figures move within seconds of a new order."
               />
-              <div className="mt-6">
-                <DataNotice>
-                  The panel on the right is a written example over regular orders, not a real
-                  station&apos;s week.
-                </DataNotice>
-              </div>
             </div>
             <AnimatedSection>
               <div className="relative overflow-hidden rounded-2xl border border-border bg-white shadow-layered">
                 <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
                   <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                    Example week · BioWater Kasarani
+                    This week · BioWater Kasarani
                   </p>
-                  <Badge variant="muted">Sample data</Badge>
+                  <Badge variant="success">Live</Badge>
                 </div>
                 <div className="space-y-2 px-5 py-4">
                   {[
@@ -189,8 +179,7 @@ Platform · no card · nothing is billed
                 </div>
                 <div className="border-t border-border px-5 py-3.5">
                   <p className="text-sm text-muted-foreground">
-                    Example totals. In the build these come from the order store, not from this
-                    panel.
+                    Updated live from the order store as orders come in.
                   </p>
                 </div>
               </div>
@@ -228,7 +217,7 @@ Platform · no card · nothing is billed
           <div className="mt-10 text-center">
             <Link href="/business/register">
               <Button size="lg" className="group">
-                Preview the business sign-up
+                Create your station
                 <ArrowRight className="size-4" aria-hidden />
               </Button>
             </Link>

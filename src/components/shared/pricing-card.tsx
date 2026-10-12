@@ -74,13 +74,13 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
           variant={plan.highlighted ? "default" : "secondary"}
           onClick={() => onChoose?.(plan)}
           className="group w-full"
-          aria-label={`Preview the ${plan.name} plan`}
+          aria-label={`Choose the ${plan.name} plan`}
         >
           {plan.cta}
           <ArrowRight className="size-4" aria-hidden />
         </Button>
         <p className="text-center font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-          {plan.audience} 
+          {plan.audience}
         </p>
       </div>
     </>

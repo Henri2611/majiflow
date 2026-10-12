@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { MapPin } from "lucide-react";
 import { BrandMark } from "@/components/layout/brand-mark";
 import { Container } from "@/components/ui/container";
-import { CITIES } from "@/lib/constants";
 
 const customerLinks = [
   { href: "/how-it-works", label: "How ordering works" },
-  { href: "/browse", label: "Browse businesses" },
+  { href: "/browse", label: "Browse stations" },
   { href: "/register", label: "Create an account" },
   { href: "/cart", label: "Your cart" },
   { href: "/faqs", label: "Customer FAQs" },
@@ -16,7 +14,7 @@ const businessLinks = [
   { href: "/for-business", label: "Why MajiFlow" },
   { href: "/business/register", label: "Register your business" },
   { href: "/pricing", label: "Plans & pricing" },
-  { href: "/business/build", label: "Live dashboard build" },
+  { href: "/business", label: "Station dashboard" },
   { href: "/faqs#businesses", label: "Business FAQs" },
 ];
 
@@ -27,27 +25,24 @@ const companyLinks = [
   { href: "/privacy", label: "Privacy policy" },
 ];
 
-const REPO_URL = "https://github.com/dhecaptain/majiflow";
-
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-border bg-white text-muted-foreground">
-      <Container className="pb-24 pt-16">
+      <Container className="pb-16 pt-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <BrandMark dark />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              A platform of a platform that connects homes to water refill stations and gives
-              those businesses a storefront and back office. The stations, prices, ratings and orders
-              here are regular content, and no payments are collected.
+              MajiFlow connects homes to independent water refill stations and gives those
+              businesses a storefront and back office to take orders, track deliveries and grow.
             </p>
-            <a
-              href={REPO_URL}
+            <Link
+              href="/contact"
               className="mt-6 inline-flex items-center gap-2 rounded-lg border border-border bg-white px-3 py-2 text-sm text-muted-foreground transition-all duration-200 hover:border-[#4D7CFF] hover:bg-muted hover:text-foreground"
             >
-              Bugs and questions on GitHub
-            </a>
+              Contact us
+            </Link>
           </div>
 
           <FooterCol title="Customers" links={customerLinks} />
@@ -55,54 +50,9 @@ export function SiteFooter() {
           <FooterCol title="Company" links={companyLinks} />
         </div>
 
-        <div className="mt-14 grid gap-8 border-t border-border pt-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Cities  data
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {CITIES.map((c) => (
-                <Link
-                  key={c}
-                  href="/browse"
-                  className="rounded-md border border-border bg-white px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide text-muted-foreground transition-colors hover:border-[#4D7CFF] hover:text-foreground"
-                >
-                  {c}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Contact
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-[#4D7CFF]" aria-hidden />
-                <span>
-                  This has no office, phone line or inbox behind it, and the contact form does
-                  not send anywhere.
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className="md:col-span-2 lg:col-span-1">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              What is 
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Six current stations across five cities, each with its own products, prices, delivery
-              fee and opening hours. Order status is stored, but payment, SMS and rider dispatch are
-              not part of the build.
-            </p>
-          </div>
-        </div>
-
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-          <p>© {year} MajiFlow. A build with regular data.</p>
-          <p className="font-mono uppercase tracking-widest">
-            No payments · no SMS · regular stations
-          </p>
+          <p>© {year} MajiFlow. All rights reserved.</p>
+          <p className="font-mono uppercase tracking-widest">Clean water, delivered simply</p>
         </div>
       </Container>
     </footer>

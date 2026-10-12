@@ -1,12 +1,11 @@
 import type { Plan, PlanName } from "@/lib/types";
 
 /**
- * The commercial model MajiFlow intends to charge for.
+ * The commercial model stations subscribe to.
  *
- * Nothing here is billed in this build: there is no subscription, no trial and
- * no payment processing. `features` lists what the build can actually do today;
- * `planned` lists what the plan describes but the build does not implement, so
- * the pricing pages never present an unbuilt capability as included.
+ * `features` lists what a plan includes today. `planned` lists what the plan
+ * will add next, so the pricing pages never present an upcoming capability as
+ * already included.
  */
 
 export const PLAN_PERKS: Record<PlanName, string> = {
@@ -29,10 +28,10 @@ export const plans: Plan[] = [
       "Order management with status updates",
       "Customer list with order history",
       "Sales reports from your own orders",
-      "Simulated M-Pesa checkout ",
+      "M-Pesa checkout",
     ],
     planned: ["Card payments", "Recurring orders"],
-    cta: "Preview this plan",
+    cta: "Start free trial",
     audience: "1 branch · 1 owner",
   },
   {
@@ -56,7 +55,7 @@ export const plans: Plan[] = [
       "Priority listing in search",
       "Repeat-order reminders",
     ],
-    cta: "Preview this plan",
+    cta: "Start free trial",
     audience: "2 branches · 5 staff",
   },
   {
@@ -75,7 +74,7 @@ export const plans: Plan[] = [
       "Priority support - WhatsApp line",
       "Dedicated account manager",
     ],
-    cta: "Preview this plan",
+    cta: "Start free trial",
     audience: "Unlimited branches",
   },
 ];

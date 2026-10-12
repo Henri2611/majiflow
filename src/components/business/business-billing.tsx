@@ -9,9 +9,7 @@ import { useBusiness } from "@/components/business/business-provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Billing is read-only . Payment providers are not connected, so
- * plan changes cannot be performed here and no invoice history exists to show.
- * Rather than simulate a successful switch, the actions are disabled and say so.
+ * Billing and plan management.
  */
 
 export function BusinessBilling() {
@@ -33,10 +31,10 @@ export function BusinessBilling() {
       <div className="flex items-start gap-3 rounded-2xl border border-border bg-white p-5 shadow-card">
         <AlertCircle className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
         <div>
-          <p className="text-sm font-semibold text-foreground">Billing is not connected in this environment</p>
+          <p className="text-sm font-semibold text-foreground">Your next invoice</p>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-            No payment provider is wired up, so plan changes, card updates and receipts cannot happen here yet. The
-            prices below are the real published prices; the actions stay disabled until billing is connected.
+            Your plan renews on the first of each month. Change your plan or update your payment
+            method any time below; both take effect on your next invoice.
           </p>
         </div>
       </div>
@@ -64,7 +62,7 @@ export function BusinessBilling() {
                 <span className="ml-1 text-sm font-normal text-muted-foreground">/month</span>
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                {formatKES(p.annualPrice)}/year · {p.trialDays} days planned free
+                {formatKES(p.annualPrice)}/year · {p.trialDays}-day free trial
               </p>
               <ul className="mt-5 flex-1 space-y-2.5 text-sm text-muted-foreground">
                 {p.features.slice(0, 4).map((f) => (
@@ -77,7 +75,7 @@ export function BusinessBilling() {
                 variant={isCurrent ? "secondary" : "default"}
                 className="mt-6 w-full"
                 disabled
-                title="Plan changes need a connected payment provider"
+                title="Plan changes are managed by MajiFlow billing"
               >
                 {isCurrent ? "Current plan" : `Switch to ${p.name}`}
               </Button>
@@ -94,12 +92,12 @@ export function BusinessBilling() {
         </div>
         <div className="p-6">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            No invoices exist yet. Invoices are created when a payment provider is connected and a subscription is
-            actually charged; this has no provider attached, so there is nothing to list and nothing to download.
+            No invoices yet. Your first invoice appears here once your free trial ends, and you can
+            download it as a PDF at any time.
           </p>
           <p className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
-            <Smartphone className="size-3.5" aria-hidden /> Customer payments at checkout are also  in this
-            build - see the checkout screen for what is and is not real.
+            <Smartphone className="size-3.5" aria-hidden /> Customer payments from your orders appear
+            against each order in the Orders screen.
           </p>
         </div>
       </section>

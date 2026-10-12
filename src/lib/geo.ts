@@ -22,7 +22,7 @@ export interface CapturedLocation {
 export function geolocationUnavailableReason(): string | null {
   if (typeof window === "undefined") return null;
   if (!window.isSecureContext)
-    return "Location needs https. You're using an http:// link - open the https:// MajiFlow link (not the 10.162.122.91 IP), then allow location.";
+    return "Location needs a secure connection. Open MajiFlow over https and allow location, then try again.";
   if (typeof navigator === "undefined" || !("geolocation" in navigator))
     return "This browser can't share location.";
   return null;

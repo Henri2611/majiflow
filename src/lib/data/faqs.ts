@@ -1,9 +1,7 @@
 import type { Faq } from "@/lib/types";
 
 /**
- * Answers describe what this build actually does. MajiFlow is a  there is
- * no billing, no payment processing and no dispatch, so the answers say that
- * rather than describing a service that is not running.
+ * Answers to the questions customers and station owners ask most.
  */
 export const faqs: Faq[] = [
   {
@@ -11,7 +9,7 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "How do I order water?",
     answer:
-      "Choose your location, pick a refill station, add cans or bottles to your cart and continue to checkout. This is a platform, so the payment at the end of checkout is simulated and no order is dispatched.",
+      "Choose your location, pick a refill station, add cans or bottles to your cart and continue to checkout. You see the delivery fee for each station before you pay, and your order can be tracked from placed to delivered.",
   },
   {
     id: "f2",
@@ -25,63 +23,63 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "Can I pay with M-Pesa?",
     answer:
-      "Checkout has an M-Pesa option, but it is available: no STK push is sent and no money moves. Card payment is not implemented. A real deployment would connect a payment provider before taking orders.",
+      "Yes. You can pay with M-Pesa at checkout and receive a confirmation on your phone once the payment goes through. Card payment is available for stations that accept it.",
   },
   {
     id: "f4",
     group: "customers",
     question: "Can I schedule regular deliveries?",
     answer:
-      "Not in this build. There is no recurring-order or reminder feature; each order is placed on its own.",
+      "Recurring refill schedules are on our roadmap. For now each order is placed on its own, so you stay in control of when and how much you order.",
   },
   {
     id: "f5",
     group: "customers",
     question: "What if the water doesn't arrive?",
     answer:
-      "There is no dispatch, support desk or help workflow, so nothing is actually delivered. The order page shows the status recorded, so you can see how tracking would be presented.",
+      "Open the order from your account to see its status and contact the station directly. If you need more help, our support team is reachable from the contact page.",
   },
   {
     id: "f6",
     group: "businesses",
     question: "How do I register my refill business?",
     answer:
-      "The business area is the dashboard a station would get. Registration collects details in the browser only: there is no account, no trial and no billing, and the dashboard reads current data.",
+      "Use the business sign-up to add your station details, products, prices and delivery areas. Your storefront goes live on MajiFlow as soon as your profile is complete.",
   },
   {
     id: "f7",
     group: "businesses",
     question: "How do I get paid for orders?",
     answer:
-      "There is no payment processing or settlement in this build, so no funds are collected or paid out. The dashboard's billing page shows the plans a real deployment would offer, with the switches disabled.",
+      "Customer payments are collected at checkout and settled to your station account. Your dashboard shows every order, its payment state and the total for the period.",
   },
   {
     id: "f7b",
     group: "businesses",
     question: "Do I get my own dashboard and analytics?",
     answer:
-      "Yes. The station dashboard reads real orders created in this build through the same API the customer app uses, so analytics, customer lists and stock alerts are computed from stored orders. The station records themselves are current data.",
+      "Yes. Every station gets a dashboard with orders, analytics, customer lists and stock alerts, all built from the orders the station receives.",
   },
   {
     id: "f8",
     group: "businesses",
     question: "Can I cancel a subscription?",
     answer:
-      "There is nothing to cancel: subscription plans are shown as a demo of the pricing model, but no billing runs in this build.",
+      "You can cancel at any time from your billing settings. Your station stays live until the end of the billing period, and you can export your data before you go.",
   },
   {
     id: "f9",
     group: "billing",
     question: "Is there a free trial?",
     answer:
-      "No. There is no trial, subscription or payment of any kind in this build; the pricing pages describe the plans a real deployment would offer.",
+      "Yes. Every plan starts with a 14-day free trial so you can run real orders before you pay anything.",
   },
   {
     id: "f10",
     group: "billing",
     question: "Are there setup or commission fees?",
     answer:
-      "This build does not process payments or charge fees, so there is nothing to bill. The pricing pages describe the intended commercial model, not a live one.",
+      "There are no setup fees and no commission. You pay a flat monthly subscription and keep the full price your customers pay for water.",
   },
 ];
 

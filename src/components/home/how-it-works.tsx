@@ -9,7 +9,7 @@ const steps = [
   {
     icon: MapPin,
     title: "Pick your city",
-    text: "Tell us where you are and the list opens on the stations current for that city: Nairobi, Mombasa, Kisumu, Nakuru or Eldoret.",
+    text: "Tell us where you are and the list opens on the stations serving that city: Nairobi, Mombasa, Kisumu, Nakuru or Eldoret.",
   },
   {
     icon: Store,
@@ -19,17 +19,17 @@ const steps = [
   {
     icon: PackagePlus,
     title: "Add to the cart",
-    text: "Cans, bottles and dispensers go into one cart, and delivery is totalled per station rather than guessed at checkout.",
+    text: "Cans, bottles and dispensers go into one cart, and delivery is totalled per station so there are no surprises at checkout.",
   },
   {
     icon: ShoppingCart,
-    title: " payment",
-    text: "The build simulates this step. No M-Pesa request is sent, no card is charged and no money moves.",
+    title: "Checkout and pay",
+    text: "Pay with M-Pesa or card, then receive a confirmation on your phone as soon as the payment goes through.",
   },
   {
     icon: ClipboardList,
     title: "Follow the order",
-    text: "An order is stored and moves through pending, accepted and delivered, with each change visible on its order page. No rider is dispatched .",
+    text: "Track your order as it moves through pending, accepted, out for delivery and delivered, with each update visible on its order page.",
   },
 ];
 
@@ -48,7 +48,7 @@ export function HowItWorks() {
                   From browsing to tracked order in <span className="text-gradient">five steps</span>
                 </>
               }
-              description="Compare stations, see real delivery fees, place an order and follow its status. The build stops short of a rider and a payment provider."
+              description="Compare stations, see real delivery fees, place an order and follow it from your door to the station."
             />
             <AnimatedSection delay={0.15} className="mt-8">
               <Link href="/browse">

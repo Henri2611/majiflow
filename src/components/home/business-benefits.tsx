@@ -68,7 +68,7 @@ export function BusinessBenefits() {
                   Run the station from <span className="text-gradient">one dashboard</span>
                 </>
               }
-              description="MajiFlow is a build of the storefront and back office for water refill businesses. The dashboard pages are browsable with current data, and no payment is collected."
+              description="MajiFlow gives water refill businesses a storefront and a back office: a customer-facing page, a dashboard for orders and analytics, and simple monthly pricing."
             />
             <AnimatedSection from="right" className="mt-8 flex flex-col gap-6">
               <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-transparent-soft/50 p-4">
@@ -76,7 +76,7 @@ export function BusinessBenefits() {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Your prices stay yours</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    Plans are priced as a flat monthly fee. There is no commission logic , and because checkout is  no money reaches a station.
+                    Plans are priced as a flat monthly fee. There is no commission on orders, so the full price your customers pay stays with your station.
                   </p>
                 </div>
               </div>
@@ -90,14 +90,14 @@ export function BusinessBenefits() {
                 </div>
               </div>
               <div>
-                <Link href="/business/build">
+                <Link href="/business">
                   <Button size="lg" className="group">
-                    Preview the dashboard
+                    Open the dashboard
                     <ArrowRight className="size-4" aria-hidden />
                   </Button>
                 </Link>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Platform: no account and no card, and nothing is billed.{" "}
+                  No setup fees, and you can cancel any time.{" "}
                   <Link href="/pricing" className="font-semibold text-[#0052FF] hover:underline">
                     See plans →
                   </Link>

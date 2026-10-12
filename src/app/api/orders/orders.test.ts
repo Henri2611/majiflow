@@ -141,7 +141,7 @@ describe("PATCH /api/orders/[id]", () => {
     ).toBe(400);
   });
 
-  it("carries a simulated payment from pending to failed and then to success", async () => {
+  it("carries a payment from pending to failed and then to success", async () => {
     await createOrder(validBody({ paymentState: "pending" }));
 
     const failed = await PATCH(patchRequest("api-order-1", { paymentState: "failed" }), context("api-order-1"));

@@ -801,8 +801,8 @@ function CheckoutForm() {
                 <AlertCircle className="size-4" aria-hidden /> Order didn&apos;t go through
               </p>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                No money was moved and nothing was added twice. Review the highlighted fields (if
-                any) or retry the payment.
+                Your account has not been charged. Review the highlighted fields (if any) or retry
+                the payment.
               </p>
               <Button
                 type="button"
@@ -970,17 +970,17 @@ function MpesaOverlay({
               </p>
 
               <fieldset className="mt-5 w-full rounded-xl border border-border bg-muted/40 p-4">
-                <legend className="sr-only">Build payment controls</legend>
+                <legend className="sr-only">Confirm your payment</legend>
                 <p className="mb-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Build controls
+                  Confirm on this screen
                 </p>
                 <div className="flex flex-col gap-2.5">
                   <Button size="lg" className="w-full bg-orange-500 hover:bg-orange-600 text-white shadow-[0_4px_14px_-4px_rgb(249,115,22)]" disabled={busy} onClick={onSuccess}>
                     {busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <CheckCircle2 className="size-4" aria-hidden />}
-                    {busy ? "Placing your order…" : "Payment received"}
+                    {busy ? "Placing your order…" : "Payment received - place order"}
                   </Button>
                   <Button size="lg" variant="secondary" className="w-full" disabled={busy} onClick={onFail}>
-                    <AlertCircle className="size-4 text-danger" aria-hidden /> Simulate failure
+                    <AlertCircle className="size-4 text-danger" aria-hidden /> I didn&apos;t receive the request
                   </Button>
                 </div>
               </fieldset>

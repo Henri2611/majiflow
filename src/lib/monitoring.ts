@@ -91,9 +91,9 @@ export async function reportFailure(
 let warnedNoNotificationProvider = false;
 
 /**
- * Tell a customer their order moved. No SMS or email provider is connected in
- * this build, so this reports the gap once and then stays quiet instead of
- * pretending a message was sent on every status change.
+ * Tell a customer their order moved. When no notification provider is
+ * configured, this reports the gap once and then stays quiet rather than
+ * failing on every status change.
  */
 export async function notifyStatusChange(
   order: { id: string; status: string },

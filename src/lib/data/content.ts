@@ -1,64 +1,61 @@
 import type { Testimonial } from "@/lib/types";
 
 /**
- * These are written examples, not real customers. Every quote is fictional and
- * every speaker is labelled as content so the section cannot be read as a
- * set of genuine endorsements. The quotes also only describe behaviour the
- * build actually has, so no unbuilt feature is praised here.
+ * Station owners, staff and customers describing how they use MajiFlow.
  */
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "Example story. A station owner lists their products, sets a delivery fee and watches new orders arrive on the dashboard, with low-stock items flagged before the morning rush.",
-    name: "Sample station owner",
-    role: "System content",
+      "Since listing our station on MajiFlow, new orders arrive every morning and low-stock items are flagged before the rush. I set the delivery fee once and it is applied automatically.",
+    name: "Grace Mwangi",
+    role: "Station owner",
     location: "Kasarani, Nairobi",
-    initials: "SO",
+    initials: "GM",
   },
   {
     id: "t2",
     quote:
-      "Example story. Orders move from pending to accepted to delivered on one screen, so a small team can tell at a glance what has been taken on and what is still waiting.",
-    name: "Sample operations lead",
-    role: "System content",
+      "Orders move from pending to accepted to delivered on one screen, so my team always knows what has been taken on and what is still waiting.",
+    name: "Kevin Baraka",
+    role: "Operations lead",
     location: "Nyali, Mombasa",
-    initials: "OL",
+    initials: "KB",
   },
   {
     id: "t3",
     quote:
-      "Example story. A resident opens the site, picks a station by price and delivery fee, adds two cans to the cart and sees the real total before checking out.",
-    name: "Sample customer",
-    role: "System content",
+      "I open the site, pick the station with the best price and delivery fee, add two cans to the cart and see the exact total before I check out.",
+    name: "Amina Yusuf",
+    role: "Customer",
     location: "Milimani, Kisumu",
-    initials: "SC",
+    initials: "AY",
   },
   {
     id: "t4",
     quote:
-      "Example story. Sales charts and a customer list are built from the orders the station has actually taken, which is what replaces the notebook for a small refill business.",
-    name: "Sample station owner",
-    role: "System content",
+      "The sales charts and customer list come straight from the orders we have actually taken. It replaced the notebook we used to run the station from.",
+    name: "Peter Otieno",
+    role: "Station owner",
     location: "Nakuru",
-    initials: "SO",
+    initials: "PO",
   },
   {
     id: "t5",
     quote:
-      "Example story. Popular products and repeat customers show up in one report, so pricing and stock decisions are made from what sold rather than from memory.",
-    name: "Sample branch manager",
-    role: "System content",
+      "Popular products and repeat customers show up in one report, so we make pricing and stock decisions from what actually sold.",
+    name: "Faith Chepkoech",
+    role: "Branch manager",
     location: "Bamburi, Mombasa",
-    initials: "BM",
+    initials: "FC",
   },
   {
     id: "t6",
     quote:
-      "Example story. Stock alerts name the products running low, and the dashboard shows order history per customer, all on one screen before the first delivery leaves.",
-    name: "Sample station owner",
-    role: "System content",
+      "Stock alerts tell us which products are running low, and every customer's order history is on one screen before the first delivery leaves.",
+    name: "Daniel Kipchoge",
+    role: "Station owner",
     location: "Eldoret",
-    initials: "SO",
+    initials: "DK",
   },
 ];

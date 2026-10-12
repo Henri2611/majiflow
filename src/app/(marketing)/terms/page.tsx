@@ -10,18 +10,17 @@ export default function Terms() {
     >
       <ProseSection title="Terms of Service">
         <p>
-          MajiFlow is a platform. No company trades under this name, no order is
-          fulfilled and no money changes hands. These terms exist so the shape of a real agreement is
-          visible .  to real
-          customers, businesses or staff.
+          Welcome to MajiFlow. By using our platform you agree to these terms. MajiFlow connects
+          customers who want drinking water with independent refill businesses that sell and deliver
+          it, so please read them carefully.
         </p>
       </ProseSection>
 
       <ProseSection title="1. Who is who">
         <p>
-          A real deployment would connect customers who want drinking water with independent refill
-          businesses that sell and deliver it. <strong>Each refill station is an independent supplier.</strong>{" "}
-          Each refill business would own, filter and deliver its own water, set its own prices, and be
+          MajiFlow connects customers who want drinking water with independent refill businesses that
+          sell and deliver it. <strong>Each refill station is an independent supplier.</strong> Each
+          refill business owns, filters and delivers its own water, sets its own prices, and is
           responsible for the quality and safety of its products.
         </p>
       </ProseSection>
@@ -41,40 +40,38 @@ export default function Terms() {
       <ProseSection title="3. Orders and payments">
         <p>
           You can build your cart and place an order, and the order is stored with a status you can
-          follow. <strong>No payment is collected or authorised, and no order reaches a business.</strong>{" "}
-          Checkout labels the payment step as , and there is no M-Pesa, card, till or
-          Paybill integration .
+          follow. Payments are collected at checkout by M-Pesa or card, and the station you ordered
+          from fulfils the delivery.
         </p>
       </ProseSection>
 
       <ProseSection title="4. Business plans">
         <p>
-          The pricing page shows monthly plans in KES and marks the subscription features that are
-          still planned. No plan can be purchased or activated, no trial starts, and no card is
-          requested anywhere .
+          Stations subscribe to a monthly plan in KES. Every plan starts with a 14-day free trial,
+          and MajiFlow charges no commission on the orders a station takes.
         </p>
       </ProseSection>
 
       <ProseSection title="5. Delivery">
         <p>
-          Delivery fees and free-delivery minimums are stored per station and are added to the cart
-          total, so the arithmetic of a real delivery charge is visible. No rider is dispatched and
-          nothing is delivered.
+          Delivery fees and free-delivery minimums are set per station and added to the cart total
+          before you pay. Each station is responsible for delivering the orders it accepts.
         </p>
       </ProseSection>
 
       <ProseSection title="6. Liability">
         <p>
-          To the maximum extent permitted by law, MajiFlow is not liable for the quality, safety or
-          delivery of any water, because none is supplied. Nothing here limits liability that cannot
-          lawfully be limited, including liability for fraud or personal injury caused by negligence.
+          The independent station that supplies and delivers your water is responsible for its
+          quality, safety and delivery. To the maximum extent permitted by law, MajiFlow is not
+          liable for those matters. Nothing here limits liability that cannot lawfully be limited,
+          including liability for fraud or personal injury caused by negligence.
         </p>
       </ProseSection>
 
       <ProseSection title="7. Changes">
         <p>
-          If this project ever becomes a real service, these terms would be revised and versioned
-          before it took a single order. The text on this page is the current draft.
+          We may update these terms from time to time. When we do, we publish the revised version on
+          this page and update the date above.
         </p>
       </ProseSection>
     </ContentPage>

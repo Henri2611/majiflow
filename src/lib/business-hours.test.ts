@@ -83,7 +83,7 @@ describe("getBusinessOrderBlockReason", () => {
   });
 });
 
-describe("current stations", () => {
+describe("the station catalogue", () => {
   it.each(businesses.map((b) => [b.id, b] as const))(
     "publishes hours for %s so checkout can accept an order",
     (_id, business) => {

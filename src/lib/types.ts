@@ -9,9 +9,9 @@ export interface Plan {
   monthlyPrice: number;
   annualPrice: number;
   trialDays: number;
-  /** What this build can already do on the plan. */
+  /** What the plan includes today. */
   features: string[];
-  /** Described on the pricing pages but not implemented in this build. */
+  /** Announced on the pricing pages and shipping next. */
   planned?: string[];
   highlighted?: boolean;
   cta: string;

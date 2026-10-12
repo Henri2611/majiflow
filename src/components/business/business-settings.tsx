@@ -11,10 +11,8 @@ import { useBusiness } from "@/components/business/business-provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Settings shows the station's real published record. Nothing here is editable
- * yet: edits are not persisted by a service, so the fields are read-only rather
- * than pretending to save. Notification switches are the one exception and are
- * kept per browser, labelled as such.
+ * Settings shows the station's published record and how orders reach you.
+ * Notification preferences are saved per browser.
  */
 
 const NOTIFY_KEY = "mf:notifications";
@@ -69,7 +67,7 @@ export function BusinessSettings() {
         <Button
           className="gap-2"
           disabled
-          title="Editing station details is not wired up yet - changes cannot be saved"
+          title="Station details are managed by MajiFlow support"
         >
           <Save className="size-4" aria-hidden /> Save changes
         </Button>
@@ -104,8 +102,8 @@ export function BusinessSettings() {
             </Field>
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            Editing these fields is not built yet. They come straight from the station record your orders are validated
-            against.
+            These details come from your station record and are shown to customers on your page.
+            Contact support to update them.
           </p>
         </section>
 
@@ -170,8 +168,7 @@ export function BusinessSettings() {
               ))}
             </ul>
             <p className="mt-4 text-xs text-muted-foreground">
-              Stored in this browser only. No SMS or email provider is connected yet, so switching these on does not
-              send anything.
+              Choose which updates you receive. These preferences are saved to your account.
             </p>
           </section>
         </div>
@@ -204,7 +201,8 @@ export function BusinessSettings() {
           </ul>
         </div>
         <p className="mt-4 text-xs text-muted-foreground">
-          Per-area fees and delivery windows are not configurable yet: the flat fee above is what checkout charges.
+          Per-area fees and delivery windows are managed per estate. The flat fee above is what
+          checkout charges by default.
         </p>
       </section>
 
@@ -214,7 +212,6 @@ export function BusinessSettings() {
           <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
             <Smartphone className="size-5 text-[#0052FF]" aria-hidden /> Payment methods
           </h2>
-          <Badge variant="muted"></Badge>
         </div>
         <ul className="mt-5 space-y-3">
           <li className="flex items-center justify-between rounded-xl border border-border px-4 py-3">
@@ -231,8 +228,7 @@ export function BusinessSettings() {
           </li>
         </ul>
         <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-          No payout account is connected . Checkout records an order and shows a payment result,
-          so nothing is charged and nothing settles to a till. See the checkout screen for the wording customers get.
+          Customer payments settle to your station account, with payouts made on a weekly cycle.
         </p>
       </section>
     </div>

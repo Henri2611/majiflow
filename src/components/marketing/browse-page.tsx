@@ -40,14 +40,14 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
                 <span className="absolute inline-flex size-full rounded-full bg-transparent animate-ping-slow" />
                 <span className="relative inline-flex size-2 rounded-full bg-transparent" />
               </span>
-              Browse the build stations
+              Browse refill stations
             </p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] tracking-tight text-foreground sm:text-5xl">
-              Refill stations <span className="text-gradient"> data</span>
+              Refill stations <span className="text-gradient">near you</span>
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Six regular stations you can search and filter. Names, prices, fees and ratings are
-              current content rather than real businesses.
+              Search and filter stations by name, estate or city. Each one lists its own products,
+              prices and delivery fee before you order.
             </p>
             <div className="relative mt-8">
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" aria-hidden />

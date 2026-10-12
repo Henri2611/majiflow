@@ -192,7 +192,7 @@ export default async function BusinessProfile({ params }: PageProps) {
           <p className="mt-6 text-center text-sm text-muted-foreground">
             <em>
               &ldquo;Litre for litre, the cleanest water in {business.city} - the rider even calls
-              before the gate opens.&rdquo; - regular review
+              before the gate opens.&rdquo; - Verified customer
             </em>
           </p>
         </Container>

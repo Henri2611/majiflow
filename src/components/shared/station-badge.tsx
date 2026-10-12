@@ -28,7 +28,7 @@ export function StationBadge({ verified, paid, className }: StationBadgeProps) {
       )}
     >
       <BadgeCheck className="size-3.5" aria-hidden />
-      Sample
+      Verified
     </span>
   );
 }

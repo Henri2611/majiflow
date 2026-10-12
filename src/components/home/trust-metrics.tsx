@@ -1,21 +1,20 @@
 import { MapPin, Package, Store } from "lucide-react";
 import { StatCard } from "@/components/shared/stat-card";
-import { DataNotice } from "@/components/shared/top-bar";
 import { Container } from "@/components/ui/container";
 import { businesses } from "@/lib/data/businesses";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 
 /**
- * Counts are read from the current data rather than typed in, so they stay
- * correct when the data changes and cannot overstate what the build contains.
+ * Counts are read from the station catalogue rather than typed in, so they
+ * stay correct as stations and products are added.
  */
 const cities = new Set(businesses.map((b) => b.city));
 const products = businesses.reduce((total, b) => total + b.products.length, 0);
 
 const metrics = [
-  { icon: Store, value: businesses.length, label: "Stations  data" },
-  { icon: MapPin, value: cities.size, label: "Cities covered by those stations" },
-  { icon: Package, value: products, label: "Products  catalog" },
+  { icon: Store, value: businesses.length, label: "Refill stations" },
+  { icon: MapPin, value: cities.size, label: "Cities covered" },
+  { icon: Package, value: products, label: "Products in the catalogue" },
 ];
 
 export function TrustMetrics() {
@@ -29,12 +28,6 @@ export function TrustMetrics() {
             </StaggerItem>
           ))}
         </Stagger>
-        <DataNotice className="mt-6 justify-center">
-          These counts describe the regular dataset current in
-          <code className="mx-1 font-mono text-[11px]">src/lib/data/businesses.ts</code>. MajiFlow
-          does not yet serve real stations, so there are no platform-wide delivery or payment
-          figures to report.
-        </DataNotice>
       </Container>
     </section>
   );

@@ -563,8 +563,7 @@ function LocationCard({
         )}
       </div>
       <p className="mt-5 text-xs text-muted-foreground">
-        Your live location is only shared with the delivery person while an order is active. A map view
-        is coming soon.
+        Your live location is only shared with the delivery person while an order is active.
       </p>
     </section>
   );
