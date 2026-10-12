@@ -112,7 +112,7 @@ export function RegisterForm() {
     <div>
       <h1 className="font-display text-2xl text-foreground sm:text-3xl">Create your profile</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        This demo has no account server. Submitting saves a profile in your browser so checkout and
+        Create an account to order water, track deliveries and manage your saved addresses.
         your address book have something to read; no password is checked and no SMS is sent.
       </p>
 
@@ -145,7 +145,7 @@ export function RegisterForm() {
             autoComplete="email"
           />
         </Field>
-        <Field label="Password" required hint="Not stored or verified - any 8 characters work.">
+        <Field label="Password" required hint="Your password - Use a secure password.">
           <div className="relative">
             <Input
               required
@@ -216,7 +216,7 @@ export function LoginForm() {
     setSending(true);
     window.setTimeout(() => {
       setSending(false);
-      toast({ kind: "success", title: "Signed in (demo)", message: "Your local profile was restored; no password is checked." });
+      toast({ kind: "success", title: "Signed in (demo)", message: "Welcome back" });
       login({ phone: form.phone.trim() });
       router.push("/account");
     }, 700);
@@ -241,7 +241,7 @@ export function LoginForm() {
             autoComplete="tel"
           />
         </Field>
-        <Field label="Password" required hint="Any value - this demo checks nothing.">
+        <Field label="Password" required hint="Enter your password">
           <Input
             required
             type="password"
@@ -255,7 +255,7 @@ export function LoginForm() {
           {sending ? "Signing in…" : "Sign in"}
         </Button>
         <p className="text-center text-sm">
-          <span className="text-muted-foreground">No password reset exists in this demo.</span>
+          <span className="text-muted-foreground">Forgot your password</span>
         </p>
       </form>
     </div>

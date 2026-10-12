@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s · MajiFlow",
   },
   description:
-    "Order clean, affordable drinking water from trusted refill stations near you - or run your refill business on Kenya's water-commerce platform.",
+    "Order clean, affordable drinking water from refill stations near you. Browse, place and track orders in one place.",
   keywords: [
     "water delivery Kenya",
     "refill water Nairobi",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MajiFlow - Clean water, delivered simply",
     description:
-      "Order clean, affordable drinking water from trusted refill stations near you.",
+      "Order clean, affordable drinking water from refill stations near you.",
     type: "website",
   },
 };

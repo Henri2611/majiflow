@@ -73,7 +73,7 @@ export default function OpengraphImage() {
               color: "#cbd5e1",
             }}
           >
-            Order refills from sample stations. Browse, build a cart and follow a demo order with no payments collected.
+            Order refills from stations. Browse, build a cart and follow a demo order with no payments collected.
           </div>
         </div>
 

@@ -4,13 +4,13 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { CtaSection } from "@/components/home/cta-section";
-import { SampleDataNote } from "@/components/shared/demo-notice";
+import { DataNote } from "@/components/shared/info-banner";
 
 const values = [
   {
     icon: ShieldCheck,
     title: "Listings are labelled as samples",
-    text: "Every station here is seeded demo content and carries a Sample badge. No identity, licence or water-testing check sits behind these listings, and the ratings are sample values.",
+    text: "Every station here is current demo content and carries a Sample badge. No identity, licence or water-testing check sits behind these listings, and the ratings are sample values.",
   },
   {
     icon: Repeat,
@@ -32,7 +32,7 @@ const values = [
 const timeline = [
   {
     year: "Data",
-    text: "Six stations are seeded with products, prices, delivery fees and opening hours, and the customer pages read those records.",
+    text: "Six stations are current with products, prices, delivery fees and opening hours, and the customer pages read those records.",
   },
   {
     year: "Orders",
@@ -55,7 +55,7 @@ export default function About() {
             <span className="text-gradient">already in town</span>
           </>
         }
-        description="MajiFlow is a working demo of the software a water refill business would run its shop on. It is sample data and a real codebase, not an operating company."
+        description="MajiFlow is a working demo of the software a water refill business would run its shop on. It is data and a real codebase, not an operating company."
       />
 
       <section className="py-16 lg:py-24">
@@ -73,7 +73,7 @@ export default function About() {
                 station, and a dashboard that reads the orders that came in.
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                It is not a live service. The stations, ratings and order history are seeded data,
+                It is not a live service. The stations, ratings and order history are current data,
                 and the payment, notification and dispatch layers are missing rather than mocked up
                 as working features.
               </p>
@@ -139,9 +139,9 @@ export default function About() {
               notifications and rider dispatch are not part of this one.
             </p>
             <div className="mt-8 flex justify-center">
-              <SampleDataNote>
+              <DataNote>
                 Sample stations, sample ratings, sample orders. Real code underneath.
-              </SampleDataNote>
+              </DataNote>
             </div>
           </div>
         </Container>

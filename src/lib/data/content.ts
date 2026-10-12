@@ -12,7 +12,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Example story. A station owner lists their products, sets a delivery fee and watches new orders arrive on the dashboard, with low-stock items flagged before the morning rush.",
     name: "Sample station owner",
-    role: "Demo content",
+    role: "System content",
     location: "Kasarani, Nairobi",
     initials: "SO",
   },
@@ -21,7 +21,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Example story. Orders move from pending to accepted to delivered on one screen, so a small team can tell at a glance what has been taken on and what is still waiting.",
     name: "Sample operations lead",
-    role: "Demo content",
+    role: "System content",
     location: "Nyali, Mombasa",
     initials: "OL",
   },
@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Example story. A resident opens the site, picks a station by price and delivery fee, adds two cans to the cart and sees the real total before checking out.",
     name: "Sample customer",
-    role: "Demo content",
+    role: "System content",
     location: "Milimani, Kisumu",
     initials: "SC",
   },
@@ -39,7 +39,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Example story. Sales charts and a customer list are built from the orders the station has actually taken, which is what replaces the notebook for a small refill business.",
     name: "Sample station owner",
-    role: "Demo content",
+    role: "System content",
     location: "Nakuru",
     initials: "SO",
   },
@@ -48,7 +48,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Example story. Popular products and repeat customers show up in one report, so pricing and stock decisions are made from what sold rather than from memory.",
     name: "Sample branch manager",
-    role: "Demo content",
+    role: "System content",
     location: "Bamburi, Mombasa",
     initials: "BM",
   },
@@ -57,7 +57,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Example story. Stock alerts name the products running low, and the dashboard shows order history per customer, all on one screen before the first delivery leaves.",
     name: "Sample station owner",
-    role: "Demo content",
+    role: "System content",
     location: "Eldoret",
     initials: "SO",
   },

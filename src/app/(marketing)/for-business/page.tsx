@@ -14,14 +14,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-section";
 import { CtaSection } from "@/components/home/cta-section";
-import { SampleDataNote } from "@/components/shared/demo-notice";
+import { DataNote } from "@/components/shared/info-banner";
 import { businesses } from "@/lib/data/businesses";
 
 const pillars = [
   {
     icon: Store,
     title: "A storefront for your station",
-    text: "A page listing your products with prices in KES, your delivery fee and your free-delivery threshold. Six seeded stations already show what that page looks like.",
+    text: "A page listing your products with prices in KES, your delivery fee and your free-delivery threshold. Six current stations already show what that page looks like.",
   },
   {
     icon: BarChart3,
@@ -54,7 +54,7 @@ const productsInCatalogue = businesses.reduce((total, b) => total + b.products.l
 const citiesSeeded = new Set(businesses.map((b) => b.city)).size;
 
 const numbers = [
-  { value: `${businesses.length}`, label: "stations seeded in the demo" },
+  { value: `${businesses.length}`, label: "stations current in the demo" },
   { value: `${productsInCatalogue}`, label: "products in the demo catalogue" },
   { value: `${citiesSeeded}`, label: "cities those stations cover" },
   { value: "0", label: "payments collected by this build" },
@@ -88,7 +88,7 @@ export default function ForBusiness() {
           </Link>
         </div>
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
-Demo build · no card · nothing is billed
+Platform · no card · nothing is billed
         </p>
       </PageHero>
 
@@ -104,7 +104,7 @@ Demo build · no card · nothing is billed
             ))}
           </div>
           <p className="mt-4 text-center text-xs text-slate-400">
-            Counted from the seeded demo data, not from a live platform.
+            Counted from the current demo data, not from a live platform.
           </p>
         </Container>
       </section>
@@ -152,10 +152,10 @@ Demo build · no card · nothing is billed
                 description="None of this is a customer quote. The dashboard aggregates the orders recorded for a station, which is why the figures move when an order is placed."
               />
               <div className="mt-6">
-                <SampleDataNote>
+                <DataNote>
                   The panel on the right is a written example over sample orders, not a real
                   station&apos;s week.
-                </SampleDataNote>
+                </DataNote>
               </div>
             </div>
             <AnimatedSection>

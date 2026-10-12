@@ -11,7 +11,7 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "How do I order water?",
     answer:
-      "Choose your location, pick a refill station, add cans or bottles to your cart and continue to checkout. This is a demo build, so the payment at the end of checkout is simulated and no order is dispatched.",
+      "Choose your location, pick a refill station, add cans or bottles to your cart and continue to checkout. This is a platform, so the payment at the end of checkout is simulated and no order is dispatched.",
   },
   {
     id: "f2",
@@ -46,7 +46,7 @@ export const faqs: Faq[] = [
     group: "businesses",
     question: "How do I register my refill business?",
     answer:
-      "The business area is a demo of the dashboard a station would get. Registration collects details in the browser only: there is no account, no trial and no billing, and the dashboard reads seeded sample data.",
+      "The business area is a demo of the dashboard a station would get. Registration collects details in the browser only: there is no account, no trial and no billing, and the dashboard reads current data.",
   },
   {
     id: "f7",
@@ -60,7 +60,7 @@ export const faqs: Faq[] = [
     group: "businesses",
     question: "Do I get my own dashboard and analytics?",
     answer:
-      "Yes. The station dashboard reads real orders created in this build through the same API the customer app uses, so analytics, customer lists and stock alerts are computed from stored orders. The station records themselves are seeded sample data.",
+      "Yes. The station dashboard reads real orders created in this build through the same API the customer app uses, so analytics, customer lists and stock alerts are computed from stored orders. The station records themselves are current data.",
   },
   {
     id: "f8",

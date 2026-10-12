@@ -13,7 +13,7 @@ import {
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { ProductCard } from "@/components/shared/product-card";
-import { SampleStationBadge } from "@/components/shared/sample-station-badge";
+import { StationBadge } from "@/components/shared/station-badge";
 import { BusinessAvailability } from "@/components/shared/business-availability";
 import { SectionLabel } from "@/components/ui/section-label";
 import { getBusiness } from "@/lib/data/businesses";
@@ -68,7 +68,7 @@ export default async function BusinessProfile({ params }: PageProps) {
                 <h1 className="font-display text-3xl leading-tight tracking-tight text-foreground sm:text-4xl">
                   {business.name}
                 </h1>
-                <SampleStationBadge verified={business.verified} paid={business.paid} />
+                <StationBadge verified={business.verified} paid={business.paid} />
                 <Badge variant="mono">{business.subscription} plan</Badge>
               </div>
               <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{business.tagline}</p>

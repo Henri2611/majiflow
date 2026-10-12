@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedSection, Stagger, StaggerItem } from "@/components/ui/animated-section";
-import { SampleDataBadge } from "@/components/shared/demo-notice";
+import { InfoBadge } from "@/components/shared/info-banner";
 
 const checklist = [
   "Accept or reject an order and move it through pending, accepted and delivered",
@@ -33,7 +33,7 @@ export function DashboardFeature() {
               description="Every panel below exists as a page in the station dashboard, filled by the six seeded demo stations. The screenshot is sample data, not a live account."
             />
             <div className="mt-4">
-              <SampleDataBadge />
+              <InfoBadge />
             </div>
             <Stagger className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.06}>
               {checklist.map((c) => (

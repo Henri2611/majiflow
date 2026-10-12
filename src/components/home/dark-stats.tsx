@@ -7,7 +7,7 @@ import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { CountUp } from "@/components/ui/count-up";
 import { ParallaxBackdrop } from "@/components/ui/parallax-backdrop";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { SampleDataBadge } from "@/components/shared/demo-notice";
+import { InfoBadge } from "@/components/shared/info-banner";
 
 const stats = [
   { value: 2.8, decimals: 1, suffix: "M+", label: "Cans the platform would carry at scale", note: "Illustrative target" },
@@ -54,7 +54,7 @@ export function DarkStats() {
               The figures below are targets for the platform, not measurements from it. Nothing in
               this demo has been delivered, and no revenue has changed hands.
             </p>
-            <SampleDataBadge />
+            <InfoBadge />
           </div>
         </AnimatedSection>
 

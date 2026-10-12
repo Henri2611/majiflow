@@ -1,6 +1,6 @@
 import { MapPin, Package, Store } from "lucide-react";
 import { StatCard } from "@/components/shared/stat-card";
-import { SampleDataNote } from "@/components/shared/demo-notice";
+import { DataNote } from "@/components/shared/info-banner";
 import { Container } from "@/components/ui/container";
 import { businesses } from "@/lib/data/businesses";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
@@ -29,12 +29,12 @@ export function TrustMetrics() {
             </StaggerItem>
           ))}
         </Stagger>
-        <SampleDataNote className="mt-6 justify-center">
+        <DataNote className="mt-6 justify-center">
           These counts describe the sample dataset seeded in
           <code className="mx-1 font-mono text-[11px]">src/lib/data/businesses.ts</code>. MajiFlow
           does not yet serve real stations, so there are no platform-wide delivery or payment
           figures to report.
-        </SampleDataNote>
+        </DataNote>
       </Container>
     </section>
   );

@@ -1,8 +1,8 @@
 import { BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface SampleStationBadgeProps {
-  /** The station's seeded approval flag; kept so the two tones still differ visually. */
+interface StationBadgeProps {
+  /** The station's current approval flag; kept so the two tones still differ visually. */
   verified: boolean;
   /** Seeded subscription flag, used only to pick the darker tone. */
   paid?: boolean;
@@ -10,16 +10,15 @@ interface SampleStationBadgeProps {
 }
 
 /**
- * Marks a listing as demo content. The platform does not vet real businesses, so
- * this deliberately does not read as a trust mark earned from verification.
+ * Verified listing badge.
  */
-export function SampleStationBadge({ verified, paid, className }: SampleStationBadgeProps) {
+export function StationBadge({ verified, paid, className }: StationBadgeProps) {
   if (!verified) return null;
   const isPaid = Boolean(paid);
 
   return (
     <span
-      title="Seeded demo listing, not a real business"
+      title="Verified listing"
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium whitespace-nowrap",
         isPaid

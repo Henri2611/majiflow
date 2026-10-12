@@ -262,7 +262,7 @@ export function AdminOverview() {
       </div>
 
       <p className="mt-8 text-center text-xs text-muted-foreground">
-        Demo data for the MajiFlow platform admin. Businesses are seeded from{" "}
+        Demo data for the MajiFlow platform admin. Businesses are current from{" "}
         <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[11px]">src/lib/data/businesses.ts</code> ({businesses.length} stations).
       </p>
     </Container>

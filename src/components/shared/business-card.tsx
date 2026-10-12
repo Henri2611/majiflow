@@ -5,7 +5,7 @@ import type { Business } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
-import { SampleStationBadge } from "@/components/shared/sample-station-badge";
+import { StationBadge } from "@/components/shared/station-badge";
 import { BusinessAvailability } from "@/components/shared/business-availability";
 
 interface BusinessCardProps {
@@ -38,7 +38,7 @@ export function BusinessCard({ business, className, layout = "vertical" }: Busin
             sizes={layout === "horizontal" ? "13rem" : "(min-width: 1024px) 19rem, (min-width: 640px) 45vw, 92vw"}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <SampleStationBadge
+          <StationBadge
             verified={business.verified}
             paid={business.paid}
             className="absolute left-3 top-3"
