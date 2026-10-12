@@ -324,7 +324,7 @@ export function OrderDetailView({
                 .reverse()
                 .map((entry, i) => (
                   <li key={`${entry.status}-${entry.at}-${i}`} className="flex items-start gap-3">
-                    <span className="mt-1.5 size-2 shrink-0 rounded-full bg-transparent" aria-hidden />
+                    <span className="mt-1.5 size-2 shrink-0 rounded-full bg-muted-foreground" aria-hidden />
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-semibold text-foreground">{TIMELINE_LABEL[entry.status]}</p>
                       <p className="text-xs text-muted-foreground">
