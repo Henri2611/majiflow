@@ -2,78 +2,52 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  AlertTriangle,
-  BadgeCheck,
-  Banknote,
-  Building2,
-  Check,
-  Download,
-  Radio,
-  Search,
-  ShieldCheck,
-  TrendingUp,
-  Users,
-  X,
-} from "lucide-react";
+import { BadgeCheck, Banknote, Building2, Download, MapPin, Package, Radio, Search, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatKES } from "@/lib/format";
 import { businesses } from "@/lib/data/businesses";
+import { plans } from "@/lib/data/plans";
 import { cn } from "@/lib/utils";
 
-type Sub = "trial" | "growth" | "starter" | "pro" | "past_due";
+type PlanId = (typeof businesses)[number]["subscription"];
 
-const ROWS: {
-  id: string;
-  name: string;
-  owner: string;
-  area: string;
-  plan: Sub;
-  mrr: number;
-  orders30d: number;
-  status: "live" | "pending" | "suspended";
-}[] = [
-  { id: "b1", name: "BioWater Refill Station", owner: "Grace Mwangi", area: "Kasarani, Nairobi", plan: "growth", mrr: 4500, orders30d: 612, status: "live" },
-  { id: "b2", name: "TruFlow Waters", owner: "Keith Otieno", area: "Nyali, Mombasa", plan: "pro", mrr: 12000, orders30d: 940, status: "live" },
-  { id: "b3", name: "AquaSpring Refills", owner: "Sharon Achieng", area: "Milimani, Kisumu", plan: "starter", mrr: 1500, orders30d: 187, status: "live" },
-  { id: "b4", name: "PureBlue Refills", owner: "David Kimani", area: "Nakuru CBD", plan: "growth", mrr: 4500, orders30d: 388, status: "live" },
-  { id: "b5", name: "Highlands Aqua", owner: "Peter Nyongesa", area: "Eldoret", plan: "trial", mrr: 0, orders30d: 41, status: "pending" },
-  { id: "b6", name: "Diani Pure Water", owner: "Fatuma Ali", area: "Diani, Kwale", plan: "starter", mrr: 1500, orders30d: 96, status: "live" },
-  { id: "b7", name: "Nzoia Springs", owner: "Brian Wekesa", area: "Bungoma", plan: "past_due", mrr: 1500, orders30d: 12, status: "suspended" },
-];
-
-const COMPLAINTS = [
-  { id: "c1", business: "Highlands Aqua", issue: "Order accepted but rider never arrived - customer refunded", age: "2h ago", severity: "high" },
-  { id: "c2", business: "Nzoia Springs", issue: "Subscription payment failed 3 times (insufficient M-Pesa balance)", age: "1d ago", severity: "medium" },
-  { id: "c3", business: "AquaSpring Refills", issue: "Requested help setting delivery zone fees", age: "2d ago", severity: "low" },
-];
-
-const PLAN_TONE: Record<Sub, "muted" | "softAccent" | "accent" | "success" | "danger"> = {
-  trial: "muted",
+const PLAN_TONE: Record<PlanId, "softAccent" | "accent" | "success"> = {
   starter: "softAccent",
   growth: "accent",
   pro: "success",
-  past_due: "danger",
 };
 
+const PLAN_PRICE: Record<PlanId, number> = plans.reduce(
+  (acc, plan) => ({ ...acc, [plan.id]: plan.monthlyPrice }),
+  {} as Record<PlanId, number>
+);
+
+const ROWS = businesses.map((b) => ({
+  id: b.id,
+  name: b.name,
+  area: `${b.estates[0] ?? b.city}, ${b.city}`,
+  plan: b.subscription,
+  monthly: PLAN_PRICE[b.subscription],
+  products: b.products.length,
+  verified: b.verified,
+}));
+
 export function AdminOverview() {
-  const [rows, setRows] = useState(ROWS);
   const [q, setQ] = useState("");
   const [note, setNote] = useState<string | null>(null);
 
-  const filtered = rows.filter(
-    (r) => r.name.toLowerCase().includes(q.toLowerCase()) || r.owner.toLowerCase().includes(q.toLowerCase()) || r.area.toLowerCase().includes(q.toLowerCase())
+  const filtered = ROWS.filter(
+    (r) =>
+      r.name.toLowerCase().includes(q.toLowerCase()) ||
+      r.area.toLowerCase().includes(q.toLowerCase())
   );
 
-  const mrr = rows.filter((r) => r.plan !== "trial" && r.plan !== "past_due").reduce((t, r) => t + r.mrr, 0);
-  const active = rows.filter((r) => r.status === "live").length;
-
-  const setStatus = (id: string, status: "live" | "suspended") => {
-    setRows((all) => all.map((r) => (r.id === id ? { ...r, status } : r)));
-    setNote(status === "live" ? "Business reactivated - their page is back online." : "Business suspended - customers see a pause notice.");
-  };
+  const active = ROWS.filter((r) => r.verified).length;
+  const mrr = ROWS.reduce((total, r) => total + r.monthly, 0);
+  const productCount = ROWS.reduce((total, r) => total + r.products, 0);
+  const cityCount = new Set(businesses.map((b) => b.city)).size;
 
   return (
     <Container className="py-14 lg:py-20">
@@ -84,13 +58,13 @@ export function AdminOverview() {
           </p>
           <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">MajiFlow control room</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Every station, subscription and payment across Kenya - in one view.
+            Every station and subscription across Kenya, in one view.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <Link
             href="/admin/orders"
-            className="inline-flex items-center gap-2 rounded-xl border border-[#0052FF]/30 bg-transparent/5 px-4 py-2.5 text-sm font-semibold text-[#0052FF] transition-colors hover:bg-transparent/10"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#0052FF]/30 bg-[#0052FF]/5 px-4 py-2.5 text-sm font-semibold text-[#0052FF] transition-colors hover:bg-[#0052FF]/10"
           >
             <Radio className="size-4" aria-hidden /> Live orders
           </Link>
@@ -101,7 +75,7 @@ export function AdminOverview() {
       </div>
 
       {note && (
-        <div role="status" className="mt-6 flex items-center justify-between rounded-xl border border-[#0052FF]/25 bg-transparent/5 px-4 py-3 text-sm text-[#0052FF]">
+        <div role="status" className="mt-6 flex items-center justify-between rounded-xl border border-[#0052FF]/25 bg-[#0052FF]/5 px-4 py-3 text-sm text-[#0052FF]">
           {note}
           <button onClick={() => setNote(null)} className="font-semibold" aria-label="Dismiss">
             Dismiss
@@ -112,13 +86,13 @@ export function AdminOverview() {
       {/* Platform KPIs */}
       <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {[
-          { icon: Building2, label: "Active businesses", value: String(active), hint: `${rows.length - active} pending / suspended` },
-          { icon: Banknote, label: "Platform MRR", value: formatKES(mrr), hint: "+18.2% month on month" },
-          { icon: TrendingUp, label: "Orders processed", value: "2,276", hint: "Last 30 days across all stations" },
-          { icon: Users, label: "End customers", value: "8,410", hint: "Unique phone numbers served" },
+          { icon: Building2, label: "Active stations", value: String(active), hint: `${ROWS.length} listed on the platform` },
+          { icon: Banknote, label: "Platform MRR", value: formatKES(mrr), hint: "From active subscriptions" },
+          { icon: Package, label: "Products listed", value: String(productCount), hint: "Across every catalogue" },
+          { icon: MapPin, label: "Cities covered", value: String(cityCount), hint: "Kenya-wide coverage" },
         ].map((k) => (
-          <div key={k.label} className="rounded-2xl border border-border bg-white p-5 shadow-card">
-            <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
+          <div key={k.label} className="rounded-2xl border border-border bg-card p-5 shadow-card">
+            <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]">
               <k.icon className="size-4.5" aria-hidden />
             </span>
             <p className="mt-3 font-display text-2xl text-foreground">{k.value}</p>
@@ -129,25 +103,25 @@ export function AdminOverview() {
       </div>
 
       {/* Businesses table */}
-      <section className="mt-8 overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+      <section className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4">
-          <h2 className="font-display text-lg text-foreground">Businesses</h2>
+          <h2 className="font-display text-lg text-foreground">Stations</h2>
           <div className="flex min-w-0 items-center gap-2 rounded-xl border border-border px-3 py-2 sm:w-72">
             <Search className="size-4 shrink-0 text-muted-foreground" aria-hidden />
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Search businesses, owners…"
+              placeholder="Search stations or areas…"
               className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-              aria-label="Search businesses"
+              aria-label="Search stations"
             />
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[860px] text-left text-sm">
+          <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-border bg-muted/40">
-                {["Business", "Plan", "MRR", "Orders (30d)", "Status", ""].map((h) => (
+                {["Station", "Plan", "Monthly", "Products", "Status", ""].map((h) => (
                   <th key={h} scope="col" className="px-5 py-3.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
                     {h}
                   </th>
@@ -164,39 +138,27 @@ export function AdminOverview() {
                       </span>
                       <div>
                         <p className="font-semibold text-foreground">{r.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {r.owner} · {r.area}
-                        </p>
+                        <p className="text-xs text-muted-foreground">{r.area}</p>
                       </div>
                     </div>
                   </td>
                   <td className="px-5 py-4">
                     <Badge variant={PLAN_TONE[r.plan]}>
-                      {r.plan === "past_due" ? "Past due" : r.plan === "trial" ? "Trial" : r.plan[0].toUpperCase() + r.plan.slice(1)}
+                      {r.plan[0].toUpperCase() + r.plan.slice(1)}
                     </Badge>
                   </td>
-                  <td className="px-5 py-4 font-medium text-foreground">{r.mrr ? formatKES(r.mrr) : "-"}</td>
-                  <td className="px-5 py-4 text-foreground/85">{r.orders30d}</td>
+                  <td className="px-5 py-4 font-medium text-foreground">{formatKES(r.monthly)}</td>
+                  <td className="px-5 py-4 text-foreground/85">{r.products}</td>
                   <td className="px-5 py-4">
-                    <span className={cn("inline-flex items-center gap-1.5 text-xs font-medium", r.status === "live" ? "text-success" : r.status === "pending" ? "text-warning" : "text-danger")}>
-                      <span className={cn("size-1.5 rounded-full", r.status === "live" ? "bg-success" : r.status === "pending" ? "bg-warning" : "bg-danger")} />
-                      {r.status}
+                    <span className={cn("inline-flex items-center gap-1.5 text-xs font-medium", r.verified ? "text-success" : "text-warning")}>
+                      <span className={cn("size-1.5 rounded-full", r.verified ? "bg-success" : "bg-warning")} />
+                      {r.verified ? "Live" : "Pending"}
                     </span>
                   </td>
                   <td className="px-5 py-4">
-                    {r.status === "suspended" ? (
-                      <Button size="sm" onClick={() => setStatus(r.id, "live")}>
-                        <Check className="size-3.5" aria-hidden /> Reactivate
-                      </Button>
-                    ) : r.status === "live" ? (
-                      <Button size="sm" variant="ghost" onClick={() => setStatus(r.id, "suspended")}>
-                        <X className="size-3.5" aria-hidden /> Suspend
-                      </Button>
-                    ) : (
-                      <Link href="/business" className="text-xs font-semibold text-[#0052FF] hover:underline">
-                        Review
-                      </Link>
-                    )}
+                    <Link href="/business" className="text-xs font-semibold text-[#0052FF] hover:underline">
+                      Open
+                    </Link>
                   </td>
                 </tr>
               ))}
@@ -206,64 +168,48 @@ export function AdminOverview() {
       </section>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-        {/* Complaints */}
-        <section className="rounded-2xl border border-border bg-white p-6 shadow-card">
-          <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
-            <AlertTriangle className="size-5 text-warning" aria-hidden /> Support queue
-          </h2>
-          <ul className="mt-5 space-y-4">
-            {COMPLAINTS.map((c) => (
-              <li key={c.id} className="flex items-start gap-3">
-                <span
-                  className={cn(
-                    "mt-1.5 size-2 shrink-0 rounded-full",
-                    c.severity === "high" ? "bg-danger" : c.severity === "medium" ? "bg-warning" : "bg-muted-foreground/40"
-                  )}
-                />
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold text-foreground">{c.business}</p>
-                  <p className="mt-0.5 text-sm text-muted-foreground">{c.issue}</p>
-                </div>
-                <span className="shrink-0 font-mono text-[11px] text-muted-foreground">{c.age}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Payments + plan mix */}
-        <section className="rounded-2xl border border-border bg-white p-6 shadow-card">
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-card">
           <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
             <BadgeCheck className="size-5 text-[#0052FF]" aria-hidden /> Subscription mix
           </h2>
           <ul className="mt-5 space-y-4">
-            {[
-              { label: "Pro", value: 1, color: "bg-foreground" },
-              { label: "Growth", value: 2, color: "bg-[#4D7CFF]" },
-              { label: "Starter", value: 3, color: "bg-transparent/40" },
-              { label: "Trial", value: 1, color: "bg-muted-foreground/40" },
-              { label: "Past due", value: 1, color: "bg-danger" },
-            ].map((s) => (
-              <li key={s.label}>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-foreground">{s.label}</span>
-                  <span className="font-mono text-xs text-muted-foreground">{s.value} businesses</span>
-                </div>
-                <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-                  <div className={cn("h-full rounded-full", s.color)} style={{ width: `${(s.value / rows.length) * 100}%` }} />
-                </div>
+            {(["pro", "growth", "starter"] as PlanId[]).map((planId) => {
+              const value = ROWS.filter((r) => r.plan === planId).length;
+              return (
+                <li key={planId}>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-medium text-foreground capitalize">{planId}</span>
+                    <span className="font-mono text-xs text-muted-foreground">{value} stations</span>
+                  </div>
+                  <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
+                    <div
+                      className={cn("h-full rounded-full", planId === "pro" ? "bg-foreground" : planId === "growth" ? "bg-[#4D7CFF]" : "bg-[#0052FF]/40")}
+                      style={{ width: `${ROWS.length ? (value / ROWS.length) * 100 : 0}%` }}
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-card">
+          <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
+            <MapPin className="size-5 text-[#0052FF]" aria-hidden /> Coverage
+          </h2>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {[...new Set(businesses.map((b) => b.city))].map((city) => (
+              <li key={city} className="rounded-lg bg-muted px-3 py-1.5 text-xs text-foreground">
+                {city}
               </li>
             ))}
           </ul>
-          <div className="mt-6 rounded-xl bg-muted/50 p-4 text-xs leading-relaxed text-muted-foreground">
-            <strong className="text-foreground">Collections:</strong> {formatKES(mrr)} collected this month via
-            M-Pesa. One business is past due and has been auto-suspended after 3 failed charges.
-          </div>
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            {businesses.length} stations across {cityCount} cities, each with its own products, prices
+            and delivery fee.
+          </p>
         </section>
       </div>
-
-      <p className="mt-8 text-center text-xs text-muted-foreground">
-        Platform admin overview across all {businesses.length} stations on MajiFlow.
-      </p>
     </Container>
   );
 }

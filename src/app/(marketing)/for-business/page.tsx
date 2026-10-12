@@ -4,8 +4,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-section";
+import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { businesses } from "@/lib/data/businesses";
 
 const pillars = [
@@ -125,51 +124,15 @@ export default function ForBusiness() {
 
       <section className="bg-card py-16 lg:py-20">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <SectionHeading
-                align="left"
-                label="What the dashboard reads"
-                title={
-                  <>
-                    Totals built from <span className="text-gradient">stored orders</span>
-                  </>
-                }
-                description="The dashboard aggregates the orders recorded for a station, so the figures move as orders come in."
-              />
-            </div>
-            <AnimatedSection>
-              <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-                <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
-                  <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                    This week · BioWater Kasarani
-                  </p>
-                  <Badge variant="success">Live</Badge>
-                </div>
-                <div className="space-y-2 px-5 py-4">
-                  {[
-                    { day: "Monday lunch", orders: "14 orders", ksh: "KES 6,300", highlight: false },
-                    { day: "Wednesday", orders: "27 orders", ksh: "KES 12,150", highlight: false },
-                    { day: "Friday", orders: "40 orders", ksh: "KES 18,000", highlight: true },
-                  ].map((o) => (
-                    <div
-                      key={o.day}
-                      className={`flex items-center justify-between rounded-lg border px-4 py-3 ${o.highlight ? "border-[#0052FF]/30 bg-[#0052FF]/5" : "border-border"}`}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <BarChart3 className={`size-4 ${o.highlight ? "text-[#0052FF]" : "text-muted-foreground"}`} aria-hidden />
-                        <p className="text-sm font-medium text-foreground">{o.day}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-foreground">{o.orders}</p>
-                        <p className="text-xs text-muted-foreground">{o.ksh}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
+          <SectionHeading
+            label="What the dashboard reads"
+            title={
+              <>
+                Totals built from <span className="text-gradient">stored orders</span>
+              </>
+            }
+            description="Every figure in the dashboard comes from the orders your station has actually taken, so the numbers move as orders come in."
+          />
         </Container>
       </section>
 

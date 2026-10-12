@@ -162,41 +162,6 @@ export default async function BusinessProfile({ params }: PageProps) {
           </div>
         </Container>
       </section>
-
-      {/* Rating strip */}
-      <section className="border-t border-border bg-muted/40 py-12">
-        <Container>
-          <div className="grid gap-8 sm:grid-cols-3">
-            {[
-              { k: "Delivery reliability", v: 4.9 },
-              { k: "Water quality", v: 4.8 },
-              { k: "Value for money", v: 4.7 },
-            ].map((r) => (
-              <div key={r.k} className="rounded-xl border border-border bg-white p-5 shadow-card">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold text-foreground">{r.k}</p>
-                  <p className="text-sm font-bold text-foreground">{r.v}</p>
-                </div>
-                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-muted" role="presentation">
-                  <div
-                    className="h-full rounded-full bg-foreground"
-                    style={{ width: `${(r.v / 5) * 100}%` }}
-                  />
-                </div>
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
-                  {business.reviewCount} neighbours rated
-                </p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            <em>
-              &ldquo;Litre for litre, the cleanest water in {business.city} - the rider even calls
-              before the gate opens.&rdquo; - Verified customer
-            </em>
-          </p>
-        </Container>
-      </section>
     </div>
   );
 }
