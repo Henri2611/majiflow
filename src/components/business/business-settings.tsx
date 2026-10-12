@@ -154,7 +154,7 @@ export function BusinessSettings() {
                     onClick={() => setPref(n.key)}
                     className={cn(
                       "relative h-6 w-11 shrink-0 rounded-full transition-colors",
-                      notify[n.key] ? "bg-transparent" : "bg-muted-foreground/30"
+                      notify[n.key] ? "bg-foreground" : "bg-muted-foreground/30"
                     )}
                   >
                     <span

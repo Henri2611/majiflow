@@ -273,7 +273,7 @@ export function ProfilePage() {
         />
         <div className="relative flex flex-wrap items-start justify-between gap-5">
           <div className="flex items-start gap-4">
-            <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-transparent font-display text-xl text-white shadow-accent sm:size-16 sm:text-2xl">
+            <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-foreground font-display text-xl text-white shadow-accent sm:size-16 sm:text-2xl">
               {initials(profile.name)}
             </span>
             <div className="min-w-0">

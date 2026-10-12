@@ -99,7 +99,7 @@ export function BusinessAnalytics() {
                 <div key={c.key} className="group flex flex-1 flex-col items-center gap-2">
                   <div className="relative flex w-full flex-1 items-end">
                     <div
-                      className="w-full rounded-t-lg bg-transparent opacity-90 group-hover:opacity-100"
+                      className="w-full rounded-t-lg bg-foreground opacity-90 group-hover:opacity-100"
                       style={{ height: `${(c.revenue / maxRevenue) * 100}%` }}
                     />
                     <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-2 py-1 font-mono text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
@@ -132,7 +132,7 @@ export function BusinessAnalytics() {
                       <span className="font-mono text-xs text-muted-foreground">{pct}%</span>
                     </div>
                     <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-                      <div className="h-full rounded-full bg-transparent" style={{ width: `${pct}%` }} />
+                      <div className="h-full rounded-full bg-foreground" style={{ width: `${pct}%` }} />
                     </div>
                     <p className="mt-1 font-mono text-[11px] text-muted-foreground">
                       {p.quantity} sold · {formatKES(p.revenue)}

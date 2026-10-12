@@ -316,7 +316,7 @@ export function BusinessRegister() {
     return (
       <Container className="py-16 lg:py-24">
         <div className="mx-auto max-w-xl rounded-3xl border border-border bg-white p-8 text-center shadow-layered sm:p-12">
-          <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-transparent text-white shadow-accent">
+          <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-foreground text-white shadow-accent">
             <PartyPopper className="size-7" aria-hidden />
           </span>
           <h1 className="mt-6 font-display text-3xl text-foreground">
@@ -400,7 +400,7 @@ export function BusinessRegister() {
                 className={cn(
                   "flex size-9 items-center justify-center rounded-full font-mono text-xs font-semibold",
                   i < step
-                    ? "bg-transparent text-white"
+                    ? "bg-foreground text-white"
                     : i === step
                       ? "bg-transparent/10 text-[#0052FF] ring-2 ring-[#0052FF]/25"
                       : "bg-muted text-muted-foreground"

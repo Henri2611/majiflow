@@ -7,18 +7,26 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Clean drinking water delivery from refill stations across Kenya',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
+    background_color: '#f2eee3',
     theme_color: '#0052FF',
     icons: [
       {
         src: '/logo-192.png',
         sizes: '192x192',
         type: 'image/png',
+        purpose: 'any',
       },
       {
         src: '/logo-512.png',
         sizes: '512x512',
         type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/logo-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
       },
     ],
   };

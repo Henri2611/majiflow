@@ -179,7 +179,7 @@ export function AdminOverview() {
                   <td className="px-5 py-4 text-foreground/85">{r.orders30d}</td>
                   <td className="px-5 py-4">
                     <span className={cn("inline-flex items-center gap-1.5 text-xs font-medium", r.status === "live" ? "text-success" : r.status === "pending" ? "text-warning" : "text-danger")}>
-                      <span className={cn("size-1.5 rounded-full", r.status === "live" ? "bg-transparent" : r.status === "pending" ? "bg-transparent" : "bg-transparent")} />
+                      <span className={cn("size-1.5 rounded-full", r.status === "live" ? "bg-success" : r.status === "pending" ? "bg-warning" : "bg-danger")} />
                       {r.status}
                     </span>
                   </td>
@@ -217,7 +217,7 @@ export function AdminOverview() {
                 <span
                   className={cn(
                     "mt-1.5 size-2 shrink-0 rounded-full",
-                    c.severity === "high" ? "bg-transparent" : c.severity === "medium" ? "bg-transparent" : "bg-muted-foreground/40"
+                    c.severity === "high" ? "bg-danger" : c.severity === "medium" ? "bg-warning" : "bg-muted-foreground/40"
                   )}
                 />
                 <div className="min-w-0 flex-1">
@@ -237,11 +237,11 @@ export function AdminOverview() {
           </h2>
           <ul className="mt-5 space-y-4">
             {[
-              { label: "Pro", value: 1, color: "bg-transparent" },
+              { label: "Pro", value: 1, color: "bg-foreground" },
               { label: "Growth", value: 2, color: "bg-[#4D7CFF]" },
               { label: "Starter", value: 3, color: "bg-transparent/40" },
               { label: "Trial", value: 1, color: "bg-muted-foreground/40" },
-              { label: "Past due", value: 1, color: "bg-transparent" },
+              { label: "Past due", value: 1, color: "bg-danger" },
             ].map((s) => (
               <li key={s.label}>
                 <div className="flex items-center justify-between text-sm">

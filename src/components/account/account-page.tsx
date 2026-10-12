@@ -47,7 +47,7 @@ export function AccountPage() {
         <div className="relative flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-success/25 bg-transparent-soft px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-success">
-              <span className="size-1.5 rounded-full bg-transparent animate-pulse-dot" /> Signed in
+              <span className="size-1.5 rounded-full bg-foreground animate-pulse-dot" /> Signed in
             </p>
             <h1 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
               Habari, {firstName}

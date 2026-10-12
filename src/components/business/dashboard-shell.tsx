@@ -69,7 +69,7 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
       <div className="mt-auto rounded-xl bg-transparent/5 p-3">
         <p className="font-mono text-[10px] uppercase tracking-widest text-[#0052FF]">Trial</p>
         <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-transparent/15">
-          <div className="h-full w-[60%] rounded-full bg-transparent" />
+          <div className="h-full w-[60%] rounded-full bg-foreground" />
         </div>
         <p className="mt-2 text-[11px] leading-snug text-foreground/70">
           <strong className="text-foreground">8 of 14 days</strong> used on the Growth plan.
@@ -98,7 +98,7 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
             aria-haspopup="listbox"
             aria-expanded={picker}
           >
-            <span className="flex size-7 items-center justify-center rounded-lg bg-transparent font-display text-xs text-white">
+            <span className="flex size-7 items-center justify-center rounded-lg bg-foreground font-display text-xs text-white">
               {business.name.slice(0, 1)}
             </span>
             <span className="hidden text-sm font-semibold text-foreground sm:block">{business.name}</span>
@@ -148,11 +148,11 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
           aria-label="Notifications"
         >
           <Bell className="size-4.5" aria-hidden />
-          <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-transparent ring-2 ring-white" />
+          <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-foreground ring-2 ring-white" />
         </button>
         <button
           type="button"
-          className="flex size-10 items-center justify-center rounded-xl bg-transparent text-white shadow-accent"
+          className="flex size-10 items-center justify-center rounded-xl bg-foreground text-white shadow-accent"
           aria-label="Your profile"
         >
           <span className="font-display text-sm">DK</span>

@@ -30,7 +30,7 @@ export function PageHero({
     <section
       className={cn(
         "relative overflow-hidden",
-        tone === "dark" ? "bg-transparent text-white" : "bg-background",
+        tone === "dark" ? "bg-ink text-white" : "bg-background",
         "border-b",
         tone === "dark" ? "border-white/10" : "border-border",
         className
@@ -63,7 +63,7 @@ export function PageHero({
           <h1
             className={cn(
               "font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-[3.25rem]",
-              tone === "dark" ? "text-muted-foreground" : "text-foreground"
+              tone === "dark" ? "text-white" : "text-foreground"
             )}
           >
             {title}

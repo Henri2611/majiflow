@@ -62,7 +62,7 @@ export function CartPage() {
       <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-transparent animate-pulse-dot" /> Your order
+            <span className="size-1.5 rounded-full bg-foreground animate-pulse-dot" /> Your order
           </p>
           <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
             Review your cart

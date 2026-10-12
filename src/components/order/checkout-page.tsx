@@ -493,7 +493,7 @@ function CheckoutForm() {
     <Container className="py-14 lg:py-20">
       <div className="mb-8">
         <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          <span className="size-1.5 rounded-full bg-transparent animate-pulse-dot" /> Delivery & payment
+          <span className="size-1.5 rounded-full bg-foreground animate-pulse-dot" /> Delivery & payment
         </p>
         <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">Finish your order</h1>
       </div>
@@ -865,7 +865,7 @@ function PaymentOption({
           : "border-border bg-white hover:border-[#0052FF]/40"
       }`}
     >
-      <span className={`flex size-10 shrink-0 items-center justify-center rounded-lg ${selected ? "bg-transparent text-white" : "bg-muted text-muted-foreground"}`}>
+      <span className={`flex size-10 shrink-0 items-center justify-center rounded-lg ${selected ? "bg-foreground text-white" : "bg-muted text-muted-foreground"}`}>
         {icon}
       </span>
       <span className="min-w-0 flex-1">
@@ -931,7 +931,7 @@ function MpesaOverlay({
         exit={r ? { opacity: 0, y: 0, scale: 1 } : { opacity: 0, y: 16 }}
         transition={panelTransition}
       >
-        <div className="bg-transparent px-6 py-5 text-white">
+        <div className="bg-foreground px-6 py-5 text-white">
           <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/80">
             <Smartphone className="size-4" aria-hidden /> M-Pesa · B2C
           </p>

@@ -179,7 +179,7 @@ export default async function BusinessProfile({ params }: PageProps) {
                 </div>
                 <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-muted" role="presentation">
                   <div
-                    className="h-full rounded-full bg-transparent"
+                    className="h-full rounded-full bg-foreground"
                     style={{ width: `${(r.v / 5) * 100}%` }}
                   />
                 </div>

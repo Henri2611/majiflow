@@ -107,11 +107,11 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
       {/* User card */}
       <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-border bg-white px-3 py-2.5">
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white font-display text-sm text-muted-foreground">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-muted font-display text-sm text-foreground">
           {initial}
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-muted-foreground">{name || "Guest"}</p>
+          <p className="truncate text-sm font-semibold text-foreground">{name || "Guest"}</p>
           <p className="truncate text-[11px] text-muted-foreground">
             {profile.phone || "Sign in to sync orders"}
           </p>

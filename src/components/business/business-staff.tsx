@@ -40,7 +40,7 @@ export function BusinessStaff() {
                 </p>
               </div>
               <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <span className={s.online ? "size-1.5 rounded-full bg-transparent" : "size-1.5 rounded-full bg-muted-foreground/40"} />
+                <span className={s.online ? "size-1.5 rounded-full bg-success" : "size-1.5 rounded-full bg-muted-foreground/40"} />
                 {s.online ? "Online" : "Offline"}
               </span>
             </li>

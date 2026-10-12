@@ -67,7 +67,7 @@ export function BusinessPromotions() {
                 </span>
               </div>
               <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-                <div className="h-full rounded-full bg-transparent" style={{ width: `${(p.redeemed / Math.max(p.recipients, 1)) * 100}%` }} />
+                <div className="h-full rounded-full bg-foreground" style={{ width: `${(p.redeemed / Math.max(p.recipients, 1)) * 100}%` }} />
               </div>
             </div>
             <button

@@ -98,7 +98,7 @@ export function SiteHeader() {
             >
               <ShoppingCart className="size-5" aria-hidden />
               {count > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-transparent text-[11px] font-bold text-white shadow-accent">
+                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-foreground text-[11px] font-bold text-white shadow-accent">
                   {count}
                 </span>
               )}

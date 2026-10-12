@@ -164,7 +164,7 @@ export function DashboardOverview() {
                       initial={chartInView ? { scaleY: 0 } : false}
                       animate={chartInView ? { scaleY: 1 } : { scaleY: 1 }}
                       transition={{ delay: 0.08 * i, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full rounded-t-lg bg-transparent opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-accent"
+                      className="w-full rounded-t-lg bg-foreground opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-accent"
                       title={`${formatKES(c.revenue)}`}
                     />
                     <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-2 py-1 font-mono text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100">
@@ -211,7 +211,7 @@ export function DashboardOverview() {
                       initial={stockInView ? { scaleX: 0 } : false}
                       animate={stockInView ? { scaleX: 1 } : { scaleY: 1 }}
                       transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className={cn("h-full rounded-full", a.stock / Math.max(1, a.threshold) < 0.6 ? "bg-transparent" : "bg-transparent")}
+                      className={cn("h-full rounded-full", a.stock / Math.max(1, a.threshold) < 0.6 ? "bg-danger" : "bg-foreground")}
                     />
                   </div>
                 </li>
@@ -302,7 +302,7 @@ export function DashboardOverview() {
                         initial={popularInView ? { scaleX: 0 } : false}
                         animate={popularInView ? { scaleX: 1 } : { scaleX: 1 }}
                         transition={{ delay: 0.06 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="h-full rounded-full bg-transparent"
+                        className="h-full rounded-full bg-foreground"
                       />
                     </div>
                     <span className="font-mono text-[11px] text-muted-foreground">{p.quantity} sold</span>

@@ -27,7 +27,7 @@ export function OrderHistoryPage() {
     <Container className="py-6 lg:py-8">
       <div className="mb-6">
         <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          <span className="size-1.5 rounded-full bg-transparent animate-pulse-dot" /> Order history
+          <span className="size-1.5 rounded-full bg-foreground animate-pulse-dot" /> Order history
         </p>
         <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">All your orders</h1>
       </div>

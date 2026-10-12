@@ -105,7 +105,7 @@ export function TrackOrderPage({ id }: { id: string }) {
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-            <span className={cn("size-1.5 rounded-full animate-pulse-dot", cancelled ? "bg-transparent" : "bg-transparent")} />
+            <span className={cn("size-1.5 rounded-full animate-pulse-dot", cancelled ? "bg-foreground" : "bg-foreground")} />
             Order tracking · {order.orderNumber}
           </p>
           <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
@@ -174,7 +174,7 @@ export function TrackOrderPage({ id }: { id: string }) {
                       className={cn(
                         "absolute left-[23px] top-12 h-[calc(100%-2.4rem)] w-px",
                         reached && i < 1 || (order.status === "out_for_delivery" && i === 0) || order.status === "delivered"
-                          ? "bg-transparent"
+                          ? "bg-foreground"
                           : "bg-border"
                       )}
                     />
@@ -183,7 +183,7 @@ export function TrackOrderPage({ id }: { id: string }) {
                     className={cn(
                       "relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full text-white",
                       reached || current
-                        ? "bg-transparent shadow-accent"
+                        ? "bg-foreground shadow-accent"
                         : "border-2 border-border bg-white text-muted-foreground"
                     )}
                   >
