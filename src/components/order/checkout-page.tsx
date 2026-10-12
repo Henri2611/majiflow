@@ -451,7 +451,7 @@ function CheckoutForm() {
     return (
       <Container className="py-24 text-center">
         <div className="mx-auto max-w-md">
-          <span className="flex size-16 items-center justify-center rounded-2xl bg-success-soft text-success">
+          <span className="flex size-16 items-center justify-center rounded-2xl bg-transparent-soft text-success">
             <CheckCircle2 className="size-9" aria-hidden />
           </span>
           <h1 className="mt-6 font-display text-3xl text-foreground">Order confirmed</h1>
@@ -493,7 +493,7 @@ function CheckoutForm() {
     <Container className="py-14 lg:py-20">
       <div className="mb-8">
         <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          <span className="size-1.5 rounded-full bg-[#0052FF] animate-pulse-dot" /> Delivery & payment
+          <span className="size-1.5 rounded-full bg-transparent animate-pulse-dot" /> Delivery & payment
         </p>
         <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">Finish your order</h1>
       </div>
@@ -507,7 +507,7 @@ function CheckoutForm() {
         {/* Delivery details */}
         <div className="flex flex-col gap-8">
           {loggedIn && !profileComplete && (
-            <div className="flex items-start gap-3 rounded-2xl border border-[#0052FF]/20 bg-[#0052FF]/5 p-4">
+            <div className="flex items-start gap-3 rounded-2xl border border-[#0052FF]/20 bg-transparent/5 p-4">
               <AlertCircle className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
               <p className="text-sm text-foreground/85">
                 <strong className="font-semibold text-foreground">Finish your profile</strong> to
@@ -526,7 +526,7 @@ function CheckoutForm() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-start gap-3">
                   <span
-                    className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]"
+                    className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]"
                     aria-hidden
                   >
                     <MapPin className="size-4.5" />
@@ -861,18 +861,18 @@ function PaymentOption({
       aria-pressed={selected}
       className={`flex items-center gap-3.5 rounded-xl border p-4 text-left transition-all min-h-[64px] ${
         selected
-          ? "border-[#0052FF] bg-[#0052FF]/5 ring-2 ring-[#0052FF]/20"
+          ? "border-[#0052FF] bg-transparent/5 ring-2 ring-[#0052FF]/20"
           : "border-border bg-white hover:border-[#0052FF]/40"
       }`}
     >
-      <span className={`flex size-10 shrink-0 items-center justify-center rounded-lg ${selected ? "bg-brand-gradient text-white" : "bg-muted text-muted-foreground"}`}>
+      <span className={`flex size-10 shrink-0 items-center justify-center rounded-lg ${selected ? "bg-transparent text-white" : "bg-muted text-muted-foreground"}`}>
         {icon}
       </span>
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
           <span className="text-sm font-semibold text-foreground">{title}</span>
           {badge && (
-            <span className="rounded-full bg-success-soft px-2 py-0.5 font-mono text-[10px] font-semibold uppercase text-success">
+            <span className="rounded-full bg-transparent-soft px-2 py-0.5 font-mono text-[10px] font-semibold uppercase text-success">
               {badge}
             </span>
           )}
@@ -880,7 +880,7 @@ function PaymentOption({
         <span className="block truncate text-xs text-muted-foreground">{subtitle}</span>
       </span>
       <span
-        className={`size-4 shrink-0 rounded-full border-2 ${selected ? "border-[#0052FF] bg-[#0052FF]" : "border-border bg-white"}`}
+        className={`size-4 shrink-0 rounded-full border-2 ${selected ? "border-[#0052FF] bg-transparent" : "border-border bg-white"}`}
         style={selected ? { boxShadow: "inset 0 0 0 3px white" } : undefined}
         aria-hidden
       />
@@ -920,7 +920,7 @@ function MpesaOverlay({
       exit={r ? { opacity: 0 } : { opacity: 0 }}
       transition={overlayTransition}
     >
-      <div className="absolute inset-0 bg-ink/70 backdrop-blur-sm" onClick={busy ? undefined : onClose} aria-hidden />
+      <div className="absolute inset-0 bg-transparent/70 backdrop-blur-sm" onClick={busy ? undefined : onClose} aria-hidden />
       <motion.div
         role="dialog"
         aria-modal="true"
@@ -931,7 +931,7 @@ function MpesaOverlay({
         exit={r ? { opacity: 0, y: 0, scale: 1 } : { opacity: 0, y: 16 }}
         transition={panelTransition}
       >
-        <div className="bg-brand-gradient px-6 py-5 text-white">
+        <div className="bg-transparent px-6 py-5 text-white">
           <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/80">
             <Smartphone className="size-4" aria-hidden /> M-Pesa · B2C
           </p>
@@ -941,7 +941,7 @@ function MpesaOverlay({
         <div className="flex flex-col items-center px-6 py-8 text-center">
           {!sent ? (
             <div className="flex flex-col items-center gap-3">
-              <span className="flex size-14 items-center justify-center rounded-2xl bg-success-soft text-success">
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-transparent-soft text-success">
                 <Smartphone className="size-7" aria-hidden />
               </span>
               <p className="text-sm text-muted-foreground">

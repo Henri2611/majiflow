@@ -42,12 +42,12 @@ export function AccountPage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-glow" />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-20 -top-24 size-64 rounded-full bg-[#0052FF]/10 blur-3xl"
+          className="pointer-events-none absolute -right-20 -top-24 size-64 rounded-full bg-transparent/10 blur-3xl"
         />
         <div className="relative flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-success/25 bg-success-soft px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-success">
-              <span className="size-1.5 rounded-full bg-[#0052FF] animate-pulse-dot" /> Signed in
+            <p className="inline-flex items-center gap-2 rounded-full border border-success/25 bg-transparent-soft px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-success">
+              <span className="size-1.5 rounded-full bg-transparent animate-pulse-dot" /> Signed in
             </p>
             <h1 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
               Habari, {firstName}
@@ -78,7 +78,7 @@ export function AccountPage() {
             key={s.label}
             className="rounded-2xl border border-border bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-layered"
           >
-            <span className="flex size-9 items-center justify-center rounded-lg bg-[#0052FF]/10 text-[#0052FF]">
+            <span className="flex size-9 items-center justify-center rounded-lg bg-transparent/10 text-[#0052FF]">
               <s.icon className="size-4.5" aria-hidden />
             </span>
             <p className="mt-3 font-display text-2xl text-foreground">{s.value}</p>
@@ -184,7 +184,7 @@ export function AccountPage() {
 
           {/* Reorder shortcut */}
           {orders.length > 0 && (
-            <div className="mt-6 rounded-2xl border border-[#0052FF]/20 bg-[#0052FF]/5 p-5">
+            <div className="mt-6 rounded-2xl border border-[#0052FF]/20 bg-transparent/5 p-5">
               <p className="font-mono text-[11px] uppercase tracking-widest text-[#0052FF]">
                 Quick reorder
               </p>

@@ -316,7 +316,7 @@ export function BusinessRegister() {
     return (
       <Container className="py-16 lg:py-24">
         <div className="mx-auto max-w-xl rounded-3xl border border-border bg-white p-8 text-center shadow-layered sm:p-12">
-          <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-accent">
+          <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-transparent text-white shadow-accent">
             <PartyPopper className="size-7" aria-hidden />
           </span>
           <h1 className="mt-6 font-display text-3xl text-foreground">
@@ -400,9 +400,9 @@ export function BusinessRegister() {
                 className={cn(
                   "flex size-9 items-center justify-center rounded-full font-mono text-xs font-semibold",
                   i < step
-                    ? "bg-brand-gradient text-white"
+                    ? "bg-transparent text-white"
                     : i === step
-                      ? "bg-[#0052FF]/10 text-[#0052FF] ring-2 ring-[#0052FF]/25"
+                      ? "bg-transparent/10 text-[#0052FF] ring-2 ring-[#0052FF]/25"
                       : "bg-muted text-muted-foreground"
                 )}
               >
@@ -468,7 +468,7 @@ export function BusinessRegister() {
                   What do you sell?<span className="text-[#0052FF]"> *</span>
                 </p>
                 <div role="group" aria-label="What do you sell?" className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0052FF]/30 bg-[#0052FF]/5 px-3 py-1.5 text-sm font-medium text-[#0052FF]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0052FF]/30 bg-transparent/5 px-3 py-1.5 text-sm font-medium text-[#0052FF]">
                     <Check className="size-3.5" aria-hidden /> Water refills
                   </span>
                   {EXTRA_SERVICES.map((service) => {
@@ -487,7 +487,7 @@ export function BusinessRegister() {
                         className={cn(
                           "rounded-full border px-3 py-1.5 text-sm font-medium transition-colors",
                           on
-                            ? "border-[#0052FF] bg-[#0052FF]/10 text-[#0052FF]"
+                            ? "border-[#0052FF] bg-transparent/10 text-[#0052FF]"
                             : "border-border bg-white text-muted-foreground hover:border-[#0052FF]/40 hover:text-[#0052FF]"
                         )}
                       >
@@ -509,7 +509,7 @@ export function BusinessRegister() {
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm font-medium transition-colors",
                       draft.sellsOther.includes("Other")
-                        ? "border-[#0052FF] bg-[#0052FF]/10 text-[#0052FF]"
+                        ? "border-[#0052FF] bg-transparent/10 text-[#0052FF]"
                         : "border-border bg-white text-muted-foreground hover:border-[#0052FF]/40 hover:text-[#0052FF]"
                     )}
                   >
@@ -595,12 +595,12 @@ export function BusinessRegister() {
                 <div
                   className={cn(
                     "rounded-2xl border p-4",
-                    draft.location ? "border-success/40 bg-[#0052FF]/5" : "border-border bg-white"
+                    draft.location ? "border-success/40 bg-transparent/5" : "border-border bg-white"
                   )}
                 >
                   {draft.location ? (
                     <div className="flex items-start gap-3">
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-success/15 text-success">
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-transparent/15 text-success">
                         <MapPinCheck className="size-5" aria-hidden />
                       </span>
                       <div className="min-w-0 flex-1">
@@ -634,7 +634,7 @@ export function BusinessRegister() {
                   ) : (
                     <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                       <div className="flex items-start gap-3">
-                        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#0052FF]/10 text-[#0052FF]">
+                        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-transparent/10 text-[#0052FF]">
                           <MapPin className="size-5" aria-hidden />
                         </span>
                         <div>
@@ -748,7 +748,7 @@ export function BusinessRegister() {
               <h2 className="flex items-center gap-2 font-display text-xl text-foreground">
                 <CreditCard className="size-5 text-[#0052FF]" aria-hidden /> How should we bill you?
               </h2>
-              <div className="rounded-2xl border border-[#0052FF]/25 bg-[#0052FF]/5 p-5">
+              <div className="rounded-2xl border border-[#0052FF]/25 bg-transparent/5 p-5">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="font-display text-lg text-foreground">{selected.name} plan</p>

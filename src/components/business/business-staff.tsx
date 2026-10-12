@@ -40,7 +40,7 @@ export function BusinessStaff() {
                 </p>
               </div>
               <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <span className={s.online ? "size-1.5 rounded-full bg-success" : "size-1.5 rounded-full bg-muted-foreground/40"} />
+                <span className={s.online ? "size-1.5 rounded-full bg-transparent" : "size-1.5 rounded-full bg-muted-foreground/40"} />
                 {s.online ? "Online" : "Offline"}
               </span>
             </li>
@@ -59,7 +59,7 @@ export function BusinessStaff() {
             <li className="flex justify-between"><span>Owner</span><span className="font-mono text-xs">everything incl. billing</span></li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-warning/25 bg-[#0052FF]/10 p-5">
+        <div className="rounded-2xl border border-warning/25 bg-transparent/10 p-5">
           <div className="flex items-start gap-3">
             <Clock4 className="mt-0.5 size-5 shrink-0 text-warning" aria-hidden />
             <div className="text-sm leading-relaxed text-foreground/85">

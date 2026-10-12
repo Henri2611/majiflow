@@ -91,12 +91,12 @@ export default function ForBusiness() {
         </p>
       </PageHero>
 
-      <section className="relative overflow-hidden bg-ink py-14">
+      <section className="relative overflow-hidden bg-transparent py-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-50" />
         <Container className="relative">
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-ink sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-transparent sm:grid-cols-2 lg:grid-cols-4">
             {numbers.map((n) => (
-              <div key={n.label} className="bg-ink p-7 text-center">
+              <div key={n.label} className="bg-transparent p-7 text-center">
                 <p className="font-display text-3xl text-white">{n.value}</p>
                 <p className="mt-1.5 text-xs text-slate-400">{n.label}</p>
               </div>
@@ -164,7 +164,7 @@ export default function ForBusiness() {
                   ].map((o) => (
                     <div
                       key={o.day}
-                      className={`flex items-center justify-between rounded-lg border px-4 py-3.5 ${o.highlight ? "border-[#0052FF]/30 bg-[#0052FF]/5" : "border-border"}`}
+                      className={`flex items-center justify-between rounded-lg border px-4 py-3.5 ${o.highlight ? "border-[#0052FF]/30 bg-transparent/5" : "border-border"}`}
                     >
                       <div className="flex items-center gap-2.5">
                         <BarChart3 className={`size-4 ${o.highlight ? "text-[#0052FF]" : "text-muted-foreground"}`} aria-hidden />

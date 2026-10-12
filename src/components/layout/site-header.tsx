@@ -98,7 +98,7 @@ export function SiteHeader() {
             >
               <ShoppingCart className="size-5" aria-hidden />
               {count > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-brand-gradient text-[11px] font-bold text-white shadow-accent">
+                <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center rounded-full bg-transparent text-[11px] font-bold text-white shadow-accent">
                   {count}
                 </span>
               )}
@@ -200,7 +200,7 @@ export function SiteHeader() {
             {/* Tide sheet: covers the menu then sweeps off to reveal it */}
             <motion.div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[#0052FF]"
+              className="pointer-events-none absolute inset-0 bg-transparent"
               initial={reduce ? { x: "-104%" } : { x: 0 }}
               animate={{ x: "-104%" }}
               transition={{ duration: reduce ? 0 : 0.55, ease: MENU_EASE, delay: reduce ? 0 : 0.12 }}

@@ -66,10 +66,10 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
       {LOWER.map((item) => (
         <SidebarLink key={item.href} href={item.href} label={item.label} icon={item.icon} active={pathname === item.href} badge={item.badge} onClick={() => setOpen(false)} />
       ))}
-      <div className="mt-auto rounded-xl bg-[#0052FF]/5 p-3">
+      <div className="mt-auto rounded-xl bg-transparent/5 p-3">
         <p className="font-mono text-[10px] uppercase tracking-widest text-[#0052FF]">Trial</p>
-        <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[#0052FF]/15">
-          <div className="h-full w-[60%] rounded-full bg-brand-gradient" />
+        <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-transparent/15">
+          <div className="h-full w-[60%] rounded-full bg-transparent" />
         </div>
         <p className="mt-2 text-[11px] leading-snug text-foreground/70">
           <strong className="text-foreground">8 of 14 days</strong> used on the Growth plan.
@@ -98,7 +98,7 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
             aria-haspopup="listbox"
             aria-expanded={picker}
           >
-            <span className="flex size-7 items-center justify-center rounded-lg bg-brand-gradient font-display text-xs text-white">
+            <span className="flex size-7 items-center justify-center rounded-lg bg-transparent font-display text-xs text-white">
               {business.name.slice(0, 1)}
             </span>
             <span className="hidden text-sm font-semibold text-foreground sm:block">{business.name}</span>
@@ -118,7 +118,7 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
                     }}
                     className={cn(
                       "flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm hover:bg-muted",
-                      b.slug === business.slug && "bg-[#0052FF]/5 text-[#0052FF]"
+                      b.slug === business.slug && "bg-transparent/5 text-[#0052FF]"
                     )}
                   >
                     <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-muted font-display text-[10px] text-foreground">
@@ -148,11 +148,11 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
           aria-label="Notifications"
         >
           <Bell className="size-4.5" aria-hidden />
-          <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-[#0052FF] ring-2 ring-white" />
+          <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-transparent ring-2 ring-white" />
         </button>
         <button
           type="button"
-          className="flex size-10 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-accent"
+          className="flex size-10 items-center justify-center rounded-xl bg-transparent text-white shadow-accent"
           aria-label="Your profile"
         >
           <span className="font-display text-sm">DK</span>
@@ -218,13 +218,13 @@ function SidebarLink({
       aria-current={active ? "page" : undefined}
       className={cn(
         "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
-        active ? "bg-[#0052FF]/8 text-[#0052FF]" : "text-muted-foreground hover:bg-muted hover:text-foreground"
+        active ? "bg-transparent/8 text-[#0052FF]" : "text-muted-foreground hover:bg-muted hover:text-foreground"
       )}
     >
       <Icon className={cn("size-4.5", active && "text-[#0052FF]")} aria-hidden />
       {label}
       {badge && (
-        <span className="ml-auto rounded-full bg-warning-soft px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wide text-warning">
+        <span className="ml-auto rounded-full bg-transparent-soft px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wide text-warning">
           {badge}
         </span>
       )}

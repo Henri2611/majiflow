@@ -6,11 +6,11 @@ export const ORDER_STATUS_META: Record<
   OrderStatus,
   { label: string; tone: "warning" | "softAccent" | "accent" | "success" | "danger" | "muted"; dot: string }
 > = {
-  pending: { label: "Pending", tone: "warning", dot: "bg-warning" },
+  pending: { label: "Pending", tone: "warning", dot: "bg-transparent" },
   accepted: { label: "Accepted", tone: "softAccent", dot: "bg-[#0052FF]" },
   out_for_delivery: { label: "Out for delivery", tone: "accent", dot: "bg-[#4D7CFF]" },
-  delivered: { label: "Delivered", tone: "success", dot: "bg-success" },
-  rejected: { label: "Rejected", tone: "danger", dot: "bg-danger" },
+  delivered: { label: "Delivered", tone: "success", dot: "bg-transparent" },
+  rejected: { label: "Rejected", tone: "danger", dot: "bg-transparent" },
   cancelled: { label: "Cancelled", tone: "muted", dot: "bg-muted-foreground" },
 };
 
