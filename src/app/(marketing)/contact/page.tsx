@@ -21,17 +21,17 @@ const notes = [
   {
     icon: Mail,
     label: "Email us",
-    text: "Reach the team at support@majiflow.co.ke. We reply to every message within one business day.",
+    text: "Reach us at support@majiflow.co.ke. We reply within one business day.",
   },
   {
     icon: Inbox,
     label: "Order help",
-    text: "The fastest way to resolve an issue with a delivery is from the order page, where you can see its status and contact the station directly.",
+    text: "Resolve delivery issues fastest from the order page, where you can contact the station.",
   },
   {
     icon: ShieldCheck,
     label: "Station support",
-    text: "Refill businesses get priority help with listings, payments and payouts from a dedicated account manager.",
+    text: "Refill businesses get priority help with listings and payments.",
   },
 ];
 

@@ -78,9 +78,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.18, ease: easeOut }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80"
           >
-            Order clean, affordable drinking water from refill stations in your estate. Pick a
-            station, see the delivery fee and total, and place your order. Pay with M-Pesa or card,
-            then follow your delivery every step of the way.
+            Order clean drinking water from refill stations near you. Compare prices, pay with
+            M-Pesa, and follow your delivery to the gate.
           </motion.p>
 
           <motion.div

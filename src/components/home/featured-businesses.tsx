@@ -23,7 +23,7 @@ export function FeaturedBusinesses() {
                 Refill stations <span className="text-gradient">near you</span>
               </>
             }
-            description="Trusted refill stations across Kenya, each with its own products, prices, delivery fee and opening hours."
+            description="Trusted refill stations across Kenya, each with its own products, prices and delivery fee."
           />
           <Link href="/browse" className="hidden shrink-0 md:inline-flex">
             <Button size="lg" variant="secondary" className="group">

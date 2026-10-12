@@ -4,14 +4,14 @@
 /*  Design tokens - "Minimalist Modern"                               */
 /* ------------------------------------------------------------------ */
 :root {
-  --background: #faf9f6;
+  --background: #f2eee3;
   --foreground: #23262b;
-  --muted: #f2efe8;
+  --muted: #eae5d7;
   --muted-foreground: #6b675d;
   --accent: #0052ff;
   --accent-2: #4d7cff;
   --accent-foreground: #ffffff;
-  --border: #e7e2d8;
+  --border: #e2dccd;
   --card: #ffffff;
   --ring: #0052ff;
 

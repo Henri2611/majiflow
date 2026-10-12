@@ -9,27 +9,27 @@ const steps = [
   {
     icon: MapPin,
     title: "Pick your city",
-    text: "Tell us where you are and the list opens on the stations serving that city: Nairobi, Mombasa, Kisumu, Nakuru or Eldoret.",
+    text: "Choose your city and see the stations serving it.",
   },
   {
     icon: Store,
     title: "Compare stations",
-    text: "Each station shows its price per unit, its delivery fee and its free-delivery threshold, so the total is visible before you commit.",
+    text: "Compare price, delivery fee and free-delivery minimum.",
   },
   {
     icon: PackagePlus,
     title: "Add to the cart",
-    text: "Cans, bottles and dispensers go into one cart, and delivery is totalled per station so there are no surprises at checkout.",
+    text: "One cart, with delivery totalled per station.",
   },
   {
     icon: ShoppingCart,
     title: "Checkout and pay",
-    text: "Pay with M-Pesa or card, then receive a confirmation on your phone as soon as the payment goes through.",
+    text: "Pay with M-Pesa or card at checkout.",
   },
   {
     icon: ClipboardList,
     title: "Follow the order",
-    text: "Track your order as it moves through pending, accepted, out for delivery and delivered, with each update visible on its order page.",
+    text: "Track it from accepted to delivered.",
   },
 ];
 
@@ -45,10 +45,10 @@ export function HowItWorks() {
               pulseLabel
               title={
                 <>
-                  From browsing to tracked order in <span className="text-gradient">five steps</span>
+                  From browsing to <span className="text-gradient">delivered</span>
                 </>
               }
-              description="Compare stations, see real delivery fees, place an order and follow it from your door to the station."
+              description="Order in a few steps, and follow every one."
             />
             <AnimatedSection delay={0.15} className="mt-8">
               <Link href="/browse">

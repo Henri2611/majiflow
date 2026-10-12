@@ -20,14 +20,13 @@ export function CtaSection() {
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <AnimatedSection className="flex flex-col items-center gap-5">
             <SectionLabel tone="dark" pulse>
-              Fresh water, right around the corner
+              Clean water, close to home
             </SectionLabel>
             <h2 className="font-display text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
               See the whole flow <span className="text-gradient">before you trust it.</span>
             </h2>
             <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              Compare stations, build a cart with a per-station delivery fee, pay with M-Pesa or card
-              and track your order from the station to your gate.
+              Compare stations, build a cart, pay with M-Pesa and track your delivery to the gate.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <Link href="/browse">

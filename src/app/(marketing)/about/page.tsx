@@ -9,22 +9,22 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Verified stations",
-    text: "Every station is verified before it is listed, so you know who is delivering your water and where it comes from.",
+    text: "Every station is verified before it is listed.",
   },
   {
     icon: Repeat,
     title: "Built around Kenyan stations",
-    text: "MajiFlow works with refill stations across five Kenyan cities, each with its own products, prices, delivery fee and opening hours.",
+    text: "Stations across five cities, each with its own prices and hours.",
   },
   {
     icon: Users,
     title: "Support when you need it",
-    text: "Our team helps customers and stations with orders, payments and deliveries, and we keep improving the platform from what we learn.",
+    text: "Our team helps customers and stations with orders and payments.",
   },
   {
     icon: HeartHandshake,
     title: "Simple, fair pricing",
-    text: "Plans are a flat monthly fee with no commission on orders, and every plan starts with a 14-day free trial.",
+    text: "A flat monthly fee with no commission, and a 14-day free trial.",
   },
 ];
 
@@ -32,17 +32,17 @@ const timeline = [
   {
     marker: "01",
     title: "The storefront",
-    text: "Stations list their products, prices, delivery fees and opening hours, and customers order from those records.",
+    text: "Stations list products, prices and delivery fees, and customers order from them.",
   },
   {
     marker: "02",
     title: "Every order",
-    text: "Orders are created at checkout and stored, then moved through pending, accepted, out for delivery and delivered with each change recorded.",
+    text: "Orders are stored and move from pending to delivered, with each change recorded.",
   },
   {
     marker: "03",
     title: "What comes next",
-    text: "Recurring refill schedules, loyalty tools and multi-branch support are on the roadmap for stations that grow with us.",
+    text: "Recurring refills, loyalty tools and multi-branch support are on the roadmap.",
   },
 ];
 
@@ -53,36 +53,31 @@ export default function About() {
         label="About us"
         title={
           <>
-            We believe the best water company in town is{" "}
+            The best water company is{" "}
             <span className="text-gradient">already in town</span>
           </>
         }
-        description="MajiFlow is the software a water refill business runs its shop on: a storefront for customers, a dashboard for the station, and orders that flow between them."
+        description="The software a water refill business runs its shop on."
       />
 
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-20">
         <Container>
           <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <SectionHeading
-                align="left"
-                label="Why we exist"
-                title="Why we build for local water."
-              />
-              <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground">
-                We build the software a water refill station needs: a page that lists products with
-                prices and delivery fees, a cart that totals delivery per station, and a dashboard
-                that reads the orders that came in.
+              <SectionHeading align="left" label="Why we exist" title="Local water, better tools." />
+              <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                We build what a refill station needs: a page for products and prices, a cart that
+                totals delivery per station, and a dashboard for orders and analytics.
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                 MajiFlow connects customers with independent stations across Kenya, so the water you
-                drink is filtered close to home by people you can reach.
+                drink is filtered close to home.
               </p>
             </div>
             <Stagger className="grid gap-4 sm:grid-cols-2" stagger={0.07}>
               {values.map((v) => (
                 <StaggerItem key={v.title}>
-                  <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-layered">
+                  <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-card">
                     <span className="flex size-10 items-center justify-center rounded-xl bg-neutral-100 text-black">
                       <v.icon className="size-5" aria-hidden />
                     </span>
@@ -96,7 +91,7 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-card py-16 lg:py-20">
         <Container>
           <SectionHeading
             label="How it is put together"
@@ -129,15 +124,15 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-20">
         <Container size="md">
-          <div className="rounded-3xl border border-[#0052FF]/20 bg-white p-8 text-center shadow-card sm:p-12">
+          <div className="rounded-3xl border border-[#0052FF]/20 bg-card p-8 text-center shadow-card sm:p-12">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               What we stand for
             </p>
             <p className="mx-auto mt-4 max-w-xl font-display text-2xl leading-snug text-foreground sm:text-3xl">
-              Water should be clean, affordable and close to home, and the businesses that deliver
-              it should have the tools to grow.
+              Clean water should be close to home, and the businesses that deliver it should have the
+              tools to grow.
             </p>
           </div>
         </Container>

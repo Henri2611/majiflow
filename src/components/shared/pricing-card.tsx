@@ -1,12 +1,10 @@
 "use client";
 
-import { Check, ArrowRight, Clock } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import type { Plan } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { GradientBorderCard } from "@/components/ui/card";
 
 interface PricingCardProps {
   plan: Plan;
@@ -17,86 +15,58 @@ interface PricingCardProps {
 
 export function PricingCard({ plan, annual, onChoose, className }: PricingCardProps) {
   const price = annual ? plan.annualPrice / 12 : plan.monthlyPrice;
-  const inner = (
-    <>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="font-display text-2xl text-foreground">{plan.name}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{plan.tagline}</p>
-        </div>
-        {plan.highlighted && (
-          <Badge variant="accent" className="shrink-0">
-            Most popular
-          </Badge>
-        )}
-      </div>
+  const highlighted = Boolean(plan.highlighted);
 
-      <div className="mt-6 flex items-baseline gap-2">
-        <span className="text-[2.5rem] leading-none font-bold tracking-tight text-foreground">
-          {formatKES(Math.round(price))}
+  return (
+    <div
+      className={cn(
+        "relative flex h-full flex-col rounded-2xl border bg-card p-6 shadow-card",
+        highlighted ? "border-[#0052FF] ring-2 ring-[#0052FF]/15" : "border-border",
+        className
+      )}
+    >
+      {highlighted && (
+        <span className="absolute -top-3 left-6 rounded-full bg-[#0052FF] px-3 py-1 text-[11px] font-semibold text-white">
+          Most popular
         </span>
-        <span className="text-sm text-muted-foreground">/ month</span>
-      </div>
-      <p className="mt-1.5 text-xs font-mono uppercase tracking-wide text-muted-foreground">
-        {annual ? `Billed annually - ${formatKES(plan.annualPrice)}/yr` : `Billed monthly`}
+      )}
+
+      <h3 className="font-display text-xl font-bold text-foreground">{plan.name}</h3>
+      <p className="mt-1 text-sm text-muted-foreground">{plan.audience}</p>
+
+      <p className="mt-5 font-display text-4xl font-black tracking-tight text-foreground">
+        {formatKES(Math.round(price))}
+        <span className="text-sm font-medium text-muted-foreground">/mo</span>
+      </p>
+      <p className="mt-1 text-xs text-muted-foreground">
+        {annual ? `${formatKES(plan.annualPrice)} billed yearly` : "Billed monthly"}
       </p>
 
-      <ul className="mt-6 space-y-2.5">
-        {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/85">
-            <span
-              className={cn(
-                "mt-0.5 flex size-4.5 shrink-0 items-center justify-center rounded-full",
-                plan.highlighted ? "bg-white text-black" : "bg-transparent-soft text-success"
-              )}
-            >
-              <Check className="size-3" strokeWidth={3} aria-hidden />
-            </span>
+      <ul className="mt-5 flex-1 space-y-2.5">
+        {plan.features.slice(0, 5).map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-sm text-foreground">
+            <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden />
             {f}
-          </li>
-        ))}
-        {plan.planned?.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-            <span className="mt-0.5 flex size-4.5 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground">
-              <Clock className="size-3" aria-hidden />
-            </span>
-            <span>
-              {f}
-              <span className="ml-1.5 font-mono text-[10px] uppercase tracking-widest">Planned</span>
-            </span>
           </li>
         ))}
       </ul>
 
-      <div className="mt-8 flex flex-col gap-3">
-        <Button
-          size="lg"
-          variant={plan.highlighted ? "default" : "secondary"}
-          onClick={() => onChoose?.(plan)}
-          className="group w-full"
-          aria-label={`Choose the ${plan.name} plan`}
-        >
-          {plan.cta}
-          <ArrowRight className="size-4" aria-hidden />
-        </Button>
-        <p className="text-center font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-          {plan.audience}
+      {plan.planned && plan.planned.length > 0 && (
+        <p className="mt-4 border-t border-border pt-3 text-xs text-muted-foreground">
+          Coming soon: {plan.planned.slice(0, 3).join(" · ")}
         </p>
-      </div>
-    </>
-  );
-
-  const CardWrap = plan.highlighted ? GradientBorderCard : "div";
-
-  return (
-    <CardWrap
-      className={cn(
-        "flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-layered",
-        plan.highlighted ? "p-[calc(1.75rem-1px)]" : "p-7",
-        className
       )}
-    >
-      {inner}
-    </CardWrap>
+
+      <Button
+        size="lg"
+        variant={highlighted ? "default" : "secondary"}
+        onClick={() => onChoose?.(plan)}
+        className="group mt-5 w-full"
+        aria-label={`Start the ${plan.name} plan`}
+      >
+        {plan.cta}
+        <ArrowRight className="size-4" aria-hidden />
+      </Button>
+    </div>
   );
 }

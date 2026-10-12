@@ -113,12 +113,7 @@ export function Stagger({
   );
 }
 
-interface StaggerItemProps extends ComponentPropsWithoutRef<"div"> {
-  y?: number;
-  from?: Reveal;
-}
-
-export function StaggerItem({ className, children, ...props }: StaggerItemProps) {
+export function StaggerItem({ className, children, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div className={className} {...props}>
       {children}

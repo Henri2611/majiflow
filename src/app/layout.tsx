@@ -54,7 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Entrance animations server-render at opacity:0. Without JS nothing ever
             reveals them, so force them visible to keep content readable. */}
         <noscript>
-          <style>{`[style*="opacity:0"]{opacity:1 !important}`}</style>
+          <style>{`[style*="opacity:0"],.reveal,.stagger>*{opacity:1 !important;transform:none !important}`}</style>
         </noscript>
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">

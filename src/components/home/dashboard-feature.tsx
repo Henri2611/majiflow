@@ -7,11 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { AnimatedSection, Stagger, StaggerItem } from "@/components/ui/animated-section";
 
 const checklist = [
-  "Accept or reject an order and move it through pending, accepted and delivered",
-  "Set a delivery fee and a free-delivery threshold per station, and checkout charges exactly those",
-  "Stock alerts that name the products running low before a busy Friday",
-  "A customer list with order history, totals and repeat rate, built from that station's orders",
-  "Sales charts, popular products and repeat measures, all read from the stored orders",
+  "Accept or reject orders and move them to delivered",
+  "Set a delivery fee and free-delivery minimum per station",
+  "Stock alerts before a product runs out",
+  "A customer list with order history and repeat rate",
+  "Sales charts and popular products from stored orders",
 ];
 
 export function DashboardFeature() {
@@ -25,11 +25,11 @@ export function DashboardFeature() {
               label="The business dashboard"
               title={
                 <>
-                  A back office that feels like a{" "}
-                  <span className="text-gradient">morning brew</span>, not bookkeeping
+                  A dashboard built for a{" "}
+                  <span className="text-gradient">busy station</span>
                 </>
               }
-              description="Every panel below is a page in the station dashboard, filled with live orders and stock. Manage orders, track revenue and keep customers coming back."
+              description="Every panel is a page in your dashboard, filled with your live orders and stock."
             />
             <Stagger className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.06}>
               {checklist.map((c) => (

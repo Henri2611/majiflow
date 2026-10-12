@@ -15,22 +15,22 @@ const benefits = [
   {
     icon: BarChart3,
     title: "A storefront for your station",
-    text: "Your products, prices, delivery fee and free-delivery threshold, entered once in the dashboard and read by the customer pages.",
+    text: "Your products, prices and delivery fees on one page.",
   },
   {
     icon: MessageSquare,
     title: "Orders you accept and track",
-    text: "An order arrives as pending, is accepted or rejected, and is moved to delivered. Each stage is stored, so the history is the record.",
+    text: "Accept or reject orders and move them to delivered.",
   },
   {
     icon: BarChart3,
     title: "Reports from your own orders",
-    text: "Sales charts, popular products and stock alerts are computed from the orders the station has actually taken, not from a separate spreadsheet.",
+    text: "Sales, top products and stock alerts from your real orders.",
   },
   {
     icon: Users,
-    title: "Team, customers and stock in one place",
-    text: "Staff are recorded per station, customers are listed with their order history and totals, and low stock is flagged before it runs out.",
+    title: "Team, customers and stock",
+    text: "Staff, customer history and low-stock alerts together.",
   },
 ];
 
@@ -68,7 +68,7 @@ export function BusinessBenefits() {
                   Run the station from <span className="text-gradient">one dashboard</span>
                 </>
               }
-              description="MajiFlow gives water refill businesses a storefront and a back office: a customer-facing page, a dashboard for orders and analytics, and simple monthly pricing."
+              description="Everything a refill station needs to sell and deliver water online."
             />
             <AnimatedSection from="right" className="mt-8 flex flex-col gap-6">
               <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-transparent/10 p-4">
@@ -76,7 +76,7 @@ export function BusinessBenefits() {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Your prices stay yours</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    Plans are priced as a flat monthly fee. There is no commission on orders, so the full price your customers pay stays with your station.
+                    A flat monthly fee with no commission. You keep the full price customers pay.
                   </p>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export function BusinessBenefits() {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Reports from real order records</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    The analytics pages read the orders stored for a station, so the numbers move as orders are added rather than being decorative.
+                    Analytics read your stored orders, so the numbers move as orders come in.
                   </p>
                 </div>
               </div>
