@@ -81,7 +81,7 @@ export function PricingSection() {
         </Stagger>
 
         <AnimatedSection className="mx-auto mt-12 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-dashed border-[#0052FF]/30 bg-transparent/70 p-6 text-center shadow-card sm:flex-row sm:text-left">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-transparent text-warning">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-neutral-100 text-black">
             <Sparkles className="size-5" aria-hidden />
           </span>
           <p className="flex-1 text-sm leading-relaxed text-muted-foreground">

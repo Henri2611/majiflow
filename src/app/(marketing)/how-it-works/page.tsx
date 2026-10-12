@@ -87,7 +87,7 @@ export default function HowItWorks() {
               <StaggerItem key={s.title}>
                 <div className="group flex h-full flex-col rounded-2xl border border-border bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-layered">
                   <div className="flex items-center justify-between">
-                    <span className="flex size-12 items-center justify-center rounded-xl bg-transparent text-white shadow-accent transition-transform duration-300 group-hover:scale-110">
+                    <span className="flex size-12 items-center justify-center rounded-xl bg-neutral-100 text-black shadow-accent transition-transform duration-300 group-hover:scale-110">
                       <s.icon className="size-5" aria-hidden />
                     </span>
                     <span className="font-mono text-sm font-bold text-[#0052FF]/40">
