@@ -1,7 +1,8 @@
-import { Quote, Star } from "lucide-react";
+import { Quote } from "lucide-react";
 import type { Testimonial } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
+import { SampleDataBadge } from "@/components/shared/demo-notice";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -24,11 +25,7 @@ export function TestimonialCard({ testimonial, className, offset }: TestimonialC
         className="absolute right-6 top-6 size-8 text-[#0052FF]/10 transition-colors group-hover:text-[#0052FF]/20"
         aria-hidden
       />
-      <div className="flex gap-0.5 text-warning" aria-label="5 star rating">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} className="size-3.5 fill-current" strokeWidth={0} aria-hidden />
-        ))}
-      </div>
+      <SampleDataBadge />
       <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-foreground/90">
         “{t.quote}”
       </blockquote>

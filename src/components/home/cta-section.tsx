@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Smartphone } from "lucide-react";
+import { ArrowRight, LayoutDashboard } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import { Button } from "@/components/ui/button";
@@ -20,32 +20,32 @@ export function CtaSection() {
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <AnimatedSection className="flex flex-col items-center gap-5">
             <SectionLabel tone="dark" pulse>
-              Clean water, delivered simply
+              The demo is open to browse
             </SectionLabel>
             <h2 className="font-display text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
-              Today's the day you <span className="text-gradient">stop carrying water.</span>
+              See the whole flow <span className="text-gradient">before you trust it.</span>
             </h2>
             <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              Join 240+ Kenyan refill stations and thousands of homes already ordering the modern
-              way. Free to start, M-Pesa simple, tracker live.
+              Six seeded stations, a cart that charges the real fees, and a dashboard that reads the
+              orders you place. Payment and rider dispatch are simulated, so nothing is bought.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <Link href="/browse">
                 <Button size="lg" className="group w-full sm:w-auto">
-                  <Smartphone className="size-4" aria-hidden />
-                  Order water
+                  <LayoutDashboard className="size-4" aria-hidden />
+                  Browse the stations
                   <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>
-              <Link href="/business/register">
+              <Link href="/business/demo">
                 <Button size="lg" variant="dark" className="group w-full sm:w-auto">
-                  Register your business
+                  Preview the dashboard
                   <ArrowRight className="size-4" aria-hidden />
                 </Button>
               </Link>
             </div>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
-              Free 14-day trial · No card · No commission
+              Demo build · No account · Nothing is billed
             </p>
           </AnimatedSection>
         </div>

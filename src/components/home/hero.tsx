@@ -17,8 +17,9 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { CITIES, easeOut } from "@/lib/constants";
 import { ParallaxBackdrop } from "@/components/ui/parallax-backdrop";
 import { RotatingWord } from "@/components/home/rotating-word";
+import { businesses } from "@/lib/data/businesses";
 
-const HERO_WORDS = ["delivered", "refilled", "tracked", "at your door"] as const;
+const HERO_WORDS = ["ordered", "compared", "priced", "in your cart"] as const;
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -56,7 +57,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: easeOut }}
           >
             <SectionLabel pulse>
-              Trusted water, ordered in seconds
+              Refill stations, one cart
             </SectionLabel>
           </motion.div>
 
@@ -67,8 +68,8 @@ export function Hero() {
             className="mt-5 font-display text-[2.75rem] leading-[1.06] tracking-tight text-foreground sm:text-6xl lg:text-[4.25rem]"
           >
             Clean water,{" "}
-            <RotatingWord words={HERO_WORDS} className="text-gradient" /> from refill
-            stations near you.
+            <RotatingWord words={HERO_WORDS} className="text-gradient" /> from stations
+            near you.
           </motion.h1>
 
           <motion.p
@@ -77,8 +78,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.18, ease: easeOut }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            Order clean, affordable drinking water from trusted refill businesses in your estate.
-            Pay with M-Pesa, track the rider, and get your cans at the door - no lifting, no waiting.
+            Order clean, affordable drinking water from refill stations in your estate. Pick a
+            station, see the real delivery fee and total, and place an order. This is a demo build:
+            the payment is simulated, no rider is dispatched and no money moves.
           </motion.p>
 
           <motion.div
@@ -115,13 +117,13 @@ export function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
-              <BadgeCheck className="size-4 text-success" aria-hidden /> Verified stations
+              <BadgeCheck className="size-4 text-success" aria-hidden /> {businesses.length} demo stations
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <MessageCircle className="size-4 text-[#0052FF]" aria-hidden /> Real-time tracking
+              <MessageCircle className="size-4 text-[#0052FF]" aria-hidden /> Order status you can follow
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <Zap className="size-4 text-warning" aria-hidden /> Delivery in ~40 min
+              <Zap className="size-4 text-warning" aria-hidden /> Simulated payments
             </span>
           </div>
         </div>

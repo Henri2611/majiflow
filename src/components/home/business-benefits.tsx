@@ -3,8 +3,6 @@ import {
   ArrowRight,
   BarChart3,
   MessageSquare,
-  Repeat,
-  Smartphone,
   Store,
   Users,
 } from "lucide-react";
@@ -15,24 +13,24 @@ import { Stagger, StaggerItem, AnimatedSection } from "@/components/ui/animated-
 
 const benefits = [
   {
-    icon: Smartphone,
-    title: "Your own online storefront",
-    text: "A branded profile with your menu, prices, delivery areas and reviews - live in under an hour.",
+    icon: BarChart3,
+    title: "A storefront for your station",
+    text: "Your products, prices, delivery fee and free-delivery threshold, entered once in the dashboard and read by the customer pages.",
   },
   {
-    icon: Repeat,
-    title: "Customers who come back",
-    text: "Repeat-order reminders, loyal-customer lists and retention tools turn one-off drop-ins into standing weekly orders.",
+    icon: MessageSquare,
+    title: "Orders you accept and track",
+    text: "An order arrives as pending, is accepted or rejected, and is moved to delivered. Each stage is stored, so the history is the record.",
   },
   {
     icon: BarChart3,
-    title: "Sales that show themselves",
-    text: "Watch daily revenue, popular products and stock alerts on a dashboard designed to be read in a minute.",
+    title: "Reports from your own orders",
+    text: "Sales charts, popular products and stock alerts are computed from the orders the station has actually taken, not from a separate spreadsheet.",
   },
   {
     icon: Users,
-    title: "Team, orders and customers in one place",
-    text: "Assign staff, accept or reject orders, and message customers - no notebooks, no missed calls.",
+    title: "Team, customers and stock in one place",
+    text: "Staff are recorded per station, customers are listed with their order history and totals, and low stock is flagged before it runs out.",
   },
 ];
 
@@ -67,39 +65,39 @@ export function BusinessBenefits() {
               label="For businesses"
               title={
                 <>
-                  Turn every water order into a <span className="text-gradient">repeat customer</span>
+                  Run the station from <span className="text-gradient">one dashboard</span>
                 </>
               }
-              description="MajiFlow is the storefront and back office for Kenya's water refill businesses. You keep the water, the prices and the profits - we handle the storefront, orders and payments."
+              description="MajiFlow is a demo of the storefront and back office for water refill businesses. The dashboard pages are browsable with seeded data, and no payment is collected."
             />
             <AnimatedSection from="right" className="mt-8 flex flex-col gap-6">
               <div className="flex items-start gap-3 rounded-2xl border border-success/25 bg-success-soft/50 p-4">
                 <Store className="mt-0.5 size-5 shrink-0 text-success" aria-hidden />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">No commission on orders</p>
+                  <p className="text-sm font-semibold text-foreground">Your prices stay yours</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    Customers pay you through your M-Pesa till or Paybill before delivery. MajiFlow takes a flat SaaS fee - never a cut of your water.
+                    Plans are priced as a flat monthly fee. There is no commission logic in the build, and because checkout is simulated no money reaches a station.
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-2xl border border-[#0052FF]/20 bg-[#0052FF]/5 p-4">
                 <MessageSquare className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Customers find you online</p>
+                  <p className="text-sm font-semibold text-foreground">Reports from real order records</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    Growth and Pro stations get priority placement when neighbours search for water in their area.
+                    The analytics pages read the orders stored for a station, so the numbers move as orders are added rather than being decorative.
                   </p>
                 </div>
               </div>
               <div>
-                <Link href="/business/register">
+                <Link href="/business/demo">
                   <Button size="lg" className="group">
-                    Register your business
+                    Preview the dashboard
                     <ArrowRight className="size-4" aria-hidden />
                   </Button>
                 </Link>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Free for 14 days. No card required.{" "}
+                  Demo build: no account and no card, and nothing is billed.{" "}
                   <Link href="/pricing" className="font-semibold text-[#0052FF] hover:underline">
                     See plans →
                   </Link>

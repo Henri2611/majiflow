@@ -1,26 +1,25 @@
 import { BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface VerifiedBadgeProps {
+interface SampleStationBadgeProps {
+  /** The station's seeded approval flag; kept so the two tones still differ visually. */
   verified: boolean;
-  /** Approved + active subscription renders the dark mark; approved-only renders grey. */
+  /** Seeded subscription flag, used only to pick the darker tone. */
   paid?: boolean;
   className?: string;
 }
 
 /**
- * Platform trust mark.
- * - approved + paid  → dark "Verified" mark
- * - approved, unpaid → grey "Approved" mark
- * - not approved     → nothing
+ * Marks a listing as demo content. The platform does not vet real businesses, so
+ * this deliberately does not read as a trust mark earned from verification.
  */
-export function VerifiedBadge({ verified, paid, className }: VerifiedBadgeProps) {
+export function SampleStationBadge({ verified, paid, className }: SampleStationBadgeProps) {
   if (!verified) return null;
   const isPaid = Boolean(paid);
 
   return (
     <span
-      title={isPaid ? "Verified - subscription active" : "Approved - awaiting subscription payment"}
+      title="Seeded demo listing, not a real business"
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium whitespace-nowrap",
         isPaid
@@ -30,7 +29,7 @@ export function VerifiedBadge({ verified, paid, className }: VerifiedBadgeProps)
       )}
     >
       <BadgeCheck className="size-3.5" aria-hidden />
-      {isPaid ? "Verified" : "Approved"}
+      Sample
     </span>
   );
 }

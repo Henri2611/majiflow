@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Store, PackagePlus, Wallet, Truck, BadgeCheck } from "lucide-react";
+import { MapPin, Store, PackagePlus, ShoppingCart, ClipboardList } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -8,28 +8,28 @@ import { AnimatedSection, Stagger, StaggerItem } from "@/components/ui/animated-
 const steps = [
   {
     icon: MapPin,
-    title: "Pick your location",
-    text: "Tell us your estate - Kasarani, Nyali, Milimani or 40+ more - and we'll show refill stations that deliver there.",
+    title: "Pick your city",
+    text: "Tell us where you are and the list opens on the stations seeded for that city: Nairobi, Mombasa, Kisumu, Nakuru or Eldoret.",
   },
   {
     icon: Store,
-    title: "Choose a trusted station",
-    text: "Browse verified businesses with live ratings, delivery fees and lab-tested water. Every station operates independently.",
+    title: "Compare stations",
+    text: "Each station shows its price per unit, its delivery fee and its free-delivery threshold, so the total is visible before you commit.",
   },
   {
     icon: PackagePlus,
-    title: "Order your refills",
-    text: "Add 20L cans, 5L bottles, dispensers or office plans to your cart and set a delivery window.",
+    title: "Add to the cart",
+    text: "Cans, bottles and dispensers go into one cart, and delivery is totalled per station rather than guessed at checkout.",
   },
   {
-    icon: Wallet,
-    title: "Pay with M-Pesa",
-    text: "Confirm the STK push on your phone. Cards work too wherever a station has enabled them.",
+    icon: ShoppingCart,
+    title: "Simulated payment",
+    text: "The demo build simulates this step. No M-Pesa request is sent, no card is charged and no money moves.",
   },
   {
-    icon: Truck,
-    title: "Track to your door",
-    text: "Watch your order go out for delivery, get a call from the rider, and receive your clean refill.",
+    icon: ClipboardList,
+    title: "Follow the order",
+    text: "An order is stored and moves through pending, accepted and delivered, with each change visible on its order page. No rider is dispatched in the demo.",
   },
 ];
 
@@ -45,10 +45,10 @@ export function HowItWorks() {
               pulseLabel
               title={
                 <>
-                  From thirsty to refilled in <span className="text-gradient">five steps</span>
+                  From browsing to tracked order in <span className="text-gradient">five steps</span>
                 </>
               }
-              description="No accounts with every station, no cash in your pocket, no hauling cans across town. Just order, pay and receive."
+              description="Compare stations, see real delivery fees, place an order and follow its status. The demo stops short of a rider and a payment provider."
             />
             <AnimatedSection delay={0.15} className="mt-8">
               <Link href="/browse">

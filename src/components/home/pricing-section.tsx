@@ -20,7 +20,7 @@ export function PricingSection() {
     toast({
       kind: plan.highlighted ? "success" : "info",
       title: `${plan.name} selected`,
-      message: `Start your ${plan.trialDays}-day free trial - no card required.`,
+      message: "Plans are illustrative in this demo. Nothing is billed and no account is created.",
     });
   };
 
@@ -32,11 +32,11 @@ export function PricingSection() {
           label="Simple pricing"
           title={
             <>
-              Plans that pay for themselves by{" "}
-              <span className="text-gradient">the first week</span>
+              The plans we intend to{" "}
+              <span className="text-gradient">charge for</span>
             </>
           }
-          description="Flat SaaS pricing in Kenyan Shillings. No setup fees, no commission on orders - the KES you charge customers is the KES you keep."
+          description="Flat monthly or annual pricing in Kenyan Shillings. No plan is billed in this demo build, and a tick on a card marks only what the build can already do."
         />
 
         <AnimatedSection className="mt-10 flex items-center justify-center gap-3">
@@ -85,20 +85,20 @@ export function PricingSection() {
             <Sparkles className="size-5" aria-hidden />
           </span>
           <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
-            <strong className="font-semibold text-foreground">Every plan includes a 14-day free trial.</strong>{" "}
-            Set up your profile, list your products and take real M-Pesa orders before you pay a
-            shilling.
+            <strong className="font-semibold text-foreground">Nothing here is billed.</strong>{" "}
+            This demo has no trial, subscription or payment provider. The figures show the intended
+            commercial model, not a charge you would receive.
           </p>
           <Button variant="secondary" className="shrink-0" onClick={() => handleChoose(plans[0])}>
-            Start free trial
+            See the plans
             <Check className="size-4" aria-hidden />
           </Button>
         </AnimatedSection>
 
         <AnimatedSection className="mt-8 text-center text-sm text-muted-foreground">
-          All prices in Kenyan Shillings. Annual billing saves two months per year.{" "}
-          <a href="/contact" className="font-semibold text-[#0052FF] hover:underline">
-            Talk to us for multi-branch quotes →
+          All prices in Kenyan Shillings and shown for illustration only.{" "}
+          <a href="/pricing" className="font-semibold text-[#0052FF] hover:underline">
+            Compare the plans →
           </a>
         </AnimatedSection>
       </Container>

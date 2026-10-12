@@ -9,14 +9,13 @@ export function TestimonialsSection() {
     <section className="bg-muted/50 py-24 lg:py-32">
       <Container>
         <SectionHeading
-          label="Word of mouth"
-          pulseLabel
+          label="Sample stories"
           title={
             <>
-              Kenyan businesses, <span className="text-gradient">Kenyan stories</span>
+              Stories written for <span className="text-gradient">the demo</span>
             </>
           }
-          description="Station owners, office managers and estate residents - the people making water work every day."
+          description="Fictional examples showing how the product would be described. These are not real customers, and every card is labelled as demo content."
         />
 
         <Stagger className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.07}>

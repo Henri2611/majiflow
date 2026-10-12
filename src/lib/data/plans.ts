@@ -1,5 +1,14 @@
 import type { Plan, PlanName } from "@/lib/types";
 
+/**
+ * The commercial model MajiFlow intends to charge for.
+ *
+ * Nothing here is billed in this build: there is no subscription, no trial and
+ * no payment processing. `features` lists what the demo can actually do today;
+ * `planned` lists what the plan describes but the build does not implement, so
+ * the pricing pages never present an unbuilt capability as included.
+ */
+
 export const PLAN_PERKS: Record<PlanName, string> = {
   starter: "For small refill businesses starting their online presence.",
   growth: "For growing refill businesses ready to scale.",
@@ -17,12 +26,13 @@ export const plans: Plan[] = [
     features: [
       "Online business profile",
       "Product catalog - up to 25 products",
-      "Order management",
-      "Basic customer management",
-      "Basic sales reports",
-      "M-Pesa-ready checkout",
+      "Order management with status updates",
+      "Customer list with order history",
+      "Sales reports from your own orders",
+      "Simulated M-Pesa checkout (demo)",
     ],
-    cta: "Start free trial",
+    planned: ["Card payments", "Recurring orders"],
+    cta: "Preview this plan",
     audience: "1 branch · 1 owner",
   },
   {
@@ -35,14 +45,18 @@ export const plans: Plan[] = [
     highlighted: true,
     features: [
       "Everything in Starter",
-      "Advanced analytics & sales charts",
+      "Advanced analytics and sales charts",
+      "Promotions dashboard",
+      "Repeat-rate and customer insights",
+      "Low-stock alerts",
+    ],
+    planned: [
       "Staff accounts - up to 5",
-      "Promotions & discounts",
       "Customer SMS & WhatsApp notifications",
       "Priority listing in search",
       "Repeat-order reminders",
     ],
-    cta: "Start free trial",
+    cta: "Preview this plan",
     audience: "2 branches · 5 staff",
   },
   {
@@ -52,16 +66,16 @@ export const plans: Plan[] = [
     monthlyPrice: 12000,
     annualPrice: 120000,
     trialDays: 14,
-    features: [
-      "Everything in Growth",
+    features: ["Everything in Growth", "Full analytics and customer insights"],
+    planned: [
       "Custom branding & domain",
-      "Advanced retention & loyalty tools",
+      "Loyalty and retention tools",
       "Unlimited staff accounts",
       "Multiple branches & fleets",
       "Priority support - WhatsApp line",
       "Dedicated account manager",
     ],
-    cta: "Talk to sales",
+    cta: "Preview this plan",
     audience: "Unlimited branches",
   },
 ];

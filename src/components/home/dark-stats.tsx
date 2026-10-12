@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDownRight, ArrowUpRight, Droplets } from "lucide-react";
+import { Droplets } from "lucide-react";
 import nightWater from "@/assets/images/backdrops/night-water.webp";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
@@ -7,12 +7,13 @@ import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 import { CountUp } from "@/components/ui/count-up";
 import { ParallaxBackdrop } from "@/components/ui/parallax-backdrop";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { SampleDataBadge } from "@/components/shared/demo-notice";
 
 const stats = [
-  { value: 2.8, decimals: 1, suffix: "M+", label: "Cans delivered through the platform", delta: true, up: true },
-  { value: 34, suffix: "%", label: "Average revenue growth for online stations", delta: true, up: true },
-  { value: 68, suffix: "%", label: "Repeat rate from subscribed customers", delta: true, up: true },
-  { value: 98.2, decimals: 1, suffix: "%", label: "Orders delivered within the service window", delta: true, up: true },
+  { value: 2.8, decimals: 1, suffix: "M+", label: "Cans the platform would carry at scale", note: "Illustrative target" },
+  { value: 34, suffix: "%", label: "Revenue growth a busy station might see", note: "Illustrative target" },
+  { value: 68, suffix: "%", label: "Repeat rate a subscription tier aims for", note: "Illustrative target" },
+  { value: 98.2, decimals: 1, suffix: "%", label: "Orders on time, the service goal", note: "Illustrative target" },
 ];
 
 export function DarkStats() {
@@ -42,16 +43,19 @@ export function DarkStats() {
         <AnimatedSection className="flex flex-col items-start gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <SectionLabel tone="dark" pulse>
-              The network in numbers
+              What we are aiming for
             </SectionLabel>
             <h2 className="mt-4 font-display text-3xl leading-[1.12] sm:text-4xl md:text-[2.75rem]">
-              Water is local. <span className="text-gradient">We're everywhere it matters.</span>
+              Water is local. <span className="text-gradient">These are the goals.</span>
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-slate-400">
-            Metrics across the station network - from Kasarani's refill shops to Nyali's office
-            water plans. Updated monthly, shared openly.
-          </p>
+          <div className="max-w-sm space-y-3">
+            <p className="text-sm leading-relaxed text-slate-400">
+              The figures below are targets for the platform, not measurements from it. Nothing in
+              this demo has been delivered, and no revenue has changed hands.
+            </p>
+            <SampleDataBadge />
+          </div>
         </AnimatedSection>
 
         <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
@@ -63,15 +67,10 @@ export function DarkStats() {
                   <p className="font-display text-4xl tracking-tight text-white">
                     <CountUp value={s.value} decimals={s.decimals} suffix={s.suffix} />
                   </p>
-                  <div className="mt-2 flex items-center gap-2">
-                    <p className="text-sm text-slate-400">{s.label}</p>
-                    {s.delta && (
-                      <span className={`inline-flex items-center gap-0.5 font-mono text-[11px] font-semibold ${s.up ? "text-success" : "text-danger"}`}>
-                        {s.up ? <ArrowUpRight className="size-3.5" aria-hidden /> : <ArrowDownRight className="size-3.5" aria-hidden />}
-                        2026 YTD
-                      </span>
-                    )}
-                  </div>
+                  <p className="mt-2 text-sm text-slate-400">{s.label}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-slate-500">
+                    {s.note}
+                  </p>
                 </div>
               </div>
             </StaggerItem>

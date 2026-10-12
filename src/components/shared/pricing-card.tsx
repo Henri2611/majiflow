@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Clock } from "lucide-react";
 import type { Plan } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -55,6 +55,17 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
             {f}
           </li>
         ))}
+        {plan.planned?.map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+            <span className="mt-0.5 flex size-4.5 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground">
+              <Clock className="size-3" aria-hidden />
+            </span>
+            <span>
+              {f}
+              <span className="ml-1.5 font-mono text-[10px] uppercase tracking-widest">Planned</span>
+            </span>
+          </li>
+        ))}
       </ul>
 
       <div className="mt-8 flex flex-col gap-3">
@@ -63,13 +74,13 @@ export function PricingCard({ plan, annual, onChoose, className }: PricingCardPr
           variant={plan.highlighted ? "default" : "secondary"}
           onClick={() => onChoose?.(plan)}
           className="group w-full"
-          aria-label={`Start with the ${plan.name} plan`}
+          aria-label={`Preview the ${plan.name} plan`}
         >
           {plan.cta}
           <ArrowRight className="size-4" aria-hidden />
         </Button>
         <p className="text-center font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-          {plan.audience} · {plan.trialDays}-day free trial
+          {plan.audience} · demo, nothing is billed
         </p>
       </div>
     </>

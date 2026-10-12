@@ -5,7 +5,7 @@ import type { Business } from "@/lib/types";
 import { formatKES } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
-import { VerifiedBadge } from "@/components/shared/verified-badge";
+import { SampleStationBadge } from "@/components/shared/sample-station-badge";
 import { BusinessAvailability } from "@/components/shared/business-availability";
 
 interface BusinessCardProps {
@@ -38,7 +38,7 @@ export function BusinessCard({ business, className, layout = "vertical" }: Busin
             sizes={layout === "horizontal" ? "13rem" : "(min-width: 1024px) 19rem, (min-width: 640px) 45vw, 92vw"}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <VerifiedBadge
+          <SampleStationBadge
             verified={business.verified}
             paid={business.paid}
             className="absolute left-3 top-3"
@@ -58,7 +58,8 @@ export function BusinessCard({ business, className, layout = "vertical" }: Busin
             </span>
             <span className="inline-flex items-center gap-1.5 font-semibold text-foreground">
               <Star className="size-3.5 fill-warning text-warning" aria-hidden />
-              {business.rating} ({business.reviewCount})
+              {business.rating}
+              <span className="font-normal text-muted-foreground">sample rating</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Truck className="size-3.5" aria-hidden /> {formatKES(business.deliveryFee)}

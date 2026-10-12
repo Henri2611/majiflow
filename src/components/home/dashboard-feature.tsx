@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { CheckCircle2, LayoutDashboard, PhoneCall, Repeat2 } from "lucide-react";
+import { CheckCircle2, LayoutDashboard, Repeat2, BellOff } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedSection, Stagger, StaggerItem } from "@/components/ui/animated-section";
+import { SampleDataBadge } from "@/components/shared/demo-notice";
 
 const checklist = [
-  "Accept or reject orders in one tap - riders get pushed SMS updates",
-  "Set delivery zones, fees and free-delivery minimums for every estate",
-  "Stock alerts before you run out of cans on a busy Friday",
-  "Customer list with order history, totals and repeat rate",
-  "Promotions: discounts and bundles you can switch on in minutes",
+  "Accept or reject an order and move it through pending, accepted and delivered",
+  "Set a delivery fee and a free-delivery threshold per station, and checkout charges exactly those",
+  "Stock alerts that name the products running low before a busy Friday",
+  "A customer list with order history, totals and repeat rate, built from that station's orders",
+  "Sales charts, popular products and repeat measures, all read from the stored orders",
 ];
 
 export function DashboardFeature() {
@@ -29,8 +30,11 @@ export function DashboardFeature() {
                   <span className="text-gradient">morning brew</span>, not bookkeeping
                 </>
               }
-              description="Everything you need to run orders, delivery and customers from one calm screen. Clean enough to check in 60 seconds, deep enough for real decisions."
+              description="Every panel below exists as a page in the station dashboard, filled by the six seeded demo stations. The screenshot is sample data, not a live account."
             />
+            <div className="mt-4">
+              <SampleDataBadge />
+            </div>
             <Stagger className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.06}>
               {checklist.map((c) => (
                 <StaggerItem key={c}>
@@ -66,7 +70,7 @@ export function DashboardFeature() {
               <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
                   <LayoutDashboard className="size-4 text-[#0052FF]" aria-hidden />
-                  BioWater Refill Station
+                  BioWater Refill Station (demo)
                 </div>
                 <Badge variant="success">
                   <span className="relative flex size-1.5">
@@ -94,7 +98,7 @@ export function DashboardFeature() {
               <div className="px-5 pt-4">
                 <div className="flex items-baseline justify-between">
                   <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Weekly revenue
+                    Weekly revenue · sample
                   </p>
                   <p className="text-xs font-semibold text-success">+12.4%</p>
                 </div>
@@ -136,11 +140,11 @@ export function DashboardFeature() {
             {/* Floating chips */}
             <div className="absolute -left-4 -top-4 hidden rounded-xl border border-border bg-white px-3.5 py-2.5 shadow-card md:flex md:items-center md:gap-2">
               <Repeat2 className="size-4 text-[#0052FF]" aria-hidden />
-              <p className="text-xs font-semibold text-foreground">68% repeat rate</p>
+              <p className="text-xs font-semibold text-foreground">Repeat rate from stored orders</p>
             </div>
-            <div className="absolute -bottom-4 -right-2 hidden rounded-xl border border-border bg-white px-3.5 py-2.5 shadow-card md:flex md:items-center md:gap-2">
-              <PhoneCall className="size-4 text-warning" aria-hidden />
-              <p className="text-xs font-semibold text-foreground">Rider notified · SMS sent</p>
+            <div className="absolute -bottom-4 -right-2 hidden max-w-[15rem] rounded-xl border border-border bg-white px-3.5 py-2.5 shadow-card md:flex md:items-center md:gap-2">
+              <BellOff className="size-4 text-warning" aria-hidden />
+              <p className="text-xs font-semibold text-foreground">No SMS or rider dispatch in the demo</p>
             </div>
           </AnimatedSection>
         </div>

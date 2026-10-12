@@ -1,58 +1,64 @@
 import type { Testimonial } from "@/lib/types";
 
+/**
+ * These are written examples, not real customers. Every quote is fictional and
+ * every speaker is labelled as demo content so the section cannot be read as a
+ * set of genuine endorsements. The quotes also only describe behaviour the
+ * build actually has, so no unbuilt feature is praised here.
+ */
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "I set up my station on MajiFlow on a Monday lunch break. By Friday we had 40 online orders. The dashboard is so simple my brother runs it.",
-    name: "Grace Mwangi",
-    role: "Owner, BioWater Refill Station",
+      "Example story. A station owner lists their products, sets a delivery fee and watches new orders arrive on the dashboard, with low-stock items flagged before the morning rush.",
+    name: "Sample station owner",
+    role: "Demo content",
     location: "Kasarani, Nairobi",
-    initials: "GM",
+    initials: "SO",
   },
   {
     id: "t2",
     quote:
-      "Customers pay with M-Pesa before the rider even starts the bike. No cash, no 'I'll send it later'. Our outstanding balance died in a month.",
-    name: "Keith Otieno",
-    role: "Operations, TruFlow Waters",
+      "Example story. Orders move from pending to accepted to delivered on one screen, so a small team can tell at a glance what has been taken on and what is still waiting.",
+    name: "Sample operations lead",
+    role: "Demo content",
     location: "Nyali, Mombasa",
-    initials: "KO",
+    initials: "OL",
   },
   {
     id: "t3",
     quote:
-      "As a customer, I open the app at work, order two cans, and the rider calls when he's at the gate. My family has not carried a can down a flight of stairs in a year.",
-    name: "Sharon Achieng",
-    role: "Apartment resident",
+      "Example story. A resident opens the site, picks a station by price and delivery fee, adds two cans to the cart and sees the real total before checking out.",
+    name: "Sample customer",
+    role: "Demo content",
     location: "Milimani, Kisumu",
-    initials: "SA",
+    initials: "SC",
   },
   {
     id: "t4",
     quote:
-      "The starter plan paid for itself with the first three office contracts we onboarded. The repeat-order reminders are gold for retention.",
-    name: "David Kimani",
-    role: "Co-founder, PureBlue Refills",
+      "Example story. Sales charts and a customer list are built from the orders the station has actually taken, which is what replaces the notebook for a small refill business.",
+    name: "Sample station owner",
+    role: "Demo content",
     location: "Nakuru",
-    initials: "DK",
+    initials: "SO",
   },
   {
     id: "t5",
     quote:
-      "Promotions on Growth let me push my chilled 10L bottles to offices in Nyali. Revenue is up 34% since we started running them.",
-    name: "Fatuma Ali",
-    role: "MD, TruFlow Waters",
+      "Example story. Popular products and repeat customers show up in one report, so pricing and stock decisions are made from what sold rather than from memory.",
+    name: "Sample branch manager",
+    role: "Demo content",
     location: "Bamburi, Mombasa",
-    initials: "FA",
+    initials: "BM",
   },
   {
     id: "t6",
     quote:
-      "Reports used to live in a notebook. Now I see popular products, repeat customers and stock alerts in one screen before chai.",
-    name: "Peter Nyongesa",
-    role: "Owner, Highlands Aqua",
+      "Example story. Stock alerts name the products running low, and the dashboard shows order history per customer, all on one screen before the first delivery leaves.",
+    name: "Sample station owner",
+    role: "Demo content",
     location: "Eldoret",
-    initials: "PN",
+    initials: "SO",
   },
 ];

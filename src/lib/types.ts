@@ -9,7 +9,10 @@ export interface Plan {
   monthlyPrice: number;
   annualPrice: number;
   trialDays: number;
+  /** What this build can already do on the plan. */
   features: string[];
+  /** Described on the pricing pages but not implemented in this build. */
+  planned?: string[];
   highlighted?: boolean;
   cta: string;
   audience: string;
