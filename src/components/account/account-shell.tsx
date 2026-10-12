@@ -69,7 +69,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         />
       ))}
 
-      <p className="px-3 pb-1 pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="px-3 pb-1 pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
         Shop
       </p>
       {SHOP.map((item) => (
@@ -91,7 +91,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         onClick={() => setOpen(false)}
       />
 
-      <p className="px-3 pb-1 pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="px-3 pb-1 pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
         Help
       </p>
       {HELP.map((item) => (
@@ -105,9 +105,9 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
       ))}
 
       {/* Refill CTA */}
-      <div className="mt-auto rounded-xl bg-transparent p-3.5 text-white shadow-accent">
+      <div className="mt-auto rounded-xl bg-white p-3.5 text-foreground shadow-card">
         <p className="font-display text-sm">Need a refill?</p>
-        <p className="mt-0.5 text-[11px] leading-snug text-white/80">
+        <p className="mt-0.5 text-[11px] leading-snug text-foreground/80">
           Stations near you deliver in under 60 minutes.
         </p>
         <Link
@@ -122,12 +122,12 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
 
       {/* User card */}
       <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-border bg-white px-3 py-2.5">
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-transparent font-display text-sm text-white">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white font-display text-sm text-foreground">
           {initial}
         </span>
         <div className="min-w-0">
           <p className="truncate text-sm font-semibold text-foreground">{name || "Guest"}</p>
-          <p className="truncate text-[11px] text-muted-foreground">
+          <p className="truncate text-[11px] text-foreground">
             {profile.phone || "Sign in to sync orders"}
           </p>
         </div>
@@ -147,9 +147,9 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
           <Menu className="size-5" aria-hidden />
         </button>
         <div className="relative hidden items-center gap-2 rounded-xl border border-border bg-white px-3 py-2 md:flex">
-          <Search className="size-4 text-muted-foreground" aria-hidden />
+          <Search className="size-4 text-foreground" aria-hidden />
           <input
-            className="w-44 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+            className="w-44 bg-white text-sm text-foreground outline-none placeholder:text-foreground"
             placeholder="Search orders, stations…"
             aria-label="Search your account"
           />
@@ -160,11 +160,11 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         <Link
           href="/cart"
           aria-label={`Cart, ${count} items`}
-          className="relative flex size-10 items-center justify-center rounded-xl border border-border bg-white text-muted-foreground hover:text-foreground"
+          className="relative flex size-10 items-center justify-center rounded-xl border border-border bg-white text-foreground hover:text-foreground"
         >
           <ShoppingCart className="size-4.5" aria-hidden />
           {count > 0 && (
-            <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-transparent text-[11px] font-bold text-white shadow-accent ring-2 ring-white">
+            <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-white text-[11px] font-bold text-foreground shadow-accent ring-2 ring-white">
               {count}
             </span>
           )}
@@ -223,7 +223,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
         <main className="relative p-4 sm:p-6">{children}</main>
 
         <footer className="relative border-t border-border bg-white/60">
-          <div className="mx-auto flex max-w-[80rem] flex-wrap items-center justify-between gap-4 px-4 py-3 text-xs text-muted-foreground sm:px-6">
+          <div className="mx-auto flex max-w-[80rem] flex-wrap items-center justify-between gap-4 px-4 py-3 text-xs text-foreground sm:px-6">
             <p>MajiFlow - Water refill, delivered.</p>
             <nav className="flex items-center gap-4" aria-label="Footer">
               <Link href="/" className="hover:underline">
@@ -269,14 +269,14 @@ function SidebarLink({
       className={cn(
         "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
         active
-          ? "bg-transparent/8 text-[#0052FF]"
-          : "text-muted-foreground hover:bg-muted hover:text-foreground"
+          ? "bg-white/8 text-[#0052FF]"
+          : "text-foreground hover:bg-muted hover:text-foreground"
       )}
     >
       <Icon className={cn("size-4.5", active && "text-[#0052FF]")} aria-hidden />
       {label}
       {badge && (
-        <span className="ml-auto flex min-w-5 items-center justify-center rounded-full bg-transparent px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
+        <span className="ml-auto flex min-w-5 items-center justify-center rounded-full bg-white px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
           {badge}
         </span>
       )}
