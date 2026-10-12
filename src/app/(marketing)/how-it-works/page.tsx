@@ -95,8 +95,8 @@ export default function HowItWorks() {
                     </span>
                   </div>
                   <h3 className="mt-6 font-display text-xl text-foreground">{s.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-                  <p className="mt-4 border-t border-border pt-3 font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground">{s.text}</p>
+                  <p className="mt-4 border-t border-border pt-3 font-mono text-[11px] uppercase tracking-wide text-foreground">
                     {s.detail}
                   </p>
                 </div>
@@ -122,7 +122,7 @@ export default function HowItWorks() {
               <ShoppingCart className="size-6 text-[#0052FF]" aria-hidden />
               <div className="text-left">
                 <p className="text-sm font-semibold text-foreground">Try the order flow</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-foreground">
                   Cart, checkout and order tracking, all on regular stations.
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function HowItWorks() {
                     <Store className="mt-0.5 size-5 shrink-0 text-[#0052FF]" aria-hidden />
                     {f.q}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-foreground">{f.a}</p>
                 </div>
               </StaggerItem>
             ))}
