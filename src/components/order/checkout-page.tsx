@@ -26,6 +26,7 @@ import { useToast } from "@/components/ui/toast";
 import { businesses } from "@/lib/data/businesses";
 import { CITIES, ESTATES } from "@/lib/constants";
 import { formatKES } from "@/lib/format";
+import { computeCartTotals } from "@/lib/pricing";
 import {
   captureLocationBestEffort,
   geolocationErrorMessage,
@@ -166,12 +167,16 @@ function CheckoutForm() {
     [items]
   );
 
-  const subtotal = rows.reduce((s, r) => s + (r.product?.price ?? 0) * r.line.quantity, 0);
-  const deliveryFee = [...new Map(rows.map((r) => [r.business!.id, r.business!])).values()].reduce(
-    (s, b) => (subtotal >= b.freeDeliveryAbove ? 0 : b.deliveryFee) + s,
-    0
+  const totals = computeCartTotals(
+    rows.map((r) => ({
+      businessId: r.business!.id,
+      quantity: r.line.quantity,
+      unitPrice: r.product!.price,
+    })),
+    businesses
   );
-  const total = subtotal + deliveryFee;
+  const { subtotal, deliveryFee, total } = totals;
+  const totalsByStation = new Map(totals.groups.map((group) => [group.businessId, group]));
 
   const savedAddress = defaultAddress(profile);
   const profileComplete = Boolean(
@@ -323,11 +328,14 @@ function CheckoutForm() {
       const created: Order[] = [];
       for (const group of groups.values()) {
         const station = group[0].business!;
-        const groupSubtotal = group.reduce(
-          (s, r) => s + (r.product?.price ?? 0) * r.line.quantity,
-          0
-        );
-        const groupFee = groupSubtotal >= station.freeDeliveryAbove ? 0 : station.deliveryFee;
+        // The station totals come from the same calculation the summary shows,
+        // so the amount charged can never drift from the amount displayed.
+        const stationTotals = totalsByStation.get(station.id);
+        const groupSubtotal =
+          stationTotals?.subtotal ??
+          group.reduce((s, r) => s + (r.product?.price ?? 0) * r.line.quantity, 0);
+        const groupFee =
+          stationTotals?.deliveryFee ?? (groupSubtotal >= station.freeDeliveryAbove ? 0 : station.deliveryFee);
         const order: Order = {
           id: `order-${attemptKey}-${station.id}`,
           orderNumber: generateOrderNumber(),
@@ -343,7 +351,7 @@ function CheckoutForm() {
           })),
           subtotal: groupSubtotal,
           deliveryFee: groupFee,
-          total: groupSubtotal + groupFee,
+          total: stationTotals?.total ?? groupSubtotal + groupFee,
           payment: method,
           paymentState: "success",
           status: "pending",

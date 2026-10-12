@@ -13,8 +13,20 @@ import { businesses } from "@/lib/data/businesses";
  * and write is serialized through a single queue.
  */
 
-const DATA_DIR = path.join(process.cwd(), ".data");
-const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
+/**
+ * Where orders are stored. `MF_DATA_DIR` lets the test suite and any other
+ * process point the store at a throwaway directory instead of the repo's
+ * `.data`, so a run never reads or overwrites real orders.
+ */
+function dataDir(): string {
+  return process.env.MF_DATA_DIR
+    ? path.resolve(process.env.MF_DATA_DIR)
+    : path.join(process.cwd(), ".data");
+}
+
+function ordersFile(): string {
+  return path.join(dataDir(), "orders.json");
+}
 
 const LOCATION_HISTORY_CAP = 300;
 
@@ -67,7 +79,7 @@ let queue: Promise<unknown> = Promise.resolve();
 
 async function readAll(): Promise<Record<string, Order>> {
   try {
-    const raw = await fs.readFile(ORDERS_FILE, "utf8");
+    const raw = await fs.readFile(ordersFile(), "utf8");
     const parsed = JSON.parse(raw) as Record<string, Order>;
     if (!parsed["demo-track"]) parsed["demo-track"] = structuredClone(SEED);
     return parsed;
@@ -77,8 +89,8 @@ async function readAll(): Promise<Record<string, Order>> {
 }
 
 async function persist(orders: Record<string, Order>) {
-  await fs.mkdir(DATA_DIR, { recursive: true });
-  await fs.writeFile(ORDERS_FILE, JSON.stringify(orders, null, 2), "utf8");
+  await fs.mkdir(dataDir(), { recursive: true });
+  await fs.writeFile(ordersFile(), JSON.stringify(orders, null, 2), "utf8");
 }
 
 /** Serialize a read-modify-write cycle against the order file. */

@@ -1,4 +1,4 @@
-import type { Business, BusinessProduct } from "@/lib/types";
+import type { Business, BusinessProduct, OperatingHours, WeeklyOperatingHours } from "@/lib/types";
 import bioWaterCover from "@/assets/images/business/bio-water-kasarani.webp";
 import truFlowCover from "@/assets/images/business/truflow-nyali.webp";
 import aquaSpringCover from "@/assets/images/business/aqua-spring-kisumu.webp";
@@ -9,6 +9,23 @@ import dianiCover from "@/assets/images/business/diani-pure.webp";
 const product = (
   p: Omit<BusinessProduct, "stockLow">
 ): BusinessProduct => ({ ...p, stockLow: p.stock <= 30 ? p.stock - 1 : 30 });
+
+// Published schedules, read in Africa/Nairobi. A station with no published
+// hours is treated as unavailable and cannot take orders, so every listed
+// station needs a real schedule here. `null` means closed that day.
+const hours = (
+  weekdays: OperatingHours,
+  saturday: OperatingHours | null,
+  sunday: OperatingHours | null
+): WeeklyOperatingHours => ({
+  monday: weekdays,
+  tuesday: weekdays,
+  wednesday: weekdays,
+  thursday: weekdays,
+  friday: weekdays,
+  saturday,
+  sunday,
+});
 
 // Current canonical source for station hours and status inputs. Only publish
 // verified schedules here; omitted schedules are treated as unavailable.
@@ -32,6 +49,7 @@ export const businesses: Business[] = [
     subscription: "growth",
     description:
       "Family-run refill station serving Kasarani and Roysambu for eight years. Every 20-litre can goes through a 12-stage filtration process and is sealed in front of you. Same-day delivery across the estate clusters we serve.",
+    openingHours: hours({ open: "06:00", close: "20:00" }, { open: "07:00", close: "18:00" }, { open: "08:00", close: "14:00" }),
     accent: "#0052FF",
     lat: -1.2305,
     lng: 36.895,
@@ -110,6 +128,7 @@ export const businesses: Business[] = [
     subscription: "pro",
     description:
       "Mombasa's fastest refill delivery network. Chilled options for the coast heat, office contracts for entire office blocks, and a fleet that rides rain or shine.",
+    openingHours: hours({ open: "07:00", close: "21:00" }, { open: "07:00", close: "21:00" }, { open: "08:00", close: "20:00" }),
     accent: "#0ea5e9",
     lat: -4.0305,
     lng: 39.7215,
@@ -177,6 +196,7 @@ export const businesses: Business[] = [
     subscription: "growth",
     description:
       "The most reviewed refill station in Kisumu. Known for stringent testing - we publish results every month - and friendly riders who call before arrival.",
+    openingHours: hours({ open: "06:30", close: "19:30" }, { open: "07:00", close: "17:00" }, null),
     accent: "#0891b2",
     lat: -0.0985,
     lng: 34.7605,
@@ -234,6 +254,7 @@ export const businesses: Business[] = [
     subscription: "starter",
     description:
       "A young, growing station with big ambitions. Clean refills at honest prices for the Milimani and Lanet neighbourhoods.",
+    openingHours: hours({ open: "07:00", close: "20:00" }, { open: "08:00", close: "18:00" }, { open: "09:00", close: "13:00" }),
     accent: "#2563eb",
     lat: -0.286,
     lng: 36.07,
@@ -291,6 +312,7 @@ export const businesses: Business[] = [
     subscription: "starter",
     description:
       "Bottled from a protected aquifer, treated, and delivered across Eldoret town. Popular with new learner housing in Elgon View.",
+    openingHours: hours({ open: "06:00", close: "21:00" }, { open: "06:00", close: "21:00" }, { open: "09:00", close: "15:00" }),
     accent: "#4d7cff",
     lat: 0.5143,
     lng: 35.2698,
@@ -338,6 +360,7 @@ export const businesses: Business[] = [
     subscription: "pro",
     description:
       "Serving beach villas and hotels south of Mombasa with premium glass-bottled and can refills, scheduled to your routine.",
+    openingHours: hours({ open: "07:00", close: "19:00" }, { open: "07:00", close: "19:00" }, { open: "07:00", close: "19:00" }),
     accent: "#0d9488",
     lat: -4.2845,
     lng: 39.5925,

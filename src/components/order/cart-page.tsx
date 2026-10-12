@@ -10,6 +10,7 @@ import { productImage } from "@/lib/product-images";
 import { useCart } from "@/components/order/cart-provider";
 import { businesses } from "@/lib/data/businesses";
 import { formatKES } from "@/lib/format";
+import { computeCartTotals } from "@/lib/pricing";
 
 export function CartPage() {
   const { items, updateQuantity, removeItem } = useCart();
@@ -42,16 +43,19 @@ export function CartPage() {
     );
   }
 
-  const subtotal = rows.reduce(
-    (sum, r) => sum + (r.product?.price ?? 0) * r.line.quantity,
-    0
+  const totals = computeCartTotals(
+    rows.map((r) => ({
+      businessId: r.business!.id,
+      quantity: r.line.quantity,
+      unitPrice: r.product!.price,
+    })),
+    businesses
   );
-  const grouped = new Map(rows.map((r) => [r.business!.id, r.business!]));
-  const deliveryFee = [...grouped.values()].reduce(
-    (sum, b) => (subtotal >= b.freeDeliveryAbove ? 0 : b.deliveryFee) + sum,
-    0
+  const { subtotal, deliveryFee, total } = totals;
+  const freeDeliveryStations = totals.groups.filter(
+    (group) => group.subtotal > 0 && group.deliveryFee === 0
   );
-  const total = subtotal + deliveryFee;
+  const stationNames = new Map(businesses.map((b) => [b.id, b.name]));
 
   return (
     <Container className="py-14 lg:py-20">
@@ -146,9 +150,23 @@ export function CartPage() {
                 {deliveryFee === 0 ? <span className="text-success">Free</span> : formatKES(deliveryFee)}
               </dd>
             </div>
-            {deliveryFee === 0 && subtotal > 0 && (
+            {totals.groups.length > 1 && (
+              <ul className="space-y-1 border-l border-border pl-3 text-xs text-muted-foreground">
+                {totals.groups.map((group) => (
+                  <li key={group.businessId} className="flex items-center justify-between gap-3">
+                    <span className="truncate">{stationNames.get(group.businessId) ?? group.businessId}</span>
+                    <span>{group.deliveryFee === 0 ? "Free" : formatKES(group.deliveryFee)}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {freeDeliveryStations.length > 0 && (
               <p className="text-xs text-success">
-                Free delivery applied - your order qualifies.
+                Free delivery from{" "}
+                {freeDeliveryStations
+                  .map((group) => stationNames.get(group.businessId) ?? group.businessId)
+                  .join(", ")}
+                : those items reach the station minimum.
               </p>
             )}
             <div className="flex items-center justify-between border-t border-border pt-3">
