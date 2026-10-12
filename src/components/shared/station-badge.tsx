@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 interface StationBadgeProps {
   /** The station's current approval flag; kept so the two tones still differ visually. */
   verified: boolean;
-  /** Seeded subscription flag, used only to pick the darker tone. */
+  /** Current subscription flag, used only to pick the darker tone. */
   paid?: boolean;
   className?: string;
 }

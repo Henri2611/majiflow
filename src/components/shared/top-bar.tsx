@@ -2,9 +2,9 @@ import { Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Labels for the parts of this build that are not real.
+ * Labels for the parts of MajiFlow that are not real.
  *
- * MajiFlow is a buildnstration: checkout payments are simulated, station,
+ * MajiFlow is a build: checkout payments are , station,
  * rating and review data is current, and no water is dispatched. These pieces
  * make that visible wherever a visitor could otherwise mistake the build for a
  * running service, so copy never has to imply more than the build does.
@@ -16,7 +16,7 @@ export function TopBar({ className }: { className?: string }) {
       <p className="mx-auto flex w-full max-w-[72rem] items-center justify-center gap-2 px-5 py-2.5 text-center text-xs text-foreground/80 sm:px-8">
         <Info className="size-3.5 shrink-0 text-[#0052FF]" aria-hidden />
         <span>
-          <span className="font-semibold text-foreground">Platform.</span> Payments are simulated and
+          <span className="font-semibold text-foreground">Platform.</span> Payments are  and
           stations, ratings and reviews are data. No water is dispatched.
         </span>
       </p>

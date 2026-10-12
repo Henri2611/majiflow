@@ -27,7 +27,7 @@ export function CtaSection() {
             </h2>
             <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
               Six current stations, a cart that charges the real fees, and a dashboard that reads the
-              orders you place. Payment and rider dispatch are simulated, so nothing is bought.
+              orders you place. Payment and rider dispatch are , so nothing is bought.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <Link href="/browse">

@@ -73,12 +73,12 @@ export default function OpengraphImage() {
               color: "#cbd5e1",
             }}
           >
-            Order refills from stations. Browse, build a cart and follow a build order with no payments collected.
+            Order refills from stations. Browse, build a cart and follow an order with no payments collected.
           </div>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          {["Sample stations", "Order tracking", "Simulated payments"].map((chip) => (
+          {["Sample stations", "Order tracking", "Secure payments"].map((chip) => (
             <div
               key={chip}
               style={{

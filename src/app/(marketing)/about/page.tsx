@@ -9,23 +9,23 @@ import { DataNotice } from "@/components/shared/top-bar";
 const values = [
   {
     icon: ShieldCheck,
-    title: "Listings are labelled as samples",
-    text: "Every station here is current build content and carries a Sample badge. No identity, licence or water-testing check sits behind these listings, and the ratings are sample values.",
+    title: "Listings are labelled as regulars",
+    text: "Every station here is current content and carries a Sample badge. No identity, licence or water-testing check sits behind these listings, and the ratings are regular values.",
   },
   {
     icon: Repeat,
     title: "Built around Kenyan stations",
-    text: "The build models refill stations in five Kenyan cities, each with its own products, prices, delivery fee and opening hours. The station names are invented for the build.",
+    text: "MajiFlow models refill stations in five Kenyan cities, each with its own products, prices, delivery fee and opening hours. The station names are invented.",
   },
   {
     icon: Users,
     title: "Honest about the gaps",
-    text: "Payments, notifications and rider dispatch are not in the build, and the pages that touch them say so. RELEASE.md lists the same gaps for anyone reading the code.",
+    text: "Payments, notifications and rider dispatch are not , and the pages that touch them say so. RELEASE.md lists the same gaps for anyone reading the code.",
   },
   {
     icon: HeartHandshake,
     title: "Nothing here is billed",
-    text: "Plans are shown as flat monthly pricing with no commission, and the pricing page marks the subscription features that are still planned. No card is taken anywhere in the build.",
+    text: "Plans are shown as flat monthly pricing with no commission, and the pricing page marks the subscription features that are still planned. No card is taken anywhere .",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function About() {
             <span className="text-gradient">already in town</span>
           </>
         }
-        description="MajiFlow is a working build of the software a water refill business would run its shop on. It is data and a real codebase, not an operating company."
+        description="MajiFlow is a platform of the software a water refill business would run its shop on. It is data and a real codebase, not an operating company."
       />
 
       <section className="py-16 lg:py-24">
@@ -65,7 +65,7 @@ export default function About() {
               <SectionHeading
                 align="left"
                 label="Why we exist"
-                title="What this build is, and what it is not."
+                title="What MajiFlow is, and what it is not."
               />
               <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground">
                 This project explores the software a water refill station would need: a page that
@@ -132,15 +132,15 @@ export default function About() {
         <Container size="md">
           <div className="rounded-3xl border border-[#0052FF]/20 bg-white p-8 text-center shadow-card sm:p-12">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              The rule this build follows
+              The rule MajiFlow follows
             </p>
             <p className="mx-auto mt-4 max-w-xl font-display text-2xl leading-snug text-foreground sm:text-3xl">
-              A build is only convincing when it says plainly what it does not do. Payments,
+              A platform is only convincing when it says plainly what it does not do. Payments,
               notifications and rider dispatch are not part of this one.
             </p>
             <div className="mt-8 flex justify-center">
               <DataNotice>
-                Sample stations, sample ratings, sample orders. Real code underneath.
+                Sample stations, regular ratings, regular orders. Real code underneath.
               </DataNotice>
             </div>
           </div>

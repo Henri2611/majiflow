@@ -95,10 +95,10 @@ export function BusinessBilling() {
         <div className="p-6">
           <p className="text-sm leading-relaxed text-muted-foreground">
             No invoices exist yet. Invoices are created when a payment provider is connected and a subscription is
-            actually charged; this build has no provider attached, so there is nothing to list and nothing to download.
+            actually charged; this has no provider attached, so there is nothing to list and nothing to download.
           </p>
           <p className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
-            <Smartphone className="size-3.5" aria-hidden /> Customer payments at checkout are also simulated in this
+            <Smartphone className="size-3.5" aria-hidden /> Customer payments at checkout are also  in this
             build - see the checkout screen for what is and is not real.
           </p>
         </div>

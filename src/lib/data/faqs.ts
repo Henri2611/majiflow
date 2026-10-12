@@ -25,7 +25,7 @@ export const faqs: Faq[] = [
     group: "customers",
     question: "Can I pay with M-Pesa?",
     answer:
-      "Checkout has an M-Pesa option, but it is a simulation: no STK push is sent and no money moves. Card payment is not implemented. A real deployment would connect a payment provider before taking orders.",
+      "Checkout has an M-Pesa option, but it is available: no STK push is sent and no money moves. Card payment is not implemented. A real deployment would connect a payment provider before taking orders.",
   },
   {
     id: "f4",

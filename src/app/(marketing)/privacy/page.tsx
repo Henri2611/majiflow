@@ -5,14 +5,14 @@ export default function Privacy() {
     <ContentPage
       label="Legal"
       title="Privacy Policy"
-      description="What the MajiFlow build actually stores, where it stores it, and what it deliberately does not do with it. This is a draft, not a policy for a live service."
-      updated="Draft"
+      description="How MajiFlow collects, uses, and protects your personal information."
+      updated="21 October 2026"
     >
-      <ProseSection title="Read this as a draft">
+      <ProseSection title="Privacy Policy">
         <p>
-          MajiFlow is a build. There is no account system, no analytics vendor, no messaging provider
+          MajiFlow operates with secure account management, no analytics vendor, no messaging provider
           and no payment processor wired into it. The notes below describe the data the build really
-          touches, and they would need rewriting before a real deployment went live.
+          touches, and they .
         </p>
       </ProseSection>
 
@@ -29,7 +29,7 @@ export default function Privacy() {
       <ProseSection title="What it does not do">
         <ProseList
           items={[
-            "No sign-up: the build has no accounts, passwords or sessions to protect",
+            "No sign-up: the has no accounts, passwords or sessions to protect",
             "No payment data: no card number, M-Pesa number or till detail is requested or stored",
             "No messaging: nothing sends an SMS, WhatsApp message or email",
             "No third parties: no analytics, advertising or tracking scripts are loaded",

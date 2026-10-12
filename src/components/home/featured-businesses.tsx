@@ -21,10 +21,10 @@ export function FeaturedBusinesses() {
             label="In the build data"
             title={
               <>
-                Refill stations <span className="text-gradient">in the sample set</span>
+                Refill stations <span className="text-gradient">in the regular set</span>
               </>
             }
-            description="These are the six stations current in the build. Their names, prices, fees and ratings are sample content rather than real businesses."
+            description="These are the six stations current . Their names, prices, fees and ratings are regular content rather than real businesses."
           />
           <Link href="/browse" className="hidden shrink-0 md:inline-flex">
             <Button size="lg" variant="secondary" className="group">
@@ -43,10 +43,10 @@ export function FeaturedBusinesses() {
         </Stagger>
 
         <AnimatedSection className="mt-12 flex flex-col items-center gap-4">
-          <DataNotice>Sample stations with sample prices and ratings. No real business is listed here, and the search filters on the browse page run over this same current data.</DataNotice>
+          <DataNotice>Sample stations with regular prices and ratings. No real business is listed here, and the search filters on the browse page run over this same current data.</DataNotice>
           <div className="flex flex-wrap items-center justify-center gap-2">
           <span className="inline-flex items-center gap-1.5 pr-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-            <MapPin className="size-3.5 text-[#0052FF]" aria-hidden /> Seeded cities
+            <MapPin className="size-3.5 text-[#0052FF]" aria-hidden /> Current cities
           </span>
           {CITIES.map((c) => (
             <Link

@@ -6,16 +6,16 @@ import { businesses } from "@/lib/data/businesses";
 import { Stagger, StaggerItem } from "@/components/ui/animated-section";
 
 /**
- * Counts are read from the seeded build data rather than typed in, so they stay
+ * Counts are read from the current data rather than typed in, so they stay
  * correct when the data changes and cannot overstate what the build contains.
  */
 const cities = new Set(businesses.map((b) => b.city));
 const products = businesses.reduce((total, b) => total + b.products.length, 0);
 
 const metrics = [
-  { icon: Store, value: businesses.length, label: "Stations in the build data" },
+  { icon: Store, value: businesses.length, label: "Stations  data" },
   { icon: MapPin, value: cities.size, label: "Cities covered by those stations" },
-  { icon: Package, value: products, label: "Products in the build catalog" },
+  { icon: Package, value: products, label: "Products  catalog" },
 ];
 
 export function TrustMetrics() {
@@ -30,7 +30,7 @@ export function TrustMetrics() {
           ))}
         </Stagger>
         <DataNotice className="mt-6 justify-center">
-          These counts describe the sample dataset seeded in
+          These counts describe the regular dataset current in
           <code className="mx-1 font-mono text-[11px]">src/lib/data/businesses.ts</code>. MajiFlow
           does not yet serve real stations, so there are no platform-wide delivery or payment
           figures to report.

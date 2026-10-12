@@ -9,7 +9,7 @@ const steps = [
   {
     icon: MapPin,
     title: "Pick your city",
-    text: "Tell us where you are and the list opens on the stations seeded for that city: Nairobi, Mombasa, Kisumu, Nakuru or Eldoret.",
+    text: "Tell us where you are and the list opens on the stations current for that city: Nairobi, Mombasa, Kisumu, Nakuru or Eldoret.",
   },
   {
     icon: Store,
@@ -23,13 +23,13 @@ const steps = [
   },
   {
     icon: ShoppingCart,
-    title: "Simulated payment",
+    title: " payment",
     text: "The build simulates this step. No M-Pesa request is sent, no card is charged and no money moves.",
   },
   {
     icon: ClipboardList,
     title: "Follow the order",
-    text: "An order is stored and moves through pending, accepted and delivered, with each change visible on its order page. No rider is dispatched in the build.",
+    text: "An order is stored and moves through pending, accepted and delivered, with each change visible on its order page. No rider is dispatched .",
   },
 ];
 

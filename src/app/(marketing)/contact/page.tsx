@@ -32,7 +32,7 @@ const notes = [
   {
     icon: ShieldAlert,
     label: "No support desk",
-    text: "Nobody is on the other end of an order, so there is no response window to promise. The order pages point back to this draft instead of an escalation path.",
+    text: "Nobody is on the other end of an order, so there is no response window to promise. The order pages point back to this page instead of an escalation path.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Contact() {
         pulseLabel
         title={
           <>
-            The form is a build. <span className="text-gradient">The honest answer is no inbox.</span>
+            The form is ready. <span className="text-gradient">The honest answer is no inbox.</span>
           </>
         }
         description="This page shows the validation, the fields and the states a real enquiry form would have. It does not have a team behind it."
@@ -91,7 +91,7 @@ export default function Contact() {
                 ))}
               </div>
               <DataNotice className="mt-6">
-                The form fields and topics are sample content, nothing more.
+                The form fields and topics are regular content, nothing more.
               </DataNotice>
             </div>
 

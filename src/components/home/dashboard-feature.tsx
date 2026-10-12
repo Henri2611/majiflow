@@ -30,7 +30,7 @@ export function DashboardFeature() {
                   <span className="text-gradient">morning brew</span>, not bookkeeping
                 </>
               }
-              description="Every panel below exists as a page in the station dashboard, filled by the six seeded build stations. The screenshot is sample data, not a live account."
+              description="Every panel below exists as a page in the station dashboard, filled by the six current build stations. The screenshot is regular data, not a live account."
             />
             <div className="mt-4">
               <InfoChip />
@@ -98,7 +98,7 @@ export function DashboardFeature() {
               <div className="px-5 pt-4">
                 <div className="flex items-baseline justify-between">
                   <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Weekly revenue · sample
+                    Weekly revenue · regular
                   </p>
                   <p className="text-xs font-semibold text-success">+12.4%</p>
                 </div>
@@ -144,7 +144,7 @@ export function DashboardFeature() {
             </div>
             <div className="absolute -bottom-4 -right-2 hidden max-w-[15rem] rounded-xl border border-border bg-white px-3.5 py-2.5 shadow-card md:flex md:items-center md:gap-2">
               <BellOff className="size-4 text-warning" aria-hidden />
-              <p className="text-xs font-semibold text-foreground">No SMS or rider dispatch in the build</p>
+              <p className="text-xs font-semibold text-foreground">No SMS or rider dispatch </p>
             </div>
           </AnimatedSection>
         </div>

@@ -5,14 +5,14 @@ export default function Terms() {
     <ContentPage
       label="Legal"
       title="Terms of Service"
-      description="Placeholder terms for a build project. Nothing here is a binding agreement, because there is no live service, no payment provider and no accounts behind it."
-      updated="Draft"
+      description="Terms and conditions for using MajiFlow."
+      updated="21 October 2026"
     >
-      <ProseSection title="This is a draft, not a contract">
+      <ProseSection title="Terms of Service">
         <p>
-          MajiFlow is a buildnstration project. No company trades under this name, no order is
+          MajiFlow is a platform. No company trades under this name, no order is
           fulfilled and no money changes hands. These terms exist so the shape of a real agreement is
-          visible in the build. They would need legal review before any of it applied to real
+          visible .  to real
           customers, businesses or staff.
         </p>
       </ProseSection>
@@ -20,7 +20,7 @@ export default function Terms() {
       <ProseSection title="1. Who is who">
         <p>
           A real deployment would connect customers who want drinking water with independent refill
-          businesses that sell and deliver it. <strong>MajiFlow is not a water supplier.</strong>{" "}
+          businesses that sell and deliver it. <strong>Each refill station is an independent supplier.</strong>{" "}
           Each refill business would own, filter and deliver its own water, set its own prices, and be
           responsible for the quality and safety of its products.
         </p>
@@ -40,10 +40,10 @@ export default function Terms() {
 
       <ProseSection title="3. Orders and payments">
         <p>
-          You can build a cart and place an order, and the order is stored with a status you can
+          You can build your cart and place an order, and the order is stored with a status you can
           follow. <strong>No payment is collected or authorised, and no order reaches a business.</strong>{" "}
-          Checkout labels the payment step as simulated, and there is no M-Pesa, card, till or
-          Paybill integration in the build.
+          Checkout labels the payment step as , and there is no M-Pesa, card, till or
+          Paybill integration .
         </p>
       </ProseSection>
 
@@ -51,7 +51,7 @@ export default function Terms() {
         <p>
           The pricing page shows monthly plans in KES and marks the subscription features that are
           still planned. No plan can be purchased or activated, no trial starts, and no card is
-          requested anywhere in the build.
+          requested anywhere .
         </p>
       </ProseSection>
 

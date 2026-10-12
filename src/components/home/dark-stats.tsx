@@ -52,7 +52,7 @@ export function DarkStats() {
           <div className="max-w-sm space-y-3">
             <p className="text-sm leading-relaxed text-slate-400">
               The figures below are targets for the platform, not measurements from it. Nothing in
-              this build has been delivered, and no revenue has changed hands.
+              MajiFlow has been delivered, and no revenue has changed hands.
             </p>
             <InfoChip />
           </div>

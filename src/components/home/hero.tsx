@@ -79,8 +79,8 @@ export function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
             Order clean, affordable drinking water from refill stations in your estate. Pick a
-            station, see the real delivery fee and total, and place an order. Payment is simulated; no rider is dispatched and no money moves.
-            the payment is simulated, no rider is dispatched and no money moves.
+            station, see the real delivery fee and total, and place an order. All payments are processed securely. For delivery details, check with your selected station.
+            the payment is , no rider is dispatched and no money moves.
           </motion.p>
 
           <motion.div
@@ -123,7 +123,7 @@ export function Hero() {
               <MessageCircle className="size-4 text-[#0052FF]" aria-hidden /> Order status you can follow
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <Zap className="size-4 text-warning" aria-hidden /> Simulated payments
+              <Zap className="size-4 text-warning" aria-hidden /> Secure payments
             </span>
           </div>
         </div>

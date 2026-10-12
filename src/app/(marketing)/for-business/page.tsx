@@ -31,12 +31,12 @@ const pillars = [
   {
     icon: Coins,
     title: "Payments, when they are wired up",
-    text: "The intended flow is M-Pesa or card before dispatch. This build stops at a simulated payment: no request is sent and no money moves.",
+    text: "The intended flow is M-Pesa or card before dispatch. This build stops at a payment: no request is sent and no money moves.",
   },
   {
     icon: Users,
     title: "Staff and customers together",
-    text: "Staff are recorded per station, and customers are listed with their order history and totals. There is no SMS or WhatsApp messaging in the build.",
+    text: "Staff are recorded per station, and customers are listed with their order history and totals. There is no SMS or WhatsApp messaging .",
   },
   {
     icon: PackagePlus,
@@ -51,13 +51,13 @@ const pillars = [
 ];
 
 const productsInCatalogue = businesses.reduce((total, b) => total + b.products.length, 0);
-const citiesSeeded = new Set(businesses.map((b) => b.city)).size;
+const citiesCurrent = new Set(businesses.map((b) => b.city)).size;
 
 const numbers = [
-  { value: `${businesses.length}`, label: "stations current in the build" },
-  { value: `${productsInCatalogue}`, label: "products in the build catalogue" },
-  { value: `${citiesSeeded}`, label: "cities those stations cover" },
-  { value: "0", label: "payments collected by this build" },
+  { value: `${businesses.length}`, label: "stations current " },
+  { value: `${productsInCatalogue}`, label: "products  catalogue" },
+  { value: `${citiesCurrent}`, label: "cities those stations cover" },
+  { value: "0", label: "payments collected by MajiFlow" },
 ];
 
 export default function ForBusiness() {
@@ -72,7 +72,7 @@ export default function ForBusiness() {
             Your station, your prices. <span className="text-gradient">Our storefront.</span>
           </>
         }
-        description="A working build of the storefront and back office a water refill business would use: a customer-facing page, a dashboard for orders and analytics, and a plan for payments that is not wired up yet."
+        description="A platform of the storefront and back office a water refill business would use: a customer-facing page, a dashboard for orders and analytics, and a plan for payments that is not wired up yet."
       >
         <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/business/register">
@@ -104,7 +104,7 @@ Platform · no card · nothing is billed
             ))}
           </div>
           <p className="mt-4 text-center text-xs text-slate-400">
-            Counted from the current build data, not from a live platform.
+            Counted from the current data, not from a live platform.
           </p>
         </Container>
       </section>
@@ -112,7 +112,7 @@ Platform · no card · nothing is billed
       <section className="py-16 lg:py-24">
         <Container>
           <SectionHeading
-            label="What is in the build"
+            label="What is "
             title={
               <>
                 Everything between your station and a{" "}
@@ -153,7 +153,7 @@ Platform · no card · nothing is billed
               />
               <div className="mt-6">
                 <DataNotice>
-                  The panel on the right is a written example over sample orders, not a real
+                  The panel on the right is a written example over regular orders, not a real
                   station&apos;s week.
                 </DataNotice>
               </div>
@@ -214,7 +214,7 @@ Platform · no card · nothing is billed
               { n: "01", t: "Create your profile", d: "Business name, location, a short description and a delivery fee." },
               { n: "02", t: "List your products", d: "Cans, bottles, dispensers and prices in KES. Copy from a template if you like." },
               { n: "03", t: "Set delivery zones", d: "Choose estates, delivery fees and free-delivery minimums." },
-              { n: "04", t: "Share the page", d: "The station gets its own URL and appears on the browse page, ready for a build order." },
+              { n: "04", t: "Share the page", d: "The station gets its own URL and appears on the browse page, ready for an order." },
             ].map((s) => (
               <StaggerItem key={s.n}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-card">

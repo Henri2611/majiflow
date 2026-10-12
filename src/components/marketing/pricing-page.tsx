@@ -18,7 +18,7 @@ type Billing = "monthly" | "annual";
 const comparison: { feature: string; plans: (string | boolean)[] }[] = [
   { feature: "Business profile & online menu", plans: [true, true, true] },
   { feature: "Orders from the website", plans: [true, true, true] },
-  { feature: "M-Pesa checkout (simulated )", plans: [true, true, true] },
+  { feature: "M-Pesa checkout ( )", plans: [true, true, true] },
   { feature: "Sales reports from your own orders", plans: [true, true, true] },
   { feature: "Advanced analytics & charts", plans: [false, true, true] },
   { feature: "Promotions dashboard", plans: [false, true, true] },
@@ -167,7 +167,7 @@ export function PricingPage() {
               {
                 icon: ShieldCheck,
                 title: "Prepaid payments (planned)",
-                text: "The intended model is prepaid M-Pesa before dispatch, reconciled against orders. In this build checkout simulates the payment instead of moving money.",
+                text: "The intended model is prepaid M-Pesa before dispatch, reconciled against orders. In MajiFlow checkout simulates the payment instead of moving money.",
               },
               {
                 icon: Check,
@@ -200,10 +200,10 @@ export function PricingPage() {
           <Accordion
             className="mt-10"
             items={[
-              { q: "Is any of this billed?", a: "No. This build has no subscription, trial or payment processing of any kind. The plans show the commercial model MajiFlow intends to charge for." },
-              { q: "What payment methods would my customers get?", a: "Checkout has an M-Pesa option that is simulated here: no STK push is sent and no money moves. Card payment is not implemented." },
+              { q: "Is any of this billed?", a: "No. This has no subscription, trial or payment processing of any kind. The plans show the commercial model MajiFlow intends to charge for." },
+              { q: "What payment methods would my customers get?", a: "Checkout has an M-Pesa option that is  here: no STK push is sent and no money moves. Card payment is not implemented." },
               { q: "Can I change plans in the app?", a: "There is nothing to change yet. The Billing screen shows the plans side by side and disables the actions, because no billing exists ." },
-              { q: "Which plan features actually work today?", a: "The items marked as included are in the build: profile, catalog, order flow, customers, reports, analytics, promotions dashboard and stock alerts. Everything marked Planned is described only." },
+              { q: "Which plan features actually work today?", a: "The items marked as included are in the  profile, catalog, order flow, customers, reports, analytics, promotions dashboard and stock alerts. Everything marked Planned is described only." },
             ]}
           />
           <div className="mt-10 text-center">

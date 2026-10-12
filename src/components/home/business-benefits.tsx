@@ -76,7 +76,7 @@ export function BusinessBenefits() {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Your prices stay yours</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">
-                    Plans are priced as a flat monthly fee. There is no commission logic in the build, and because checkout is simulated no money reaches a station.
+                    Plans are priced as a flat monthly fee. There is no commission logic , and because checkout is  no money reaches a station.
                   </p>
                 </div>
               </div>

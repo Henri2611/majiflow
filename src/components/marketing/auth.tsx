@@ -11,9 +11,9 @@ import { useCustomer } from "@/components/order/customer-provider";
 import { CITIES } from "@/lib/constants";
 
 const perks = [
-  "Browse sample stations around you",
+  "Browse regular stations around you",
   "See each station's delivery fee in the cart",
-  "Follow a build order from placed to delivered",
+  "Follow an order from placed to delivered",
   "Your profile is kept in this browser only",
 ];
 
@@ -126,7 +126,7 @@ export function RegisterForm() {
             autoComplete="name"
           />
         </Field>
-        <Field label="Phone number" required hint="Kept locally - this build sends no SMS.">
+        <Field label="Phone number" required hint="Kept locally - MajiFlow sends no SMS.">
           <Input
             required
             type="tel"
@@ -226,7 +226,7 @@ export function LoginForm() {
     <div>
       <h1 className="font-display text-2xl text-foreground sm:text-3xl">Sign in</h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Any phone number and password will sign you in here: this build only reads the profile saved
+        Any phone number and password will sign you in here: MajiFlow only reads the profile saved
         in this browser and never verifies a credential.
       </p>
 

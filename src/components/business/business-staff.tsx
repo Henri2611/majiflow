@@ -63,7 +63,7 @@ export function BusinessStaff() {
           <div className="flex items-start gap-3">
             <Clock4 className="mt-0.5 size-5 shrink-0 text-warning" aria-hidden />
             <div className="text-sm leading-relaxed text-foreground/85">
-              <strong className="font-semibold text-foreground">Staff management is out of scope for this build.</strong>{" "}
+              <strong className="font-semibold text-foreground">Staff management is out of scope for MajiFlow.</strong>{" "}
               This page previews the data model and UX. In production, invites land as SMS PINs so no
               passwords to remember.
             </div>

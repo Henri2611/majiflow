@@ -86,7 +86,7 @@ export function PricingSection() {
           </span>
           <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
             <strong className="font-semibold text-foreground">Nothing here is billed.</strong>{" "}
-            This build has no trial, subscription or payment provider. The figures show the intended
+            This has no trial, subscription or payment provider. The figures show the intended
             commercial model, not a charge you would receive.
           </p>
           <Button variant="secondary" className="shrink-0" onClick={() => handleChoose(plans[0])}>

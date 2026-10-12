@@ -214,7 +214,7 @@ export function BusinessSettings() {
           <h2 className="flex items-center gap-2 font-display text-lg text-foreground">
             <Smartphone className="size-5 text-[#0052FF]" aria-hidden /> Payment methods
           </h2>
-          <Badge variant="muted">Simulated</Badge>
+          <Badge variant="muted"></Badge>
         </div>
         <ul className="mt-5 space-y-3">
           <li className="flex items-center justify-between rounded-xl border border-border px-4 py-3">
@@ -231,7 +231,7 @@ export function BusinessSettings() {
           </li>
         </ul>
         <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-          No payout account is connected . Checkout records an order and shows a simulated payment result,
+          No payout account is connected . Checkout records an order and shows a payment result,
           so nothing is charged and nothing settles to a till. See the checkout screen for the wording customers get.
         </p>
       </section>

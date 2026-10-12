@@ -10,14 +10,14 @@ const customerSteps = [
   {
     icon: MapPin,
     title: "Choose your city",
-    text: "Pick one of the five cities seeded in the build and the list narrows to the stations there.",
-    detail: "Nairobi, Mombasa, Kisumu, Nakuru and Eldoret. There is no location detection in the build.",
+    text: "Pick one of the five cities current  and the list narrows to the stations there.",
+    detail: "Nairobi, Mombasa, Kisumu, Nakuru and Eldoret. There is no location detection .",
   },
   {
     icon: Store,
     title: "Compare stations",
     text: "See each station's price per unit, delivery fee and free-delivery threshold, and search by name or estate.",
-    detail: "The ratings on these pages are sample values, and no lab results are published.",
+    detail: "The ratings on these pages are regular values, and no lab results are published.",
   },
   {
     icon: PackagePlus,
@@ -27,7 +27,7 @@ const customerSteps = [
   },
   {
     icon: ShoppingCart,
-    title: "Simulated payment",
+    title: " payment",
     text: "Checkout runs the payment step without a provider. No M-Pesa request is sent, no card is charged and no money moves.",
     detail: "Wiring up a real payment provider is listed as a known gap in RELEASE.md.",
   },
@@ -40,14 +40,14 @@ const customerSteps = [
   {
     icon: Bell,
     title: "Recurring orders, planned",
-    text: "A refill schedule with reminders is on the plan list, not in the build. Nothing here will message you next week.",
+    text: "A refill schedule with reminders is on the plan list, not . Nothing here will message you next week.",
     detail: "See the planned column on the pricing page for the same list.",
   },
 ];
 
 const faqItems = [
-  { q: "Is anything actually delivered?", a: "No. Orders are recorded and their status can be moved from the station dashboard, but the build has no rider service, so nothing leaves a station." },
-  { q: "Is there a free-delivery minimum?", a: "Yes, per station. Some seeded stations waive the delivery fee above a set amount, and the threshold is shown on the station page and applied in the cart total." },
+  { q: "Is anything actually delivered?", a: "No. Orders are recorded and their status can be moved from the station dashboard, but the has no rider service, so nothing leaves a station." },
+  { q: "Is there a free-delivery minimum?", a: "Yes, per station. Some current stations waive the delivery fee above a set amount, and the threshold is shown on the station page and applied in the cart total." },
   { q: "What if something goes wrong with an order?", a: "There is no payment or refund flow, because no payment is taken. Orders can be moved through their stages, and a failed status change is logged." },
   { q: "Can I pay cash on delivery?", a: "No payment of any kind is collected. Checkout simulates the payment step so the rest of the flow can be exercised." },
 ];
@@ -63,7 +63,7 @@ export default function HowItWorks() {
             From browsing to a <span className="text-gradient">stored order</span> in five steps
           </>
         }
-        description="Compare the seeded stations, see the real delivery fees, place a build order and follow its status. The build stops before a payment provider and a rider."
+        description="Compare the current stations, see the real delivery fees, place an order and follow its status. The build stops before a payment provider and a rider."
       >
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Link href="/browse">
@@ -116,14 +116,14 @@ export default function HowItWorks() {
                   No app to install. <span className="text-gradient">No account needed.</span>
                 </>
               }
-              description="The whole flow runs in the browser from the seeded data, so a visitor can browse and place a build order without signing in. There is no SMS or messaging layer behind it."
+              description="The whole flow runs in the browser from the current data, so a visitor can browse and place an order without signing in. There is no SMS or messaging layer behind it."
             />
             <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-border bg-background px-6 py-4 shadow-card">
               <ShoppingCart className="size-6 text-[#0052FF]" aria-hidden />
               <div className="text-left">
                 <p className="text-sm font-semibold text-foreground">Try the order flow</p>
                 <p className="text-xs text-muted-foreground">
-                  Cart, checkout and order tracking, all on sample stations.
+                  Cart, checkout and order tracking, all on regular stations.
                 </p>
               </div>
             </div>

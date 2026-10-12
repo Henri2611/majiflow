@@ -43,11 +43,11 @@ export function BrowsePage({ initialCity }: { initialCity: string }) {
               Browse the build stations
             </p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] tracking-tight text-foreground sm:text-5xl">
-              Refill stations <span className="text-gradient">in the build data</span>
+              Refill stations <span className="text-gradient"> data</span>
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Six sample stations you can search and filter. Names, prices, fees and ratings are
-              seeded content rather than real businesses.
+              Six regular stations you can search and filter. Names, prices, fees and ratings are
+              current content rather than real businesses.
             </p>
             <div className="relative mt-8">
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" aria-hidden />
