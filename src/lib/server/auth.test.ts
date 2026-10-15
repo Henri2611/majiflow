@@ -14,13 +14,13 @@ vi.mock("next/headers", () => ({
 }));
 
 vi.mock("@/lib/server/db", () => ({
-  db: {
+  getDatabase: async () => ({ db: {
     delete: () => ({
       where: async (condition: unknown) => {
         state.deletedCondition = condition;
       },
     }),
-  },
+  } }),
 }));
 
 vi.mock("drizzle-orm", () => ({

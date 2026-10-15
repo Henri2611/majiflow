@@ -6,7 +6,7 @@ const state = vi.hoisted(() => ({
 }));
 
 vi.mock("@/lib/server/db", () => ({
-  db: {
+  getDatabase: async () => ({ db: {
     insert: () => ({
       values: (value: Record<string, unknown>) => ({
         returning: async () => {
@@ -25,7 +25,7 @@ vi.mock("@/lib/server/db", () => ({
         },
       }),
     }),
-  },
+  } }),
 }));
 
 import { createBusinessApplication, listOwnerApplications } from "./business-applications";

@@ -12,32 +12,46 @@ function databaseUrl(): string {
   return value;
 }
 
-const connectionUrl = new URL(databaseUrl());
-const [ipv4Host] = await resolve4(connectionUrl.hostname);
-if (!ipv4Host) {
-  throw new Error("DATABASE_URL hostname has no IPv4 address.");
+async function initializeDatabase() {
+  const connectionUrl = new URL(databaseUrl());
+  const [ipv4Host] = await resolve4(connectionUrl.hostname);
+  if (!ipv4Host) {
+    throw new Error("DATABASE_URL hostname has no IPv4 address.");
+  }
+
+  const ipv4ConnectionUrl = new URL(connectionUrl);
+  ipv4ConnectionUrl.hostname = ipv4Host;
+  // pg gives URL sslmode precedence over programmatic TLS options. Remove only
+  // that option so the explicit certificate-verified configuration is authoritative;
+  // all other DATABASE_URL options remain intact.
+  ipv4ConnectionUrl.searchParams.delete("sslmode");
+
+  const pool = new Pool({
+    connectionString: ipv4ConnectionUrl.toString(),
+    ssl: {
+      rejectUnauthorized: true,
+      servername: connectionUrl.hostname,
+    },
+  });
+
+  pool.on("error", (error: NodeJS.ErrnoException) => {
+    void reportFailure("store", "Database pool idle connection error.", {
+      code: error.code ?? "UNKNOWN",
+      name: error.name,
+    });
+  });
+
+  return { db: drizzle(pool, { schema }), pool };
 }
 
-const ipv4ConnectionUrl = new URL(connectionUrl);
-ipv4ConnectionUrl.hostname = ipv4Host;
-// pg gives URL sslmode precedence over programmatic TLS options. Remove only
-// that option so the explicit certificate-verified configuration is authoritative;
-// all other DATABASE_URL options remain intact.
-ipv4ConnectionUrl.searchParams.delete("sslmode");
+let databasePromise: ReturnType<typeof initializeDatabase> | null = null;
 
-export const pool = new Pool({
-  connectionString: ipv4ConnectionUrl.toString(),
-  ssl: {
-    rejectUnauthorized: true,
-    servername: connectionUrl.hostname,
-  },
-});
-
-pool.on("error", (error: NodeJS.ErrnoException) => {
-  void reportFailure("store", "Database pool idle connection error.", {
-    code: error.code ?? "UNKNOWN",
-    name: error.name,
-  });
-});
-
-export const db = drizzle(pool, { schema });
+export function getDatabase() {
+  if (!databasePromise) {
+    databasePromise = initializeDatabase().catch((error) => {
+      databasePromise = null;
+      throw error;
+    });
+  }
+  return databasePromise;
+}

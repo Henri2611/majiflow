@@ -2,7 +2,7 @@ import { createHash, randomBytes, scrypt as nodeScrypt, timingSafeEqual } from "
 import { promisify } from "node:util";
 import { and, eq, gt } from "drizzle-orm";
 import { cookies } from "next/headers";
-import { db } from "@/lib/server/db";
+import { getDatabase } from "@/lib/server/db";
 import { sessions, users } from "@/lib/server/db/schema";
 
 const scrypt = promisify(nodeScrypt);
@@ -62,6 +62,7 @@ export async function createUserAccount(
     throw new AuthenticationError("Name, valid email, and a password of at least 8 characters are required.");
   }
   const passwordHash = await hashPassword(account.password);
+  const { db } = await getDatabase();
   const [user] = await db.insert(users).values({
     name: account.name.trim(),
     email: account.email.trim().toLowerCase(),
@@ -74,6 +75,7 @@ export async function createUserAccount(
 
 export async function createSession(userId: string) {
   const token = randomBytes(32).toString("hex");
+  const { db } = await getDatabase();
   await db.insert(sessions).values({
     userId,
     tokenHash: hashToken(token),
@@ -93,6 +95,7 @@ export async function logoutCurrentSession() {
   const store = await cookies();
   const token = store.get(SESSION_COOKIE)?.value;
   if (token) {
+    const { db } = await getDatabase();
     await db.delete(sessions).where(eq(sessions.tokenHash, hashToken(token)));
   }
   store.delete(SESSION_COOKIE);
@@ -102,6 +105,7 @@ export async function authenticateUser(email: string, password: string) {
   if (typeof email !== "string" || typeof password !== "string") {
     throw new AuthenticationError("Invalid email or password.");
   }
+  const { db } = await getDatabase();
   const [user] = await db.select().from(users).where(eq(users.email, email.trim().toLowerCase())).limit(1);
   if (!user || !(await verifyPassword(password, user.passwordHash))) {
     throw new AuthenticationError("Invalid email or password.");
@@ -112,6 +116,7 @@ export async function authenticateUser(email: string, password: string) {
 export async function getCurrentUser() {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
+  const { db } = await getDatabase();
   const [result] = await db.select({
     user: {
       id: users.id,
