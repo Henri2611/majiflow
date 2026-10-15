@@ -1,5 +1,5 @@
 import { desc, eq } from "drizzle-orm";
-import { getDatabase } from "@/lib/server/db";
+import { db } from "@/lib/server/db";
 import { businessApplications } from "@/lib/server/db/schema";
 import { validateBusinessApplication } from "@/lib/server/business-application-validation";
 
@@ -7,7 +7,6 @@ export async function createBusinessApplication(ownerUserId: string, input: unkn
   const validation = validateBusinessApplication(input);
   if (!validation.success) return validation;
   const data = validation.data;
-  const { db } = await getDatabase();
   const [application] = await db.insert(businessApplications).values({
     ownerUserId,
     status: "submitted",
@@ -30,8 +29,7 @@ export async function createBusinessApplication(ownerUserId: string, input: unkn
   return { success: true as const, application };
 }
 
-export async function listOwnerApplications(ownerUserId: string) {
-  const { db } = await getDatabase();
+export function listOwnerApplications(ownerUserId: string) {
   return db.select().from(businessApplications)
     .where(eq(businessApplications.ownerUserId, ownerUserId))
     .orderBy(desc(businessApplications.createdAt));
