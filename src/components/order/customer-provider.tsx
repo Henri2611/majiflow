@@ -30,6 +30,17 @@ export interface ProfileUpdate extends ProfileDetails {
   address: DeliveryAddress;
 }
 
+export function profileForSession(
+  stored: CustomerProfile,
+  sessionUser: { name: string; email: string; role: "customer" | "business_owner" } | null
+): CustomerProfile {
+  if (!sessionUser || sessionUser.role !== "customer") return EMPTY;
+  if (stored.email?.trim().toLowerCase() !== sessionUser.email.toLowerCase()) {
+    return { ...EMPTY, name: sessionUser.name, email: sessionUser.email };
+  }
+  return { ...stored, name: sessionUser.name, email: sessionUser.email };
+}
+
 interface CustomerContextValue {
   profile: CustomerProfile;
   /** True once the persisted profile has been read from localStorage. */
@@ -117,6 +128,24 @@ export function CustomerProvider({ children }: { children: ReactNode }) {
     setHydrated(true);
     /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    let active = true;
+    void fetch("/api/auth/session", { cache: "no-store" })
+      .then((response) => response.json())
+      .then((body: { user?: { name: string; email: string; role: "customer" | "business_owner" } | null }) => {
+        if (!active) return;
+        setProfile((current) => profileForSession(current, body.user ?? null));
+        setLoggedIn(body.user?.role === "customer");
+      })
+      .catch(() => {
+        // Public browsing and guest checkout remain available if session lookup is unavailable.
+      });
+    return () => {
+      active = false;
+    };
+  }, [hydrated]);
 
   useEffect(() => {
     if (!hydrated || typeof window === "undefined") return;
