@@ -71,11 +71,17 @@ export function AdminBusinessApplications() {
     setErrorTitle("Could not update application");
     setNotice(null);
     try {
-      const response = await fetch(`/api/admin/business-applications/${application.id}`, {
-        method: "PATCH",
+      const approving = status === "approved";
+      const response = await fetch(
+        approving
+          ? `/api/admin/applications/${application.id}/approve`
+          : `/api/admin/business-applications/${application.id}`,
+        {
+        method: approving ? "POST" : "PATCH",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ status, ...(status === "rejected" ? { rejectionReason } : {}) }),
-      });
+        body: JSON.stringify(approving ? {} : { status, ...(status === "rejected" ? { rejectionReason } : {}) }),
+        }
+      );
       const body = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(body.error ?? "Could not update application.");
       setApplications((current) => current?.map((item) => item.id === application.id ? body.application : item) ?? current);
