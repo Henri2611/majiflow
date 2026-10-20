@@ -164,3 +164,10 @@ export async function verifyUserPassword(userId: string, password: unknown): Pro
   const [user] = await db.select({ passwordHash: users.passwordHash }).from(users).where(eq(users.id, userId)).limit(1);
   return Boolean(user) && (await verifyPassword(password, user.passwordHash));
 }
+
+export async function requireOperations() {
+  const user = await getCurrentUser();
+  if (!user) throw new AuthenticationError("Operations authentication is required.");
+  if (user.role !== "operations") throw new AuthorizationError("Operations access is required.");
+  return user;
+}
