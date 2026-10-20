@@ -13,7 +13,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 
-export const userRole = pgEnum("user_role", ["customer", "business_owner"]);
+export const userRole = pgEnum("user_role", ["customer", "business_owner", "operations"]);
 export const applicationStatus = pgEnum("business_application_status", [
   "submitted",
   "under_review",
